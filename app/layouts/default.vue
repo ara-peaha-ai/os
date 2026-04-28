@@ -5,6 +5,15 @@ const switchLocalePath = useSwitchLocalePath()
 
 <template>
   <div class="min-h-screen flex flex-col">
+    <header class="border-b border-gray-200 dark:border-gray-800 py-4">
+      <div class="max-w-3xl mx-auto px-6">
+        <NuxtLinkLocale to="/" class="flex items-center gap-2 w-fit">
+          <img src="/p2pagos-logo.png" alt="P2Pagos" class="h-8 w-auto" />
+          <span class="font-semibold text-lg">P2Pagos</span>
+        </NuxtLinkLocale>
+      </div>
+    </header>
+
     <main class="flex-1">
       <slot />
     </main>

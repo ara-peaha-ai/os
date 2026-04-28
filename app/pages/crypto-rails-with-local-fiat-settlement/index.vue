@@ -28,6 +28,9 @@ const countries = [
 
 <template>
   <div class="max-w-3xl mx-auto p-6 space-y-8">
+    <h1 v-if="pageContent" class="text-2xl font-bold">
+      {{ pageContent.title }}
+    </h1>
     <ContentRenderer v-if="pageContent" :value="pageContent" class="prose dark:prose-invert max-w-none" />
 
     <div class="grid grid-cols-2 sm:grid-cols-3 gap-3">

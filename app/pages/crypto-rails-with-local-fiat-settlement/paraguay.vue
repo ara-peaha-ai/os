@@ -32,7 +32,12 @@ const eurFromKraken = computed(() => {
   return invoiceUsd.value * krakenUsdtEurRate.value.priceAfterFee
 })
 
-const ivanUsd = computed(() => invoiceUsd.value * 0.98)
+const getIvanFee = (amount) => {
+  if (amount <= 5_000) return 0.025
+  if (amount <= 25_000) return 0.02
+  return 0.015
+}
+const ivanUsd = computed(() => invoiceUsd.value * (1 - getIvanFee(invoiceUsd.value)))
 const ivanPyg = computed(() => cambiosChacoUsdPurchase.value ? ivanUsd.value * cambiosChacoUsdPurchase.value : null)
 
 // X4T: 0% trading fee + 2.89% withdrawal, USDT/USDC 1:1, USD/PYG approximated at Cambios Chaco rate
@@ -58,6 +63,10 @@ const withFee = (val, pct) => pct != null ? `${val} (${pct}%)` : val
 
 <template>
   <div class="max-w-3xl mx-auto p-6 space-y-10">
+    <h1 class="text-2xl font-bold">
+      {{ t('cryptoToFiat.paraguayTitle') }}
+    </h1>
+
     <section class="space-y-6">
       <h2 class="text-lg font-semibold">
         {{ t('cryptoToFiat.selfCustodial') }}

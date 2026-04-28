@@ -1,9 +1,14 @@
-const IVAN_FEE = 0.02
+const getIvanFee = (amount) => {
+  if (amount <= 5_000) return 0.025
+  if (amount <= 25_000) return 0.02
+  return 0.015
+}
 
 export default defineEventHandler(async (event) => {
   const { amount, currency } = getQuery(event)
   const usdtAmount = parseFloat(amount)
   const targetCurrency = currency ?? 'USD'
+  const fee = getIvanFee(usdtAmount)
 
   if (targetCurrency === 'PYG') {
     const rates = await $fetch('/api/cambioschaco/rates')
@@ -15,16 +20,16 @@ export default defineEventHandler(async (event) => {
       usdtAmount,
       targetCurrency,
       usdPygRate: usdRate.purchase,
-      fee: IVAN_FEE,
+      fee,
       grossPyg,
-      netPyg: grossPyg * (1 - IVAN_FEE)
+      netPyg: grossPyg * (1 - fee)
     }
   }
 
   return {
     usdtAmount,
     targetCurrency,
-    fee: IVAN_FEE,
-    netUsd: usdtAmount * (1 - IVAN_FEE)
+    fee,
+    netUsd: usdtAmount * (1 - fee)
   }
 })
