@@ -29,6 +29,7 @@ export default defineNuxtConfig({
     differentDomains: true,
     defaultLocale: 'es',
     detectBrowserLanguage: false,
+    customRoutes: 'config',
     pages: {
       'crypto-rails-with-local-fiat-settlement/index': {
         en: '/crypto-rails-with-local-fiat-settlement',

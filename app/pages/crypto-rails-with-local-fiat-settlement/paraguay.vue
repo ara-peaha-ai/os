@@ -1,9 +1,9 @@
 <script setup>
-const { t, locale } = useI18n()
+const { t } = useI18n()
 const route = useRoute()
 
-const { data: pageContent } = await useAsyncData('settlement-docs', () =>
-  queryCollection('content').path(`/${locale.value}${route.path}`).first()
+const { data: pageContent } = await useAsyncData(`settlement-docs-${route.path}`, () =>
+  queryCollection('content').where('path', 'LIKE', `%${route.path}`).first()
 )
 const invoiceUsd = ref(100000)
 

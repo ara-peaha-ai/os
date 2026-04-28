@@ -1,9 +1,8 @@
 <script setup>
-const { locale } = useI18n()
 const route = useRoute()
 
-const { data: pageContent } = await useAsyncData('landing-content', () =>
-  queryCollection('content').path(`/${locale.value}${route.path}`).first()
+const { data: pageContent } = await useAsyncData(`landing-content-${route.path}`, () =>
+  queryCollection('content').where('path', 'LIKE', `%${route.path}`).first()
 )
 
 const countries = [
