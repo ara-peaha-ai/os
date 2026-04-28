@@ -6,7 +6,9 @@ export const getBcpUsdPygRate = async () => {
     headers: { 'User-Agent': 'Mozilla/5.0' }
   })
   const root = parse(html)
-  const usdRow = root.querySelectorAll('tr').find(tr => tr.querySelector('td')?.text.trim() === 'USD')
+  const usdRow = root.querySelectorAll('tr').find(tr =>
+    tr.querySelectorAll('td').some(td => td.text.trim() === 'USD')
+  )
   const rateTd = usdRow?.querySelectorAll('td[style*="text-align:right"]')[1]
   const rateText = rateTd?.text.trim().replace(/\./g, '').replace(',', '.')
   return parseFloat(rateText)

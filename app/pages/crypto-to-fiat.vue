@@ -1,12 +1,9 @@
 <script setup>
-const mainSource = ref('USDT')
-const invoiceUsd = ref(1000)
+const { t } = useI18n()
+const invoiceUsd = ref(100000)
 
-const sourceOptions = ['USDT', 'USDC', 'BTC']
-const isStablecoin = computed(() => ['USDT', 'USDC'].includes(mainSource.value))
-
-const { data: krakenSourceEurRate } = await useFetch('/api/kraken/rates', {
-  query: computed(() => ({ source: mainSource.value, target: 'EUR' }))
+const { data: krakenUsdtEurRate } = await useFetch('/api/kraken/rates', {
+  query: { source: 'USDT', target: 'EUR' }
 })
 const { data: krakenBtcUsdRate } = await useFetch('/api/kraken/rates', {
   query: { source: 'BTC', target: 'USD' }
@@ -20,16 +17,23 @@ const { data: bcpRateData } = await useFetch('/api/bcp/rate')
 const wiseEurUsdRate = computed(() => wiseRateRaw.value?.[0]?.rate)
 const cambiosChacoUsdPurchase = computed(() => cambiosChacoRates.value?.find(r => r.currency === 'USD')?.purchase)
 
+const btcClientAmount = computed(() => {
+  if (!krakenBtcUsdRate.value) return '—'
+  return (invoiceUsd.value / krakenBtcUsdRate.value.price).toFixed(8)
+})
+
 const eurFromKraken = computed(() => {
-  if (!krakenSourceEurRate.value) return null
-  if (isStablecoin.value) return invoiceUsd.value * krakenSourceEurRate.value.priceAfterFee
-  if (!krakenBtcUsdRate.value) return null
-  const btcAmount = invoiceUsd.value / krakenBtcUsdRate.value.priceAfterFee
-  return btcAmount * krakenSourceEurRate.value.priceAfterFee
+  if (!krakenUsdtEurRate.value) return null
+  return invoiceUsd.value * krakenUsdtEurRate.value.priceAfterFee
 })
 
 const ivanUsd = computed(() => invoiceUsd.value * 0.98)
 const ivanPyg = computed(() => cambiosChacoUsdPurchase.value ? ivanUsd.value * cambiosChacoUsdPurchase.value : null)
+
+// X4T: 0% trading fee + 2.89% withdrawal, USDT/USDC 1:1, USD/PYG approximated at Cambios Chaco rate
+const X4T_FEE = 0.0289
+const x4tUsd = computed(() => invoiceUsd.value * (1 - X4T_FEE))
+const x4tPyg = computed(() => cambiosChacoUsdPurchase.value ? x4tUsd.value * cambiosChacoUsdPurchase.value : null)
 
 const bankUsd = computed(() => {
   if (!eurFromKraken.value || !wiseEurUsdRate.value) return null
@@ -40,35 +44,71 @@ const bankPyg = computed(() => {
   return bankUsd.value * bcpRateData.value.usdPygRate
 })
 
+const feePercent = (net) => net != null ? ((invoiceUsd.value - net) / invoiceUsd.value * 100).toFixed(2) : null
+
 const usd = (v) => v != null ? v.toLocaleString('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 2 }) : '—'
 const pyg = (v) => v != null ? `₲ ${Math.round(v).toLocaleString('es-PY')}` : '—'
+const withFee = (val, pct) => pct != null ? `${val} (${pct}%)` : val
 </script>
 
 <template>
-  <div class="max-w-lg mx-auto p-6 space-y-6">
-    <div class="flex gap-3">
+  <div class="max-w-3xl mx-auto p-6 space-y-6">
+    <UFormField :label="t('cryptoToFiat.invoiceLabel')">
       <UInput
         v-model.number="invoiceUsd"
         type="number"
-        placeholder="Invoice (USD)"
-        class="flex-1"
+        :placeholder="t('cryptoToFiat.invoicePlaceholder')"
       />
-      <USelect
-        v-model="mainSource"
-        :items="sourceOptions"
-      />
+    </UFormField>
+
+    <div>
+      <p class="text-xs text-gray-500 mb-2">
+        {{ t('cryptoToFiat.clientPays') }}
+      </p>
+      <div class="grid grid-cols-3 gap-4 text-center">
+        <div>
+          <div class="text-xs text-gray-400">
+            USDT
+          </div>
+          <div class="font-mono font-medium">
+            {{ invoiceUsd }}
+          </div>
+        </div>
+        <div>
+          <div class="text-xs text-gray-400">
+            USDC
+          </div>
+          <div class="font-mono font-medium">
+            {{ invoiceUsd }}
+          </div>
+        </div>
+        <div>
+          <div class="text-xs text-gray-400">
+            BTC
+          </div>
+          <div class="font-mono font-medium">
+            {{ btcClientAmount }}
+          </div>
+        </div>
+      </div>
     </div>
 
-    <UTable
-      :columns="[
-        { key: 'rail', label: 'Rail' },
-        { key: 'usd', label: 'USD', class: 'text-right' },
-        { key: 'pyg', label: 'PYG', class: 'text-right' }
-      ]"
-      :rows="[
-        { rail: 'Cash (Ivan)', usd: usd(ivanUsd), pyg: pyg(ivanPyg) },
-        { rail: 'Bank PY (Kraken + Wise)', usd: usd(bankUsd), pyg: pyg(bankPyg) }
-      ]"
-    />
+    <div>
+      <p class="text-xs text-gray-500 mb-2">
+        {{ t('cryptoToFiat.settlement') }}
+      </p>
+      <UTable
+        :columns="[
+          { accessorKey: 'rail', header: t('cryptoToFiat.rail') },
+          { accessorKey: 'usd', header: 'USD' },
+          { accessorKey: 'pyg', header: 'PYG' },
+          { accessorKey: 'x4t', header: t('cryptoToFiat.x4t') }
+        ]"
+        :data="[
+          { rail: t('cryptoToFiat.cash'), usd: withFee(usd(ivanUsd), feePercent(ivanUsd)), pyg: withFee(pyg(ivanPyg), feePercent(ivanUsd)), x4t: withFee(usd(x4tUsd), feePercent(x4tUsd)) },
+          { rail: t('cryptoToFiat.bankPy'), usd: withFee(usd(bankUsd), feePercent(bankUsd)), pyg: withFee(pyg(bankPyg), feePercent(bankUsd)), x4t: withFee(usd(x4tUsd), feePercent(x4tUsd)) }
+        ]"
+      />
+    </div>
   </div>
 </template>

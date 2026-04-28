@@ -1,4 +1,3 @@
 <template>
-  <div>
-  </div>
+  <div>P2Pagos</div>
 </template>
