@@ -29,6 +29,23 @@ export default defineNuxtConfig({
     differentDomains: true,
     defaultLocale: 'es',
     detectBrowserLanguage: false,
+    pages: {
+      'crypto-rails-with-local-fiat-settlement/index': {
+        en: '/crypto-rails-with-local-fiat-settlement',
+        es: '/liquidacion-fiat-local-con-cripto',
+        pt: '/liquidacao-fiat-local-com-cripto'
+      },
+      'crypto-rails-with-local-fiat-settlement/paraguay': {
+        en: '/crypto-rails-with-local-fiat-settlement/paraguay',
+        es: '/liquidacion-fiat-local-con-cripto/paraguay',
+        pt: '/liquidacao-fiat-local-com-cripto/paraguai'
+      },
+      'multi-rails-consultancy': {
+        en: '/multi-rails-consultancy',
+        es: '/consultoria-multi-canales',
+        pt: '/consultoria-multi-canais'
+      }
+    },
     locales: [{
       code: 'en',
       name: 'English',

@@ -7,6 +7,10 @@
     "rail": "Rail",
     "cash": "Cash",
     "bankPy": "Bank PY",
-    "x4t": "Comparison with X4T"
+    "x4t": "Comparison with X4T",
+    "priceSimulator": "Price simulator",
+    "selfCustodial": "Self-custodial",
+    "custodial": "Custodial",
+    "comingSoon": "Coming soon"
   }
 }

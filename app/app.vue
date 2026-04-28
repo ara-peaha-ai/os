@@ -5,7 +5,9 @@
 <template>
   <UApp>
     <UContainer>
-      <NuxtPage />
+      <NuxtLayout>
+        <NuxtPage />
+      </NuxtLayout>
     </UContainer>
   </UApp>
 </template>

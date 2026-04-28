@@ -7,6 +7,10 @@
     "rail": "Canal",
     "cash": "Efectivo",
     "bankPy": "Banco PY",
-    "x4t": "Comparación con X4T"
+    "x4t": "Comparación con X4T",
+    "priceSimulator": "Simulador de precios",
+    "selfCustodial": "Sin custodia",
+    "custodial": "Custodial",
+    "comingSoon": "Próximamente"
   }
 }
