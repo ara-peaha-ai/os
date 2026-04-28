@@ -1,0 +1,13 @@
+{
+  "welcome": "Bem-vindo à nossa aplicação!",
+  "cryptoToFiat": {
+    "invoiceLabel": "Valor da fatura em USD",
+    "invoicePlaceholder": "100000",
+    "clientPays": "O cliente paga",
+    "settlement": "Liquidação",
+    "rail": "Canal",
+    "cash": "Dinheiro",
+    "bankPy": "Banco PY",
+    "x4t": "Comparação com X4T"
+  }
+}
