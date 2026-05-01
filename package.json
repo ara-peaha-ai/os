@@ -1,5 +1,5 @@
 {
-  "name": "website",
+  "name": "@p2pagos/website",
   "private": true,
   "scripts": {
     "build": "nuxt build",
@@ -17,6 +17,7 @@
     "@nuxt/ui": "^4.4.0",
     "@nuxtjs/i18n": "^10.2.3",
     "better-sqlite3": "^12.6.2",
+    "mermaid": "^11.14.0",
     "node-html-parser": "^7.1.0",
     "nuxt": "^4.3.1",
     "tailwindcss": "^4.1.18"

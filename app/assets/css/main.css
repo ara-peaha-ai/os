@@ -21,3 +21,17 @@
 :root {
   --ui-container: var(--container-8xl);
 }
+
+.prose h4 {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--color-gray-500);
+  margin-top: 1rem;
+  margin-bottom: 0.25rem;
+  letter-spacing: 0.025em;
+  text-transform: uppercase;
+}
+
+.dark .prose h4 {
+  color: var(--color-gray-400);
+}

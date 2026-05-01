@@ -1,4 +1,6 @@
 <script setup>
+import { h } from 'vue'
+
 const { t } = useI18n()
 const route = useRoute()
 
@@ -59,52 +61,73 @@ const feePercent = (net) => net != null ? ((invoiceUsd.value - net) / invoiceUsd
 const usd = (v) => v != null ? v.toLocaleString('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 2 }) : '—'
 const pyg = (v) => v != null ? `₲ ${Math.round(v).toLocaleString('es-PY')}` : '—'
 const withFee = (val, pct) => pct != null ? `${val} (${pct}%)` : val
+
+const tableColumns = computed(() => [
+  {
+    accessorKey: 'rail',
+    header: t('blockchainToFiat.rail'),
+    cell: ({ row }) => h('h4', { class: 'text-sm font-semibold' }, row.getValue('rail'))
+  },
+  { accessorKey: 'usd', header: 'USD' },
+  { accessorKey: 'pyg', header: 'PYG' },
+  { accessorKey: 'x4t', header: t('blockchainToFiat.x4t') }
+])
+
+const tableData = computed(() => [
+  { rail: t('blockchainToFiat.bankPy'), usd: withFee(usd(bankUsd.value), feePercent(bankUsd.value)), pyg: withFee(pyg(bankPyg.value), feePercent(bankUsd.value)), x4t: withFee(usd(x4tUsd.value), feePercent(x4tUsd.value)) },
+  { rail: t('blockchainToFiat.cash'), usd: withFee(usd(ivanUsd.value), feePercent(ivanUsd.value)), pyg: withFee(pyg(ivanPyg.value), feePercent(ivanUsd.value)), x4t: withFee(usd(x4tUsd.value), feePercent(x4tUsd.value)) }
+])
 </script>
 
 <template>
   <div class="max-w-3xl mx-auto p-6 space-y-10">
-    <h1 class="text-2xl font-bold">
-      {{ t('cryptoToFiat.paraguayTitle') }}
-    </h1>
+    <div>
+      <h1 class="text-2xl font-bold">
+        {{ t('blockchainToFiat.paraguayTitle') }}
+      </h1>
+      <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">
+        {{ t('blockchainToFiat.paraguaySubtitle') }}
+      </p>
+    </div>
 
     <section class="space-y-6">
       <h2 class="text-lg font-semibold">
-        {{ t('cryptoToFiat.selfCustodial') }}
+        {{ t('blockchainToFiat.selfCustodial') }}
       </h2>
 
-      <UFormField :label="t('cryptoToFiat.invoiceLabel')">
+      <UFormField :label="t('blockchainToFiat.invoiceLabel')">
         <UInput
           v-model.number="invoiceUsd"
           type="number"
-          :placeholder="t('cryptoToFiat.invoicePlaceholder')"
+          :placeholder="t('blockchainToFiat.invoicePlaceholder')"
         />
       </UFormField>
 
       <div>
-        <p class="text-xs text-gray-500 mb-2">
-          {{ t('cryptoToFiat.clientPays') }}
-        </p>
+        <h3 class="text-sm font-semibold mb-3">
+          {{ t('blockchainToFiat.clientPays') }}
+        </h3>
         <div class="grid grid-cols-3 gap-4 text-center">
           <div>
-            <div class="text-xs text-gray-400">
+            <h4 class="text-xs font-medium text-gray-500 dark:text-gray-400 mb-1">
               USDT
-            </div>
+            </h4>
             <div class="font-mono font-medium">
               {{ invoiceUsd }}
             </div>
           </div>
           <div>
-            <div class="text-xs text-gray-400">
+            <h4 class="text-xs font-medium text-gray-500 dark:text-gray-400 mb-1">
               USDC
-            </div>
+            </h4>
             <div class="font-mono font-medium">
               {{ invoiceUsd }}
             </div>
           </div>
           <div>
-            <div class="text-xs text-gray-400">
+            <h4 class="text-xs font-medium text-gray-500 dark:text-gray-400 mb-1">
               BTC
-            </div>
+            </h4>
             <div class="font-mono font-medium">
               {{ btcClientAmount }}
             </div>
@@ -113,37 +136,26 @@ const withFee = (val, pct) => pct != null ? `${val} (${pct}%)` : val
       </div>
 
       <div>
-        <p class="text-xs text-gray-500 mb-2">
-          {{ t('cryptoToFiat.priceSimulator') }}
-        </p>
-        <UTable
-          :columns="[
-            { accessorKey: 'rail', header: t('cryptoToFiat.rail') },
-            { accessorKey: 'usd', header: 'USD' },
-            { accessorKey: 'pyg', header: 'PYG' },
-            { accessorKey: 'x4t', header: t('cryptoToFiat.x4t') }
-          ]"
-          :data="[
-            { rail: t('cryptoToFiat.cash'), usd: withFee(usd(ivanUsd), feePercent(ivanUsd)), pyg: withFee(pyg(ivanPyg), feePercent(ivanUsd)), x4t: withFee(usd(x4tUsd), feePercent(x4tUsd)) },
-            { rail: t('cryptoToFiat.bankPy'), usd: withFee(usd(bankUsd), feePercent(bankUsd)), pyg: withFee(pyg(bankPyg), feePercent(bankUsd)), x4t: withFee(usd(x4tUsd), feePercent(x4tUsd)) }
-          ]"
-        />
+        <h3 class="text-sm font-semibold mb-3">
+          {{ t('blockchainToFiat.payoutSimulator') }}
+        </h3>
+        <UTable :columns="tableColumns" :data="tableData" />
       </div>
 
       <div v-if="pageContent">
-        <p class="text-xs text-gray-500 mb-2">
+        <h3 class="text-sm font-semibold mb-3">
           {{ pageContent.title }}
-        </p>
+        </h3>
         <ContentRenderer :value="pageContent" class="prose prose-sm dark:prose-invert max-w-none" />
       </div>
     </section>
 
     <section class="space-y-3">
       <h2 class="text-lg font-semibold">
-        {{ t('cryptoToFiat.custodial') }}
+        {{ t('blockchainToFiat.custodial') }}
       </h2>
       <p class="text-sm text-gray-400">
-        {{ t('cryptoToFiat.comingSoon') }}
+        {{ t('blockchainToFiat.comingSoon') }}
       </p>
     </section>
   </div>

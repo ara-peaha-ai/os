@@ -1,0 +1,11 @@
+feat: add 4 service pages with shared layout, mermaid support, and navbar
+
+- Rename crypto-rails-with-local-fiat-settlement to bitcoin-stablecoins-local-fiat-settlement
+- Add /services hub with Fiat2Chain, Chain2Fiat, EAS2US, LLC2PY pages (EN/ES/PT)
+- Chain2Fiat includes country grid, Paraguay simulator, and full README content
+- ServicePage shared component with conditional country grid based on route
+- ProsePre override + MermaidDiagram for client-side mermaid rendering
+- Navbar in default layout with links to all 4 services
+- Vite allowedHosts for local i18n domains
+- i18n keys renamed cryptoToFiat → blockchainToFiat, added services keys
+- Install mermaid package

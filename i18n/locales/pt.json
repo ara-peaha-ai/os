@@ -1,6 +1,11 @@
 {
-  "welcome": "Bem-vindo à nossa aplicação!",
-  "cryptoToFiat": {
+  "services": {
+    "fiat2chain": "Aceite transferências bancárias locais e dinheiro, liquidados on-chain em Bitcoin, USDT ou USDC.",
+    "chain2fiat": "Aceite Bitcoin ou stablecoins, liquidados em moeda fiat local.",
+    "eas2us": "Conecte pagamentos de empresas EAS paraguaias para destinatários nos EUA.",
+    "llc2py": "Conecte pagamentos de LLCs americanas para entidades paraguaias."
+  },
+  "blockchainToFiat": {
     "invoiceLabel": "Valor da fatura em USD",
     "invoicePlaceholder": "100000",
     "clientPays": "O cliente paga",
@@ -9,10 +14,11 @@
     "cash": "Dinheiro",
     "bankPy": "Banco PY",
     "x4t": "Comparação com X4T",
-    "priceSimulator": "Simulador de preços",
+    "payoutSimulator": "Simulador de pagamento",
     "selfCustodial": "Self-custodial",
     "custodial": "Custodial",
     "comingSoon": "Em breve",
-    "paraguayTitle": "Liquidação cripto para fiat local no Paraguai"
+    "paraguayTitle": "Liquidação no Paraguai: USD e PYG",
+    "paraguaySubtitle": "Bitcoin e stablecoins para fiat local — modalidades self-custodial e custodial"
   }
 }

@@ -31,15 +31,45 @@ export default defineNuxtConfig({
     detectBrowserLanguage: false,
     customRoutes: 'config',
     pages: {
-      'crypto-rails-with-local-fiat-settlement/index': {
-        en: '/crypto-rails-with-local-fiat-settlement',
-        es: '/liquidacion-fiat-local-con-cripto',
-        pt: '/liquidacao-fiat-local-com-cripto'
+      'services/index': {
+        en: '/services',
+        es: '/servicios',
+        pt: '/servicos'
       },
-      'crypto-rails-with-local-fiat-settlement/paraguay': {
-        en: '/crypto-rails-with-local-fiat-settlement/paraguay',
-        es: '/liquidacion-fiat-local-con-cripto/paraguay',
-        pt: '/liquidacao-fiat-local-com-cripto/paraguai'
+      'services/fiat-2-chain': {
+        en: '/services/fiat-2-chain',
+        es: '/servicios/fiat-2-chain',
+        pt: '/servicos/fiat-2-chain'
+      },
+      'services/chain-2-fiat/index': {
+        en: '/services/chain-2-fiat',
+        es: '/servicios/chain-2-fiat',
+        pt: '/servicos/chain-2-fiat'
+      },
+      'services/chain-2-fiat/paraguay': {
+        en: '/services/chain-2-fiat/paraguay',
+        es: '/servicios/chain-2-fiat/paraguay',
+        pt: '/servicos/chain-2-fiat/paraguai'
+      },
+      'services/eas-2-us': {
+        en: '/services/eas-2-us',
+        es: '/servicios/eas-2-us',
+        pt: '/servicos/eas-2-us'
+      },
+      'services/llc-2-py': {
+        en: '/services/llc-2-py',
+        es: '/servicios/llc-2-py',
+        pt: '/servicos/llc-2-py'
+      },
+      'bitcoin-stablecoins-local-fiat-settlement/index': {
+        en: '/bitcoin-stablecoins-local-fiat-settlement',
+        es: '/liquidacion-fiat-local-bitcoin-stablecoins',
+        pt: '/liquidacao-fiat-local-bitcoin-stablecoins'
+      },
+      'bitcoin-stablecoins-local-fiat-settlement/paraguay': {
+        en: '/bitcoin-stablecoins-local-fiat-settlement/paraguay',
+        es: '/liquidacion-fiat-local-bitcoin-stablecoins/paraguay',
+        pt: '/liquidacao-fiat-local-bitcoin-stablecoins/paraguai'
       },
       'multi-rails-consultancy': {
         en: '/multi-rails-consultancy',
@@ -80,6 +110,12 @@ export default defineNuxtConfig({
   },
 
   css: ['~/assets/css/main.css'],
+
+  vite: {
+    server: {
+      allowedHosts: ['en.p2pagos.local', 'es.p2pagos.local', 'pt.p2pagos.local']
+    }
+  },
 
   compatibilityDate: '2025-01-15',
 
