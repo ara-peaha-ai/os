@@ -61,11 +61,11 @@ export default defineNuxtConfig({
         pt: '/servicos/local-2-coin',
         nl: '/diensten/local-2-coin'
       },
-      'services/local-2-coin/infrastructure': {
-        en: '/services/local-2-coin/infrastructure',
-        es: '/servicios/local-2-coin/infrastructure',
-        pt: '/servicos/local-2-coin/infrastructure',
-        nl: '/diensten/local-2-coin/infrastructure'
+      'services/local-2-coin/documentation': {
+        en: '/services/local-2-coin/documentation',
+        es: '/servicios/local-2-coin/documentation',
+        pt: '/servicos/local-2-coin/documentation',
+        nl: '/diensten/local-2-coin/documentation'
       },
       'services/coin-2-local/index': {
         en: '/services/coin-2-local',

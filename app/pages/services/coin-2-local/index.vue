@@ -23,6 +23,8 @@ useSeoMeta({
       <p v-if="page?.intro" class="text-base text-gray-600 dark:text-gray-300 mt-3">{{ page.intro }}</p>
     </div>
 
+    <ServiceAnimation />
+
     <ContentRenderer v-if="page" :value="page" class="prose dark:prose-invert max-w-none" />
   </div>
 </template>

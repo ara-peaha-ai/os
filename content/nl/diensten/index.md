@@ -1,6 +1,6 @@
 ---
 title: Onze diensten
-subtitle: End-to-end betalingsrails tussen lokale fiatvaluta's en blockchain-activa.
+subtitle: Multi-rail betalingsinfrastructuur tussen lokale betaalmethoden, blockchain-activa en grensoverschrijdende afwikkelingskanalen.
 ---
 
-Wij bieden vier gespecialiseerde betalingsrails voor bedrijven die actief zijn in Latijns-Amerika en de Verenigde Staten. Elke dienst is beschikbaar in zowel bewarende als zelfbewarende modus, gebouwd op bewezen open-source infrastructuur.
+P2Pagos biedt twee productstromen en een volledige adviesdienst voor operators die in Latijns-Amerika actief zijn of er naartoe uitbreiden. Elke stroom is gebouwd op open-source infrastructuur en multi-rail architectuur.

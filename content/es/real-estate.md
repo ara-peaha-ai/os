@@ -122,7 +122,13 @@ Actividad planificada:
 
 La estructura legal y técnica para soportar flujos de pago inmobiliarios en múltiples países está actualmente en desarrollo.
 
+## Construction2Agency
+
+Un modelo de distribución para hacer el servicio replicable a través de cualquier agencia inmobiliaria que venda en nombre de constructoras que no aceptan cripto. El comprador paga en Bitcoin o stablecoins, la agencia y la constructora reciben fiat, P2Pagos gestiona la capa de ejecución en el medio. La estructura legal e implementación técnica están en definición. Se están activando early adopters del lado de las agencias.
+
+*Un vertical paralelo en un sector de alto volumen — no el inmobiliario — está siendo estructurado actualmente con un líder de mercado en ese segmento. No se divulga en esta etapa.*
+
 ## Relacionado
 
-- [Coin2Local](/servicios/chain-2-fiat)
+- [Coin2Local](/servicios/coin-2-local)
 - [Mono2Multi](/servicios/mono-2-multi)

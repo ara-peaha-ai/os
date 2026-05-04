@@ -13,6 +13,24 @@ Current outreach targets approximately 2,500 Paraguayan construction companies.
 
 ---
 
+#### Not an exchange
+
+The national single rail — the fixed-rate option visible in the simulator — is what a standard exchange or OTC desk offers: a quoted price, a compliance form, and a transfer. The asset moves. The service ends there.
+
+**P2Pagos is a different type of service.**
+
+On the buyer side, this means assistance through the payment process with their chosen coin — including a reduced test transaction if requested — and support at every step of the flow. Not a cold form to fill out alone.
+
+On the construction company side, this means technical assistance to activate their own payment rails and configure the flows that run through them. The company is not handed off to a processor. They are helped to build the infrastructure.
+
+> The current approach is intentionally manual. Every step is designed to be absorbed into a single integrated application as the vertical matures.
+
+P2Pagos operates as a **software and consultancy company**. It does not hold client funds, does not act as a financial intermediary, and does not offer exchange services. What it builds is the technical and operational structure that allows both sides of a real estate transaction to use the rails they need — grounded in direct experience with the payment infrastructure of this specific industry.
+
+Obtaining a **PSAV registration** (Proveedor de Servicios de Activos Virtuales) with SEPRELAD is on the roadmap — the formal step that would allow P2Pagos to operate as a licensed virtual asset service provider under Paraguayan regulation.
+
+---
+
 #### Settlement options
 
 | Rail | Currency out | Verification | Notes |
@@ -55,4 +73,4 @@ Available as part of the Coin2Property early-adopter program. Purchases from USD
 
 #### More
 
-Full real estate vertical context, Coin2Property fees (0.5%–3.9%), Bolivia and Chile expansion roadmap, and the Moonshot grant objective: [/real-estate-in-paraguay](/real-estate-in-paraguay)
+Full real estate vertical context, Coin2Property fees (0.5%–3.9%), and the Moonshot grant objective: [/real-estate-in-paraguay](/real-estate-in-paraguay)

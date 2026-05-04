@@ -17,7 +17,7 @@ products:
   h2: "Twee Mono2Multi-afwikkelingsstromen voor bedrijven, marktplaatsen en AI-native operators."
   intro: "Local2Coin en Coin2Local zijn productstromen. Ze verbinden lokale betaalmethoden, internationale klanten, Bitcoin, USDT, USDC, stablecoins, AI-native betalingsbehoeften en zakelijke afwikkelingsvereisten via één operationele laag."
   items:
-    - slug: "fiat-2-chain"
+    - slug: "local-2-coin"
       label: "Product"
       name: "Local2Coin"
       description: "Accepteer kaarten en lokale betaalmethoden voor eenmansbedrijven, AI-agenten en marktplaatsen via MIT-gelicentieerde wrijvingsloze stromen."
@@ -25,7 +25,7 @@ products:
       externalLinks:
         - label: "MIT-gelicentieerde P2Pagos-repositories"
           url: "https://github.com/P2Pagos"
-    - slug: "chain-2-fiat"
+    - slug: "coin-2-local"
       label: "Product"
       name: "Coin2Local"
       description: "Ontvang Bitcoin, USDT, USDC of stablecoin-betalingen van internationale klanten en consolideer liquiditeit lokaal wanneer het bedrijf fiat nodig heeft voor operaties."
@@ -38,18 +38,18 @@ advisory:
   intro: "Mono2Multi is onze volledige adviesdienst voor operators die van afhankelijkheid van één rail moeten overstappen naar veerkrachtige multi-rail betalingsoperaties."
   paragraphs:
     - "Wij helpen bedrijven, marktplaatsen, AI-native operators en grensoverschrijdende teams de juridische, technische, bancaire, KYC-, source-of-funds- en operationele onderdelen te structureren die nodig zijn om betalingsrails in verschillende landen te laten werken."
-    - "De huidige focus is PY2Int en Int2PY: Paraguayaanse bedrijven helpen internationaal uit te breiden, en internationale bedrijven helpen Paraguay binnen te treden met lokale bedrijven, infrastructuur en betalingsrails."
+    - "De huidige focus is Latam2Int en Int2Latam: Latijns-Amerikaanse bedrijven helpen internationaal uit te breiden, en internationale bedrijven helpen Paraguay en Suriname binnen te treden met lokale bedrijven, infrastructuur en betalingsrails."
   items:
-    - slug: "mono-2-multi-py-2-int"
+    - slug: "mono-2-multi-latam-2-int"
       label: "Advies"
-      name: "PY2Int"
-      description: "Voor Paraguayaanse bedrijven die internationaal uitbreiden via buitenlandse structuren, zakelijke rekeningen, documentatie, KYC-voorbereiding, source-of-funds-ondersteuning en gereedheid voor betalingsrails."
-      linkText: "Verken PY2Int"
-    - slug: "mono-2-multi-int-2-py"
+      name: "Latam2Int"
+      description: "Voor Latijns-Amerikaanse bedrijven die internationaal uitbreiden via buitenlandse structuren, zakelijke rekeningen, documentatie, KYC-voorbereiding, source-of-funds-ondersteuning en gereedheid voor betalingsrails."
+      linkText: "Verken Latam2Int"
+    - slug: "mono-2-multi-int-2-latam"
       label: "Advies"
-      name: "Int2PY"
-      description: "Voor internationale bedrijven, AI-native operators en marktplaatsen die betalingstoegang, lokale aanwezigheid, technologie, bedrijven, rekeningen en back-uprails in Paraguay of andere operationele markten nodig hebben."
-      linkText: "Verken Int2PY"
+      name: "Int2Latam"
+      description: "Voor internationale bedrijven, AI-native operators en marktplaatsen die betalingstoegang, lokale aanwezigheid, technologie, bedrijven, rekeningen en back-uprails in Paraguay, Suriname of andere operationele markten nodig hebben."
+      linkText: "Verken Int2Latam"
 
 thesis:
   label: "Mono2Multi"

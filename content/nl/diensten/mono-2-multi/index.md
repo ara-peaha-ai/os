@@ -51,20 +51,20 @@ Het doel is een betalingsstructuur te bouwen die kan blijven opereren wanneer é
 
 Mono2Multi heeft momenteel twee hoofdadviesrichtingen:
 
-- **PY2Int** — voor Paraguayaanse bedrijven die internationaal uitbreiden.
-- **Int2PY** — voor internationale operators die Paraguay betreden met lokale bedrijven, lokale infrastructuur, lokale betalingsrails en lokale uitvoering.
+- **Latam2Int** — voor Latijns-Amerikaanse bedrijven die internationaal uitbreiden.
+- **Int2Latam** — voor internationale operators die Paraguay of Latijns-Amerika betreden met lokale bedrijven, lokale infrastructuur, lokale betalingsrails en lokale uitvoering.
 
-## PY2Int
+## Latam2Int
 
-PY2Int helpt Paraguayaanse bedrijven zich voor te bereiden op internationale operaties: buitenlandse structuren, zakelijke rekeningen, source-of-funds-documentatie, KYC-gereedheid en toegang tot betalingsrails.
+Latam2Int helpt Latijns-Amerikaanse bedrijven zich voor te bereiden op internationale operaties: buitenlandse structuren, zakelijke rekeningen, source-of-funds-documentatie, KYC-gereedheid en toegang tot betalingsrails.
 
-Meer informatie op `/diensten/mono-2-multi/py-2-int`.
+Meer informatie op [Latam2Int](/diensten/mono-2-multi/py-2-int).
 
-## Int2PY
+## Int2Latam
 
-Int2PY helpt internationale operators Paraguay te betreden via lokale bedrijven, infrastructuur, betalingsintegraties en multi-rail continuïteit.
+Int2Latam helpt internationale operators Paraguay of Latijns-Amerika betreden via lokale bedrijven, infrastructuur, betalingsintegraties en multi-rail continuïteit.
 
-Meer informatie op `/diensten/mono-2-multi/int-2-py`.
+Meer informatie op [Int2Latam](/diensten/mono-2-multi/int-2-py).
 
 ## Adviesmodel
 
@@ -119,7 +119,12 @@ Mono2Multi bereidt de structuur, rails, documentatie en back-uplogica voor die n
 
 ## Gerelateerde diensten
 
-- `/diensten/mono-2-multi/py-2-int`
-- `/diensten/mono-2-multi/int-2-py`
-- `/diensten/fiat-2-chain`
-- `/diensten/chain-2-fiat`
+- [Latam2Int](/diensten/mono-2-multi/py-2-int)
+- [Int2Latam](/diensten/mono-2-multi/int-2-py)
+- [Local2Coin](/diensten/local-2-coin)
+- [Coin2Local](/diensten/coin-2-local)
+
+## Gerelateerde inzichten
+
+- [Multi-Rail Betalingsarchitectuur](/insights/multi-rail-payment-architecture)
+- [Valse Weigeringen Verminderen](/insights/reduce-false-declines)

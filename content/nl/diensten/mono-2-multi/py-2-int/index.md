@@ -1,7 +1,7 @@
 ---
-title: PY2Int
-description: Advies voor Paraguayaanse bedrijven die internationaal uitbreiden via buitenlandse structuren, zakelijke rekeningen, documentatie, KYC-voorbereiding, source-of-funds-ondersteuning en gereedheid voor betalingsrails.
-subtitle: Paraguayaanse Bedrijven Gaan Internationaal
+title: Latam2Int
+description: Advies voor Latijns-Amerikaanse bedrijven die internationaal uitbreiden via buitenlandse structuren, zakelijke rekeningen, documentatie, KYC-voorbereiding, source-of-funds-ondersteuning en gereedheid voor betalingsrails.
+subtitle: Latijns-Amerikaanse Bedrijven Gaan Internationaal
 slug: py-2-int
 serviceType: advisory
 parentService: mono-2-multi
@@ -16,17 +16,17 @@ tags:
   - Mono2Multi
 ---
 
-## PY2Int
+## Latam2Int
 
-PY2Int helpt Paraguayaanse bedrijven zich voor te bereiden op internationale operaties.
+Latam2Int helpt Latijns-Amerikaanse bedrijven zich voor te bereiden op internationale operaties.
 
 Het maakt deel uit van de Mono2Multi-adviesdienst.
 
-Het doel is Paraguayaanse bedrijven te helpen verder te gaan dan de lokale markt door praktische internationale structuren, rekeningen, documentatie en toegang tot betalingsrails te bouwen zonder afhankelijk te zijn van één buitenlandse processor of één land.
+Het doel is Latijns-Amerikaanse bedrijven te helpen verder te gaan dan de lokale markt door praktische internationale structuren, rekeningen, documentatie en toegang tot betalingsrails te bouwen zonder afhankelijk te zijn van één buitenlandse processor of één land.
 
 ## Voor wie
 
-PY2Int is voor Paraguayaanse bedrijven die internationaal moeten opereren.
+Latam2Int is voor Paraguayaanse bedrijven die internationaal moeten opereren.
 
 Typische gevallen zijn:
 
@@ -40,7 +40,7 @@ Typische gevallen zijn:
 
 ## Waarmee wij helpen
 
-PY2Int kan advies en coördinatie omvatten rond:
+Latam2Int kan advies en coördinatie omvatten rond:
 
 - buitenlandse bedrijfsstructuren
 - US LLC of andere internationale entiteitsinstelling
@@ -67,25 +67,25 @@ Een buitenlandse bedrijfsstructuur kan bieden:
 - een juridische entiteit die voldoet aan internationale klantverwachtingen
 - verbeterde toegang tot betalingsrails in meerdere landen
 
-PY2Int bereidt de onderdelen voor die nodig zijn om deze uitbreiding praktisch en gedocumenteerd te maken.
+Latam2Int bereidt de onderdelen voor die nodig zijn om deze uitbreiding praktisch en gedocumenteerd te maken.
 
 ## Uitbreiding naar de Amerikaanse markt
 
-Een specifiek geval binnen PY2Int is een middelgroot Paraguayaans bedrijf dat uitbreidt naar Amerikaanse klanten terwijl het on-chain activa aanhoudt.
+Een specifiek geval binnen Latam2Int is een middelgroot Paraguayaans bedrijf dat uitbreidt naar Amerikaanse klanten terwijl het on-chain activa aanhoudt.
 
 Dit is een strategie die momenteel in ontwikkeling is. Neem contact met ons op om uw geval te bespreken.
 
 ## Relatie met Coin2Local
 
-PY2Int kan Coin2Local-stromen ondersteunen wanneer een Paraguayaans bedrijf Bitcoin- of stablecoin-betalingen moet ontvangen van internationale investeerders en deze moet omzetten in lokale fiat-liquiditeit.
+Latam2Int kan Coin2Local-stromen ondersteunen wanneer een Paraguayaans bedrijf Bitcoin- of stablecoin-betalingen moet ontvangen van internationale investeerders en deze moet omzetten in lokale fiat-liquiditeit.
 
 Coin2Local verzorgt de betalingsuitvoering.
 
-PY2Int bereidt de structuur, rekeningen, documentatie en het source-of-funds-pad voor dat nodig is om die betalingen te ontvangen, uit te leggen en te verdedigen.
+Latam2Int bereidt de structuur, rekeningen, documentatie en het source-of-funds-pad voor dat nodig is om die betalingen te ontvangen, uit te leggen en te verdedigen.
 
 ## Relatie met Mono2Multi
 
-PY2Int volgt het Mono2Multi-principe.
+Latam2Int volgt het Mono2Multi-principe.
 
 Een Paraguayaans bedrijf dat internationaal uitbreidt, mag niet afhankelijk zijn van één buitenlandse rekening, één buitenlandse bank, één land of één betalingsprocessor.
 
@@ -93,6 +93,6 @@ De structuur moet van begin af aan back-uprails en back-up betalingskanalen omva
 
 ## Gerelateerde diensten
 
-- `/diensten/mono-2-multi`
-- `/diensten/chain-2-fiat`
-- `/real-estate-in-paraguay`
+- [Mono2Multi](/diensten/mono-2-multi)
+- [Coin2Local](/diensten/coin-2-local)
+- [Vastgoedbetalingen in Paraguay](/real-estate-in-paraguay)

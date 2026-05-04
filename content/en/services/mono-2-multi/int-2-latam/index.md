@@ -1,7 +1,7 @@
 ---
 title: Int2Latam
 description: Advisory for international businesses, AI-native operators, and platforms entering Latin America through local structure, local infrastructure, and local payment rails.
-subtitle: International Operators to Latam
+subtitle: Establish International Operators local presence in Latam
 slug: int-2-latam
 serviceType: advisory
 parentService: mono-2-multi
@@ -25,7 +25,7 @@ Int2Latam helps international operators enter Latin America through **local stru
 
 It is part of the [Mono2Multi](/services/mono-2-multi) advisory service. The goal is a real, usable local presence — not a single foreign processor or single-country dependency.
 
-::country-int-latam
+::country-int-lata
 ::
 
 ## Who it is for

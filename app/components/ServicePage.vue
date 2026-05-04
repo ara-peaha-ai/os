@@ -11,7 +11,7 @@ useHead(() => ({
 }))
 
 const showAnimation = computed(() => {
-  const animated = ['fiat-2-chain', 'chain-2-fiat', 'local-2-coin', 'coin-2-local', 'latam-2-int', 'int-2-latam']
+  const animated = ['fiat-2-chain', 'chain-2-fiat', 'local-2-coin', 'coin-2-local', 'latam-2-int', 'int-2-latam', 'mono-2-multi']
   return animated.some(s => route.path.includes(s))
 })
 

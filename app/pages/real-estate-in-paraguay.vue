@@ -1,9 +1,21 @@
 <script setup>
 const { t, locale } = useI18n()
 
-const { data: page } = await useAsyncData(`real-estate-in-paraguay-${locale.value}`, () =>
-  queryCollection('content').where('path', '=', `/${locale.value}/real-estate`).first()
-)
+const coinLocalParaguayPath = {
+  en: '/en/services/coin-2-local/paraguay',
+  es: '/es/servicios/coin-2-local/paraguay',
+  pt: '/pt/servicos/coin-2-local/paraguai',
+  nl: '/nl/diensten/coin-2-local/paraguay'
+}
+
+const [{ data: page }, { data: notes }] = await Promise.all([
+  useAsyncData(`real-estate-in-paraguay-${locale.value}`, () =>
+    queryCollection('content').where('path', '=', `/${locale.value}/real-estate`).first()
+  ),
+  useAsyncData(`coin-2-local-paraguay-${locale.value}`, () =>
+    queryCollection('content').where('path', '=', coinLocalParaguayPath[locale.value] || coinLocalParaguayPath.en).first()
+  )
+])
 useSeoMeta({
   title: () => page.value?.title,
   description: () => page.value?.description
@@ -27,6 +39,8 @@ useSeoMeta({
       :example-amounts="{ minimal: 1000, standard: 5000, enhanced: 50000 }"
       :local-currency="{ code: 'PYG', symbol: '₲', locale: 'es-PY' }"
     />
+
+    <ContentRenderer v-if="notes" :value="notes" class="prose dark:prose-invert max-w-none" />
 
     <ContentRenderer :value="page" class="prose dark:prose-invert max-w-none" />
   </div>
