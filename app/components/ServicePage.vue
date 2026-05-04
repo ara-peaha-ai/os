@@ -4,68 +4,62 @@ const props = defineProps({
 })
 
 const route = useRoute()
-const localePath = useLocalePath()
+const { t } = useI18n()
 
 useHead(() => ({
   title: props.content?.title
 }))
 
-const showCountries = computed(() => route.path.includes('chain-2-fiat'))
+const showAnimation = computed(() => {
+  const animated = ['fiat-2-chain', 'chain-2-fiat', 'local-2-coin', 'coin-2-local', 'latam-2-int', 'int-2-latam']
+  return animated.some(s => route.path.includes(s))
+})
 
-const paraguayPath = computed(() => localePath('services-chain-2-fiat-paraguay'))
-
-const countries = [
-  { code: 'PY', name: 'Paraguay', active: true },
-  { code: 'AR', name: 'Argentina', active: false },
-  { code: 'BO', name: 'Bolivia', active: false },
-  { code: 'CL', name: 'Chile', active: false },
-  { code: 'CR', name: 'Costa Rica', active: false },
-  { code: 'DO', name: 'República Dominicana', active: false },
-  { code: 'EC', name: 'Ecuador', active: false },
-  { code: 'SV', name: 'El Salvador', active: false },
-  { code: 'GT', name: 'Guatemala', active: false },
-  { code: 'HN', name: 'Honduras', active: false },
-  { code: 'JM', name: 'Jamaica', active: false },
-  { code: 'MX', name: 'México', active: false },
-  { code: 'NI', name: 'Nicaragua', active: false },
-  { code: 'PA', name: 'Panamá', active: false },
-  { code: 'PE', name: 'Perú', active: false },
-  { code: 'SR', name: 'Suriname', active: false },
-  { code: 'UY', name: 'Uruguay', active: false }
-]
-
-const countryLinks = { PY: paraguayPath }
+const showCountries = computed(() =>
+  route.path.includes('chain-2-fiat') || route.path.includes('coin-2-local')
+)
 </script>
 
 <template>
   <div class="max-w-3xl mx-auto p-6 space-y-10">
     <div v-if="content">
-      <h1 class="text-2xl font-bold">
-        {{ content.title }}
-      </h1>
+      <div class="flex items-baseline gap-3 flex-wrap">
+        <h1 class="text-2xl font-bold">{{ content.title }}</h1>
+        <UBadge v-if="content.badge" color="primary" variant="subtle" size="sm" class="shrink-0">{{ content.badge }}</UBadge>
+      </div>
       <p v-if="content.subtitle" class="text-lg text-gray-500 dark:text-gray-400 mt-2">
         {{ content.subtitle }}
       </p>
     </div>
 
-    <div class="rounded-xl overflow-hidden">
-      <img :src="'/fiat-to-chain.gif'" alt="" class="w-full" />
-    </div>
+    <ServiceAnimation v-if="showAnimation" />
 
     <ContentRenderer v-if="content" :value="content" class="prose dark:prose-invert max-w-none" />
 
-    <div v-if="showCountries" class="grid grid-cols-2 sm:grid-cols-3 gap-3">
-      <NuxtLink v-for="c in countries" :key="c.code" :to="c.active ? countryLinks[c.code] : undefined" :class="[
-        'flex items-center gap-2 px-4 py-3 rounded-lg border text-sm font-medium transition',
-        c.active
-          ? 'border-primary hover:bg-primary/10 cursor-pointer'
-          : 'border-gray-200 dark:border-gray-700 text-gray-400 cursor-not-allowed opacity-50'
-      ]">
-        <span>{{ c.name }}</span>
-        <UBadge v-if="!c.active" size="xs" color="neutral" variant="soft">
-          soon
-        </UBadge>
-      </NuxtLink>
+    <div v-if="showCountries" class="rounded-xl border border-dashed border-primary/60 p-5 space-y-3">
+      <div class="flex items-center gap-2">
+        <UBadge color="primary" variant="soft" size="sm">{{ t('coin2property.badge') }}</UBadge>
+        <span class="text-xs text-gray-400">{{ t('coin2property.timeline') }}</span>
+      </div>
+      <div>
+        <p class="text-xs font-mono text-primary/70 mb-1">{{ t('coin2property.brand') }}</p>
+        <h3 class="text-lg font-bold">{{ t('coin2property.title') }}</h3>
+        <div class="flex gap-4 mt-2">
+          <div>
+            <p class="text-xl font-bold text-primary">{{ t('coin2property.fee') }}</p>
+            <p class="text-xs text-gray-400 uppercase tracking-wide">{{ t('coin2property.feeLabel') }}</p>
+          </div>
+          <div class="border-l border-gray-200 dark:border-gray-700 pl-4">
+            <p class="text-xl font-bold text-primary">{{ t('coin2property.limit') }}</p>
+            <p class="text-xs text-gray-400 uppercase tracking-wide">{{ t('coin2property.limitLabel') }}</p>
+          </div>
+        </div>
+        <p class="text-sm text-gray-500 dark:text-gray-400 mt-2">{{ t('coin2property.description') }}</p>
+      </div>
+      <NuxtLinkLocale to="/contact" class="inline-flex items-center gap-1 text-sm font-medium text-primary hover:underline">
+        {{ t('coin2property.cta') }} →
+      </NuxtLinkLocale>
     </div>
+
   </div>
 </template>

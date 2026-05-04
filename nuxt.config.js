@@ -31,51 +31,78 @@ export default defineNuxtConfig({
     detectBrowserLanguage: false,
     customRoutes: 'config',
     pages: {
+      'real-estate-in-paraguay': {
+        en: '/real-estate-in-paraguay',
+        es: '/bienes-raices-en-paraguay',
+        pt: '/imoveis-no-paraguai',
+        nl: '/real-estate-in-paraguay'
+      },
+      'py-2-latam': {
+        en: '/py-2-latam',
+        es: '/py-2-latam',
+        pt: '/py-2-latam',
+        nl: '/py-2-latam'
+      },
+      'coin-2-property': {
+        en: '/coin-2-property',
+        es: '/coin-2-property',
+        pt: '/coin-2-property',
+        nl: '/coin-2-property'
+      },
       'services/index': {
         en: '/services',
         es: '/servicios',
-        pt: '/servicos'
+        pt: '/servicos',
+        nl: '/diensten'
       },
-      'services/fiat-2-chain': {
-        en: '/services/fiat-2-chain',
-        es: '/servicios/fiat-2-chain',
-        pt: '/servicos/fiat-2-chain'
+      'services/local-2-coin/index': {
+        en: '/services/local-2-coin',
+        es: '/servicios/local-2-coin',
+        pt: '/servicos/local-2-coin',
+        nl: '/diensten/local-2-coin'
       },
-      'services/chain-2-fiat/index': {
-        en: '/services/chain-2-fiat',
-        es: '/servicios/chain-2-fiat',
-        pt: '/servicos/chain-2-fiat'
+      'services/local-2-coin/infrastructure': {
+        en: '/services/local-2-coin/infrastructure',
+        es: '/servicios/local-2-coin/infrastructure',
+        pt: '/servicos/local-2-coin/infrastructure',
+        nl: '/diensten/local-2-coin/infrastructure'
       },
-      'services/chain-2-fiat/paraguay': {
-        en: '/services/chain-2-fiat/paraguay',
-        es: '/servicios/chain-2-fiat/paraguay',
-        pt: '/servicos/chain-2-fiat/paraguai'
+      'services/coin-2-local/index': {
+        en: '/services/coin-2-local',
+        es: '/servicios/coin-2-local',
+        pt: '/servicos/coin-2-local',
+        nl: '/diensten/coin-2-local'
       },
-      'services/eas-2-us': {
-        en: '/services/eas-2-us',
-        es: '/servicios/eas-2-us',
-        pt: '/servicos/eas-2-us'
+      'services/coin-2-local/paraguay': {
+        en: '/services/coin-2-local/paraguay',
+        es: '/servicios/coin-2-local/paraguay',
+        pt: '/servicos/coin-2-local/paraguai',
+        nl: '/diensten/coin-2-local/paraguay'
       },
-      'services/llc-2-py': {
-        en: '/services/llc-2-py',
-        es: '/servicios/llc-2-py',
-        pt: '/servicos/llc-2-py'
+      'services/coin-2-local/panama': {
+        en: '/services/coin-2-local/panama',
+        es: '/servicios/coin-2-local/panama',
+        pt: '/servicos/coin-2-local/panama',
+        nl: '/diensten/coin-2-local/panama'
       },
-      'bitcoin-stablecoins-local-fiat-settlement/index': {
-        en: '/bitcoin-stablecoins-local-fiat-settlement',
-        es: '/liquidacion-fiat-local-bitcoin-stablecoins',
-        pt: '/liquidacao-fiat-local-bitcoin-stablecoins'
+      'services/mono-2-multi/index': {
+        en: '/services/mono-2-multi',
+        es: '/servicios/mono-2-multi',
+        pt: '/servicos/mono-2-multi',
+        nl: '/diensten/mono-2-multi'
       },
-      'bitcoin-stablecoins-local-fiat-settlement/paraguay': {
-        en: '/bitcoin-stablecoins-local-fiat-settlement/paraguay',
-        es: '/liquidacion-fiat-local-bitcoin-stablecoins/paraguay',
-        pt: '/liquidacao-fiat-local-bitcoin-stablecoins/paraguai'
+      'services/mono-2-multi/latam-2-int': {
+        en: '/services/mono-2-multi/latam-2-int',
+        es: '/servicios/mono-2-multi/py-2-int',
+        pt: '/servicos/mono-2-multi/py-2-int',
+        nl: '/diensten/mono-2-multi/py-2-int'
       },
-      'multi-rails-consultancy': {
-        en: '/multi-rails-consultancy',
-        es: '/consultoria-multi-canales',
-        pt: '/consultoria-multi-canais'
-      }
+      'services/mono-2-multi/int-2-latam': {
+        en: '/services/mono-2-multi/int-2-latam',
+        es: '/servicios/mono-2-multi/int-2-py',
+        pt: '/servicos/mono-2-multi/int-2-py',
+        nl: '/diensten/mono-2-multi/int-2-py'
+      },
     },
     locales: [{
       code: 'en',
@@ -100,6 +127,14 @@ export default defineNuxtConfig({
       file: 'pt.json',
       dir: 'ltr',
       domain: process.env.NODE_ENV === 'production' ? 'p2pagamentos.com.br' : 'pt.p2pagos.local:3000'
+    },
+    {
+      code: 'nl',
+      name: 'Nederlands',
+      language: 'nl-SR',
+      file: 'nl-SR.json',
+      dir: 'ltr',
+      domain: process.env.NODE_ENV === 'production' ? 'p2paysa.sr' : 'nl.p2pagos.local:3000'
     }]
   },
 
@@ -113,7 +148,7 @@ export default defineNuxtConfig({
 
   vite: {
     server: {
-      allowedHosts: ['en.p2pagos.local', 'es.p2pagos.local', 'pt.p2pagos.local']
+      allowedHosts: ['en.p2pagos.local', 'es.p2pagos.local', 'pt.p2pagos.local', 'nl.p2pagos.local']
     }
   },
 

@@ -12,10 +12,10 @@ useHead(() => ({
 }))
 
 const services = [
-  { key: 'fiat2chain', routeName: 'services-fiat-2-chain', name: 'Fiat2Chain' },
-  { key: 'chain2fiat', routeName: 'services-chain-2-fiat', name: 'Chain2Fiat' },
-  { key: 'eas2us', routeName: 'services-eas-2-us', name: 'EAS2US' },
-  { key: 'llc2py', routeName: 'services-llc-2-py', name: 'LLC2PY' }
+  { key: 'fiat2chain', routeName: 'services-local-2-coin', name: 'Local2Coin' },
+  { key: 'chain2fiat', routeName: 'services-coin-2-local', name: 'Coin2Local' },
+  { key: 'py2int', routeName: 'services-mono-2-multi-latam-2-int', name: 'LATAM2Int' },
+  { key: 'int2py', routeName: 'services-mono-2-multi-int-2-latam', name: 'Int2LATAM' }
 ]
 </script>
 

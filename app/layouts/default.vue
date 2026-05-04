@@ -4,10 +4,10 @@ const switchLocalePath = useSwitchLocalePath()
 const localePath = useLocalePath()
 
 const services = [
-  { key: 'fiat2chain', routeName: 'services-fiat-2-chain', name: 'Fiat2Chain' },
-  { key: 'chain2fiat', routeName: 'services-chain-2-fiat', name: 'Chain2Fiat' },
-  { key: 'eas2us', routeName: 'services-eas-2-us', name: 'EAS2US' },
-  { key: 'llc2py', routeName: 'services-llc-2-py', name: 'LLC2PY' }
+  { key: 'fiat2chain', routeName: 'services-local-2-coin', name: 'Local2Coin' },
+  { key: 'chain2fiat', routeName: 'services-coin-2-local', name: 'Coin2Local', badge: 'Moonshot' },
+  { key: 'py2int', routeName: 'services-mono-2-multi-latam-2-int', name: 'LATAM2Int' },
+  { key: 'mono2multi', routeName: 'services-mono-2-multi', name: 'Mono2Multi' }
 ]
 </script>
 
@@ -25,10 +25,11 @@ const services = [
             v-for="s in services"
             :key="s.key"
             :to="localePath(s.routeName)"
-            class="text-sm font-medium text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 transition whitespace-nowrap"
+            class="flex items-center gap-1.5 text-sm font-medium text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 transition whitespace-nowrap"
             active-class="text-gray-900 dark:text-gray-100"
           >
             {{ s.name }}
+            <UBadge v-if="s.badge" color="primary" variant="subtle" size="xs">{{ s.badge }}</UBadge>
           </NuxtLink>
         </nav>
       </div>
