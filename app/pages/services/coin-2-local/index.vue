@@ -1,8 +1,9 @@
 <script setup>
-const { t, locale } = useI18n()
+const { t } = useI18n()
+const route = useRoute()
 
-const { data: page } = await useAsyncData(`coin-2-local-${locale.value}`, () =>
-  queryCollection('content').where('path', '=', `/${locale.value}/services/coin-2-local`).first()
+const { data: page } = await useAsyncData(`coin-2-local-${route.path}`, () =>
+  queryCollection('content').where('path', 'LIKE', `%${route.path}`).first()
 )
 useSeoMeta({
   title: () => page.value?.title,
