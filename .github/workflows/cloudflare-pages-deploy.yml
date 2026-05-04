@@ -31,12 +31,18 @@ jobs:
           NODE_OPTIONS: --max-old-space-size=4096
 
       - name: Migrate D1 content database
-        uses: cloudflare/wrangler-action@v3
-        with:
-          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          accountId: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
-          wranglerVersion: '4'
-          command: d1 execute DB --file=.output/public/__nuxt_content/content/sql_dump.txt --remote
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
+        run: |
+          SQL_DUMP=$(find .output -name "sql_dump.txt" | head -1)
+          if [ -z "$SQL_DUMP" ]; then
+            echo "sql_dump.txt not found. Listing .output for debugging:"
+            find .output -type f \( -name "*.txt" -o -name "*.sql" \) | head -30
+            exit 1
+          fi
+          echo "Found SQL dump at: $SQL_DUMP"
+          npx wrangler@4 d1 execute DB --file="$SQL_DUMP" --remote
 
       - name: Deploy to Cloudflare Pages
         uses: cloudflare/wrangler-action@v3
