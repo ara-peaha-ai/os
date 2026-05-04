@@ -17,4 +17,4 @@ Int2Latam omvat:
 
 P2Pagos opereert [p2paysa.sr](https://p2paysa.sr) als zijn Surinaamse geo-gelokaliseerde aanwezigheid. Wij zijn van plan het te gebruiken om marktspecifieke inhoud te leveren voor het Surinaamse publiek — dit domein is onze huidige actieve aanwezigheid in het land.
 
-[← Int2Latam](/diensten/mono-2-multi/int-2-py)
+[← Int2Latam](/diensten/mono-2-multi/int-2-latam)

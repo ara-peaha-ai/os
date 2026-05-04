@@ -2,7 +2,7 @@
 title: Int2Latam
 description: Advies voor internationale bedrijven, AI-native operators en platforms die Paraguay of Latijns-Amerika betreden via lokale structuur, lokale infrastructuur, lokale betalingsrails en multi-rail uitvoering.
 subtitle: Internationale Operators naar Paraguay en Suriname
-slug: int-2-py
+slug: int-2-latam
 serviceType: advisory
 parentService: mono-2-multi
 tags:

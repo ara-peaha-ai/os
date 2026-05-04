@@ -16,4 +16,4 @@ Int2Latam omvat:
 - **EAS-oprichting en -beheer** — Empresa Anónima Simplificada, het standaard lokale voertuig voor internationale operators
 - **SEPRELAD-compliancerelatie** voor het bedrijf
 
-[← Int2Latam](/diensten/mono-2-multi/int-2-py)
+[← Int2Latam](/diensten/mono-2-multi/int-2-latam)

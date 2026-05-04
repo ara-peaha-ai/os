@@ -17,4 +17,4 @@ Int2Latam cubre:
 
 P2Pagos opera [p2paysa.sr](https://p2paysa.sr) como su presencia geo-localizada en Surinam. Planeamos utilizarla para entregar contenido específico para la audiencia surinamesa — este dominio es nuestra huella activa actual en el país.
 
-[← Int2Latam](/servicios/mono-2-multi/int-2-py)
+[← Int2Latam](/servicios/mono-2-multi/int-2-latam)

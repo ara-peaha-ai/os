@@ -110,13 +110,13 @@ Latam2Int ajuda empresas paraguaias e latino-americanas a se prepararem para ope
 
 Pode incluir estruturas estrangeiras, contas bancárias, documentação de origem de fundos, preparação KYC/KYB, onboarding em exchanges ou brokers, acesso a rails de pagamento e planejamento de rotas de liquidação.
 
-Mais informações em [Latam2Int](/servicos/mono-2-multi/py-2-int).
+Mais informações em [Latam2Int](/servicos/mono-2-multi/latam-2-int).
 
 ## Int2Latam
 
 Int2Latam ajuda operadores internacionais a entrarem no Paraguai ou América Latina através de empresas locais, infraestrutura local, integrações de pagamento locais, domínios locais, presença VPS/VPN local e continuidade multi-canal.
 
-Mais informações em [Int2Latam](/servicos/mono-2-multi/int-2-py).
+Mais informações em [Int2Latam](/servicos/mono-2-multi/int-2-latam).
 
 ## Princípio Mono2Multi
 
@@ -154,8 +154,8 @@ Mono2Multi prepara a estrutura empresarial, presença local, rails, intermediár
 
 ## Serviços relacionados
 
-- [Latam2Int](/servicos/mono-2-multi/py-2-int)
-- [Int2Latam](/servicos/mono-2-multi/int-2-py)
+- [Latam2Int](/servicos/mono-2-multi/latam-2-int)
+- [Int2Latam](/servicos/mono-2-multi/int-2-latam)
 - [Local2Coin](/servicos/local-2-coin)
 - [Coin2Local](/servicos/coin-2-local)
 

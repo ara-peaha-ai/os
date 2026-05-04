@@ -97,27 +97,27 @@ export default defineNuxtConfig({
       },
       'services/mono-2-multi/latam-2-int': {
         en: '/services/mono-2-multi/latam-2-int',
-        es: '/servicios/mono-2-multi/py-2-int',
-        pt: '/servicos/mono-2-multi/py-2-int',
-        nl: '/diensten/mono-2-multi/py-2-int'
+        es: '/servicios/mono-2-multi/latam-2-int',
+        pt: '/servicos/mono-2-multi/latam-2-int',
+        nl: '/diensten/mono-2-multi/latam-2-int'
       },
       'services/mono-2-multi/int-2-latam/index': {
         en: '/services/mono-2-multi/int-2-latam',
-        es: '/servicios/mono-2-multi/int-2-py',
-        pt: '/servicos/mono-2-multi/int-2-py',
-        nl: '/diensten/mono-2-multi/int-2-py'
+        es: '/servicios/mono-2-multi/int-2-latam',
+        pt: '/servicos/mono-2-multi/int-2-latam',
+        nl: '/diensten/mono-2-multi/int-2-latam'
       },
       'services/mono-2-multi/int-2-latam/paraguay': {
         en: '/services/mono-2-multi/int-2-latam/paraguay',
-        es: '/servicios/mono-2-multi/int-2-py/paraguay',
-        pt: '/servicos/mono-2-multi/int-2-py/paraguai',
-        nl: '/diensten/mono-2-multi/int-2-py/paraguay'
+        es: '/servicios/mono-2-multi/int-2-latam/paraguay',
+        pt: '/servicos/mono-2-multi/int-2-latam/paraguai',
+        nl: '/diensten/mono-2-multi/int-2-latam/paraguay'
       },
       'services/mono-2-multi/int-2-latam/suriname': {
         en: '/services/mono-2-multi/int-2-latam/suriname',
-        es: '/servicios/mono-2-multi/int-2-py/surinam',
-        pt: '/servicos/mono-2-multi/int-2-py/suriname',
-        nl: '/diensten/mono-2-multi/int-2-py/suriname'
+        es: '/servicios/mono-2-multi/int-2-latam/surinam',
+        pt: '/servicos/mono-2-multi/int-2-latam/suriname',
+        nl: '/diensten/mono-2-multi/int-2-latam/suriname'
       },
     },
     locales: [{

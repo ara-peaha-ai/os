@@ -58,13 +58,13 @@ Mono2Multi heeft momenteel twee hoofdadviesrichtingen:
 
 Latam2Int helpt Latijns-Amerikaanse bedrijven zich voor te bereiden op internationale operaties: buitenlandse structuren, zakelijke rekeningen, source-of-funds-documentatie, KYC-gereedheid en toegang tot betalingsrails.
 
-Meer informatie op [Latam2Int](/diensten/mono-2-multi/py-2-int).
+Meer informatie op [Latam2Int](/diensten/mono-2-multi/latam-2-int).
 
 ## Int2Latam
 
 Int2Latam helpt internationale operators Paraguay of Latijns-Amerika betreden via lokale bedrijven, infrastructuur, betalingsintegraties en multi-rail continuïteit.
 
-Meer informatie op [Int2Latam](/diensten/mono-2-multi/int-2-py).
+Meer informatie op [Int2Latam](/diensten/mono-2-multi/int-2-latam).
 
 ## Adviesmodel
 
@@ -119,8 +119,8 @@ Mono2Multi bereidt de structuur, rails, documentatie en back-uplogica voor die n
 
 ## Gerelateerde diensten
 
-- [Latam2Int](/diensten/mono-2-multi/py-2-int)
-- [Int2Latam](/diensten/mono-2-multi/int-2-py)
+- [Latam2Int](/diensten/mono-2-multi/latam-2-int)
+- [Int2Latam](/diensten/mono-2-multi/int-2-latam)
 - [Local2Coin](/diensten/local-2-coin)
 - [Coin2Local](/diensten/coin-2-local)
 

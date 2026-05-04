@@ -270,8 +270,8 @@ Voor operators die deze structuur geïmplementeerd nodig hebben: [Mono2Multi](/d
 ## Gerelateerde diensten
 
 - [Mono2Multi](/diensten/mono-2-multi)
-- [Latam2Int](/diensten/mono-2-multi/py-2-int)
-- [Int2Latam](/diensten/mono-2-multi/int-2-py)
+- [Latam2Int](/diensten/mono-2-multi/latam-2-int)
+- [Int2Latam](/diensten/mono-2-multi/int-2-latam)
 
 ## Gerelateerde inzichten
 

@@ -17,4 +17,4 @@ O Int2Latam cobre:
 
 O P2Pagos opera [p2paysa.sr](https://p2paysa.sr) como sua presença geo-localizada no Suriname. Planejamos utilizá-la para entregar conteúdo específico para o público surinamês — este domínio é nossa presença ativa atual no país.
 
-[← Int2Latam](/servicos/mono-2-multi/int-2-py)
+[← Int2Latam](/servicos/mono-2-multi/int-2-latam)

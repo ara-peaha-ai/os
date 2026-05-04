@@ -2,7 +2,7 @@
 title: Latam2Int
 description: Advies voor Latijns-Amerikaanse bedrijven die internationaal uitbreiden via buitenlandse structuren, zakelijke rekeningen, documentatie, KYC-voorbereiding, source-of-funds-ondersteuning en gereedheid voor betalingsrails.
 subtitle: Latijns-Amerikaanse Bedrijven Gaan Internationaal
-slug: py-2-int
+slug: latam-2-int
 serviceType: advisory
 parentService: mono-2-multi
 tags:

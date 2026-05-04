@@ -270,8 +270,8 @@ Para operadores que precisam dessa estrutura implementada, ver [Mono2Multi](/ser
 ## Serviços relacionados
 
 - [Mono2Multi](/servicos/mono-2-multi)
-- [Latam2Int](/servicos/mono-2-multi/py-2-int)
-- [Int2Latam](/servicos/mono-2-multi/int-2-py)
+- [Latam2Int](/servicos/mono-2-multi/latam-2-int)
+- [Int2Latam](/servicos/mono-2-multi/int-2-latam)
 
 ## Insights relacionados
 
