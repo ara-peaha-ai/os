@@ -75,10 +75,10 @@ Paraguay se ha consolidado como referencia para la reubicación internacional, c
 
 Para compradores en proceso de obtener la residencia paraguaya, el momento de la liquidación importa. Las obligaciones de reporte bajo la normativa paraguaya difieren entre no residentes y residentes registrados. El estatus de residente simplifica el perfil de cumplimiento para transacciones inmobiliarias con liquidación en fiat local.
 
-P2Pay estructura una opción de liquidación diferida para estos casos:
+P2Pagos estructura una opción de liquidación diferida para estos casos:
 
 1. El comprador transfiere Bitcoin o stablecoins para iniciar la compra.
-2. P2Pay mantiene el acuerdo estructurado — el inmueble queda reservado para el comprador.
+2. P2Pagos mantiene el acuerdo estructurado — el inmueble queda reservado para el comprador.
 3. La liquidación en fiat al vendedor se ejecuta una vez confirmada la residencia paraguaya.
 
 **Qué es esto:** Una estructura legítima de timing de transacción. Todas las obligaciones fiscales, legales y contractuales permanecen vigentes. La residencia en Paraguay es una condición de liquidación, no un mecanismo para reducir ninguna obligación.

@@ -96,7 +96,6 @@ Gepland gerelateerd artikel: `/vps-in-paraguay`
 
 Suriname is de tweede markt waar P2Pagos directe operationele infrastructuur heeft.
 
-P2Pay opereert al onder `.sr` — het officiële landcode-topniveaudomein van Suriname — via `p2paysa.sr`.
 
 Suriname heeft Nederlands als officiële taal, wat natuurlijke toegangscondities creëert voor Europese bedrijven, Nederlandse operators en bedrijven die al actief zijn in de Nederlandstalige Caraïben. Het is ook een relevante jurisdictie voor Surinaamse diasporabedrijven die internationaal opereren.
 

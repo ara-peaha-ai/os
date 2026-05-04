@@ -15,9 +15,10 @@ P2Pagos uses:
 
 - [`/mono`](https://github.com/P2Pagos/mono) as the Nuxt-based orchestrator repo.
 - [`/wallet`](https://github.com/P2Pagos/wallet) as the mobile self-custodial settlement wallet, based on an Aqua Wallet fork.
-- [BTCPay Server](https://github.com/btcpayserver/btcpayserver) as the backend for settlement infrastructure.
-- `/dashboard` as the embedded Nuxt mini app for wallet-based payment settings and flows.
+- `/dashboard` as the embedded Nuxt mini app for `/wallet` settings and flows, replicable on desktop.
 - `/marketplace` as the closed-source multi-user layer built on top of `/mono`.
+- [BTCPay Server](https://github.com/btcpayserver/btcpayserver) as the backend for settlement infrastructure.
+
 
 The stack is designed around:
 
@@ -164,7 +165,7 @@ Infrastructure modules that run both as standalone Nitro apps and embeddable Nux
 | USDT | Implemented | USD | Liquid & Polygon | USDT Liquid & Polygon | None | None | Total |
 | [Peach](https://github.com/P2Pagos/mono/tree/main/rails/peach) *(p2p-api-integration)* | Testing | Global | Any | Bitcoin on-chain | High | None | Total |
 | [RoboSats](https://github.com/P2Pagos/mono/tree/main/rails/robosats) *(p2p-api-integration)* | Testing | Global | Any | Bitcoin on-chain | High | None | Total |
-| MoonPay ACH USD *(cex-api-integration)* | Designing | USD | ACH | TBD | TBD | Standard | None |
+| MoonPay ACH USD *(cex-api-integration)* | Designing | USD | ACH | USDT(?) | None | Standard | None |
 | Mostro *(p2p-api-integration)* | Evaluating | Global | Any | Bitcoin on-chain | High | None | Total |
 | Guardarian *(cex-api-integration)* | Planned | USD, EUR, GBP, CAD, AUD, JPY, TRY, PLN, SEK | Credit/Debit Cards & Google/Apple Pay | Bitcoin on-chain | Medium | None or Standard | Possible with RUC structure |
 | Paygate *(cex-api-integration)* | Planned | Global | Credit/Debit Cards | USDT Polygon | Medium | None | Total |

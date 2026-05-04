@@ -40,7 +40,7 @@ No documentation is typically required. Requirements confirmed case by case.
 
 #### Deferred settlement for incoming Paraguay residents
 
-For buyers in the process of obtaining Paraguay residency, P2Pay structures a deferred settlement option:
+For buyers in the process of obtaining Paraguay residency, P2Pagos structures a deferred settlement option:
 
 1. Buyer transfers Bitcoin or stablecoins — property is reserved.
 2. Fiat settlement to the seller executes upon confirmation of Paraguay residency.

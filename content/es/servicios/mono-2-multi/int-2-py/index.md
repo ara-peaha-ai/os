@@ -46,7 +46,6 @@ Casos típicos incluyen:
 
 Surinam es el segundo mercado donde P2Pagos tiene presencia de infraestructura directa.
 
-P2Pay opera bajo `.sr`, el dominio de código de país oficial de Surinam, en `p2paysa.sr`.
 
 El idioma oficial de Surinam es el holandés, lo que genera condiciones naturales de entrada para empresas europeas, operadores con base en los Países Bajos y empresas ya activas en el Caribe de habla holandesa.
 

@@ -97,11 +97,23 @@ export default defineNuxtConfig({
         pt: '/servicos/mono-2-multi/py-2-int',
         nl: '/diensten/mono-2-multi/py-2-int'
       },
-      'services/mono-2-multi/int-2-latam': {
+      'services/mono-2-multi/int-2-latam/index': {
         en: '/services/mono-2-multi/int-2-latam',
         es: '/servicios/mono-2-multi/int-2-py',
         pt: '/servicos/mono-2-multi/int-2-py',
         nl: '/diensten/mono-2-multi/int-2-py'
+      },
+      'services/mono-2-multi/int-2-latam/paraguay': {
+        en: '/services/mono-2-multi/int-2-latam/paraguay',
+        es: '/servicios/mono-2-multi/int-2-py/paraguay',
+        pt: '/servicos/mono-2-multi/int-2-py/paraguai',
+        nl: '/diensten/mono-2-multi/int-2-py/paraguay'
+      },
+      'services/mono-2-multi/int-2-latam/suriname': {
+        en: '/services/mono-2-multi/int-2-latam/suriname',
+        es: '/servicios/mono-2-multi/int-2-py/surinam',
+        pt: '/servicos/mono-2-multi/int-2-py/suriname',
+        nl: '/diensten/mono-2-multi/int-2-py/suriname'
       },
     },
     locales: [{

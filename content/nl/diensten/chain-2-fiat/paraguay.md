@@ -8,10 +8,10 @@ Paraguay is een referentiejurisdictie geworden voor internationale hervestiging,
 
 Voor kopers die in de process zijn om een Paraguayaanse verblijfsvergunning te verkrijgen, is de timing van afwikkeling van belang. Rapportageverplichtingen onder Paraguayaanse regelgeving verschillen tussen niet-ingezetenen en geregistreerde ingezetenen. De ingezetenenstatus vereenvoudigt het complianceprofiel voor vastgoedtransacties met lokale fiat-afwikkeling.
 
-P2Pay structureert een uitgestelde afwikkelingsoptie voor deze gevallen:
+P2Pagos structureert een uitgestelde afwikkelingsoptie voor deze gevallen:
 
 1. De koper draagt Bitcoin of stablecoins over om de aankoop te initiëren.
-2. P2Pay beheert de gestructureerde regeling — het onroerend goed is gereserveerd voor de koper.
+2. P2Pagos beheert de gestructureerde regeling — het onroerend goed is gereserveerd voor de koper.
 3. De fiat-afwikkeling aan de verkoper wordt uitgevoerd na bevestiging van de Paraguayaanse verblijfsvergunning.
 
 Dit stelt de transactie in staat te voltooien en af te wikkelen onder de ingezetenenstatus van de koper in plaats van tijdens de niet-ingezetene-overgangsfase.

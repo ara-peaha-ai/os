@@ -1,9 +1,9 @@
 ---
-title: "P2Pagos & P2Pay"
+title: "P2Pagos"
 description: "P2Pagos orkestreert grensoverschrijdende betalingen van 5 tot 500k USD voor AI-agenten, high-friction operators en middelgrote bedrijven in Paraguay en Latijns-Amerika."
 hero:
   label: "Agnostische multi-rail betalingsinfrastructuur"
-  h1: "P2Pagos & P2Pay"
+  h1: "P2Pagos"
   subtitle: "Wij orkestreren betalingen over landen, technologieën, lokale betaalmethoden, verificatieniveaus, bedrijfsstructuren, Bitcoin, USDT, USDC, stablecoin-afwikkelingsrails, bankoverschrijvingen en kasliquiditeit."
   paragraphs:
     - "Wij orkestreren betalingen over landen, technologieën, lokale betaalmethoden, verificatieniveaus, bedrijfsstructuren, Bitcoin, USDT, USDC, stablecoin-afwikkelingsrails, bankoverschrijvingen, kasliquiditeit en sectoren als onroerend goed en mijnbouw in Paraguay en andere Latijns-Amerikaanse markten."

@@ -45,7 +45,6 @@ Casos típicos incluem:
 
 Suriname é o segundo mercado onde o P2Pagos tem presença direta de infraestrutura.
 
-O P2Pay opera sob `.sr`, o domínio de código de país oficial do Suriname, em `p2paysa.sr`.
 
 O idioma oficial do Suriname é o holandês, o que cria condições naturais de entrada para empresas europeias, operadores com base nos Países Baixos e empresas já ativas no Caribe de língua holandesa.
 

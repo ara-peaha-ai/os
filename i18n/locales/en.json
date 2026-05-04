@@ -83,7 +83,7 @@
     "docEnhanced": "Standard plus contracts, invoices, payment records",
     "docStandardNote": "Standard — individual: passport or government ID. Entity: passport of all partners + company registration and constitutional documents.",
     "note_usdtOnly": "USDT only",
-    "levelMinimalLabel": "Short occasional rentals",
+    "levelMinimalLabel": "Short rentals",
     "levelMinimalDesc": "AI agents, testing, small unregulated businesses — both directions",
     "levelStandardLabel": "Property deposit",
     "levelStandardDesc": "Small businesses — both directions",
