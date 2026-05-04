@@ -27,8 +27,6 @@ jobs:
 
       - name: Build application
         run: npm run build
-        env:
-          WISE_API_TOKEN: ${{ secrets.WISE_API_TOKEN }}
 
       - name: Migrate D1 content database
         uses: cloudflare/wrangler-action@v3
@@ -43,7 +41,3 @@ jobs:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           command: pages deploy .output/public --project-name=p2pay-website
-          secrets: |
-            WISE_API_TOKEN
-        env:
-          WISE_API_TOKEN: ${{ secrets.WISE_API_TOKEN }}
