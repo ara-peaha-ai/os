@@ -59,7 +59,22 @@ jobs:
             exit 1
           fi
           echo "Found SQL dump at: $SQL_DUMP"
-          npx wrangler@4 d1 execute DB --file="$SQL_DUMP" --remote
+          BATCH=""
+          BATCH_SIZE=0
+          MAX_BATCH=50000
+          while IFS= read -r line; do
+            LINE_SIZE=${#line}
+            if [ $((BATCH_SIZE + LINE_SIZE)) -gt $MAX_BATCH ] && [ -n "$BATCH" ]; then
+              npx wrangler@4 d1 execute DB --remote --command="$BATCH"
+              BATCH=""
+              BATCH_SIZE=0
+            fi
+            BATCH="$BATCH$line"$'\n'
+            BATCH_SIZE=$((BATCH_SIZE + LINE_SIZE))
+          done < "$SQL_DUMP"
+          if [ -n "$BATCH" ]; then
+            npx wrangler@4 d1 execute DB --remote --command="$BATCH"
+          fi
 
       - name: Deploy to Cloudflare Pages
         uses: cloudflare/wrangler-action@v3
