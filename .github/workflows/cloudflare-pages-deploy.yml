@@ -27,6 +27,8 @@ jobs:
 
       - name: Build application
         run: npm run build
+        env:
+          NODE_OPTIONS: --max-old-space-size=4096
 
       - name: Migrate D1 content database
         uses: cloudflare/wrangler-action@v3
