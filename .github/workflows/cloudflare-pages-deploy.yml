@@ -30,24 +30,15 @@ jobs:
         env:
           NODE_OPTIONS: --max-old-space-size=4096
 
-      - name: Debug build output
-        run: |
-          echo "=== workspace root ==="
-          ls -la
-          echo "=== .output (if exists) ==="
-          ls -la .output/ 2>/dev/null || echo ".output not found"
-          echo "=== nuxt.config output dir ==="
-          find . -maxdepth 3 -name "sql_dump.txt" 2>/dev/null || echo "sql_dump.txt not found anywhere"
-
       - name: Migrate D1 content database
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
         run: |
-          SQL_DUMP=$(find .output -name "sql_dump.txt" | head -1)
+          SQL_DUMP=$(find dist -name "sql_dump.txt" | head -1)
           if [ -z "$SQL_DUMP" ]; then
-            echo "sql_dump.txt not found. Listing .output for debugging:"
-            find .output -type f \( -name "*.txt" -o -name "*.sql" \) | head -30
+            echo "sql_dump.txt not found in dist/. Files in dist/:"
+            find dist -type f | head -30
             exit 1
           fi
           echo "Found SQL dump at: $SQL_DUMP"
@@ -59,4 +50,4 @@ jobs:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
           wranglerVersion: '4'
-          command: pages deploy .output/public --project-name=p2pay-website
+          command: pages deploy dist --project-name=p2pay-website
