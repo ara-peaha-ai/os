@@ -3,6 +3,10 @@ export default defineNuxtConfig({
     wiseApiToken: process.env.WISE_API_TOKEN
   },
 
+  nitro: {
+    preset: 'cloudflare-pages'
+  },
+
   modules: [
     '@nuxt/eslint',
     '@nuxt/ui',
@@ -151,9 +155,10 @@ export default defineNuxtConfig({
   },
 
   content: {
-    experimental: {
-      nativeSqlite: true
-    },
+    database: {
+      type: 'd1',
+      bindingName: 'DB'
+    }
   },
 
   css: ['~/assets/css/main.css'],

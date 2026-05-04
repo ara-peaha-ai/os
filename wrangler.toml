@@ -1,0 +1,9 @@
+name = "p2pay-website"
+compatibility_date = "2025-01-15"
+compatibility_flags = ["nodejs_compat"]
+pages_build_output_dir = ".output/public"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "p2pay-content"
+database_id = "REPLACE_WITH_D1_DATABASE_ID"
