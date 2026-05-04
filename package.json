@@ -3,6 +3,7 @@
   "private": true,
   "scripts": {
     "build": "nuxt build",
+    "sync-env": "bash scripts/sync-env.sh",
     "dev": "nuxt dev --host 0.0.0.0",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
