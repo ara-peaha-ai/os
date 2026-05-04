@@ -1,9 +1,9 @@
 {
   "services": {
-    "fiat2chain": "Accept local bank transfers and cash, settled on-chain in Bitcoin, USDT, or USDC.",
+    "fiat2chain": "Accept local bank transfers and cash, settled on-chain in Bitcoin, USDT, or Latam stablecoins.",
     "chain2fiat": "Accept Bitcoin or stablecoins, settled in local fiat currency.",
-    "latam2int": "Bridge payments from Paraguay entities to international recipients.",
-    "int2latam": "Bridge payments from international entities to Paraguay."
+    "py2int": "Route outbound payments from Paraguay to international recipients and suppliers.",
+    "int2py": "Collect payments from the Paraguayan market for your international business."
   },
   "coin2property": {
     "badge": "Coming Soon",

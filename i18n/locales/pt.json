@@ -1,9 +1,9 @@
 {
   "services": {
-    "fiat2chain": "Aceite transferências bancárias locais e dinheiro, liquidados on-chain em Bitcoin, USDT ou USDC.",
+    "fiat2chain": "Aceite transferências bancárias locais e dinheiro, liquidados on-chain em Bitcoin, USDT ou stablecoins da Latam.",
     "chain2fiat": "Aceite Bitcoin ou stablecoins, liquidados em moeda fiat local.",
-    "py2int": "Conecte pagamentos de entidades paraguaias para destinatários internacionais.",
-    "int2py": "Conecte pagamentos de entidades internacionais para o Paraguai."
+    "py2int": "Roteie pagamentos de saída do Paraguai para destinatários e fornecedores internacionais.",
+    "int2py": "Receba pagamentos do mercado paraguaio para o seu negócio internacional."
   },
   "coin2property": {
     "badge": "Em breve",

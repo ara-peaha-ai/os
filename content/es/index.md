@@ -1,9 +1,9 @@
 ---
-title: "P2Pagos & P2Pay"
+title: "P2Pagos"
 description: "P2Pagos orquesta pagos transfronterizos de 5 a 500k USD para agentes de IA, operadores de alto riesgo y empresas medianas en Paraguay y América Latina."
 hero:
   label: "Infraestructura de pagos multi-canal agnóstica"
-  h1: "P2Pagos & P2Pay"
+  h1: "P2Pagos"
   subtitle: "Orquestamos pagos entre países, tecnologías, métodos de pago locales, niveles de verificación, estructuras empresariales, Bitcoin, USDT, USDC, canales de liquidación en stablecoins, transferencias bancarias y liquidez en efectivo."
   paragraphs:
     - "Orquestamos pagos entre países, tecnologías, métodos de pago locales, niveles de verificación, estructuras empresariales, Bitcoin, USDT, USDC y canales de liquidación en stablecoins."

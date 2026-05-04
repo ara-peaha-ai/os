@@ -1,7 +1,7 @@
 ---
 title: Local2Coin
-description: Accept cards and local payment methods for single-user businesses, AI agents, and marketplaces, with final settlement in Bitcoin, USDT, or USDC.
-subtitle: Cards & Local Payments to Bitcoin and Stablecoins
+description: Accept cards and local payment methods for single-user businesses, AI agents, and marketplaces, with final settlement in Bitcoin or USDT.
+subtitle: Cards & Local Payments settled in Bitcoin and Stablecoins
 slug: local-2-coin
 serviceType: product
 tags:
@@ -11,6 +11,9 @@ tags:
   - card to USDT settlement
   - local payments to Bitcoin
   - local payments to stablecoins
+  - multi-rail payment infrastructure
+  - reduced false positives payments
+  - false positive payment decline reduction
   - marketplace payment infrastructure
   - privacy-first marketplace payments
   - self-custodial settlement
@@ -22,122 +25,88 @@ tags:
 
 ## Local2Coin
 
-Local2Coin helps single-user businesses, AI agents, marketplaces, and high-friction operators accept cards and local payment methods while settling value in Bitcoin, USDT, or USDC.
+Local2Coin is the service that gave origin to the P2Pagos project.
 
-It is the inbound direction of the P2Pagos stack:
+It started as a personal infrastructure project developed over several years to solve a practical problem: modern businesses, marketplaces, creators, AI agents, and small operators often need payment infrastructure before they have the full corporate, banking, and compliance structure required by traditional processors.
 
-```txt
-cards / local payments / marketplace payments → Bitcoin / USDT / USDC settlement
-```
+Local2Coin is based on open-source principles.
 
-The goal is not to add another payment button. The goal is to create a payment flow where the customer pays with the method available to them, while the merchant, creator, or final recipient receives Bitcoin or stablecoins through a documented, rail-aware, and privacy-conscious process.
+The complete single-user solution is designed to remain MIT licensed, self-hostable, and user-friendly. This open layer is the foundation of `/mono`.
 
-Local2Coin is built for operators that cannot depend on one processor, one bank, one account, one country, or one settlement rail.
+The ongoing development and maintenance of `/mono` is supported through the commercial license of `/marketplace`, the closed-source multi-user layer for self-custodial marketplace deployments.
 
-## Current focus
+## What it does
 
-Local2Coin is currently focused on:
+Local2Coin allows single users and marketplaces to accept card and local payments in a self-custodial manner, with final settlement in Bitcoin or USDT.
 
-- single-user businesses
-- AI agents without traditional business accounts
-- creator platforms
-- digital service platforms
-- high-friction but lawful businesses
-- operators exposed to card declines
-- operators blocked by traditional processor onboarding
-- marketplaces that need privacy-preserving payment flows
+It consolidates local payments from different parts of the world into a single application with business functions such as electronic invoicing.
 
-## Two deployment options
+The objective is not only to accept payments.
 
-**[`/mono`](https://github.com/P2Pagos/mono) — MIT licensed, self-hostable.**
-Single-user orchestrator. The default starting point for individual operators, AI agents, and small businesses. Fork it, run it, customize it.
+The objective is to build payment infrastructure that can survive processor failures, false positives, unsupported countries, blocked accounts, card declines, and single-rail dependency.
 
-**`/marketplace` — Closed-source, managed.**
-Multi-user marketplace layer built on top of `/mono`. For platforms that need user management, white-label flows, membership plans, KYC triggers, and dedicated managed infrastructure.
+## Built with open-source infrastructure
 
-## What Local2Coin solves
+Local2Coin uses leading open-source infrastructure:
 
-Traditional payment processors often fail before the business reaches the customer.
+1. **BTCPay Server**  
+   Used as the backend of the entire infrastructure and settlement layer.
 
-The common problems are:
+2. **Aqua Wallet fork**  
+   Used as the default mobile settlement wallet base, with planned Polygon support and replacement of Aqua’s marketplace interface with the P2Pagos `/dashboard` for managing `/mono` and pairing with BTCPay Server.
 
-- rejected onboarding
-- unsupported countries
-- high card decline rates
-- false positives
-- processor dependency
-- chargeback exposure
-- limited settlement options
-- forced disclosure of sensitive merchant data
-- blocked or frozen accounts
-- lack of backup rails
+3. **Vue / Nuxt**  
+   Used where possible because it is released and maintained by an independent international developer community rather than by a large corporate ecosystem.
 
-Local2Coin solves this by separating the customer payment method from merchant settlement.
+4. **Open-source invoicing tools**  
+   Electronic invoicing is planned around open-source-compatible solutions such as Invopop, with jurisdiction-specific modules added where needed.
 
-The customer pays through the available card, local, marketplace, or fiat method. The merchant, creator, or final recipient settles in Bitcoin or stablecoins through a controlled, documented, and rail-aware flow.
+## The problem
 
-## Managed support
+Any modern application is designed around the system it uses to manage funds.
 
-Local2Coin is a managed service.
+The presence or absence of specific financial features can make entire business models possible or impossible.
 
-We support the end customer during payment execution and support the merchant or marketplace across the technical, operational, and documentation process.
+Traditional commercial solutions usually have proprietary APIs, custodial flows, closed rules, and features that can change over time.
 
-Support can include:
+They also often require extensive documentation before a project has even been validated: company documents, transaction-flow explanations, source-of-funds evidence, compliance details, or operating history.
 
-- customer payment guidance
-- merchant onboarding
-- creator onboarding flow design
-- wallet setup
-- BTCPay Server setup
-- marketplace instance setup
-- membership plan configuration
-- settlement flow configuration
-- local rail coordination
-- payment status follow-up
-- transaction documentation
-- source-of-funds support where needed
-- operational troubleshooting
-- compliance support with intermediary services that form part of the rail
+This can block early-stage products, small operators, young developers, AI agents, marketplaces, and lawful businesses that do not fit standard onboarding logic.
 
-The objective is to make the payment easier to complete, easier to document, and easier to explain.
+## The solution
 
-## Mono2Multi approach
+A product should be able to use the same payment flows and the same API logic during development, testing, launch, and growth.
 
-Local2Coin follows the Mono2Multi principle.
+Most payment APIs are closed and custodial.
 
-A production payment flow should not depend on a single processor, account, country, payment method, or settlement rail.
+P2Pagos uses open modules where possible, with rails that can be activated or deactivated while preserving the underlying implementation.
 
-When a customer payment fails because of a false positive, blocked card, unsupported country, processor rule, local limitation, or verification mismatch, the business should have another route ready.
+This means the system can start working with higher costs, slower settlement, lower limits, or less efficient routes, and later improve exchange rates, settlement speed, volume capacity, and documentation depth without rebuilding the product.
 
-The usable rail and settlement path matter more than ideology.
+The same implementation can test global demand first, then focus on more efficient local rails in the countries or markets where the business actually proves demand.
 
-## Privacy by architecture
+## Multi-rail with reduced false positives
 
-Local2Coin is designed to reduce unnecessary exposure of sensitive personal or business data.
+Local2Coin is designed around multi-rail payment continuity.
 
-In marketplace flows, the buyer should not need access to the creator's real personal identity. The creator should not need access to unnecessary buyer data. The platform should not become the financial intermediary unless it has a clear legal and operational reason to do so.
+A legitimate payment can fail because of a false positive, card issuer rule, unsupported country, processor risk score, verification mismatch, local limitation, or single provider restriction.
 
-The objective is data minimization, safer settlement, and cleaner separation between platform, customer, and creator.
+A single-rail architecture turns that failure into a lost sale.
 
-This is especially important for marketplaces where privacy failures can create real personal safety risks.
+A multi-rail architecture gives the operator another route.
 
-## Implementation
+The goal is not to bypass legitimate controls.
 
-Local2Coin can be implemented as:
+The goal is to avoid designing serious payment flows around one fragile provider, one bank, one country, one account, one payment method, or one settlement rail.
 
-- managed payment flow
-- hosted checkout
-- API integration
-- marketplace payment module
-- self-custodial settlement flow
-- BTCPay Server-based setup
-- white-label payment flow
-- dedicated marketplace instance with membership plans
+## First test project
 
-The first objective is always the same: make the payment work, protect the final recipient, document the flow, reduce unnecessary data exposure, and avoid single-rail dependency.
+Local2Coin is being tested on the number-one website by traffic in an industry that remains private for now.
 
-## Infrastructure reference
+The objective is to validate a technological and legal structure that can be replicated across the broader sector.
 
-Technical reference for supported rails, settlement wallets, service modules, custodial modes, and architecture:
+## Documentation
 
-[→ Local2Coin infrastructure reference](/services/local-2-coin/infrastructure)
+For technical rails, wallet options, service modules, custodial modes, and architecture:
+
+[→ Local2Coin documentation](/services/local-2-coin/documentation)

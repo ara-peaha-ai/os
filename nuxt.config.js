@@ -132,7 +132,7 @@ export default defineNuxtConfig({
       code: 'nl',
       name: 'Nederlands',
       language: 'nl-SR',
-      file: 'nl-SR.json',
+      file: 'nl.json',
       dir: 'ltr',
       domain: process.env.NODE_ENV === 'production' ? 'p2paysa.sr' : 'nl.p2pagos.local:3000'
     }]
