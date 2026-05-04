@@ -30,6 +30,15 @@ jobs:
         env:
           NODE_OPTIONS: --max-old-space-size=4096
 
+      - name: Debug build output
+        run: |
+          echo "=== workspace root ==="
+          ls -la
+          echo "=== .output (if exists) ==="
+          ls -la .output/ 2>/dev/null || echo ".output not found"
+          echo "=== nuxt.config output dir ==="
+          find . -maxdepth 3 -name "sql_dump.txt" 2>/dev/null || echo "sql_dump.txt not found anywhere"
+
       - name: Migrate D1 content database
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
