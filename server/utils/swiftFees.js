@@ -1,6 +1,6 @@
 const SWIFT_DEFAULT_FEE_USD = 21.71
 
-const LATAM_SWIFT_FEES_USD = {
+const Latam_SWIFT_FEES_USD = {
   AR: 22.25,
   BO: 14.61,
   CL: 21.73,
@@ -22,5 +22,5 @@ const LATAM_SWIFT_FEES_USD = {
 
 export const getSwiftFeeUsd = (country) => {
   if (!country) return null
-  return LATAM_SWIFT_FEES_USD[country.toUpperCase()] ?? SWIFT_DEFAULT_FEE_USD
+  return Latam_SWIFT_FEES_USD[country.toUpperCase()] ?? SWIFT_DEFAULT_FEE_USD
 }

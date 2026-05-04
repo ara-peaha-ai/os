@@ -10,7 +10,7 @@ badge: "Stage 3 — 2027+"
 
 A Chilean buyer wants an apartment in Asunción. They engage Remax Chile, who coordinates the deal through Remax Paraguay or a local broker. The agency collects its commission in fiat — a standard percentage of the transaction. The agency has no control over how the underlying sale is paid. The seller is a private owner operating in fiat. There is no direct counterpart for crypto settlement anywhere in the chain.
 
-The same dynamic plays out across any cross-border deal in the region. International agency networks already span LATAM. The payment layer that bridges crypto and fiat across the same geography is what does not exist yet.
+The same dynamic plays out across any cross-border deal in the region. International agency networks already span Latam. The payment layer that bridges crypto and fiat across the same geography is what does not exist yet.
 
 ## How it works
 

@@ -6,7 +6,7 @@ const localePath = useLocalePath()
 const services = [
   { key: 'fiat2chain', routeName: 'services-local-2-coin', name: 'Local2Coin' },
   { key: 'chain2fiat', routeName: 'services-coin-2-local', name: 'Coin2Local', badge: 'Moonshot' },
-  { key: 'py2int', routeName: 'services-mono-2-multi-latam-2-int', name: 'LATAM2Int' },
+  { key: 'py2int', routeName: 'services-mono-2-multi-latam-2-int', name: 'Latam2Int' },
   { key: 'mono2multi', routeName: 'services-mono-2-multi', name: 'Mono2Multi' }
 ]
 </script>

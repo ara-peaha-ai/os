@@ -90,7 +90,7 @@ In the custodial model, additional legal, compliance, operational, and technical
 | [tor](https://github.com/P2Pagos/mono/tree/main/services/tor) | Testing | Global | Tor reverse proxy for onion and Tor-based integrations | Enabled if consumed by an enabled rail |
 | [cors](https://github.com/P2Pagos/mono/tree/main/services/cors) | Testing | Global | CORS reverse proxy for target APIs | Enabled if consumed by an enabled rail |
 | [market](https://github.com/P2Pagos/mono/tree/main/services/market) | Testing | Global | KYC-free offer aggregation and external offers | Enabled if consumed by an enabled rail |
-| invoice | Planned | LATAM and other supported countries | Programmatic invoice generation upon payment settlement using Invopop, with planned Paraguayan SIFEN support through TIPS SA modules | Disabled by default |
+| invoice | Planned | Latam and other supported countries | Programmatic invoice generation upon payment settlement using Invopop, with planned Paraguayan SIFEN support through TIPS SA modules | Disabled by default |
 
 ## Architecture
 

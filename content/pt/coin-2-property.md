@@ -10,7 +10,7 @@ badge: "Etapa 3 — 2027+"
 
 Um comprador chileno quer um apartamento em Assunção. Ele contata a Remax Chile, que coordena o negócio com a Remax Paraguai ou um corretor local. A agência recebe sua comissão em fiat — uma porcentagem padrão da transação. A agência não tem controle sobre como a venda subjacente é paga. O vendedor é um proprietário privado que opera em fiat. Não há contraparte direta para liquidação em cripto em nenhum ponto da cadeia.
 
-A mesma dinâmica se repete em qualquer negócio cross-border na região. As redes de agências internacionais já cobrem toda a LATAM. O que ainda não existe é a camada de pagamento que conecta cripto e fiat através dessa mesma geografia.
+A mesma dinâmica se repete em qualquer negócio cross-border na região. As redes de agências internacionais já cobrem toda a Latam. O que ainda não existe é a camada de pagamento que conecta cripto e fiat através dessa mesma geografia.
 
 ## Como funciona
 

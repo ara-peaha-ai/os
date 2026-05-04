@@ -1,7 +1,7 @@
 ---
 title: "Coin2Local — Inmobiliario en América Latina"
-description: "Pagos en Bitcoin y stablecoins para constructoras y desarrolladores en Paraguay, Panamá y LATAM. Liquidación multirrail para compradores internacionales con origen de fondos complejo."
-subtitle: "El vertical de construcción. Paraguay primero, LATAM después."
+description: "Pagos en Bitcoin y stablecoins para constructoras y desarrolladores en Paraguay, Panamá y Latam. Liquidación multirrail para compradores internacionales con origen de fondos complejo."
+subtitle: "El vertical de construcción. Paraguay primero, Latam después."
 intro: "Coin2Local conecta compradores internacionales que pagan en Bitcoin o stablecoins con constructoras y desarrolladores locales que operan íntegramente en fiat. Tres etapas, tres horizontes temporales."
 badge: "Moonshot vertical"
 ---

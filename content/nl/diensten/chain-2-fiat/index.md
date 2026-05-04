@@ -138,7 +138,7 @@ De huidige en geplande offramp-tabel is:
 
 | Uitbetaling | Status | Valuta | Betaalmethoden | Verificatie |
 |-------------|--------|--------|----------------|-------------|
-| dLocal | vroeg stadium | LATAM / Afrika / Azië & Midden-Oosten | bankoverschrijving | Standaard |
+| dLocal | vroeg stadium | Latam / Afrika / Azië & Midden-Oosten | bankoverschrijving | Standaard |
 | Ueno Bank | na moonshot | PYG / USD | bankoverschrijving / card-popup | Uitgebreid |
 | Freedomia Card | in bespreking met de provider | USD beperkte afwikkelingen | kaart / Google Pay | Geen |
 

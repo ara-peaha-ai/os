@@ -1,6 +1,6 @@
 ---
 title: "PY2Latam — Construction Payments Across Latin America"
-description: "Coin2Local LATAM expansion: construction companies and real estate developers beyond Paraguay. Panama first, CAPAC Expo Hábitat 2026, market-by-market rollout."
+description: "Coin2Local Latam expansion: construction companies and real estate developers beyond Paraguay. Panama first, CAPAC Expo Hábitat 2026, market-by-market rollout."
 subtitle: "Same model as Paraguay. Market-by-market."
 intro: "Stage 2 of Coin2Local: the construction company execution model applied across Latin America. Panama is first."
 badge: "Stage 2 — 2026"
@@ -22,7 +22,7 @@ Full market detail: [Coin2Local — Panama](/services/coin-2-local/panama)
 
 2026 is the year the working Paraguay prototype becomes a stable implementation. Settlement flows, documentation processes, and rail orchestration are consolidated into a structured, automated software layer — progressively integrated into day-to-day operations.
 
-KYC-compatible compliance reporting is unified in the same layer: documentation generated at settlement feeds directly into a shared audit trail across rails and markets. The underlying [service modules](https://github.com/P2Pagos#service-modules) provide the reusable technical foundation that makes the same execution repeatable, auditable, and scalable across every market. Among them, the invoice module: open-source, programmatic electronic invoice generation triggered on payment settlement, built on the Invopop solution and extended with the Paraguayan SIFEN integration via TIPS SA modules, with multiple LATAM countries supported.
+KYC-compatible compliance reporting is unified in the same layer: documentation generated at settlement feeds directly into a shared audit trail across rails and markets. The underlying [service modules](https://github.com/P2Pagos#service-modules) provide the reusable technical foundation that makes the same execution repeatable, auditable, and scalable across every market. Among them, the invoice module: open-source, programmatic electronic invoice generation triggered on payment settlement, built on the Invopop solution and extended with the Paraguayan SIFEN integration via TIPS SA modules, with multiple Latam countries supported.
 
 ## Banking layer — Ueno partnership
 

@@ -1,7 +1,7 @@
 ---
-title: Int2LATAM
+title: Int2Latam
 description: Advisory for international businesses, AI-native operators, and platforms entering Latin America through local structure, local infrastructure, local payment rails, and multi-rail execution.
-subtitle: International Operators to LATAM
+subtitle: International Operators to Latam
 slug: int-2-latam
 serviceType: advisory
 parentService: mono-2-multi
@@ -21,9 +21,9 @@ tags:
   - Mono2Multi
 ---
 
-## Int2LATAM
+## Int2Latam
 
-Int2LATAM helps international operators enter Latin America through local structure, local infrastructure, local payment rails, and practical multi-rail execution.
+Int2Latam helps international operators enter Latin America through local structure, local infrastructure, local payment rails, and practical multi-rail execution.
 
 It is part of the Mono2Multi advisory service.
 
@@ -31,7 +31,7 @@ The goal is to help international businesses, AI-native operators, and platforms
 
 ## Paraguay
 
-Paraguay is the primary entry market for Int2LATAM.
+Paraguay is the primary entry market for Int2Latam.
 
 It is a useful jurisdiction for international operators that need a real local presence in Latin America at low operational cost.
 
@@ -46,7 +46,7 @@ The combination that makes it useful:
 - low operational costs
 - territorial tax system
 
-Int2LATAM advisory around Paraguay can include:
+Int2Latam advisory around Paraguay can include:
 
 - EAS incorporation
 - .com.py domain registration
@@ -59,13 +59,13 @@ Int2LATAM advisory around Paraguay can include:
 
 ## Suriname
 
-Suriname is the second active Int2LATAM market.
+Suriname is the second active Int2Latam market.
 
 P2Pay operates directly under `.sr`, the official country-code domain of Suriname, at `p2paysa.sr`.
 
 Suriname's official language is Dutch, which creates natural entry conditions for European businesses, Netherlands-based operators, and companies already active in the Dutch-speaking Caribbean.
 
-Int2LATAM advisory around Suriname can include:
+Int2Latam advisory around Suriname can include:
 
 - `.sr` domain registration
 - local VPS or regional hosting with Suriname IP presence
@@ -77,7 +77,7 @@ Int2LATAM advisory around Suriname can include:
 
 ## Ecuador
 
-Ecuador is an emerging Int2LATAM market with specific opportunities in asset-backed investment structures.
+Ecuador is an emerging Int2Latam market with specific opportunities in asset-backed investment structures.
 
 One area under evaluation is access to teak plantation investment in Ecuador — a long-cycle forestry asset class with the potential for significant appreciation over a ten-year horizon, structured for international investors seeking exposure to Latin American real assets outside of traditional financial channels.
 

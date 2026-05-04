@@ -11,4 +11,4 @@ Oferecemos suporte **24/7 ao cliente final** para a execução do pagamento, e a
 
 ## Disponibilidade atual
 
-O Paraguai está ativo atualmente. Outros mercados LATAM em breve.
+O Paraguai está ativo atualmente. Outros mercados Latam em breve.

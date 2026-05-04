@@ -1,7 +1,7 @@
 ---
-title: LATAM2Int
+title: Latam2Int
 description: Advisory for Paraguayan companies expanding internationally through foreign structures, business accounts, documentation, KYC preparation, source-of-funds support, and payment rail readiness.
-subtitle: LATAM Businesses Going International
+subtitle: Latam Businesses Going International
 slug: latam-2-int
 serviceType: advisory
 parentService: mono-2-multi
@@ -17,9 +17,9 @@ tags:
   - Mono2Multi
 ---
 
-## LATAM2Int
+## Latam2Int
 
-LATAM2Int helps Paraguayan businesses prepare for international operations.
+Latam2Int helps Paraguayan businesses prepare for international operations.
 
 It is part of the Mono2Multi advisory service.
 
@@ -27,7 +27,7 @@ The goal is to help Paraguayan companies expand beyond the local market by build
 
 ## Who it is for
 
-LATAM2Int is for Paraguayan businesses that need to operate internationally.
+Latam2Int is for Paraguayan businesses that need to operate internationally.
 
 Typical cases include:
 
@@ -41,7 +41,7 @@ Typical cases include:
 
 ## What we help with
 
-LATAM2Int can include advisory and coordination around:
+Latam2Int can include advisory and coordination around:
 
 - foreign company structures
 - US LLC or other international entity setup
@@ -68,7 +68,7 @@ A foreign company structure can provide:
 - a legal entity that matches international client expectations
 - improved payment rail access across multiple countries
 
-LATAM2Int prepares the pieces needed to make this expansion practical and documented.
+Latam2Int prepares the pieces needed to make this expansion practical and documented.
 
 ## US LLC options
 
@@ -80,21 +80,21 @@ LATAM2Int prepares the pieces needed to make this expansion practical and docume
 
 ## Expanding into the US market
 
-A specific case within LATAM2Int is a mid-size Paraguayan business expanding to US clients while holding on-chain assets.
+A specific case within Latam2Int is a mid-size Paraguayan business expanding to US clients while holding on-chain assets.
 
 This is a strategy currently under development. Contact us to discuss your case.
 
 ## Relationship with Coin2Local
 
-LATAM2Int can support Coin2Local flows when a Paraguayan business needs to receive Bitcoin or stablecoin payments from international investors and convert them into local fiat liquidity.
+Latam2Int can support Coin2Local flows when a Paraguayan business needs to receive Bitcoin or stablecoin payments from international investors and convert them into local fiat liquidity.
 
 Coin2Local handles the payment execution.
 
-LATAM2Int prepares the structure, accounts, documentation, and source-of-funds path needed to receive, explain, and defend those payments.
+Latam2Int prepares the structure, accounts, documentation, and source-of-funds path needed to receive, explain, and defend those payments.
 
 ## Relationship with Mono2Multi
 
-LATAM2Int follows the Mono2Multi principle.
+Latam2Int follows the Mono2Multi principle.
 
 A Paraguayan business expanding internationally should not depend on one foreign account, one foreign bank, one country, or one payment processor.
 

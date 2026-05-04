@@ -1,6 +1,6 @@
 ---
 title: "PY2Latam — Pagos de Construcción en América Latina"
-description: "Expansión LATAM de Coin2Local: constructoras y desarrolladores inmobiliarios más allá de Paraguay. Panamá primero, CAPAC Expo Hábitat 2026, despliegue mercado por mercado."
+description: "Expansión Latam de Coin2Local: constructoras y desarrolladores inmobiliarios más allá de Paraguay. Panamá primero, CAPAC Expo Hábitat 2026, despliegue mercado por mercado."
 subtitle: "El mismo modelo que Paraguay. Mercado por mercado."
 intro: "Etapa 2 de Coin2Local: el modelo de ejecución para constructoras aplicado en América Latina. Panamá es el primero."
 badge: "Etapa 2 — 2026"
@@ -22,7 +22,7 @@ Detalle completo del mercado: [Coin2Local — Panamá](/services/coin-2-local/pa
 
 2026 es el año en que el prototipo funcional de Paraguay se convierte en una implementación estable. Los flujos de liquidación, los procesos de documentación y la orquestación de rails se consolidan en una capa de software estructurada y automatizada — integrada progresivamente en las operaciones del día a día.
 
-La generación de informes de cumplimiento compatibles con KYC se unifica en la misma capa: la documentación generada en la liquidación alimenta directamente un registro de auditoría compartido entre rails y mercados. Los [módulos de servicio](https://github.com/P2Pagos#service-modules) subyacentes proporcionan la base técnica reutilizable que hace la misma ejecución repetible, auditable y escalable en cada mercado. Entre ellos, el módulo de facturación: generación programática de facturas electrónicas activada en la liquidación, de código abierto, basada en la solución Invopop y extendida con la integración paraguaya de SIFEN mediante los módulos de TIPS SA, con soporte para múltiples países de LATAM.
+La generación de informes de cumplimiento compatibles con KYC se unifica en la misma capa: la documentación generada en la liquidación alimenta directamente un registro de auditoría compartido entre rails y mercados. Los [módulos de servicio](https://github.com/P2Pagos#service-modules) subyacentes proporcionan la base técnica reutilizable que hace la misma ejecución repetible, auditable y escalable en cada mercado. Entre ellos, el módulo de facturación: generación programática de facturas electrónicas activada en la liquidación, de código abierto, basada en la solución Invopop y extendida con la integración paraguaya de SIFEN mediante los módulos de TIPS SA, con soporte para múltiples países de Latam.
 
 ## Capa bancaria — partnership con Ueno
 

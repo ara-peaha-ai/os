@@ -53,22 +53,22 @@ The objective is to build a payment structure that can continue operating when o
 
 Mono2Multi currently has two main advisory directions:
 
-- **LATAM2Int** — for Paraguayan businesses expanding internationally.
-- **Int2LATAM** — for international operators entering Paraguay with local companies, local infrastructure, local payment rails, and local execution.
+- **Latam2Int** — for Paraguayan businesses expanding internationally.
+- **Int2Latam** — for international operators entering Paraguay with local companies, local infrastructure, local payment rails, and local execution.
 
 These are the two advisory services currently linked from the topbar because they are the most immediate business lines.
 
-## LATAM2Int
+## Latam2Int
 
-LATAM2Int helps Paraguayan businesses prepare for international operations: foreign structures, business accounts, source-of-funds documentation, KYC readiness, and payment rail access.
+Latam2Int helps Paraguayan businesses prepare for international operations: foreign structures, business accounts, source-of-funds documentation, KYC readiness, and payment rail access.
 
-Read more at [LATAM2Int](/services/mono-2-multi/latam-2-int).
+Read more at [Latam2Int](/services/mono-2-multi/latam-2-int).
 
-## Int2LATAM
+## Int2Latam
 
-Int2LATAM helps international operators enter Paraguay through local companies, infrastructure, payment integrations, and multi-rail continuity.
+Int2Latam helps international operators enter Paraguay through local companies, infrastructure, payment integrations, and multi-rail continuity.
 
-Read more at [Int2LATAM](/services/mono-2-multi/int-2-latam).
+Read more at [Int2Latam](/services/mono-2-multi/int-2-latam).
 
 ## Advisory model
 
@@ -123,7 +123,7 @@ Mono2Multi prepares the structure, rails, documentation, and fallback logic need
 
 ## Related services
 
-- [LATAM2Int](/services/mono-2-multi/latam-2-int)
-- [Int2LATAM](/services/mono-2-multi/int-2-latam)
+- [Latam2Int](/services/mono-2-multi/latam-2-int)
+- [Int2Latam](/services/mono-2-multi/int-2-latam)
 - [Local2Coin](/services/local-2-coin)
 - [Coin2Local](/services/coin-2-local)

@@ -24,3 +24,9 @@ logs
 !.env.example
 
 notes.md
+
+# Claude memory
+.claude/
+
+# Large binaries
+public/moonshot-video.mp4

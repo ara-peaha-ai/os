@@ -39,18 +39,18 @@ advisory:
   intro: "Mono2Multi is our advisory service for operators that need to move from single-rail dependency to resilient multi-rail payment operations."
   paragraphs:
     - "We help businesses, marketplaces, AI-native operators, and cross-border teams structure the legal, technical, banking, KYC, source-of-funds, and operational pieces needed to make payment rails work across different countries."
-    - "The current focus is LATAM2Int and Int2LATAM: helping Paraguayan businesses expand internationally, and helping international businesses enter Paraguay with local companies, infrastructure, and payment rails."
+    - "The current focus is Latam2Int and Int2Latam: helping Paraguayan businesses expand internationally, and helping international businesses enter Paraguay with local companies, infrastructure, and payment rails."
   items:
     - slug: "mono-2-multi-latam-2-int"
       label: "Advisory"
-      name: "LATAM2Int"
+      name: "Latam2Int"
       description: "For Paraguayan companies expanding internationally through foreign structures, business accounts, documentation, KYC preparation, source-of-funds support, and payment rail readiness."
-      linkText: "Explore LATAM2Int"
+      linkText: "Explore Latam2Int"
     - slug: "mono-2-multi-int-2-latam"
       label: "Advisory"
-      name: "Int2LATAM"
+      name: "Int2Latam"
       description: "For international businesses, AI-native operators, and marketplaces that need payment access, local presence, technology, companies, accounts, and backup rails in Paraguay or other operating markets."
-      linkText: "Explore Int2LATAM"
+      linkText: "Explore Int2Latam"
 
 thesis:
   label: "Mono2Multi"
