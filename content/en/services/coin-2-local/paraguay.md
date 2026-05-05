@@ -35,9 +35,9 @@ Obtaining a **PSAV registration** (Proveedor de Servicios de Activos Virtuales) 
 
 | Rail | Currency out | Verification | Notes |
 |---|---|---|---|
-| Cash | USD / PYG | None | Fastest, no docs required |
-| Bank PY | USD / PYG | Standard | EAS docs required |
-| Bank PY (enhanced) | USD / PYG | Enhanced | Source-of-funds documentation |
+| Cash | USD / PYG | Minimal | Available from day one |
+| Bank PY (domestic transfer) | USD / PYG | Standard | EAS documentation and source of funds. |
+| Bank PY (international transfer) | USD / PYG | Enhanced | EAS documentation, source of funds, and payment received from the same name as the sales contract. |
 
 ---
 

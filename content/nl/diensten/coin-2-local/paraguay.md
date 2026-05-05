@@ -35,9 +35,9 @@ Het verkrijgen van een **PSAV-registratie** (Proveedor de Servicios de Activos V
 
 | Rail | Valuta uit | Verificatie | Opmerkingen |
 |---|---|---|---|
-| Contant | USD / PYG | Geen | Snelst, geen documenten vereist |
-| Bank PY | USD / PYG | Standaard | EAS-documenten vereist |
-| Bank PY (verbeterd) | USD / PYG | Verbeterd | Source-of-funds-documentatie |
+| Contant | USD / PYG | Minimaal | Beschikbaar vanaf de eerste dag |
+| Bank PY (binnenlandse overboeking) | USD / PYG | Standaard | EAS-documentatie en herkomst van de fondsen. |
+| Bank PY (internationale overboeking) | USD / PYG | Verbeterd | EAS-documentatie, herkomst van de fondsen en betaling ontvangen op naam van de verkoper vermeld in het koopcontract. |
 
 ---
 

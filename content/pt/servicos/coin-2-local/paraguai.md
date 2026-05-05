@@ -33,9 +33,9 @@ O P2Pagos opera como uma **empresa de software e consultoria**. Não custodia fu
 
 | Canal | Moeda de saída | Verificação | Notas |
 |---|---|---|---|
-| Dinheiro | USD / PYG | Nenhuma | Mais rápido, sem documentação |
-| Banco PY | USD / PYG | Padrão | Documentação EAS obrigatória |
-| Banco PY (reforçado) | USD / PYG | Reforçada | Documentação de origem de fundos |
+| Dinheiro em espécie | USD / PYG | Mínima | Disponível desde o primeiro dia |
+| Banco PY (transferência nacional) | USD / PYG | Padrão | Documentação EAS e origem dos fundos. |
+| Banco PY (transferência internacional) | USD / PYG | Reforçada | Documentação EAS, origem dos fundos e pagamento recebido com o mesmo nome do contrato de compra e venda. |
 
 ---
 

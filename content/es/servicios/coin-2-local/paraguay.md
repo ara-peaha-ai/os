@@ -35,9 +35,9 @@ Obtener el **registro PSAV** (Proveedor de Servicios de Activos Virtuales) ante 
 
 | Canal | Moneda de salida | Verificación | Notas |
 |---|---|---|---|
-| Efectivo | USD / PYG | Ninguna | Más rápido, sin documentación |
-| Banco PY | USD / PYG | Estándar | Documentación EAS requerida |
-| Banco PY (reforzado) | USD / PYG | Reforzada | Documentación de origen de fondos |
+| Efectivo | USD / PYG | Mínima | Utilizable desde el primer día |
+| Banco PY (transferencia nacional) | USD / PYG | Estándar | Documentación EAS y origen de los fondos. |
+| Banco PY (transferencia internacional) | USD / PYG | Reforzada | Documentación EAS y origen de los fondos, y pago recibido desde el mismo nombre del contrato de venta. |
 
 ---
 
