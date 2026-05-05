@@ -10,7 +10,9 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     name: Deploy to Cloudflare Pages
-    environment: cloudflare-pages
+    environment: github-cloudflare
+    permissions:
+      contents: read
 
     steps:
       - name: Checkout code
@@ -30,24 +32,33 @@ jobs:
         env:
           NODE_OPTIONS: --max-old-space-size=4096
 
+      - name: Check D1 configuration
+        id: d1_check
+        run: |
+          if grep -q '\[\[d1_databases\]\]' wrangler.toml 2>/dev/null; then
+            echo "has_d1=true" >> $GITHUB_OUTPUT
+          else
+            echo "has_d1=false" >> $GITHUB_OUTPUT
+          fi
+
       - name: Resolve D1 database ID
+        if: steps.d1_check.outputs.has_d1 == 'true'
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
         run: |
-          DB_ID="${{ secrets.CLOUDFLARE_D1_DATABASE_ID }}"
+          DB_NAME=$(grep 'database_name' wrangler.toml | head -1 | cut -d'"' -f2)
+          DB_ID=$(npx wrangler@4 d1 list --json | jq -r --arg n "$DB_NAME" '.[] | select(.name == $n) | .uuid')
           if [ -z "$DB_ID" ]; then
-            DB_NAME=$(grep 'database_name' wrangler.toml | head -1 | cut -d'"' -f2)
+            echo "Creating D1 database: $DB_NAME"
+            npx wrangler@4 d1 create "$DB_NAME"
             DB_ID=$(npx wrangler@4 d1 list --json | jq -r --arg n "$DB_NAME" '.[] | select(.name == $n) | .uuid')
-            if [ -z "$DB_ID" ]; then
-              echo "Creating D1 database: $DB_NAME"
-              DB_ID=$(npx wrangler@4 d1 create "$DB_NAME" --json | jq -r '.uuid')
-            fi
           fi
           echo "D1 database ID: $DB_ID"
           sed -i "s/REPLACE_WITH_D1_DATABASE_ID/$DB_ID/" wrangler.toml
 
       - name: Migrate D1 content database
+        if: steps.d1_check.outputs.has_d1 == 'true'
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
@@ -89,15 +100,6 @@ jobs:
               exit 1
             fi
           }
-
-      - name: Sync secrets to Cloudflare Pages
-        env:
-          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          CLOUDFLARE_ACCOUNT_ID: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
-          WISE_API_TOKEN: ${{ secrets.WISE_API_TOKEN }}
-        run: |
-          printf '{"WISE_API_TOKEN":"%s"}' "$WISE_API_TOKEN" | \
-            npx wrangler@4 pages secret bulk --project-name=p2pay-website
 
       - name: Deploy to Cloudflare Pages
         uses: cloudflare/wrangler-action@v3

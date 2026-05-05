@@ -6,18 +6,21 @@ if [ ! -f .env ]; then
   exit 1
 fi
 
+declare -A ENV_VARS
 while IFS='=' read -r key value; do
   [[ "$key" =~ ^#.*$ || -z "$key" ]] && continue
-  case "$key" in
-    WISE_API_TOKEN)
-      gh secret set "$key" --body "$value"
-      echo "Secret set: $key"
-      ;;
-    CLOUDFLARE_D1_DATABASE_ID)
-      gh secret set "$key" --body "$value"
-      echo "Secret set: $key"
-      ;;
-  esac
+  ENV_VARS["$key"]="$value"
 done < .env
+
+if [ -n "${ENV_VARS[CLOUDFLARE_D1_DATABASE_ID]}" ]; then
+  gh variable set CLOUDFLARE_D1_DATABASE_ID --body "${ENV_VARS[CLOUDFLARE_D1_DATABASE_ID]}" --env github-cloudflare
+  echo "GitHub variable set: CLOUDFLARE_D1_DATABASE_ID (environment: github-cloudflare)"
+fi
+
+if [ -n "${ENV_VARS[WISE_API_TOKEN]}" ]; then
+  printf '{"NUXT_WISE_API_TOKEN":"%s"}' "${ENV_VARS[WISE_API_TOKEN]}" | \
+    npx wrangler@4 pages secret bulk --project-name=p2pay-website
+  echo "Cloudflare Pages secret set: NUXT_WISE_API_TOKEN"
+fi
 
 echo "Done. Run git push to trigger deploy."

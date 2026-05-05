@@ -5,5 +5,5 @@ pages_build_output_dir = "dist"
 
 [[d1_databases]]
 binding = "DB"
-database_name = "p2pay-content"
+database_name = "p2pagos-website-content"
 database_id = "REPLACE_WITH_D1_DATABASE_ID"
