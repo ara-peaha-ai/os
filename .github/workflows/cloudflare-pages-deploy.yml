@@ -81,11 +81,14 @@ jobs:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
         run: |
-          PROJECT=$(npx wrangler@4 pages project list --json | jq -r '.[] | select(.name == "p2pay-website") | .name')
-          if [ -z "$PROJECT" ]; then
-            echo "Creating Pages project: p2pay-website"
-            npx wrangler@4 pages project create p2pay-website --production-branch=main
-          fi
+          output=$(npx wrangler@4 pages project create p2pay-website --production-branch=main 2>&1) && echo "Project created" || {
+            if echo "$output" | grep -q "already exists"; then
+              echo "Project p2pay-website already exists, skipping"
+            else
+              echo "$output"
+              exit 1
+            fi
+          }
 
       - name: Sync secrets to Cloudflare Pages
         env:
