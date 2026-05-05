@@ -17,9 +17,9 @@ if [ -n "${ENV_VARS[CLOUDFLARE_D1_DATABASE_ID]}" ]; then
   echo "GitHub variable set: CLOUDFLARE_D1_DATABASE_ID (environment: github-cloudflare)"
 fi
 
-if [ -n "${ENV_VARS[WISE_API_TOKEN]}" ]; then
-  printf '{"NUXT_WISE_API_TOKEN":"%s"}' "${ENV_VARS[WISE_API_TOKEN]}" | \
-    npx wrangler@4 pages secret bulk --project-name=p2pay-website
+if [ -n "${ENV_VARS[NUXT_WISE_API_TOKEN]}" ]; then
+  printf '{"NUXT_WISE_API_TOKEN":"%s"}' "${ENV_VARS[NUXT_WISE_API_TOKEN]}" | \
+    npx wrangler@4 pages secret bulk --project-name=p2pagos-website
   echo "Cloudflare Pages secret set: NUXT_WISE_API_TOKEN"
 fi
 

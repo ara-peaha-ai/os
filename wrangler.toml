@@ -1,4 +1,4 @@
-name = "p2pay-website"
+name = "p2pagos-website"
 compatibility_date = "2025-01-15"
 compatibility_flags = ["nodejs_compat"]
 pages_build_output_dir = "dist"
