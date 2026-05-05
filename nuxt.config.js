@@ -126,7 +126,7 @@ export default defineNuxtConfig({
       language: 'en-US',
       file: 'en.json',
       dir: 'ltr',
-      domain: process.env.NODE_ENV === 'production' ? 'p2payments.com' : 'en.p2pagos.local:3000'
+      domain: process.env.NODE_ENV === 'production' ? 'www.p2payments.com' : 'en.p2pagos.local:3000'
     },
     {
       code: 'es',
@@ -134,7 +134,7 @@ export default defineNuxtConfig({
       language: 'es-ES',
       file: 'es.json',
       dir: 'ltr',
-      domain: process.env.NODE_ENV === 'production' ? 'p2pagos.com' : 'es.p2pagos.local:3000'
+      domain: process.env.NODE_ENV === 'production' ? 'www.p2pagos.com' : 'es.p2pagos.local:3000'
     },
     {
       code: 'pt',
@@ -142,7 +142,7 @@ export default defineNuxtConfig({
       language: 'pt-BR',
       file: 'pt.json',
       dir: 'ltr',
-      domain: process.env.NODE_ENV === 'production' ? 'p2pagamentos.com.br' : 'pt.p2pagos.local:3000'
+      domain: process.env.NODE_ENV === 'production' ? 'www.p2pagamentos.com.br' : 'pt.p2pagos.local:3000'
     },
     {
       code: 'nl',
@@ -150,7 +150,7 @@ export default defineNuxtConfig({
       language: 'nl-SR',
       file: 'nl.json',
       dir: 'ltr',
-      domain: process.env.NODE_ENV === 'production' ? 'p2paysa.sr' : 'nl.p2pagos.local:3000'
+      domain: process.env.NODE_ENV === 'production' ? 'www.p2paysa.sr' : 'nl.p2pagos.local:3000'
     }]
   },
 
