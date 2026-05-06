@@ -1,6 +1,6 @@
 import { countries } from '../../app/data/countries.js'
 
-const PRESET_AMOUNTS = [1000, 5000, 50000]
+const PRESET_AMOUNTS = [5000, 50000]
 
 export const SETTLEMENT_COUNTRIES = {
   PY: pyConfig

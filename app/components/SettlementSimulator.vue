@@ -15,7 +15,7 @@ const localCurrency = computed(() => ({
   locale: `es-${props.country}`
 }))
 
-const EXAMPLE_LEVELS = ['minimal', 'standard', 'enhanced']
+const EXAMPLE_LEVELS = ['standard', 'enhanced']
 
 const { data: presetQuotes } = useFetch(() => `/api/settlement/${props.country}`)
 
@@ -125,11 +125,11 @@ const levels = computed(() =>
     </div>
 
     <!-- 3 fixed example cards -->
-    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
       <div v-for="level in levels" :key="level.key" class="rounded-xl border p-5 flex flex-col gap-4">
-        <div class="min-h-16 flex flex-col justify-between">
-          <p class="text-base font-semibold leading-snug">{{ level.label }}</p>
-          <p class="text-xs text-gray-400 mt-1">{{ t('blockchainToFiat.exampleAmount') }}: {{ fmtUsd(level.amount) }}</p>
+        <div class="min-h-16">
+          <p class="text-base font-semibold leading-snug">{{ t('blockchainToFiat.exampleAmount') }} {{ fmtUsd(level.amount) }}</p>
+          <p class="text-xs text-gray-400 mt-1">{{ level.label }}</p>
         </div>
 
         <template v-if="!expandedCards[level.key]">
@@ -344,7 +344,6 @@ const levels = computed(() =>
           </tbody>
         </table>
       </div>
-      <p class="text-sm text-gray-500 dark:text-gray-400">{{ t('blockchainToFiat.docStandardNote') }}</p>
     </div>
   </div>
 </template>
