@@ -29,8 +29,8 @@ export default defineNuxtConfig({
 
   i18n: {
     inject: true,
-    strategy: 'no_prefix',
-    differentDomains: true,
+    strategy: process.env.NUXT_PUBLIC_IS_PREVIEW === 'true' ? 'prefix_except_default' : 'no_prefix',
+    differentDomains: process.env.NUXT_PUBLIC_IS_PREVIEW !== 'true',
     defaultLocale: 'es',
     detectBrowserLanguage: false,
     customRoutes: 'config',
@@ -126,7 +126,9 @@ export default defineNuxtConfig({
       language: 'en-US',
       file: 'en.json',
       dir: 'ltr',
-      domain: process.env.NODE_ENV === 'production' ? 'www.p2payments.com' : 'en.p2pagos.local:3000'
+      ...(process.env.NUXT_PUBLIC_IS_PREVIEW !== 'true' && {
+        domain: process.env.NODE_ENV === 'production' ? 'www.p2payments.com' : 'en.p2pagos.local:3000'
+      })
     },
     {
       code: 'es',
@@ -134,7 +136,9 @@ export default defineNuxtConfig({
       language: 'es-ES',
       file: 'es.json',
       dir: 'ltr',
-      domain: process.env.NODE_ENV === 'production' ? 'www.p2pagos.com' : 'es.p2pagos.local:3000'
+      ...(process.env.NUXT_PUBLIC_IS_PREVIEW !== 'true' && {
+        domain: process.env.NODE_ENV === 'production' ? 'www.p2pagos.com' : 'es.p2pagos.local:3000'
+      })
     },
     {
       code: 'pt',
@@ -142,7 +146,9 @@ export default defineNuxtConfig({
       language: 'pt-BR',
       file: 'pt.json',
       dir: 'ltr',
-      domain: process.env.NODE_ENV === 'production' ? 'www.p2pagamentos.com.br' : 'pt.p2pagos.local:3000'
+      ...(process.env.NUXT_PUBLIC_IS_PREVIEW !== 'true' && {
+        domain: process.env.NODE_ENV === 'production' ? 'www.p2pagamentos.com.br' : 'pt.p2pagos.local:3000'
+      })
     },
     {
       code: 'nl',
@@ -150,7 +156,9 @@ export default defineNuxtConfig({
       language: 'nl-SR',
       file: 'nl.json',
       dir: 'ltr',
-      domain: process.env.NODE_ENV === 'production' ? 'www.p2paysa.sr' : 'nl.p2pagos.local:3000'
+      ...(process.env.NUXT_PUBLIC_IS_PREVIEW !== 'true' && {
+        domain: process.env.NODE_ENV === 'production' ? 'www.p2paysa.sr' : 'nl.p2pagos.local:3000'
+      })
     }]
   },
 
