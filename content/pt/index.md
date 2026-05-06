@@ -3,7 +3,6 @@ title: "P2Pagos"
 description: "P2Pagos orquestra infraestrutura de pagamento multi-canal para empresas que precisam de execução local, liquidação baseada em blockchain e continuidade de pagamentos no Paraguai e América Latina."
 
 hero:
-  label: "Rails de pagamento locais para liquidação baseada em blockchain"
   h1: "P2Pagos"
   subtitle: "Orquestramos pagamentos multi-canal sem fricção entre países e tecnologias com moeda local e criptomoedas."
   paragraphs:

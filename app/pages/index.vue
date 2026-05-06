@@ -15,9 +15,6 @@ useSeoMeta({
 <template>
   <div v-if="page" class="max-w-3xl mx-auto p-6 space-y-10">
     <section class="space-y-3">
-      <p class="text-sm uppercase tracking-wide text-gray-500">
-        {{ page.hero.label }}
-      </p>
       <h1 class="text-3xl font-semibold tracking-tight">
         {{ page.hero.h1 }}
       </h1>

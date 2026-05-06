@@ -3,7 +3,6 @@ title: "P2Pagos"
 description: "P2Pagos orchestrates multi-rail payment infrastructure for businesses that need local execution, blockchain-based settlement, and payment continuity across Paraguay and Latin America."
 
 hero:
-  label: "Local payment rails for blockchain-based settlement"
   h1: "P2Pagos"
   subtitle: "We orchestrate frictionless multi-rail payments across countries and technologies with legal tender and coins."
   paragraphs:
