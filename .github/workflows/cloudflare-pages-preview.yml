@@ -30,6 +30,7 @@ jobs:
         run: npm run build
         env:
           NODE_OPTIONS: --max-old-space-size=4096
+          NUXT_PUBLIC_IS_PREVIEW: 'true'
 
       - name: Resolve D1 database ID
         env:
