@@ -12,7 +12,7 @@ const resolveSettlement = async (usd, settlementType, providers) => {
   if (!eligible.length) return null
 
   const results = await Promise.all(
-    eligible.map(p => p.getQuote(usd).then(q => q ? { q } : null).catch(() => null))
+    eligible.map(p => p.getQuote(usd).then(q => q ? { q } : null).catch((e) => { console.error(`[settlement] ${settlementType} provider failed for ${usd} USD:`, e?.message ?? e); return null }))
   )
 
   const valid = results.filter(r => {

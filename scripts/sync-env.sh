@@ -18,8 +18,9 @@ if [ -n "${ENV_VARS[CLOUDFLARE_D1_DATABASE_ID]}" ]; then
 fi
 
 if [ -n "${ENV_VARS[NUXT_WISE_API_TOKEN]}" ]; then
-  printf '{"NUXT_WISE_API_TOKEN":"%s"}' "${ENV_VARS[NUXT_WISE_API_TOKEN]}" | \
-    npx wrangler@4 pages secret bulk --project-name=p2pagos-website
+  SECRET_JSON=$(printf '{"NUXT_WISE_API_TOKEN":"%s"}' "${ENV_VARS[NUXT_WISE_API_TOKEN]}")
+  echo "$SECRET_JSON" | npx wrangler@4 pages secret bulk --project-name=p2pagos-website
+  echo "$SECRET_JSON" | npx wrangler@4 pages secret bulk --project-name=p2pagos-website --env preview
   echo "Cloudflare Pages secret set: NUXT_WISE_API_TOKEN"
 fi
 
