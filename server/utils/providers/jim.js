@@ -1,3 +1,4 @@
+const MAX_USD = 50_000
 const DELIVERY_FEE_PYG = 100_000
 
 const getJimFee = (usd) => {
@@ -8,11 +9,17 @@ const getJimFee = (usd) => {
 }
 
 export const getJimQuote = async (usd) => {
+  if (usd > MAX_USD) return null
   const rates = await getCambiosChacoRates()
   const usdRate = rates.find(r => r.currency === 'USD')
-  if (!usdRate) throw createError({ statusCode: 502, message: 'USD rate unavailable' })
-  const fee = getJimFee(usd)
-  const netPyg = usd * usdRate.purchase * (1 - fee) - DELIVERY_FEE_PYG
-  const netUsd = netPyg > 0 ? netPyg / usdRate.purchase : null
-  return { netPyg, netUsd, fee, usdPygRate: usdRate.purchase }
+  if (!usdRate) throw new Error('USD rate unavailable')
+  const netNational = usd * usdRate.purchase * (1 - getJimFee(usd)) - DELIVERY_FEE_PYG
+  if (netNational <= 0) return null
+  return { netNational, verification: 'minimal' }
+}
+
+export const jimConfig = {
+  settlementType: 'cashLocal',
+  maxUsd: MAX_USD,
+  getQuote: getJimQuote
 }

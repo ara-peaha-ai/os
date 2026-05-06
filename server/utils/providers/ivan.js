@@ -1,3 +1,5 @@
+const MAX_USD = 50_000
+
 const getIvanFee = (usd) => {
   if (usd <= 5_000) return 0.025
   if (usd <= 25_000) return 0.02
@@ -5,10 +7,15 @@ const getIvanFee = (usd) => {
 }
 
 export const getIvanQuote = async (usd) => {
+  if (usd > MAX_USD) return null
   const rates = await getCambiosChacoRates()
   const usdRate = rates.find(r => r.currency === 'USD')
-  if (!usdRate) throw createError({ statusCode: 502, message: 'USD rate unavailable' })
-  const fee = getIvanFee(usd)
-  const netUsd = usd * (1 - fee)
-  return { netUsd, netPyg: netUsd * usdRate.purchase, fee, usdPygRate: usdRate.purchase }
+  if (!usdRate) throw new Error('USD rate unavailable')
+  return { netUsd: usd * (1 - getIvanFee(usd)), verification: 'minimal' }
+}
+
+export const ivanConfig = {
+  settlementType: 'cashUsd',
+  maxUsd: MAX_USD,
+  getQuote: getIvanQuote
 }

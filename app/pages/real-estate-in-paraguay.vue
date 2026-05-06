@@ -34,11 +34,7 @@ useSeoMeta({
       <p v-if="page.intro" class="text-base text-gray-600 dark:text-gray-300 mt-3">{{ page.intro }}</p>
     </div>
 
-    <SettlementSimulator
-      endpoint="/api/settlement/quote"
-      :example-amounts="{ minimal: 1000, standard: 5000, enhanced: 50000 }"
-      :local-currency="{ code: 'PYG', symbol: '₲', locale: 'es-PY' }"
-    />
+    <SettlementSimulator country="PY" />
 
     <ContentRenderer v-if="notes" :value="notes" class="prose dark:prose-invert max-w-none" />
 
