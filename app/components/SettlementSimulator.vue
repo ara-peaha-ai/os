@@ -1,79 +1,120 @@
 <script setup>
+import { countries } from '~/data/countries.js'
+
 const props = defineProps({
-  endpoint: { type: String, required: true },
-  exampleAmounts: {
-    type: Object,
-    default: () => ({ minimal: 1000, standard: 5000, enhanced: 50000 })
-  },
-  maxCustomAmount: { type: Number, default: 500000 },
-  localCurrency: {
-    type: Object,
-    default: () => ({ code: 'PYG', symbol: '₲', locale: 'es-PY' })
-  }
+  country: { type: String, required: true },
+  maxCustomAmount: { type: Number, default: 500_000 }
 })
 
 const { t } = useI18n()
 
-const { data: minimalQuote } = useFetch(() => props.endpoint, { query: { amount: props.exampleAmounts.minimal } })
-const { data: standardQuote } = useFetch(() => props.endpoint, { query: { amount: props.exampleAmounts.standard } })
-const { data: enhancedQuote } = useFetch(() => props.endpoint, { query: { amount: props.exampleAmounts.enhanced } })
+const countryData = computed(() => countries.find(c => c.code === props.country))
+const localCurrency = computed(() => ({
+  code: countryData.value?.currency ?? 'USD',
+  symbol: countryData.value?.symbol ?? countryData.value?.currency ?? '$',
+  locale: `es-${props.country}`
+}))
+
+const EXAMPLE_LEVELS = ['minimal', 'standard', 'enhanced']
+
+const { data: presetQuotes } = useFetch(() => `/api/settlement/${props.country}`)
 
 const customAmount = ref(props.maxCustomAmount)
 watch(customAmount, (val) => {
   if (val > props.maxCustomAmount) customAmount.value = props.maxCustomAmount
-  else if (val < 1 || !val) customAmount.value = 1
+  else if (!val || val < 1) customAmount.value = 1
 })
-const { data: customQuote } = useFetch(() => props.endpoint, { query: { amount: customAmount } })
+const { data: customQuote } = useFetch(() => `/api/settlement/${props.country}/${customAmount.value}`)
 
-const fmtUsd = (v) => v != null ? v.toLocaleString('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 }) : '—'
-const fmtLocal = (v) => v != null ? `${props.localCurrency.symbol} ${Math.round(v).toLocaleString(props.localCurrency.locale)}` : '—'
-const fmtFee = (amount, commission) => commission != null && amount ? (commission / amount * 100).toFixed(2) + '%' : '—'
+const fmtUsd = (v) => v != null ? `${Math.round(v).toLocaleString('en-US')} USD` : '—'
+const fmtLocal = (v) => v != null ? `${Math.round(v).toLocaleString('en-US')} ${localCurrency.value.code}` : '—'
 const fmtBtc = (v) => v != null ? v.toFixed(8) : '—'
-
-const aggregate = (channels) => {
-  if (!channels) return null
-  // cashUsd: Ivan only — Jim settles in PYG cash, not USD
-  const cashUsd = channels.cashPickup?.available ? channels.cashPickup : null
-  // cashPyg: best of Ivan and Jim by PYG amount
-  const cashPygList = ['cashPickup', 'cashCourier'].map(k => channels[k]).filter(c => c?.available && c.pyg != null)
-  const cashPyg = cashPygList.reduce((a, b) => a.pyg >= b.pyg ? a : b, cashPygList[0] ?? null)
-  const bankList = ['bankWire', 'bankOtc'].map(k => channels[k]).filter(c => c?.available && c.usd != null)
-  const bankUsd = bankList.reduce((a, b) => a.usd >= b.usd ? a : b, bankList[0] ?? null)
-  return { cashUsd, cashPyg, bankUsd }
+const fmtEffectiveRate = (quote, key, amount) => {
+  if (!quote?.amount || amount == null) return '—'
+  if (isLocalKey(key)) {
+    if (!quote.localRate) return '—'
+    return ((1 - (amount / quote.localRate) / quote.amount) * 100).toFixed(2) + '%'
+  }
+  return ((1 - amount / quote.amount) * 100).toFixed(2) + '%'
 }
 
-const levels = computed(() => [
-  { key: 'minimal', label: t('blockchainToFiat.levelMinimalLabel'), amount: props.exampleAmounts.minimal, quote: minimalQuote.value },
-  { key: 'standard', label: t('blockchainToFiat.levelStandardLabel'), amount: props.exampleAmounts.standard, quote: standardQuote.value },
-  { key: 'enhanced', label: t('blockchainToFiat.levelEnhancedLabel'), amount: props.exampleAmounts.enhanced, quote: enhancedQuote.value }
-])
+const verificationLabel = (level) => {
+  const map = {
+    minimal: t('blockchainToFiat.tierMinimal'),
+    standard: t('blockchainToFiat.tierStandard'),
+    enhanced: t('blockchainToFiat.tierEnhanced')
+  }
+  return map[level] ? `${map[level]} ${t('blockchainToFiat.verification')}` : ''
+}
+
+const isLocalKey = (key) => key.endsWith('Local')
+
+const settlementLabel = (key) => {
+  const { code: currency } = localCurrency.value
+  return {
+    cashUsd: t('blockchainToFiat.cashUsd'),
+    cashLocal: t('blockchainToFiat.cashLocal', { currency }),
+    bankUsd: t('blockchainToFiat.bankUsd', { code: props.country }),
+    bankLocal: t('blockchainToFiat.bankLocal', { code: props.country, currency })
+  }[key] ?? key
+}
+
+const fmtSettlement = (key, amount) =>
+  isLocalKey(key) ? fmtLocal(amount) : fmtUsd(amount)
+
+const visibleSettlements = (settlements) =>
+  Object.entries(settlements ?? {}).filter(([, v]) => v !== null)
+
+const usdSettlements = (settlements) =>
+  visibleSettlements(settlements).filter(([k]) => !isLocalKey(k))
+
+const localSettlements = (settlements) =>
+  visibleSettlements(settlements).filter(([k]) => isLocalKey(k))
+
+const sectionRowLabel = (key) =>
+  key.startsWith('bank')
+    ? t('blockchainToFiat.bankIn', { code: props.country })
+    : t('blockchainToFiat.cash')
+
+const tierLabel = (level) => ({
+  minimal: t('blockchainToFiat.tierMinimal'),
+  standard: t('blockchainToFiat.tierStandard'),
+  enhanced: t('blockchainToFiat.tierEnhanced')
+}[level] ?? level)
+
+const docLevel = computed(() => {
+  const s = customQuote.value?.settlements
+  if (!s) return 'minimal'
+  const levels = Object.values(s).filter(Boolean).map(s => s.verification)
+  if (levels.includes('enhanced')) return 'enhanced'
+  if (levels.includes('standard')) return 'standard'
+  return 'minimal'
+})
+
+const compareSavings = (quote) => {
+  if (!quote?.localCompare?.usd || !quote?.settlements) return null
+  const usdAmounts = Object.entries(quote.settlements)
+    .filter(([k, v]) => v && !isLocalKey(k))
+    .map(([, v]) => v.amount)
+  if (!usdAmounts.length) return null
+  const bestUsd = Math.max(...usdAmounts)
+  const compareUsd = quote.localCompare.usd.amount
+  const savings = bestUsd - compareUsd
+  if (savings <= 0) return null
+  return { savings, compareUsd }
+}
 
 const expandedCards = ref({ minimal: false, standard: false, enhanced: false })
 const expandedCustom = ref(true)
 
-const customAgg = computed(() => aggregate(customQuote.value?.channels))
-
-const docLevel = computed(() => {
-  if (!customQuote.value?.channels) return 'minimal'
-  const chs = Object.values(customQuote.value.channels).filter(ch => ch.available !== false)
-  if (chs.some(ch => ch.docs === 'enhanced')) return 'enhanced'
-  if (chs.some(ch => ch.docs === 'standard')) return 'standard'
-  return 'minimal'
-})
-
-const extendedRows = (agg, amount) => [
-  { label: t('blockchainToFiat.cashPyg'), value: fmtLocal(agg?.cashPyg?.pyg), fee: fmtFee(amount, agg?.cashPyg?.commission) },
-  { label: t('blockchainToFiat.cashUsd'), value: fmtUsd(agg?.cashUsd?.usd), fee: fmtFee(amount, agg?.cashUsd?.commission) },
-  { label: t('blockchainToFiat.bankPyg'), value: '—', fee: '—' },
-  { label: t('blockchainToFiat.bankUsd'), value: fmtUsd(agg?.bankUsd?.usd), fee: fmtFee(amount, agg?.bankUsd?.commission) }
-]
-
-const x4tSavings = (quote, agg) => {
-  if (!quote?.x4tNetUsd || !agg?.bankUsd?.usd) return null
-  const best = Math.max(agg.cashUsd?.usd ?? 0, agg.bankUsd?.usd ?? 0)
-  const savings = best - quote.x4tNetUsd
-  return savings > 0 ? { savings, x4tNet: quote.x4tNetUsd } : null
-}
+const levels = computed(() =>
+  (presetQuotes.value ?? []).map((quote, i) => ({
+    key: EXAMPLE_LEVELS[i],
+    label: t(`blockchainToFiat.level${EXAMPLE_LEVELS[i].charAt(0).toUpperCase() + EXAMPLE_LEVELS[i].slice(1)}Label`),
+    amount: quote?.amount,
+    quote
+  }))
+)
 </script>
 
 <template>
@@ -85,46 +126,89 @@ const x4tSavings = (quote, agg) => {
 
     <!-- 3 fixed example cards -->
     <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
-      <div v-for="level in levels" :key="level.key" class="rounded-xl border p-5 space-y-4">
+      <div v-for="level in levels" :key="level.key" class="rounded-xl border p-5 flex flex-col gap-4">
         <div class="min-h-16 flex flex-col justify-between">
           <p class="text-base font-semibold leading-snug">{{ level.label }}</p>
           <p class="text-xs text-gray-400 mt-1">{{ t('blockchainToFiat.exampleAmount') }}: {{ fmtUsd(level.amount) }}</p>
         </div>
 
         <template v-if="!expandedCards[level.key]">
-          <div class="space-y-2 text-sm">
-            <div class="flex items-center justify-between">
-              <span class="text-gray-500">{{ t('blockchainToFiat.cashUsd') }}</span>
-              <span class="font-mono font-medium">{{ fmtUsd(aggregate(level.quote?.channels)?.cashUsd?.usd) }}</span>
+          <div class="flex-1 space-y-3 text-sm">
+            <div v-if="usdSettlements(level.quote?.settlements).length">
+              <p class="text-xs font-semibold text-gray-400 uppercase tracking-wide mb-1.5">{{ t('blockchainToFiat.merchantReceivesIn', { currency: 'USD' }) }}</p>
+              <div class="space-y-1.5">
+                <div v-for="[key, s] in usdSettlements(level.quote?.settlements)" :key="key" class="flex items-center justify-between">
+                  <span class="text-gray-500">{{ sectionRowLabel(key) }}</span>
+                  <span class="font-mono font-medium">{{ fmtUsd(s.amount) }}</span>
+                </div>
+              </div>
             </div>
-            <div class="flex items-center justify-between">
-              <span class="text-gray-500">{{ t('blockchainToFiat.bankUsd') }}</span>
-              <span class="font-mono font-medium">{{ fmtUsd(aggregate(level.quote?.channels)?.bankUsd?.usd) }}</span>
+            <div v-if="localSettlements(level.quote?.settlements).length">
+              <p class="text-xs font-semibold text-gray-400 uppercase tracking-wide mb-1.5">{{ t('blockchainToFiat.merchantReceivesIn', { currency: localCurrency.code }) }}</p>
+              <div class="space-y-1.5">
+                <div v-for="[key, s] in localSettlements(level.quote?.settlements)" :key="key" class="flex items-center justify-between">
+                  <span class="text-gray-500">{{ sectionRowLabel(key) }}</span>
+                  <span class="font-mono font-medium">{{ fmtLocal(s.amount) }}</span>
+                </div>
+              </div>
             </div>
           </div>
-          <button class="text-xs text-gray-400 hover:text-gray-600 dark:hover:text-gray-200 transition" @click="expandedCards[level.key] = true">
+          <button class="mt-auto text-xs text-gray-400 hover:text-gray-600 dark:hover:text-gray-200 transition" @click="expandedCards[level.key] = true">
             {{ t('blockchainToFiat.expand') }} ↓
           </button>
         </template>
 
         <template v-else>
-          <div class="space-y-2 text-xs">
-            <div v-for="row in extendedRows(aggregate(level.quote?.channels), level.amount)" :key="row.label" class="flex items-start justify-between gap-2">
-              <span class="text-gray-500 shrink-0">{{ row.label }}</span>
-              <div class="text-right">
-                <p class="font-mono font-medium">{{ row.value }}</p>
-                <p class="text-gray-400">{{ row.fee }}</p>
+          <div class="flex-1 space-y-3 text-xs">
+            <div v-if="usdSettlements(level.quote?.settlements).length">
+              <p class="text-xs font-semibold text-gray-400 uppercase tracking-wide mb-1.5">{{ t('blockchainToFiat.merchantReceivesIn', { currency: 'USD' }) }}</p>
+              <div class="space-y-2">
+                <div v-for="[key, s] in usdSettlements(level.quote?.settlements)" :key="key" class="space-y-0.5">
+                  <div class="flex justify-between">
+                    <span class="text-gray-500">{{ sectionRowLabel(key) }}</span>
+                    <span class="font-mono font-medium">{{ fmtUsd(s.amount) }}</span>
+                  </div>
+                  <div class="flex justify-between text-gray-400">
+                    <span>{{ t('blockchainToFiat.fee') }}</span>
+                    <span>{{ fmtEffectiveRate(level.quote, key, s.amount) }}</span>
+                  </div>
+                  <div class="flex justify-between text-gray-400">
+                    <span class="capitalize">{{ t('blockchainToFiat.verification') }}</span>
+                    <span>{{ tierLabel(s.verification) }}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div v-if="localSettlements(level.quote?.settlements).length">
+              <p class="text-xs font-semibold text-gray-400 uppercase tracking-wide mb-1.5">{{ t('blockchainToFiat.merchantReceivesIn', { currency: localCurrency.code }) }}</p>
+              <div class="space-y-2">
+                <div v-for="[key, s] in localSettlements(level.quote?.settlements)" :key="key" class="space-y-0.5">
+                  <div class="flex justify-between">
+                    <span class="text-gray-500">{{ sectionRowLabel(key) }}</span>
+                    <span class="font-mono font-medium">{{ fmtLocal(s.amount) }}</span>
+                  </div>
+                  <div class="flex justify-between text-gray-400">
+                    <span>{{ t('blockchainToFiat.fee') }}</span>
+                    <span>{{ fmtEffectiveRate(level.quote, key, s.amount) }}</span>
+                  </div>
+                  <div class="flex justify-between text-gray-400">
+                    <span class="capitalize">{{ t('blockchainToFiat.verification') }}</span>
+                    <span>{{ tierLabel(s.verification) }}</span>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
-          <div v-if="x4tSavings(level.quote, aggregate(level.quote?.channels))" class="rounded-lg bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 p-2 text-xs">
-            <p class="font-medium text-green-700 dark:text-green-300">{{ t('blockchainToFiat.x4tSaves') }}</p>
-            <p class="font-mono text-green-600 dark:text-green-400">+{{ fmtUsd(x4tSavings(level.quote, aggregate(level.quote?.channels))?.savings) }}</p>
-            <p class="text-gray-400 mt-0.5">{{ t('blockchainToFiat.x4tNet') }}: {{ fmtUsd(x4tSavings(level.quote, aggregate(level.quote?.channels))?.x4tNet) }}</p>
+          <div class="mt-auto space-y-4">
+            <div v-if="compareSavings(level.quote)" class="rounded-lg bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 p-2 text-xs">
+              <p class="font-medium text-green-700 dark:text-green-300">{{ t('blockchainToFiat.x4tSaves') }} {{ fmtUsd(compareSavings(level.quote)?.savings) }}</p>
+              <p class="text-gray-400 mt-0.5">{{ t('blockchainToFiat.x4tNet') }}: {{ fmtUsd(compareSavings(level.quote).compareUsd) }}</p>
+              <p class="text-gray-400 mt-0.5">{{ verificationLabel(level.quote?.localCompare?.usd?.verification) }}</p>
+            </div>
+            <button class="text-xs text-gray-400 hover:text-gray-600 dark:hover:text-gray-200 transition" @click="expandedCards[level.key] = false">
+              {{ t('blockchainToFiat.collapse') }} ↑
+            </button>
           </div>
-          <button class="text-xs text-gray-400 hover:text-gray-600 dark:hover:text-gray-200 transition" @click="expandedCards[level.key] = false">
-            {{ t('blockchainToFiat.collapse') }} ↑
-          </button>
         </template>
       </div>
     </div>
@@ -160,40 +244,72 @@ const x4tSavings = (quote, agg) => {
         </div>
       </div>
 
-      <div>
-        <p class="text-sm font-medium mb-3">{{ t('blockchainToFiat.sellerReceives') }}</p>
-
-        <template v-if="expandedCustom">
-          <div class="space-y-3">
-            <div v-for="row in extendedRows(customAgg, customAmount)" :key="row.label" class="rounded-lg border p-4 flex items-start justify-between gap-4">
-              <span class="text-sm font-medium">{{ row.label }}</span>
-              <div class="text-right">
-                <p class="font-mono font-medium text-sm">{{ row.value }}</p>
-                <p class="text-xs text-gray-400">{{ row.fee }}</p>
+      <div class="space-y-4">
+        <div v-if="usdSettlements(customQuote?.settlements).length">
+          <p class="text-sm font-medium mb-3">{{ t('blockchainToFiat.merchantReceivesIn', { currency: 'USD' }) }}</p>
+          <template v-if="expandedCustom">
+            <div class="space-y-3">
+              <div v-for="[key, s] in usdSettlements(customQuote?.settlements)" :key="key" class="rounded-lg border p-4 space-y-0.5">
+                <div class="flex justify-between">
+                  <span class="text-sm font-medium">{{ sectionRowLabel(key) }}</span>
+                  <span class="font-mono font-medium text-sm">{{ fmtUsd(s.amount) }}</span>
+                </div>
+                <div class="flex justify-between text-xs text-gray-400">
+                  <span>{{ t('blockchainToFiat.fee') }}</span>
+                  <span>{{ fmtEffectiveRate(customQuote, key, s.amount) }}</span>
+                </div>
+                <div class="flex justify-between text-xs text-gray-400">
+                  <span class="capitalize">{{ t('blockchainToFiat.verification') }}</span>
+                  <span>{{ tierLabel(s.verification) }}</span>
+                </div>
               </div>
             </div>
-            <div v-if="x4tSavings(customQuote, customAgg)" class="rounded-lg bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 p-4 flex items-start justify-between gap-4">
-              <span class="text-sm font-medium text-green-700 dark:text-green-300">{{ t('blockchainToFiat.x4tSaves') }}</span>
-              <div class="text-right">
-                <p class="font-mono font-medium text-sm text-green-600 dark:text-green-400">+{{ fmtUsd(x4tSavings(customQuote, customAgg)?.savings) }}</p>
-                <p class="text-xs text-gray-400">{{ t('blockchainToFiat.x4tNet') }}: {{ fmtUsd(x4tSavings(customQuote, customAgg)?.x4tNet) }}</p>
+          </template>
+          <template v-else>
+            <div class="space-y-2 text-sm">
+              <div v-for="[key, s] in usdSettlements(customQuote?.settlements)" :key="key" class="flex items-center justify-between">
+                <span class="text-gray-500">{{ sectionRowLabel(key) }}</span>
+                <span class="font-mono font-medium">{{ fmtUsd(s.amount) }}</span>
               </div>
             </div>
-          </div>
-        </template>
+          </template>
+        </div>
 
-        <template v-else>
-          <div class="space-y-2 text-sm">
-            <div class="flex items-center justify-between">
-              <span class="text-gray-500">{{ t('blockchainToFiat.cashUsd') }}</span>
-              <span class="font-mono font-medium">{{ fmtUsd(customAgg?.cashUsd?.usd) }}</span>
+        <div v-if="localSettlements(customQuote?.settlements).length">
+          <p class="text-sm font-medium mb-3">{{ t('blockchainToFiat.merchantReceivesIn', { currency: localCurrency.code }) }}</p>
+          <template v-if="expandedCustom">
+            <div class="space-y-3">
+              <div v-for="[key, s] in localSettlements(customQuote?.settlements)" :key="key" class="rounded-lg border p-4 space-y-0.5">
+                <div class="flex justify-between">
+                  <span class="text-sm font-medium">{{ sectionRowLabel(key) }}</span>
+                  <span class="font-mono font-medium text-sm">{{ fmtLocal(s.amount) }}</span>
+                </div>
+                <div class="flex justify-between text-xs text-gray-400">
+                  <span>{{ t('blockchainToFiat.fee') }}</span>
+                  <span>{{ fmtEffectiveRate(customQuote, key, s.amount) }}</span>
+                </div>
+                <div class="flex justify-between text-xs text-gray-400">
+                  <span class="capitalize">{{ t('blockchainToFiat.verification') }}</span>
+                  <span>{{ tierLabel(s.verification) }}</span>
+                </div>
+              </div>
             </div>
-            <div class="flex items-center justify-between">
-              <span class="text-gray-500">{{ t('blockchainToFiat.bankUsd') }}</span>
-              <span class="font-mono font-medium">{{ fmtUsd(customAgg?.bankUsd?.usd) }}</span>
+          </template>
+          <template v-else>
+            <div class="space-y-2 text-sm">
+              <div v-for="[key, s] in localSettlements(customQuote?.settlements)" :key="key" class="flex items-center justify-between">
+                <span class="text-gray-500">{{ sectionRowLabel(key) }}</span>
+                <span class="font-mono font-medium">{{ fmtLocal(s.amount) }}</span>
+              </div>
             </div>
-          </div>
-        </template>
+          </template>
+        </div>
+
+        <div v-if="compareSavings(customQuote)" class="rounded-lg bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 p-4 text-sm">
+          <p class="font-medium text-green-700 dark:text-green-300">{{ t('blockchainToFiat.x4tSaves') }} {{ fmtUsd(compareSavings(customQuote)?.savings) }}</p>
+          <p class="text-xs text-gray-400 mt-1">{{ t('blockchainToFiat.x4tNet') }}: {{ fmtUsd(compareSavings(customQuote).compareUsd) }}</p>
+          <p class="text-xs text-gray-400">{{ verificationLabel(customQuote?.localCompare?.usd?.verification) }}</p>
+        </div>
       </div>
     </div>
 
@@ -205,7 +321,6 @@ const x4tSavings = (quote, agg) => {
           <thead>
             <tr class="text-left border-b border-gray-200 dark:border-gray-700">
               <th class="pb-2 pr-4 font-medium text-gray-700 dark:text-gray-300">{{ t('blockchainToFiat.levelLabel') }}</th>
-              <th class="pb-2 pr-4 font-medium text-gray-700 dark:text-gray-300">{{ t('blockchainToFiat.levelUseLabel') }}</th>
               <th class="pb-2 pr-4 font-medium text-gray-700 dark:text-gray-300">{{ t('blockchainToFiat.levelDocsLabel') }}</th>
               <th class="pb-2 font-medium text-gray-700 dark:text-gray-300">{{ t('blockchainToFiat.sofColumn') }}</th>
             </tr>
@@ -213,19 +328,16 @@ const x4tSavings = (quote, agg) => {
           <tbody class="divide-y divide-gray-100 dark:divide-gray-800">
             <tr :class="docLevel === 'minimal' ? 'font-semibold' : ''">
               <td class="py-2 pr-4">{{ t('blockchainToFiat.tierMinimal') }}</td>
-              <td class="py-2 pr-4 text-gray-500">{{ t('blockchainToFiat.levelMinimalLabel') }}</td>
               <td class="py-2 pr-4 text-gray-500">{{ t('blockchainToFiat.docMinimal') }}</td>
               <td class="py-2 text-gray-500">{{ t('blockchainToFiat.sofMinimal') }}</td>
             </tr>
             <tr :class="docLevel === 'standard' ? 'font-semibold' : ''">
               <td class="py-2 pr-4">{{ t('blockchainToFiat.tierStandard') }}</td>
-              <td class="py-2 pr-4 text-gray-500">{{ t('blockchainToFiat.levelStandardLabel') }}</td>
               <td class="py-2 pr-4 text-gray-500">{{ t('blockchainToFiat.docStandard') }}</td>
               <td class="py-2 text-gray-500">{{ t('blockchainToFiat.sofStandard') }}</td>
             </tr>
             <tr :class="docLevel === 'enhanced' ? 'font-semibold' : ''">
               <td class="py-2 pr-4">{{ t('blockchainToFiat.tierEnhanced') }}</td>
-              <td class="py-2 pr-4 text-gray-500">{{ t('blockchainToFiat.levelEnhancedLabel') }}</td>
               <td class="py-2 pr-4 text-gray-500">{{ t('blockchainToFiat.docEnhanced') }}</td>
               <td class="py-2 text-gray-500">{{ t('blockchainToFiat.sofEnhanced') }}</td>
             </tr>
