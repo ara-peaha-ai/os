@@ -69,7 +69,7 @@
     "note_usdtOnly": "Alleen USDT",
     "otherDestinations": "SWIFT · Argentinië · meer — in opzet",
     "verificationLevels": "Verificatieniveaus",
-    "payoutSimulatorNote": "Multi-rail, zelfbewaarneming afwikkeling — P2Pagos routeert via meerdere kanalen voor de beste koers. Middelen gaan rechtstreeks van uw wallet naar de tegenpartij.",
+    "payoutSimulatorNote": "Multi-rail, zelfbewaarneming afwikkeling — P2Pagos routeert via meerdere kanalen voor de beste koers. Fondsen stromen van de portemonnee van de koper naar uw bank of contant geld, zonder ooit onder controle van P2Pagos te komen.",
     "documentationTitle": "Documentatie en afwikkeling",
     "levelLabel": "Niveau",
     "levelDocsLabel": "KYC/KYB",
