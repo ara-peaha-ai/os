@@ -45,7 +45,7 @@
     "cash": "Efectivo",
     "x4t": "Comparación con X4T",
     "payoutSimulator": "Simulador de liquidación en autocustodia",
-    "payoutSimulatorNote": "Liquidación multi-rail en autocustodia — P2Pagos enruta entre múltiples canales para encontrar tu mejor tasa. Los fondos fluyen desde la billetera del comprador a tu banco o efectivo sin nunca pasar por el control de P2Pagos.",
+    "payoutSimulatorNote": "Liquidación multi-rail en autocustodia — P2Pagos enruta entre múltiples canales para encontrar tu mejor tasa. Los fondos fluyen desde la billetera del comprador a tu banco o en efectivo sin pasar por el control de P2Pagos.",
     "comingSoon": "Próximamente",
     "paraguayTitle": "Vender a compradores internacionales con liquidación en USD o guaraníes",
     "paraguaySubtitle": "Bitcoin y stablecoins a fiat local — tres niveles de verificación, ambas direcciones",
