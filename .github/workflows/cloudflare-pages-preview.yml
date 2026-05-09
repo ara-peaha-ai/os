@@ -32,6 +32,18 @@ jobs:
           NODE_OPTIONS: --max-old-space-size=4096
           NUXT_PUBLIC_IS_PREVIEW: 'true'
 
+      - name: Patch worker process import
+        run: |
+          node -e "
+          const fs=require('fs');
+          const f='dist/_worker.js/index.js';
+          if(!fs.existsSync(f)){console.log('worker not found at',f);process.exit(0);}
+          let c=fs.readFileSync(f,'utf8');
+          c=c.replace('import\"node:process\"','import __np from\"node:process\";globalThis.process=globalThis.process||__np');
+          fs.writeFileSync(f,c);
+          console.log('Patched node:process import');
+          "
+
       - name: Resolve D1 database ID
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}

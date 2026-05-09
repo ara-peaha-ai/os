@@ -32,6 +32,18 @@ jobs:
         env:
           NODE_OPTIONS: --max-old-space-size=4096
 
+      - name: Patch worker process import
+        run: |
+          node -e "
+          const fs=require('fs');
+          const f='dist/_worker.js/index.js';
+          if(!fs.existsSync(f)){console.log('worker not found at',f);process.exit(0);}
+          let c=fs.readFileSync(f,'utf8');
+          c=c.replace('import\"node:process\"','import __np from\"node:process\";globalThis.process=globalThis.process||__np');
+          fs.writeFileSync(f,c);
+          console.log('Patched node:process import');
+          "
+
       - name: Check D1 configuration
         id: d1_check
         run: |
