@@ -1,14 +1,12 @@
+// Rail: USDT → Kraken (0.2% fee) → EUR → Wise real quote → local currency → recipient bank.
+// Wise quote covers their conversion spread and transfer fee.
+// Available in BR and planned in MX (ETA 2026).
+
 export const getKrakenWiseNationalQuote = async (usd, currency) => {
-  const wiseFetch = useWiseFetch()
-  const [usdtEur, wiseUsdRates] = await Promise.all([
-    getKrakenRate('USDT', 'EUR'),
-    wiseFetch('https://api.wise.com/v1/rates?source=EUR&target=USD')
-  ])
-  const eurFromKraken = usd * usdtEur.priceAfterFee - 1
+  const usdtEur = await getKrakenRate('USDT', 'EUR')
+  const eurFromKraken = usd * usdtEur.priceAfterFee - usdtEur.withdrawalFee
   const { targetAmount: netNational } = await getWiseLocalQuote(eurFromKraken, 'EUR', currency)
-  const eurUsdRate = wiseUsdRates[0]?.rate
-  const netUsd = eurUsdRate ? eurFromKraken * eurUsdRate : null
-  return { netNational, netUsd, verification: 'enhanced' }
+  return { netNational, verification: 'enhanced' }
 }
 
 export const krakenWisePygConfig = {

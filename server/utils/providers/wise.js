@@ -1,3 +1,12 @@
+// Wise API utilities — authenticated fetch, real quote, and SWIFT incoming fee table.
+//
+// LATAM_SWIFT_FEES_USD: fees charged by the recipient's bank on incoming SWIFT transfers.
+// These are NOT Wise fees — Wise cannot control them, so they are deducted on top of the Wise quote.
+// Default used when country is not listed: 21.71 USD.
+//
+// getWiseLocalQuote: calls POST /v3/quotes with payOut BANK_TRANSFER and payIn BALANCE.
+// The returned targetAmount is what the recipient actually receives — Wise spread and transfer fee included.
+
 const SWIFT_DEFAULT_FEE_USD = 21.71
 
 const LATAM_SWIFT_FEES_USD = {

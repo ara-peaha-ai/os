@@ -32,16 +32,22 @@ jobs:
         env:
           NODE_OPTIONS: --max-old-space-size=4096
 
-      - name: Patch worker process import
+      - name: Patch worker nitro bundle
         run: |
           node -e "
           const fs=require('fs');
+          const ni='dist/_worker.js/chunks/nitro/nitro.mjs';
+          if(!fs.existsSync(ni)){console.log('nitro.mjs not found');process.exit(0);}
+          let c=fs.readFileSync(ni,'utf8');
+          const before=c;
+          c=c.replace('Reflect.get(e,t,r):Reflect.get(_,t,r)','Reflect.get(e,t,r):Reflect.get(_,t,_)');
+          if(c===before){console.log('nitro.mjs: proxy pattern not found, skipping');} else {fs.writeFileSync(ni,c);console.log('Patched nitro.mjs: fixed process proxy receiver');}
           const f='dist/_worker.js/index.js';
-          if(!fs.existsSync(f)){console.log('worker not found at',f);process.exit(0);}
-          let c=fs.readFileSync(f,'utf8');
-          c=c.replace('import\"node:process\"','import __np from\"node:process\";globalThis.process=globalThis.process||__np');
-          fs.writeFileSync(f,c);
-          console.log('Patched node:process import');
+          if(!fs.existsSync(f)){console.log('index.js not found');process.exit(0);}
+          let ci=fs.readFileSync(f,'utf8');
+          ci=ci.replace('import\"node:process\"','import __np from\"node:process\";globalThis.process=globalThis.process||__np');
+          fs.writeFileSync(f,ci);
+          console.log('Patched index.js: node:process import');
           "
 
       - name: Check D1 configuration

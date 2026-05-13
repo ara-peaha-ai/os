@@ -13,7 +13,7 @@ O Int2Latam cobre:
 
 - **Registro de domínio .sr** através de presença local — para proteção de marca e reputação de mercado no Suriname
 
-> Graças à nossa presença local direta no Suriname, registramos domínios `.sr` **a uma fração do custo** dos registradores internacionais — sem requisitos locais repassados ao cliente.
+> Graças à nossa presença local direta no Suriname, registramos domínios `.sr` **a uma fração do custo** dos registradores internacionais — sem requisitos locais repassados ao cliente. O processo de aprovação do registro pode levar até 15 dias úteis.
 
 O P2Pagos opera [p2paysa.sr](https://p2paysa.sr) como sua presença geo-localizada no Suriname. Planejamos utilizá-la para entregar conteúdo específico para o público surinamês — este domínio é nossa presença ativa atual no país.
 

@@ -1,13 +1,13 @@
+// Rail: USDT → Kraken (0.2% fee) → EUR → Wise real quote → USD → recipient bank via SWIFT.
+// Wise quote covers their conversion spread and transfer fee.
+// Recipient bank's incoming SWIFT fee deducted separately on top (varies by country, see wise.js table).
+// Available in BR and planned in MX (ETA 2026).
+
 export const getKrakenWiseUsdQuote = async (usd, country) => {
-  const wiseFetch = useWiseFetch()
-  const [usdtEur, wiseRates] = await Promise.all([
-    getKrakenRate('USDT', 'EUR'),
-    wiseFetch('https://api.wise.com/v1/rates?source=EUR&target=USD')
-  ])
-  const eurUsdRate = wiseRates[0]?.rate
-  if (!eurUsdRate) throw new Error('Wise rate unavailable')
-  const eurFromKraken = usd * usdtEur.priceAfterFee - 1
-  const netUsd = eurFromKraken * eurUsdRate - getSwiftFeeUsd(country)
+  const usdtEur = await getKrakenRate('USDT', 'EUR')
+  const eurFromKraken = usd * usdtEur.priceAfterFee - usdtEur.withdrawalFee
+  const { targetAmount } = await getWiseLocalQuote(eurFromKraken, 'EUR', 'USD')
+  const netUsd = targetAmount - getSwiftFeeUsd(country)
   return { netUsd, verification: 'enhanced' }
 }
 

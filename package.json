@@ -1,6 +1,10 @@
 {
   "name": "@p2pagos/website",
+  "description": "P2Pagos public website",
   "private": true,
+  "author": "p2pagos & learntheropes",
+  "license": "MIT",
+  "version": "0.1.0",
   "scripts": {
     "build": "nuxt build",
     "sync-env": "bash scripts/sync-env.sh",

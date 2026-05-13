@@ -4,7 +4,10 @@ export default defineNuxtConfig({
   },
 
   nitro: {
-    preset: 'cloudflare-pages'
+    preset: 'cloudflare-pages',
+    devProxy: {
+      '/documentation': { target: 'http://localhost:3001/documentation', changeOrigin: true }
+    }
   },
 
   modules: [
