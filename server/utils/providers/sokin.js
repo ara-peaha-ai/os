@@ -6,6 +6,7 @@
 // Supported local currencies: ARS, BOB, BRL, CLP, COP, CRC, DOP, GTQ, HNL, MXN, PEN, PYG, UYU.
 // bankLocal currently implemented for PYG only using BCP rate — other currencies need their own rate source.
 // Both SWIFT and locals are received from Sokin/PlataCapital, so in Paraguay we are forced to usethe local rail for SoF because SWIFT from 3rd party will not be accepted.
+// USDC, USDT, USDS (Sky dollar), PYUSD, and EURC, across Tron and Ethereum-based blockchain networks. BTC not supported.
 
 const SOKIN_SWIFT_FEE_USD = 10
 const SOKIN_LOCAL_FEE_USD = 5

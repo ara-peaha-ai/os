@@ -3,7 +3,6 @@ title: "Coin2Local — Inmobiliario en América Latina"
 description: "Pagos en Bitcoin y stablecoins para constructoras y desarrolladores en Paraguay, Panamá y Latam. Liquidación multirrail para compradores internacionales con origen de fondos complejo."
 subtitle: "El vertical de construcción. Paraguay primero, Latam después."
 intro: "Coin2Local conecta compradores internacionales que pagan en Bitcoin o stablecoins con constructoras y desarrolladores locales que operan íntegramente en fiat. Tres etapas, tres horizontes temporales."
-badge: "Moonshot vertical"
 ---
 
 ## Etapa 1 — Operativo ahora
@@ -17,7 +16,7 @@ Primera operación: USD 12.5k en USDC a aproximadamente 0,5% de costo total. 2.5
 ::country-py
 ::
 
-::stage-heading{text="Etapa 2 — Corto plazo, antes de finales de 2026" badge="Moonshot sponsoring"}
+::stage-heading{text="Etapa 2 — Corto plazo, antes de finales de 2026"}
 ::
 
 El mismo modelo de ejecución que Paraguay, aplicado mercado por mercado en América Latina. Panamá primero. Consolidación de software en paralelo.

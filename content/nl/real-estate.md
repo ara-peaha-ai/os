@@ -3,7 +3,6 @@ title: Vastgoedbetalingen in Paraguay
 description: Bitcoin en stablecoin betalingsuitvoering voor Paraguayaanse vastgoedbedrijven, bouwbedrijven en projectontwikkelaars die werken met internationale kopers en investeerders.
 subtitle: Coin2Local en Coin2Property voor vastgoed in Paraguay en Latijns-Amerika.
 intro: Voor Paraguayaanse bouwbedrijven en vastgoedkantoren die internationale Bitcoin en stablecoin-betalingen ontvangen, en voor internationale kopers die vastgoed kopen in Paraguay.
-badge: "Moonshot vertical"
 ---
 
 Vijf afzonderlijke groepen convergeren tegelijkertijd op deze kans.

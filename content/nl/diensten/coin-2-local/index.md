@@ -3,7 +3,6 @@ title: "Coin2Local — Vastgoed in Latijns-Amerika"
 description: "Bitcoin en stablecoin betalingen voor vastgoed- en bouwbedrijven in Paraguay, Panama en Latijns-Amerika. Multi-rail afwikkeling voor internationale kopers met complexe source of funds."
 subtitle: "Het bouwvertical. Paraguay eerst, daarna Latijns-Amerika."
 intro: "Coin2Local verbindt internationale kopers die betalen in Bitcoin of stablecoins met lokale bouwbedrijven en vastgoedontwikkelaars die volledig in fiat opereren. Drie fasen, drie tijdshorizonten."
-badge: "Moonshot vertical"
 ---
 
 ## Fase 1 — Nu operationeel
@@ -17,7 +16,7 @@ Eerste operatie: USD 12.5k USDC bij ongeveer 0.5% totale kosten. 2.500 Paraguaya
 ::country-py
 ::
 
-::stage-heading{text="Fase 2 — Korte termijn, eind 2026" badge="Moonshot sponsoring"}
+::stage-heading{text="Fase 2 — Korte termijn, eind 2026"}
 ::
 
 Hetzelfde uitvoeringsmodel als Paraguay, markt voor markt toegepast in Latijns-Amerika. Panama eerst. Softwareconsolidatie in parallel.

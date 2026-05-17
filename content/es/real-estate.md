@@ -3,7 +3,6 @@ title: Pagos Inmobiliarios en Paraguay
 description: Ejecución de pagos en Bitcoin y stablecoins para empresas inmobiliarias, constructoras y desarrolladoras paraguayas que trabajan con compradores e inversores internacionales.
 subtitle: Coin2Local y Coin2Property para el sector inmobiliario en Paraguay y América Latina.
 intro: Para constructoras y agencias inmobiliarias paraguayas que reciben pagos internacionales en Bitcoin y stablecoins, y para compradores internacionales que adquieren propiedades en Paraguay.
-badge: "Moonshot vertical"
 ---
 
 Paraguay atrae un interés internacional creciente en bienes raíces, construcción, terrenos y reubicación empresarial.

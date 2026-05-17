@@ -3,6 +3,10 @@ title: Coin2Local Paraguai — Construção e Imobiliário
 subtitle: Referência de liquidação para construtoras e empresas imobiliárias que recebem Bitcoin e stablecoins de compradores internacionais.
 ---
 
+Nosso sistema multi-rail permite uma taxa de aprovação de origem de fundos (SoF) próxima de 100% no Paraguai. Na maioria dos casos, o pagamento chega como transferência bancária nacional — mesmo quando origina de uma instituição financeira terceira. Quando processado via SWIFT como alternativa, chega de uma conta estrangeira no mesmo nome da EAS do vendedor, aceito como movimentação interna de fluxo de caixa respaldada documentalmente pela operação de compra e venda.
+
+---
+
 #### Caso de uso principal: construtoras no Paraguai
 
 O simulador acima mostra estimativas de pagamento em tempo real para uma construtora ou empresa imobiliária paraguaia que recebe um pagamento em Bitcoin, USDT ou USDC de um comprador internacional.
@@ -26,16 +30,6 @@ Do lado da construtora, isso significa assistência técnica para ativar seus pr
 > A abordagem atual é intencionalmente manual. Cada etapa é projetada para ser absorvida em uma única aplicação integrada à medida que o vertical amadurece.
 
 O P2Pagos opera como uma **empresa de software e consultoria**. Não custodia fundos de clientes, não age como intermediário financeiro e não oferece serviços de câmbio. O que constrói é a estrutura técnica e operacional que permite a ambos os lados de uma transação imobiliária usar os rails de que precisam — fundamentada em experiência direta com a infraestrutura de pagamentos desta indústria específica.
-
----
-
-#### Opções de liquidação
-
-| Canal | Moeda de saída | Verificação | Notas |
-|---|---|---|---|
-| Dinheiro em espécie | USD / PYG | Mínima | Disponível desde o primeiro dia |
-| Banco PY (transferência nacional) | USD / PYG | Padrão | Documentação EAS e origem dos fundos. |
-| Banco PY (transferência internacional) | USD / PYG | Reforçada | Documentação EAS, origem dos fundos e pagamento recebido com o mesmo nome do contrato de compra e venda. |
 
 ---
 
@@ -71,4 +65,4 @@ Disponível como parte do programa early-adopter Coin2Property. Compras de USD 5
 
 #### Mais informações
 
-Contexto completo do vertical imobiliário, taxas Coin2Property (0,5%–3,9%) e objetivo do grant Moonshot: [/imoveis-no-paraguai](/imoveis-no-paraguai)
+Contexto completo do vertical imobiliário e taxas Coin2Property (0,5%–3,9%): [/imoveis-no-paraguai](/imoveis-no-paraguai)

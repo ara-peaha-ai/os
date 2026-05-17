@@ -203,6 +203,7 @@ const levels = computed(() =>
             <div v-if="compareSavings(level.quote)" class="rounded-lg bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 p-2 text-xs">
               <p class="font-medium text-green-700 dark:text-green-300">{{ t('blockchainToFiat.x4tSaves') }} {{ fmtUsd(compareSavings(level.quote)?.savings) }}</p>
               <p class="text-gray-400 mt-0.5">{{ t('blockchainToFiat.x4tNet') }}: {{ fmtUsd(compareSavings(level.quote).compareUsd) }}</p>
+              <p class="text-gray-400 mt-0.5">{{ t('blockchainToFiat.fee') }} {{ fmtEffectiveRate(level.quote, 'bankUsd', compareSavings(level.quote)?.compareUsd) }}</p>
               <p class="text-gray-400 mt-0.5">{{ verificationLabel(level.quote?.localCompare?.usd?.verification) }}</p>
             </div>
             <button class="text-xs text-gray-400 hover:text-gray-600 dark:hover:text-gray-200 transition" @click="expandedCards[level.key] = false">
@@ -308,42 +309,11 @@ const levels = computed(() =>
         <div v-if="compareSavings(customQuote)" class="rounded-lg bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 p-4 text-sm">
           <p class="font-medium text-green-700 dark:text-green-300">{{ t('blockchainToFiat.x4tSaves') }} {{ fmtUsd(compareSavings(customQuote)?.savings) }}</p>
           <p class="text-xs text-gray-400 mt-1">{{ t('blockchainToFiat.x4tNet') }}: {{ fmtUsd(compareSavings(customQuote).compareUsd) }}</p>
+          <p class="text-xs text-gray-400">{{ t('blockchainToFiat.fee') }} {{ fmtEffectiveRate(customQuote, 'bankUsd', compareSavings(customQuote)?.compareUsd) }}</p>
           <p class="text-xs text-gray-400">{{ verificationLabel(customQuote?.localCompare?.usd?.verification) }}</p>
         </div>
       </div>
     </div>
 
-    <!-- Documentation -->
-    <div class="space-y-4">
-      <h2 class="text-xl font-semibold">{{ t('blockchainToFiat.documentationTitle') }}</h2>
-      <div class="overflow-x-auto">
-        <table class="w-full text-sm">
-          <thead>
-            <tr class="text-left border-b border-gray-200 dark:border-gray-700">
-              <th class="pb-2 pr-4 font-medium text-gray-700 dark:text-gray-300">{{ t('blockchainToFiat.levelLabel') }}</th>
-              <th class="pb-2 pr-4 font-medium text-gray-700 dark:text-gray-300">{{ t('blockchainToFiat.levelDocsLabel') }}</th>
-              <th class="pb-2 font-medium text-gray-700 dark:text-gray-300">{{ t('blockchainToFiat.sofColumn') }}</th>
-            </tr>
-          </thead>
-          <tbody class="divide-y divide-gray-100 dark:divide-gray-800">
-            <tr :class="docLevel === 'minimal' ? 'font-semibold' : ''">
-              <td class="py-2 pr-4">{{ t('blockchainToFiat.tierMinimal') }}</td>
-              <td class="py-2 pr-4 text-gray-500">{{ t('blockchainToFiat.docMinimal') }}</td>
-              <td class="py-2 text-gray-500">{{ t('blockchainToFiat.sofMinimal') }}</td>
-            </tr>
-            <tr :class="docLevel === 'standard' ? 'font-semibold' : ''">
-              <td class="py-2 pr-4">{{ t('blockchainToFiat.tierStandard') }}</td>
-              <td class="py-2 pr-4 text-gray-500">{{ t('blockchainToFiat.docStandard') }}</td>
-              <td class="py-2 text-gray-500">{{ t('blockchainToFiat.sofStandard') }}</td>
-            </tr>
-            <tr :class="docLevel === 'enhanced' ? 'font-semibold' : ''">
-              <td class="py-2 pr-4">{{ t('blockchainToFiat.tierEnhanced') }}</td>
-              <td class="py-2 pr-4 text-gray-500">{{ t('blockchainToFiat.docEnhanced') }}</td>
-              <td class="py-2 text-gray-500">{{ t('blockchainToFiat.sofEnhanced') }}</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
   </div>
 </template>

@@ -3,6 +3,10 @@ title: Coin2Local Paraguay — Construcción e Inmobiliario
 subtitle: Referencia de liquidación para constructoras y negocios inmobiliarios que reciben Bitcoin y stablecoins de compradores internacionales.
 ---
 
+Nuestro sistema multi-rail permite una tasa de aprobación del origen de fondos (SoF) cercana al 100% en Paraguay. En la mayoría de los casos, el pago llega como transferencia bancaria nacional — incluso cuando proviene de una institución financiera tercera. Cuando se procesa por SWIFT como alternativa, llega desde una cuenta exterior a nombre de la misma EAS del vendedor, lo que es aceptado como movimiento de cashflow interno respaldado documentalmente por la operación de compraventa.
+
+---
+
 #### Caso de uso principal: constructoras en Paraguay
 
 El simulador de arriba muestra estimaciones de pago en tiempo real para una constructora o empresa inmobiliaria paraguaya que recibe un pago en Bitcoin, USDT o USDC de un comprador internacional.
@@ -28,16 +32,6 @@ Del lado de la constructora, esto significa asistencia técnica para activar sus
 P2Pagos opera como una **empresa de software y consultoría**. No custodia fondos de clientes, no actúa como intermediario financiero y no ofrece servicios de cambio. Lo que construye es la estructura técnica y operativa que permite a ambas partes de una transacción inmobiliaria usar los rieles que necesitan — respaldada por experiencia directa con la infraestructura de pagos de esta industria específica.
 
 Obtener el **registro PSAV** (Proveedor de Servicios de Activos Virtuales) ante SEPRELAD está en el roadmap — el paso formal que permitiría a P2Pagos operar como proveedor de servicios de activos virtuales habilitado bajo la regulación paraguaya.
-
----
-
-#### Opciones de liquidación
-
-| Canal | Moneda de salida | Verificación | Notas |
-|---|---|---|---|
-| Efectivo | USD / PYG | Mínima | Utilizable desde el primer día |
-| Banco PY (transferencia nacional) | USD / PYG | Estándar | Documentación EAS y origen de los fondos. |
-| Banco PY (transferencia internacional) | USD / PYG | Reforzada | Documentación EAS y origen de los fondos, y pago recibido desde el mismo nombre del contrato de venta. |
 
 ---
 
@@ -73,4 +67,4 @@ Disponible como parte del programa early-adopter Coin2Property. Compras desde US
 
 #### Más información
 
-Contexto completo del vertical inmobiliario, comisiones Coin2Property (0,5%–3,9%) y objetivo de la beca Moonshot: [/bienes-raices-en-paraguay](/bienes-raices-en-paraguay)
+Contexto completo del vertical inmobiliario y comisiones Coin2Property (0,5%–3,9%): [/bienes-raices-en-paraguay](/bienes-raices-en-paraguay)

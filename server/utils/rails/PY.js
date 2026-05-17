@@ -6,6 +6,8 @@ export const pyConfig = {
     jimConfig,
     krakenWisePyUsdConfig,
     krakenWisePygConfig,
-    decryptoConfig
+    decryptoConfig,
+    sokinItauNationalConfig,
+    sokinItauUsdConfig
   ]
 }

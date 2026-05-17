@@ -3,7 +3,6 @@ title: Real Estate Payments in Paraguay
 description: Bitcoin and stablecoin payment execution for Paraguayan real estate businesses, construction companies, and property developers working with international buyers and investors.
 subtitle: Coin2Local and Coin2Property for real estate in Paraguay and Latin America.
 intro: For Paraguayan construction companies and real estate agencies receiving international Bitcoin and stablecoin payments, and for international buyers purchasing property in Paraguay.
-badge: "Moonshot vertical"
 ---
 
 Five distinct groups are converging on this opportunity at the same time.

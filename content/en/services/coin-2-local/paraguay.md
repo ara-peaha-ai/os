@@ -3,6 +3,10 @@ title: Coin2Local Paraguay — Construction & Real Estate
 subtitle: Settlement reference for construction companies and real estate businesses receiving Bitcoin and stablecoins from international buyers.
 ---
 
+Our multi-rail system enables near 100% source of funds (SoF) approval in Paraguay. In most cases, payment arrives as a domestic bank transfer — even when it originates from a third-party financial institution. When processed via SWIFT as a fallback, it arrives from a foreign account in the same name as the seller's EAS, accepted as internal cashflow movement backed by the documented sale transaction.
+
+---
+
 #### Primary use case: construction companies in Paraguay
 
 The simulator above shows live payout estimates for a Paraguayan construction company or real estate business receiving a payment in Bitcoin, USDT, or USDC from an international buyer.
@@ -73,4 +77,4 @@ Available as part of the Coin2Property early-adopter program. Purchases from USD
 
 #### More
 
-Full real estate vertical context, Coin2Property fees (0.5%–3.9%), and the Moonshot grant objective: [/real-estate-in-paraguay](/real-estate-in-paraguay)
+Full real estate vertical context and Coin2Property fees (0.5%–3.9%): [/real-estate-in-paraguay](/real-estate-in-paraguay)
