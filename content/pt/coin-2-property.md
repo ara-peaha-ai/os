@@ -1,8 +1,8 @@
 ---
 title: "Coin2Property — Compre Qualquer Imóvel com Bitcoin ou Stablecoins"
-description: "Etapa 3 do Coin2Local: P2Pagos como veículo de aquisição para qualquer imóvel, qualquer agência, qualquer mercado suportado. Para compradores com origem de fundos real mas difícil de documentar."
+description: "Etapa 3 do Coin2Local: P2Pagos como veículo de aquisição custodial para qualquer imóvel, qualquer agência, qualquer mercado suportado. Para compradores com origem de fundos real mas difícil de documentar."
 subtitle: "Qualquer imóvel. Qualquer agência. Qualquer mercado suportado."
-intro: "Etapa 3: o modelo de agências. P2Pagos atua como veículo de aquisição quando nenhuma parte na cadeia da transação pode aceitar cripto diretamente."
+intro: "Etapa 3 do Coin2Local. P2Pagos atua como veículo de aquisição custodial quando nenhuma parte na cadeia da transação pode aceitar cripto diretamente."
 badge: "Etapa 3 — 2027+"
 ---
 
@@ -33,9 +33,9 @@ Coin2Property é especificamente para compradores cuja origem de fundos é real 
 - Capital disponível para cobrir a janela entre o recebimento do cripto e o desembolso em fiat
 - Escrow técnico e transferência documentada em cada etapa da aquisição
 - Framework de documentação de origem de fundos adaptado ao perfil do comprador
-- Histórico de operações da Etapa 1 e Etapa 2 no mesmo mercado como prova de conceito
+- Histórico de operações da Etapa 1 (construtoras) no Paraguai como prova de conceito
 
-A Etapa 3 não começa do zero. A primeira conversa com uma agência no Paraguai já está em andamento.
+Isso não começa do zero. A primeira conversa com uma agência no Paraguai já está em andamento.
 
 ## Camada de compliance
 
@@ -45,4 +45,4 @@ A Etapa 3 não começa do zero. A primeira conversa com uma agência no Paraguai
 
 - [Coin2Local](/services/coin-2-local)
 - [PY2Latam](/py-2-latam)
-- [Pagamentos imobiliários no Paraguai](/imoveis-no-paraguai)
+- [Pagamentos imobiliários no Paraguai](/servicos/coin-2-local/imoveis/paraguai)

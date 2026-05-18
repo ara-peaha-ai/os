@@ -64,12 +64,12 @@ thesis:
 verticals:
   label: "Verticais"
   h2: "Mercados específicos onde a infraestrutura Mono2Multi já está sendo testada."
-  intro: "Nosso primeiro vertical são os pagamentos imobiliários no Paraguai. Tem uma página dedicada com o caso de uso específico, contexto de mercado e caminho de implementação."
+  intro: "Nosso primeiro vertical é o imobiliário na América Latina — Paraguai ativo, Panamá a seguir. Tem uma página dedicada com o caso de uso específico, contexto de mercado e caminho de implementação."
   items:
-    - slug: "imoveis-no-paraguai"
+    - slug: "servicos/coin-2-local"
       label: "Vertical"
-      name: "Pagamentos imobiliários no Paraguai"
-      description: "Execução de pagamentos em Bitcoin e stablecoins para empresas imobiliárias paraguaias que trabalham com compradores e investidores internacionais."
+      name: "Pagamentos imobiliários na América Latina"
+      description: "Execução de pagamentos em Bitcoin e stablecoins para construtoras e agências imobiliárias no Paraguai e no Panamá que trabalham com compradores internacionais."
       linkText: "Explorar pagamentos imobiliários"
     - label: "Vertical secreto"
       name: "Argentina — setor não divulgado"

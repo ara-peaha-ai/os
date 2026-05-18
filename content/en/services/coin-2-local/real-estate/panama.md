@@ -24,4 +24,4 @@ Panama is active as a Coin2Local destination. Settlement flows, documentation re
 ## Related
 
 - [Coin2Local](/services/coin-2-local)
-- [Real estate payments in Paraguay](/real-estate-in-paraguay)
+- [Real estate payments in Paraguay](/services/coin-2-local/real-estate/paraguay)

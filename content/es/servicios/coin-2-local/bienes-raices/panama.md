@@ -24,4 +24,4 @@ Panamá está activo como destino Coin2Local. Los flujos de liquidación, requis
 ## Relacionado
 
 - [Coin2Local](/servicios/coin-2-local)
-- [Pagos inmobiliarios en Paraguay](/real-estate-in-paraguay)
+- [Pagos inmobiliarios en Paraguay](/servicios/coin-2-local/bienes-raices/paraguay)

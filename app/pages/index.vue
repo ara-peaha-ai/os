@@ -3,7 +3,7 @@ const { locale } = useI18n()
 const localePath = useLocalePath()
 
 const { data: page } = await useAsyncData(`home-${locale.value}`, () =>
-  queryCollection('content').where('path', '=', `/${locale.value}`).first()
+  useContentQuery().where('path', '=', `/${locale.value}`).first()
 )
 
 useSeoMeta({

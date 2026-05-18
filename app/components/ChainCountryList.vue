@@ -29,8 +29,8 @@ const allCountries = [
 
 const serviceRoutes = {
   'coin-2-local': {
-    PY: 'services-coin-2-local-paraguay',
-    PA: 'services-coin-2-local-panama'
+    PY: 'services-coin-2-local-real-estate-paraguay',
+    PA: 'services-coin-2-local-real-estate-panama'
   },
   'int-2-latam': {
     PY: 'services-mono-2-multi-int-2-latam-paraguay',

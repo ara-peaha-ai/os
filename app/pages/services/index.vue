@@ -4,7 +4,7 @@ const localePath = useLocalePath()
 const route = useRoute()
 
 const { data: pageContent } = await useAsyncData(`services-hub-${route.path}`, () =>
-  queryCollection('content').where('path', 'LIKE', `%${route.path}`).first()
+  useContentQuery().where('path', 'LIKE', `%${route.path}`).first()
 )
 
 useHead(() => ({

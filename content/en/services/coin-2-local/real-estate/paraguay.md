@@ -35,16 +35,6 @@ Obtaining a **PSAV registration** (Proveedor de Servicios de Activos Virtuales) 
 
 ---
 
-#### Settlement options
-
-| Rail | Currency out | Verification | Notes |
-|---|---|---|---|
-| Cash | USD / PYG | Minimal | Available from day one |
-| Bank PY (domestic transfer) | USD / PYG | Standard | EAS documentation and source of funds. |
-| Bank PY (international transfer) | USD / PYG | Enhanced | EAS documentation, source of funds, and payment received from the same name as the sales contract. |
-
----
-
 #### For bank PY settlement
 
 - Passport of each partner
@@ -77,4 +67,4 @@ Available as part of the Coin2Property early-adopter program. Purchases from USD
 
 #### More
 
-Full real estate vertical context and Coin2Property fees (0.5%–3.9%): [/real-estate-in-paraguay](/real-estate-in-paraguay)
+Coin2Property fees (0.5%–3.9%) and full acquisition model: [Coin2Property →](/coin-2-property)

@@ -67,4 +67,4 @@ Disponible como parte del programa early-adopter Coin2Property. Compras desde US
 
 #### Más información
 
-Contexto completo del vertical inmobiliario y comisiones Coin2Property (0,5%–3,9%): [/bienes-raices-en-paraguay](/bienes-raices-en-paraguay)
+Comisiones Coin2Property (0,5%–3,9%) y modelo de adquisición completo: [Coin2Property →](/coin-2-property)

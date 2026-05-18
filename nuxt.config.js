@@ -35,12 +35,6 @@ export default defineNuxtConfig({
     detectBrowserLanguage: false,
     customRoutes: 'config',
     pages: {
-      'real-estate-in-paraguay': {
-        en: '/real-estate-in-paraguay',
-        es: '/bienes-raices-en-paraguay',
-        pt: '/imoveis-no-paraguai',
-        nl: '/real-estate-in-paraguay'
-      },
       'py-2-latam': {
         en: '/py-2-latam',
         es: '/py-2-latam',
@@ -77,17 +71,23 @@ export default defineNuxtConfig({
         pt: '/servicos/coin-2-local',
         nl: '/diensten/coin-2-local'
       },
-      'services/coin-2-local/paraguay': {
-        en: '/services/coin-2-local/paraguay',
-        es: '/servicios/coin-2-local/paraguay',
-        pt: '/servicos/coin-2-local/paraguai',
-        nl: '/diensten/coin-2-local/paraguay'
+      'services/coin-2-local/real-estate/paraguay': {
+        en: '/services/coin-2-local/real-estate/paraguay',
+        es: '/servicios/coin-2-local/bienes-raices/paraguay',
+        pt: '/servicos/coin-2-local/imoveis/paraguai',
+        nl: '/diensten/coin-2-local/vastgoed/paraguay'
       },
-      'services/coin-2-local/panama': {
-        en: '/services/coin-2-local/panama',
-        es: '/servicios/coin-2-local/panama',
-        pt: '/servicos/coin-2-local/panama',
-        nl: '/diensten/coin-2-local/panama'
+      'services/coin-2-local/real-estate/panama': {
+        en: '/services/coin-2-local/real-estate/panama',
+        es: '/servicios/coin-2-local/bienes-raices/panama',
+        pt: '/servicos/coin-2-local/imoveis/panama',
+        nl: '/diensten/coin-2-local/vastgoed/panama'
+      },
+      'services/coin-2-local/expat-remittance/index': {
+        en: '/services/coin-2-local/expat-remittance',
+        es: '/servicios/coin-2-local/remesas-expat',
+        pt: '/servicos/coin-2-local/remessas-expat',
+        nl: '/diensten/coin-2-local/expat-overboekingen'
       },
       'services/mono-2-multi/index': {
         en: '/services/mono-2-multi',

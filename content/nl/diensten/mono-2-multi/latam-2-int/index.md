@@ -95,4 +95,4 @@ De structuur moet van begin af aan back-uprails en back-up betalingskanalen omva
 
 - [Mono2Multi](/diensten/mono-2-multi)
 - [Coin2Local](/diensten/coin-2-local)
-- [Vastgoedbetalingen in Paraguay](/real-estate-in-paraguay)
+- [Vastgoedbetalingen in Paraguay](/diensten/coin-2-local/vastgoed/paraguay)

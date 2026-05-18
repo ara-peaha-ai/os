@@ -104,4 +104,4 @@ The structure should include backup rails and fallback payment channels from the
 
 - [Mono2Multi](/services/mono-2-multi)
 - [Coin2Local](/services/coin-2-local)
-- [Real estate payments in Paraguay](/real-estate-in-paraguay)
+- [Real estate payments in Paraguay](/services/coin-2-local/real-estate/paraguay)

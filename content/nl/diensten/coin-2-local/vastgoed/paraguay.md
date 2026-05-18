@@ -35,16 +35,6 @@ Het verkrijgen van een **PSAV-registratie** (Proveedor de Servicios de Activos V
 
 ---
 
-#### Afwikkelingsopties
-
-| Rail | Valuta uit | Verificatie | Opmerkingen |
-|---|---|---|---|
-| Contant | USD / PYG | Minimaal | Beschikbaar vanaf de eerste dag |
-| Bank PY (binnenlandse overboeking) | USD / PYG | Standaard | EAS-documentatie en herkomst van de fondsen. |
-| Bank PY (internationale overboeking) | USD / PYG | Verbeterd | EAS-documentatie, herkomst van de fondsen en betaling ontvangen op naam van de verkoper vermeld in het koopcontract. |
-
----
-
 #### Voor bank PY-afwikkeling
 
 - Paspoort van elke partner
@@ -77,4 +67,4 @@ Beschikbaar als onderdeel van het Coin2Property early-adopter programma. Aankope
 
 #### Meer
 
-Volledig vastgoedvertical-context en Coin2Property-vergoedingen (0.5%–3.9%): [/real-estate-in-paraguay](/real-estate-in-paraguay)
+Coin2Property-vergoedingen (0,5%–3,9%) en volledig acquisitiemodel: [Coin2Property →](/coin-2-property)

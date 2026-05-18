@@ -3,7 +3,7 @@ const { t } = useI18n()
 const route = useRoute()
 
 const { data: page } = await useAsyncData(`int-2-latam-py-${route.path}`, () =>
-  queryCollection('content').where('path', 'LIKE', `%${route.path}`).first()
+  useContentQuery().where('path', 'LIKE', `%${route.path}`).first()
 )
 useSeoMeta({
   title: () => page.value?.title,

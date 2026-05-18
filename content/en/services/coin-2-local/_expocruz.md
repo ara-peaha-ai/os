@@ -1,3 +1,6 @@
+---
+draft: true
+---
 ## ExpoСruz stand — internal pricing notes
 
 Fair: [ExpoСruz](https://www.fexpocruz.com.bo/feria/expocruz)

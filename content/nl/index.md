@@ -63,11 +63,11 @@ thesis:
 verticals:
   label: "Verticals"
   h2: "Gerichte markten waar Mono2Multi-infrastructuur al wordt getest."
-  intro: "Onze eerste vertical zijn vastgoedbetalingen in Paraguay. Deze vertical heeft een eigen pagina met de specifieke use case, marktcontext en implementatiepad."
+  intro: "Onze eerste vertical is vastgoed in Latijns-Amerika — Paraguay actief, Panama als volgende. Deze vertical heeft een eigen pagina met de specifieke use case, marktcontext en implementatiepad."
   items:
-    - slug: "real-estate-in-paraguay"
+    - slug: "diensten/coin-2-local"
       label: "Vertical"
-      name: "Vastgoedbetalingen in Paraguay"
-      description: "Bitcoin- en stablecoin-betalingsuitvoering voor Paraguayaanse vastgoedbedrijven die werken met internationale kopers en investeerders."
+      name: "Vastgoedbetalingen in Latijns-Amerika"
+      description: "Bitcoin- en stablecoin-betalingsuitvoering voor bouwbedrijven en vastgoedkantoren in Paraguay en Panama die werken met internationale kopers."
       linkText: "Verken vastgoedbetalingen"
 ---

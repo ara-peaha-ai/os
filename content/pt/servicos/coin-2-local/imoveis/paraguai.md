@@ -65,4 +65,4 @@ Disponível como parte do programa early-adopter Coin2Property. Compras de USD 5
 
 #### Mais informações
 
-Contexto completo do vertical imobiliário e taxas Coin2Property (0,5%–3,9%): [/imoveis-no-paraguai](/imoveis-no-paraguai)
+Taxas Coin2Property (0,5%–3,9%) e modelo de aquisição completo: [Coin2Property →](/coin-2-property)

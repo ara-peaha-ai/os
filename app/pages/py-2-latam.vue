@@ -2,7 +2,7 @@
 const { locale } = useI18n()
 
 const { data: page } = await useAsyncData(`py-2-latam-${locale.value}`, () =>
-  queryCollection('content').where('path', '=', `/${locale.value}/py-2-latam`).first()
+  useContentQuery().where('path', '=', `/${locale.value}/py-2-latam`).first()
 )
 useSeoMeta({
   title: () => page.value?.title,

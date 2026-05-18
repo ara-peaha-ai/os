@@ -1,7 +1,7 @@
 <script setup>
 const { locale } = useI18n()
 const { data: page } = await useAsyncData(`adult-${locale.value}`, () =>
-  queryCollection('content').where('path', '=', `/${locale.value}/adult`).first()
+  useContentQuery().where('path', '=', `/${locale.value}/adult`).first()
 )
 useSeoMeta({
   title: () => page.value?.title,

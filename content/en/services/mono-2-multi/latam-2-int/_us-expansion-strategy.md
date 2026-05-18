@@ -1,3 +1,7 @@
+---
+draft: true
+---
+
 # US Expansion Strategy — Internal Notes
 
 **Status:** Under study. Not to be published or shared externally.

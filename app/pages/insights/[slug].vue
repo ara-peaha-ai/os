@@ -3,7 +3,7 @@ const route = useRoute()
 const { locale } = useI18n()
 
 const { data: page } = await useAsyncData(`insight-${route.path}-${locale.value}`, () =>
-  queryCollection('content').where('path', 'LIKE', `%${route.path}`).first()
+  useContentQuery().where('path', 'LIKE', `%${route.path}`).first()
 )
 useSeoMeta({
   title: () => page.value?.title,

@@ -2,7 +2,7 @@
 const { locale } = useI18n()
 
 const { data: page } = await useAsyncData(`coin-2-property-${locale.value}`, () =>
-  queryCollection('content').where('path', '=', `/${locale.value}/coin-2-property`).first()
+  useContentQuery().where('path', '=', `/${locale.value}/coin-2-property`).first()
 )
 useSeoMeta({
   title: () => page.value?.title,

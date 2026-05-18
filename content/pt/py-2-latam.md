@@ -31,5 +31,5 @@ A geração de relatórios de compliance compatíveis com KYC é unificada na me
 ## Relacionado
 
 - [Coin2Local](/services/coin-2-local)
-- [Pagamentos imobiliários no Paraguai](/imoveis-no-paraguai)
+- [Pagamentos imobiliários no Paraguai](/servicos/coin-2-local/imoveis/paraguai)
 - [Coin2Property](/coin-2-property)

@@ -64,12 +64,12 @@ thesis:
 verticals:
   label: "Verticals"
   h2: "Focused markets where Mono2Multi infrastructure is already being tested."
-  intro: "Our first vertical is real estate payments in Paraguay. It has a dedicated page with the specific use case, market context, and implementation path."
+  intro: "Our first vertical is real estate in Latin America — Paraguay active, Panama next. It has a dedicated page with the specific use case, market context, and implementation path."
   items:
-    - slug: "real-estate-in-paraguay"
+    - slug: "services/coin-2-local"
       label: "Vertical"
-      name: "Real estate payments in Paraguay"
-      description: "Bitcoin and stablecoin payment execution for Paraguayan real estate businesses working with international buyers and investors."
+      name: "Real estate payments in Latin America"
+      description: "Bitcoin and stablecoin payment execution for construction companies and real estate businesses in Paraguay and Panama working with international buyers."
       linkText: "Explore real estate payments"
     - label: "Secret vertical"
       name: "Argentina — undisclosed sector"

@@ -1,8 +1,8 @@
 ---
 title: "Coin2Property — Comprá Cualquier Inmueble con Bitcoin o Stablecoins"
-description: "Etapa 3 de Coin2Local: P2Pagos como vehículo de adquisición para cualquier inmueble, cualquier agencia, cualquier mercado soportado. Para compradores con origen de fondos real pero difícil de documentar."
+description: "Etapa 3 de Coin2Local: P2Pagos como vehículo de adquisición custodial para cualquier inmueble, cualquier agencia, cualquier mercado soportado. Para compradores con origen de fondos real pero difícil de documentar."
 subtitle: "Cualquier inmueble. Cualquier agencia. Cualquier mercado soportado."
-intro: "Etapa 3: el modelo de agencias. P2Pagos actúa como vehículo de adquisición cuando ninguna parte en la cadena de transacción puede aceptar cripto directamente."
+intro: "Etapa 3 de Coin2Local. P2Pagos actúa como vehículo de adquisición custodial cuando ninguna parte en la cadena de transacción puede aceptar cripto directamente."
 badge: "Etapa 3 — 2027+"
 ---
 
@@ -33,9 +33,9 @@ Coin2Property es específicamente para compradores cuyo origen de fondos es real
 - Capital disponible para cubrir la ventana entre la recepción del cripto y el desembolso en fiat
 - Escrow técnico y traspaso documentado en cada paso de la adquisición
 - Marco de documentación de origen de fondos adaptado al perfil del comprador
-- Historial de operaciones de Etapa 1 y Etapa 2 en el mismo mercado como prueba de concepto
+- Historial de operaciones de Etapa 1 (constructoras) en Paraguay como prueba de concepto
 
-La Etapa 3 no parte de cero. La primera conversación con una agencia en Paraguay ya está en curso.
+Esto no parte de cero. La primera conversación con una agencia en Paraguay ya está en curso.
 
 ## Capa de cumplimiento
 
@@ -45,4 +45,4 @@ La Etapa 3 no parte de cero. La primera conversación con una agencia en Paragua
 
 - [Coin2Local](/services/coin-2-local)
 - [PY2Latam](/py-2-latam)
-- [Pagos inmobiliarios en Paraguay](/bienes-raices-en-paraguay)
+- [Pagos inmobiliarios en Paraguay](/servicios/coin-2-local/bienes-raices/paraguay)

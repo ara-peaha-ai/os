@@ -31,5 +31,5 @@ La generación de informes de cumplimiento compatibles con KYC se unifica en la 
 ## Relacionado
 
 - [Coin2Local](/services/coin-2-local)
-- [Pagos inmobiliarios en Paraguay](/bienes-raices-en-paraguay)
+- [Pagos inmobiliarios en Paraguay](/servicios/coin-2-local/bienes-raices/paraguay)
 - [Coin2Property](/coin-2-property)

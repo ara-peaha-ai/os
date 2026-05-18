@@ -24,4 +24,4 @@ Panama is actief als Coin2Local-bestemming. Afwikkelingsstromen, documentatiever
 ## Gerelateerd
 
 - [Coin2Local](/diensten/coin-2-local)
-- [Vastgoedbetalingen in Paraguay](/real-estate-in-paraguay)
+- [Vastgoedbetalingen in Paraguay](/diensten/coin-2-local/vastgoed/paraguay)

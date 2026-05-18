@@ -30,6 +30,5 @@ KYC-compatible compliance reporting is unified in the same layer: documentation 
 
 ## Related
 
-- [Coin2Local](/services/coin-2-local)
-- [Real estate payments in Paraguay](/real-estate-in-paraguay)
+- [Local2Coin](/services/local-2-coin)
 - [Coin2Property](/coin-2-property)

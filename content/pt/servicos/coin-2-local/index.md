@@ -1,37 +1,44 @@
 ---
 title: "Coin2Local — Imobiliário na América Latina"
-description: "Pagamentos em Bitcoin e stablecoins para construtoras e incorporadoras no Paraguai, Panamá e Latam. Liquidação multi-rail para compradores internacionais com origem de fundos complexa."
-subtitle: "O vertical de construção. Paraguai primeiro, Latam a seguir."
-intro: "Coin2Local conecta compradores internacionais que pagam em Bitcoin ou stablecoins com construtoras e incorporadoras locais que operam inteiramente em fiat. Três etapas, três horizontes de tempo."
+description: "Pagamentos em Bitcoin e stablecoins para empresas imobiliárias e construtoras na América Latina. Paraguai e Panamá ativos. Três etapas: construtoras, agências imobiliárias e expat remittance."
+subtitle: "O vertical imobiliário. Paraguai e Panamá ativos."
 ---
 
-## Etapa 1 — Operacional agora
+O Coin2Local surgiu como resposta direta ao mercado: construtoras no Paraguai estavam recebendo consultas de compradores internacionais que queriam pagar em Bitcoin ou stablecoins antes de qualquer produto estruturado existir. A infraestrutura foi construída para atender essa demanda.
 
-Construtoras no Paraguai aceitando pagamentos em Bitcoin e stablecoins de compradores internacionais. Liquidação em fiat local — documentação, seleção de rail e suporte de origem de fundos gerenciados pela P2Pagos.
+Cinco grupos distintos convergem simultaneamente no mercado imobiliário latino-americano.
 
-Primeira operação: USD 12.5k em USDC a aproximadamente 0,5% de custo total. 2.500 construtoras paraguaias identificadas para alcance direto.
+**A América Latina como destino de capital internacional.** Sistemas de tributação territorial — apenas a renda gerada dentro do país é tributada localmente. Sem imposto sobre ganhos de capital em renda de fonte estrangeira. Vias de residência diretas e documentadas. Forte atividade de construção em toda a região. Paraguai, Panamá e Uruguai atraem simultaneamente fluxos de capital da Europa, América do Norte e da própria América Latina.
 
-**[Pagamentos imobiliários no Paraguai →](/imoveis-no-paraguai)**
+**A construção se expande em toda a região.** As transações imobiliárias registradas no Paraguai atingiram USD 1.856 milhões em 2024, com a construção residencial e corporativa nova crescendo 5,9% ao ano. O Panamá atrai demanda comparável de compradores internacionais que buscam mercados dolarizados e politicamente estáveis. O Uruguai é um destino emergente para o capital europeu que busca segurança jurídica e estabilidade de residência na América do Sul.
 
-::country-py
+**Bitcoiners com poder de compra prontos para aplicar.** Um segmento de early adopters agora detém patrimônio on-chain significativo e busca ativamente convertê-lo em ativos reais. O imobiliário é o destino natural. O problema de execução é exatamente o que o Coin2Local resolve: o vendedor não aceita Bitcoin, o comprador não quer uma liquidação KYC completa via exchange.
+
+**Detentores europeus on-chain de longo prazo diversificando.** Holders acumulando desde 2015–2018 olham cada vez mais para ativos físicos fora de sua jurisdição. Paraguai, Panamá e Uruguai oferecem tributação territorial ou favorável, sem imposto sobre ganhos de capital em rendas estrangeiras, e preços imobiliários bem abaixo de mercados europeus comparáveis. O processo de residência em cada país é direto e documentado.
+
+**Operadores latino-americanos que já operam em stablecoins.** Negócios de média a alta lucratividade na América Latina já usam USDT e USDC para transações transfronteiriças. Liquidar um pagamento imobiliário na região é uma extensão natural — os mesmos rails, a mesma lógica, um ticket maior.
+
+Esses cinco grupos se encontram no mesmo mercado. O Coin2Local cuida da execução do pagamento.
+
+## Etapa 1 — Construtoras
+
+Um comprador internacional paga em Bitcoin, USDT ou USDC. A construtora recebe fiat pelos rails de pagamento locais. A P2Pagos gerencia a seleção do rail, a documentação de origem de fundos e o suporte na liquidação. Sem custódia de fundos do cliente em nenhum momento.
+
+O Paraguai está ativo com o primeiro pagamento realizado. O Panamá é o próximo mercado para 2026.
+
+::country-all
 ::
 
-::stage-heading{text="Etapa 2 — Curto prazo, até o final de 2026"}
-::
+## Etapa 2 — Agências imobiliárias
 
-O mesmo modelo de execução do Paraguai, aplicado mercado a mercado na América Latina. Panamá primeiro. Consolidação de software em paralelo.
+O mesmo modelo de execução aplicado ao mercado mais amplo: agentes imobiliários, corretores independentes e vendedores privados que não controlam os rails de pagamento. A liquidação se torna mais complexa quando a contraparte não é uma construtora com um relacionamento bancário estabelecido. Este é o roadmap de curto prazo à medida que o vertical paraguaio amadurece.
 
-::green-link{to="/py-2-latam" text="PY2Latam — parceria com Ueno"}
-::
+**[Coin2Property — modelo de aquisição por agências →](/coin-2-property)**
 
-::country-pa
-::
+## Etapa 3 — Expat remittance
 
-## Etapa 3 — Longo prazo, 2027+
+Para operações em que nenhuma parte da cadeia consegue liquidar diretamente em fiat, estamos avaliando uma estrutura custodial completa: o comprador envia o valor total on-chain para um endereço sob o controle da P2Pagos. A P2Pagos adquire o ativo em fiat em seu próprio nome e, em seguida, retransfer a titularidade ao comprador.
 
-Modelo de agências: qualquer imóvel, qualquer vendedor, qualquer mercado. P2Pagos torna-se o veículo de aquisição quando nenhuma parte na cadeia pode aceitar cripto diretamente — o comprador paga em cripto, P2Pagos adquire em fiat e transfere o imóvel.
+Uma vez implementada formalmente, a mesma infraestrutura se estende a movimentações de capital de expats em geral — compra de veículos, negócios ou outros ativos de alto valor no Paraguai ou no Panamá. O modelo é mais adequado para valores maiores e operações pouco frequentes.
 
-**[Coin2Property — modelo completo →](/coin-2-property)**
-
-::country-rest
-::
+**[Expat remittance — liquidação custodial →](/servicos/coin-2-local/remessas-expat)**

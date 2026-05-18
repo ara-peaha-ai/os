@@ -1,37 +1,44 @@
 ---
 title: "Coin2Local — Real Estate in Latin America"
-description: "Bitcoin and stablecoin payments for real estate and construction companies in Paraguay, Panama, and Latam. Multi-rail settlement for international buyers with complex source of funds."
-subtitle: "The construction vertical. Paraguay first, Latam next."
-intro: "Coin2Local connects international buyers paying in Bitcoin or stablecoins with local construction companies and real estate developers that operate entirely in fiat. Three stages, three time horizons."
+description: "Bitcoin and stablecoin payments for real estate and construction companies in Latin America. Paraguay and Panama active. Three stages: construction companies, real estate agencies, and expat remittance."
+subtitle: "The real estate vertical. Paraguay and Panama active."
 ---
 
-## Stage 1 — Operative now
+Coin2Local started as a direct-market response: construction companies in Paraguay were receiving inquiries from international buyers who wanted to pay in Bitcoin or stablecoins before any structured product existed. The infrastructure was built to serve that demand.
 
-Construction companies in Paraguay accepting Bitcoin and stablecoin payments from international buyers. Settlement in local fiat — documentation, rail selection, and source-of-funds support handled by P2Pagos.
+Five distinct groups are converging on Latin American real estate simultaneously.
 
-First operation: USD 12.5k USDC at approximately 0.5% total cost. 2,500 Paraguayan construction companies identified for direct outreach.
+**Latin America as a destination for international capital.** Territorial tax systems — only income generated inside the country is taxed locally. No capital gains tax on foreign-source income. Clear and direct residency paths. Strong construction activity across the region. Paraguay, Panama, and Uruguay are attracting simultaneous capital flows from Europe, North America, and within Latin America.
 
-**[Real estate payments in Paraguay →](/real-estate-in-paraguay)**
+**Construction expanding across the region.** Registered real estate transactions in Paraguay reached USD 1,856M in 2024, with new residential and corporate construction up 5.9% year-on-year. Panama draws comparable demand from international buyers looking for dollarized, politically stable markets. Uruguay is an emerging target for European capital seeking legal certainty and residency stability in South America.
 
-::country-py
+**Bitcoiners with purchasing power ready to deploy.** A segment of early adopters now holds significant on-chain wealth and is actively looking to convert it into real assets. Real estate is the natural destination. The execution problem is exactly what Coin2Local solves: the seller doesn't accept Bitcoin, the buyer doesn't want full KYC liquidation through an exchange.
+
+**European long-term on-chain holders diversifying.** Holders accumulating since 2015–2018 are increasingly looking at physical assets outside their home jurisdiction. Paraguay, Panama, and Uruguay offer territorial or favorable taxation, no capital gains tax on foreign-source income, and property prices well below comparable European markets. The residency process in each country is direct and documented.
+
+**Latin American operators already moving in stablecoins.** Mid-to-high-profit businesses across Latin America already use USDT and USDC for cross-border transactions. Settling a real estate payment across the region is a natural extension — same rails, same logic, larger ticket.
+
+These five groups meet at the same market. Coin2Local handles the payment execution.
+
+## Stage 1 — Construction companies
+
+An international buyer pays in Bitcoin, USDT, or USDC. The construction company receives fiat through local payment rails. P2Pagos handles rail selection, source-of-funds documentation, and settlement support. No custody of client funds at any point.
+
+Paraguay is active with the first payment made. Panama is the next market for 2026.
+
+::country-all
 ::
 
-::stage-heading{text="Stage 2 — Short term, by end of 2026"}
-::
+## Stage 2 — Real estate agencies
 
-Same execution model as Paraguay, applied market-by-market across Latin America. Panama first. Software consolidation in parallel.
+The same execution model applied to the broader market: real estate agents, independent brokers, and private sellers who do not control payment rails. Settlement becomes more complex when the counterparty is not a construction company with an established banking relationship. This is the short-term roadmap as the Paraguay vertical matures.
 
-::green-link{to="/py-2-latam" text="PY2Latam — Ueno partnership"}
-::
+**[Coin2Property — agency acquisition model →](/coin-2-property)**
 
-::country-pa
-::
+## Stage 3 — Expat remittance
 
-## Stage 3 — Long term, 2027+
+For transactions where no party in the chain can settle directly in fiat, we are evaluating a fully custodial structure: the buyer sends the full amount on-chain to an address under P2Pagos control. P2Pagos acquires the asset in fiat under its own name, then retransfers ownership to the buyer.
 
-Agency model: any property, any seller, any market. P2Pagos becomes the acquisition vehicle when no party in the chain can accept crypto directly — buyer pays in crypto, P2Pagos acquires in fiat, transfers the property.
+Once formally implemented, the same infrastructure extends to expat capital movements more broadly — purchasing vehicles, businesses, or other high-value assets in Paraguay or Panama. The model suits larger, infrequent operations.
 
-**[Coin2Property — full model →](/coin-2-property)**
-
-::country-rest
-::
+**[Expat remittance — custodial settlement →](/services/coin-2-local/expat-remittance)**

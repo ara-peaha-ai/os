@@ -24,4 +24,4 @@ O Panamá está ativo como destino Coin2Local. Os fluxos de liquidação, requis
 ## Relacionado
 
 - [Coin2Local](/servicos/coin-2-local)
-- [Pagamentos imobiliários no Paraguai](/real-estate-in-paraguay)
+- [Pagamentos imobiliários no Paraguai](/servicos/coin-2-local/imoveis/paraguai)

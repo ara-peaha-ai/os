@@ -104,4 +104,4 @@ A estrutura deve incluir rails de backup e canais de pagamento alternativos desd
 
 - [Mono2Multi](/servicos/mono-2-multi)
 - [Coin2Local](/servicos/coin-2-local)
-- [Pagamentos imobiliários no Paraguai](/imoveis-no-paraguai)
+- [Pagamentos imobiliários no Paraguai](/servicos/coin-2-local/imoveis/paraguai)

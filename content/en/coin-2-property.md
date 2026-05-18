@@ -1,8 +1,8 @@
 ---
 title: "Coin2Property — Buy Any Property with Bitcoin or Stablecoins"
-description: "Stage 3 of Coin2Local: P2Pagos as acquisition vehicle for any property, any agency, any supported market. For buyers whose source of funds is real but not straightforward to document."
+description: "Coin2Local Stage 3: P2Pagos as custodial acquisition vehicle for any property, any agency, any supported market. For buyers whose source of funds is real but not straightforward to document."
 subtitle: "Any property. Any agency. Any supported market."
-intro: "Stage 3: the agency model. P2Pagos steps in as acquisition vehicle when no party in the transaction chain can accept crypto directly — the seller is a private owner, the agency operates in fiat, and no one controls the payment rails."
+intro: "Stage 3 of Coin2Local. P2Pagos steps in as custodial acquisition vehicle when no party in the transaction chain can accept crypto directly — the seller is a private owner, the agency operates in fiat, and no one controls the payment rails."
 badge: "Stage 3 — 2027+"
 ---
 
@@ -33,9 +33,9 @@ Coin2Property is specifically for buyers whose source of funds is real but not s
 - Capital available to bridge the window between crypto receipt and fiat disbursement
 - Technical escrow and documented handoff at each step of the acquisition
 - SoF documentation framework adapted to the buyer's origin-of-funds profile
-- Track record from Stage 1 and Stage 2 operations in the same market as proof-of-concept
+- Track record from Stage 1 construction company operations in Paraguay as proof-of-concept
 
-Stage 3 is not a cold-start channel. The first agency conversation in Paraguay is already active.
+This is not a cold-start channel. The first agency conversation in Paraguay is already active.
 
 ## Compliance layer
 
@@ -45,4 +45,4 @@ Stage 3 is not a cold-start channel. The first agency conversation in Paraguay i
 
 - [Coin2Local](/services/coin-2-local)
 - [PY2Latam](/py-2-latam)
-- [Real estate payments in Paraguay](/real-estate-in-paraguay)
+- [Real estate payments in Paraguay](/services/coin-2-local/real-estate/paraguay)

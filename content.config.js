@@ -31,6 +31,7 @@ export default defineContentConfig({
       source: { include: '**/*.md' },
       schema: z.object({
         rawbody: z.string().optional(),
+        draft: z.boolean().optional(),
         date: z.string().optional(),
         subtitle: z.string().optional(),
         intro: z.string().optional(),
