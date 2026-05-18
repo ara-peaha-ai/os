@@ -1,0 +1,22 @@
+export const countries = [
+  { name: 'argentina', code: 'AR', flag: '🇦🇷', currency: 'ARS', symbol: 'AR$', banknote: 10000, phoneCode: '+54' },
+  { name: 'bolivia', code: 'BO', flag: '🇧🇴', currency: 'BOB', symbol: 'Bs.', banknote: 10, phoneCode: '+591' },
+  { name: 'brazil', code: 'BR', flag: '🇧🇷', currency: 'BRL', symbol: 'R$', banknote: 2, phoneCode: '+55' },
+  { name: 'chile', code: 'CL', flag: '🇨🇱', currency: 'CLP', symbol: 'CL$', banknote: 1000, phoneCode: '+56' },
+  { name: 'colombia', code: 'CO', flag: '🇨🇴', currency: 'COP', symbol: 'CO$', banknote: 2000, phoneCode: '+57' },
+  { name: 'costaRica', code: 'CR', flag: '🇨🇷', currency: 'CRC', symbol: '₡', banknote: 1000, phoneCode: '+506' },
+  { name: 'dominicanRepublic', code: 'DO', flag: '🇩🇴', currency: 'DOP', symbol: 'RD$', banknote: 100, phoneCode: '+1-809' },
+  { name: 'ecuador', code: 'EC', flag: '🇪🇨', currency: 'USD', symbol: '$', banknote: 1, phoneCode: '+593' },
+  { name: 'elSalvador', code: 'SV', flag: '🇸🇻', currency: 'USD', symbol: '$', banknote: 1, phoneCode: '+503' },
+  { name: 'guatemala', code: 'GT', flag: '🇬🇹', currency: 'GTQ', symbol: 'Q', banknote: 5, phoneCode: '+502' },
+  { name: 'honduras', code: 'HN', flag: '🇭🇳', currency: 'HNL', symbol: 'L', banknote: 20, phoneCode: '+504' },
+  { name: 'jamaica', code: 'JM', flag: '🇯🇲', currency: 'JMD', symbol: 'J$', banknote: 50, phoneCode: '+1-876' },
+  { name: 'mexico', code: 'MX', flag: '🇲🇽', currency: 'MXN', symbol: 'MX$', banknote: 20, phoneCode: '+52' },
+  { name: 'nicaragua', code: 'NI', flag: '🇳🇮', currency: 'NIO', symbol: 'C$', banknote: 10, phoneCode: '+505' },
+  { name: 'panama', code: 'PA', flag: '🇵🇦', currency: 'USD', symbol: '$', banknote: 1, phoneCode: '+507' },
+  { name: 'paraguay', code: 'PY', flag: '🇵🇾', currency: 'PYG', symbol: '₲', banknote: 50000, phoneCode: '+595' },
+  { name: 'peru', code: 'PE', flag: '🇵🇪', currency: 'PEN', symbol: 'S/', banknote: 10, phoneCode: '+51' },
+  { name: 'suriname', code: 'SR', flag: '🇸🇷', currency: 'SRD', symbol: 'SR$', banknote: 5, phoneCode: '+597' },
+  { name: 'uruguay', code: 'UY', flag: '🇺🇾', currency: 'UYU', symbol: '$U', banknote: 20, phoneCode: '+598' },
+  { name: 'venezuela', code: 'VE', flag: '🇻🇪', currency: 'VES', symbol: 'Bs.S', banknote: 5, phoneCode: '+58' }
+]
