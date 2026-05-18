@@ -1,4 +1,5 @@
 ---
+date: "2025-05-01"
 title: Arquitetura de Pagamentos Multi-Canal
 description: Por que operações de pagamento sérias precisam de mais de um processador, banco, rota de liquidação ou jurisdição.
 subtitle: Insight de Infraestrutura de Pagamentos

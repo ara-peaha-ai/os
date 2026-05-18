@@ -1,4 +1,5 @@
 ---
+date: "2025-05-01"
 title: Multi-Rail Betalingsarchitectuur
 description: Waarom serieuze betalingsoperaties meer nodig hebben dan één processor, één bank, één afwikkelingsroute of één jurisdictie.
 subtitle: Inzicht in Betalingsinfrastructuur

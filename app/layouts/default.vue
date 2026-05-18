@@ -122,6 +122,22 @@ watch(() => route.path, () => { menuOpen.value = false })
           </a>
         </div>
 
+        <!-- Footer nav links -->
+        <div class="flex justify-center gap-5">
+          <NuxtLink
+            :to="localePath('insights')"
+            class="text-sm text-gray-500 hover:text-gray-900 dark:hover:text-gray-100 transition"
+          >
+            {{ locale === 'nl' ? 'Inzichten' : locale === 'pt' || locale === 'es' ? 'Perspectivas' : 'Insights' }}
+          </NuxtLink>
+          <a
+            href="/doc"
+            class="text-sm text-gray-500 hover:text-gray-900 dark:hover:text-gray-100 transition"
+          >
+            {{ locale === 'es' ? 'Documentación' : locale === 'pt' ? 'Documentação' : locale === 'nl' ? 'Documentatie' : 'Documentation' }}
+          </a>
+        </div>
+
         <!-- Locale switcher -->
         <div class="flex justify-center gap-3">
           <template v-for="loc in locales" :key="loc.code">

@@ -1,4 +1,5 @@
 ---
+date: "2025-05-02"
 title: Reducir Falsos Rechazos
 description: Cómo la arquitectura de pagos multi-canal reduce los falsos rechazos y qué significa la liquidación self-custodial para reembolsos, cumplimiento y montos incorrectos.
 subtitle: Insight de Infraestructura de Pagos

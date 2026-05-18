@@ -1,4 +1,5 @@
 ---
+date: "2025-05-02"
 title: Reduce False Declines
 description: False payment declines are often caused by structural mismatch between customer, country, processor, bank, risk profile, documentation, and settlement route.
 subtitle: Payment Infrastructure Insight

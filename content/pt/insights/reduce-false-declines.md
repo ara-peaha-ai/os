@@ -1,4 +1,5 @@
 ---
+date: "2025-05-02"
 title: Reduzir Recusas Falsas
 description: Como a arquitetura de pagamentos multi-canal reduz recusas falsas e o que a liquidação self-custodial significa para reembolsos, conformidade e valores incorretos.
 subtitle: Insight de Infraestrutura de Pagamentos

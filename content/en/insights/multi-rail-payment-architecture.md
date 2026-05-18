@@ -1,4 +1,5 @@
 ---
+date: "2025-05-01"
 title: Multi-Rail Payment Architecture
 description: Why serious payment operations need more than one processor, one bank, one settlement route, or one jurisdiction.
 subtitle: Payment Infrastructure Insight

@@ -1,4 +1,5 @@
 ---
+date: "2025-05-15"
 title: "When VPN Smart Routing Breaks Location Security for Crypto Users"
 description: "Both Proton’s security and support departments are aware of a leak in the service they promote as Smart Routing Technology, affecting its intended purpose across entire regions such as Latin America."
 tags:

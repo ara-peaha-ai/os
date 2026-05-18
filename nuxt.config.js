@@ -119,6 +119,12 @@ export default defineNuxtConfig({
         pt: '/servicos/mono-2-multi/int-2-latam/suriname',
         nl: '/diensten/mono-2-multi/int-2-latam/suriname'
       },
+      'insights/index': {
+        en: '/insights',
+        es: '/perspectivas',
+        pt: '/perspectivas',
+        nl: '/inzichten'
+      },
     },
     locales: [{
       code: 'en',

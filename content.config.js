@@ -33,6 +33,7 @@ export default defineContentConfig({
         rawbody: z.string().optional(),
         draft: z.boolean().optional(),
         date: z.string().optional(),
+        tags: z.array(z.string()).optional(),
         subtitle: z.string().optional(),
         intro: z.string().optional(),
         badge: z.string().optional(),

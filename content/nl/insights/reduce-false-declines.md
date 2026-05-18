@@ -1,4 +1,5 @@
 ---
+date: "2025-05-02"
 title: Valse Weigeringen Verminderen
 description: Hoe multi-rail betalingsarchitectuur valse betalingsweigeringen vermindert en wat zelfbewarende afwikkeling betekent voor terugbetalingen, compliance en onjuiste bedragen.
 subtitle: Inzicht in Betalingsinfrastructuur
