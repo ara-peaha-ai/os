@@ -37,10 +37,6 @@ Coin2Property is specifically for buyers whose source of funds is real but not s
 
 This is not a cold-start channel. The first agency conversation in Paraguay is already active.
 
-## Compliance layer
-
-[Ueno Bank](https://ueno.com.py/) may provide a compliance-knowledgeable referral contact familiar with SoF requirements for property acquisitions in Paraguay. Knowing who to talk to and how to frame the documentation is what makes the difference between a stalled deal and a closed one.
-
 ## Related
 
 - [Coin2Local](/services/coin-2-local)

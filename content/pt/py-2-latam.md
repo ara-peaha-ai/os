@@ -16,7 +16,7 @@ Paraguai se enquadra. Panamá se enquadra. Uruguai está em avaliação. Além d
 
 [CAPAC Expo Hábitat](https://capacexpo.com/) — Panama Convention Center, 24–27 de setembro de 2026. O principal evento B2B regional de construção, imobiliário e incorporadoras — investidores, construtoras e incorporadoras de toda a América Latina. Os mesmos perfis de compradores que o Paraguai: capital internacional, operadores em stablecoins, holders on-chain buscando ativos físicos na região.
 
-Detalhe completo do mercado: [Coin2Local — Panamá](/services/coin-2-local/panama)
+Detalhe completo do mercado: [Coin2Local — Panamá](/servicos/coin-2-local/imoveis/panama)
 
 ## Consolidação de software
 
@@ -24,12 +24,8 @@ Detalhe completo do mercado: [Coin2Local — Panamá](/services/coin-2-local/pan
 
 A geração de relatórios de compliance compatíveis com KYC é unificada na mesma camada: a documentação gerada na liquidação alimenta diretamente um registro de auditoria compartilhado entre rails e mercados. Os [módulos de serviço](https://github.com/P2Pagos#service-modules) subjacentes fornecem a base técnica reutilizável que torna a mesma execução repetível, auditável e escalável em cada mercado. Entre eles, o módulo de fatura: geração programática de nota fiscal eletrônica acionada na liquidação, open source, baseada na solução Invopop e estendida com a integração paraguaia do SIFEN via módulos TIPS SA, com suporte para múltiplos países da Latam.
 
-## Camada bancária — parceria com Ueno
-
-[Ueno Bank](https://ueno.com.py/) não é parceiro financeiro neste modelo, mas fornece referentes com conhecimento em compliance, familiarizados com os requisitos de origem de fundos e bancários para transações cross-border no Paraguai. Esse conhecimento institucional — saber com quem falar e como apresentar a documentação — é o que faz a diferença entre um negócio travado e um fechado. A mesma função de referência deve se aplicar à medida que o modelo se expande para novos mercados.
-
 ## Relacionado
 
-- [Coin2Local](/services/coin-2-local)
+- [Coin2Local](/servicos/coin-2-local)
 - [Pagamentos imobiliários no Paraguai](/servicos/coin-2-local/imoveis/paraguai)
 - [Coin2Property](/coin-2-property)

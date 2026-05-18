@@ -16,7 +16,7 @@ Paraguay cumple. Panamá cumple. Uruguay está en evaluación. Más allá de eso
 
 [CAPAC Expo Hábitat](https://capacexpo.com/) — Panama Convention Center, 24–27 de septiembre de 2026. El principal evento B2B regional de construcción, inmobiliaria y desarrolladores — inversores, constructoras y desarrolladoras de toda América Latina. Los mismos perfiles de compradores que Paraguay: capital internacional, operadores en stablecoins, tenedores on-chain buscando activos físicos en la región.
 
-Detalle completo del mercado: [Coin2Local — Panamá](/services/coin-2-local/panama)
+Detalle completo del mercado: [Coin2Local — Panamá](/servicios/coin-2-local/bienes-raices/panama)
 
 ## Consolidación de software
 
@@ -24,12 +24,8 @@ Detalle completo del mercado: [Coin2Local — Panamá](/services/coin-2-local/pa
 
 La generación de informes de cumplimiento compatibles con KYC se unifica en la misma capa: la documentación generada en la liquidación alimenta directamente un registro de auditoría compartido entre rails y mercados. Los [módulos de servicio](https://github.com/P2Pagos#service-modules) subyacentes proporcionan la base técnica reutilizable que hace la misma ejecución repetible, auditable y escalable en cada mercado. Entre ellos, el módulo de facturación: generación programática de facturas electrónicas activada en la liquidación, de código abierto, basada en la solución Invopop y extendida con la integración paraguaya de SIFEN mediante los módulos de TIPS SA, con soporte para múltiples países de Latam.
 
-## Capa bancaria — partnership con Ueno
-
-[Ueno Bank](https://ueno.com.py/) no es socio financiero en este modelo, pero aporta referentes con conocimiento en cumplimiento, familiarizados con los requisitos de origen de fondos y banca para transacciones transfronterizas en Paraguay. Este conocimiento institucional — saber con quién hablar y cómo presentar la documentación — es lo que marca la diferencia entre una operación bloqueada y una cerrada. La misma función de referencia se espera aplicar a medida que el modelo se expanda a nuevos mercados.
-
 ## Relacionado
 
-- [Coin2Local](/services/coin-2-local)
+- [Coin2Local](/servicios/coin-2-local)
 - [Pagos inmobiliarios en Paraguay](/servicios/coin-2-local/bienes-raices/paraguay)
 - [Coin2Property](/coin-2-property)

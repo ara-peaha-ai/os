@@ -11,9 +11,11 @@ Este vertical está em desenvolvimento ativo.
 
 O caso de uso é infraestrutura Local2Coin para plataformas de conteúdo adulto que operam na Argentina e América Latina.
 
-O foco está na proteção de pagamentos a criadores, liquidação self-custodial e aceitação de pagamentos locais sem depender de processadores mainstream que habitualmente restringem ou encerram contratos com merchants de alto risco.
+O foco está na proteção de pagamentos a criadores, liquidação self-custodial e aceitação de pagamentos locais sem depender de processadores mainstream que habitualmente restringem ou encerram contratos com merchants de alto risco. O modelo de liquidação peer-to-peer também remove a plataforma da relação financeira direta entre criador e comprador — uma distinção estrutural relevante sob os marcos normativos de intermediação e exploração na maioria dos mercados.
+
+Mais informações serão publicadas à medida que este vertical se desenvolve.
 
 ## Relacionado
 
-- `/servicos/fiat-2-chain`
-- `/servicos/mono-2-multi`
+- [Local2Coin](/servicos/local-2-coin)
+- [Mono2Multi](/servicos/mono-2-multi)

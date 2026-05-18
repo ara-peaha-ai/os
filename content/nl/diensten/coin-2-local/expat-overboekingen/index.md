@@ -24,7 +24,7 @@ Veel banken en traditionele tussenpersonen gaan niet goed om met deze situaties.
 
 De koper stuurt het volledige transactiebedrag on-chain naar een adres onder controle van P2Pagos. P2Pagos voert de fiat-kant uit — vastgoedverwerving, activaankoop of overdracht — en documenteert de volledige bewakingsketen.
 
-Wat belangrijk is voor de koper:
+De interne uitvoeringsstructuur is niet openbaar. Wat belangrijk is voor de koper:
 
 - betaalt in Bitcoin of stablecoins
 - de tegenpartij ontvangt het vereiste fiat-bedrag

@@ -13,7 +13,7 @@ O simulador acima mostra estimativas de pagamento em tempo real para uma constru
 
 A primeira operação ativa foi processada com a [Doomo Bienes Raíces](https://doomobr.com/PY): USD 12.500 em USDC, liquidado localmente a aproximadamente 0,5% de custo total, em poucas horas, sem custódia dos fundos do cliente.
 
-O alcance atual visa aproximadamente 2.500 construtoras paraguaias.
+O alcance atual visa aproximadamente 2.500 construtoras paraguaias — incluindo projetos na planta, imóveis prontos para morar e empreendimentos residenciais de médio e alto padrão.
 
 ---
 
@@ -30,6 +30,8 @@ Do lado da construtora, isso significa assistência técnica para ativar seus pr
 > A abordagem atual é intencionalmente manual. Cada etapa é projetada para ser absorvida em uma única aplicação integrada à medida que o vertical amadurece.
 
 O P2Pagos opera como uma **empresa de software e consultoria**. Não custodia fundos de clientes, não age como intermediário financeiro e não oferece serviços de câmbio. O que constrói é a estrutura técnica e operacional que permite a ambos os lados de uma transação imobiliária usar os rails de que precisam — fundamentada em experiência direta com a infraestrutura de pagamentos desta indústria específica.
+
+O registro **PSAV** (Proveedor de Servicios de Activos Virtuales) junto à SEPRELAD está no roadmap — o passo formal que permitirá ao P2Pagos operar como provedor licenciado de serviços de ativos virtuais sob a regulação paraguaia.
 
 ---
 

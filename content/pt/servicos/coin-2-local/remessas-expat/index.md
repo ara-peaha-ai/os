@@ -24,7 +24,7 @@ Muitos bancos e intermediários tradicionais não lidam bem com essas situaçõe
 
 O comprador envia o valor total da transação on-chain para um endereço sob o controle da P2Pagos. A P2Pagos executa a operação do lado fiat — aquisição do imóvel, compra do ativo ou transferência — e documenta toda a cadeia de custódia.
 
-O que importa para o comprador:
+A estrutura interna de execução não é pública. O que importa para o comprador:
 
 - paga em Bitcoin ou stablecoins
 - a contraparte recebe o valor fiat necessário

@@ -13,7 +13,7 @@ De simulator hierboven toont live uitbetalingsschattingen voor een Paraguayaans 
 
 De eerste actieve operatie werd verwerkt met [Doomo Bienes Raíces](https://doomobr.com/PY): USD 12.5k in USDC, lokaal afgewikkeld bij ongeveer 0.5% totale kosten, in een paar uur, zonder bewaring van klantfondsen.
 
-De huidige outreach richt zich op ongeveer 2.500 Paraguayaanse bouwbedrijven.
+De huidige outreach richt zich op ongeveer 2.500 Paraguayaanse bouwbedrijven — inclusief nieuwbouwprojecten, nog-te-bouwen woningen en residentiële ontwikkelingen in het midden- en hoger segment.
 
 ---
 

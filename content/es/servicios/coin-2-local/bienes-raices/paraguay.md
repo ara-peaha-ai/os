@@ -13,7 +13,7 @@ El simulador de arriba muestra estimaciones de pago en tiempo real para una cons
 
 La primera operación activa fue procesada con [Doomo Bienes Raíces](https://doomobr.com/PY): USD 12.500 en USDC, liquidado localmente a aproximadamente 0,5% de costo total, en pocas horas, sin custodia de fondos del cliente.
 
-El alcance actual apunta a aproximadamente 2.500 constructoras paraguayas.
+El alcance actual apunta a aproximadamente 2.500 constructoras paraguayas — incluyendo proyectos en pozo, obras a estrenar y desarrollos residenciales de mediano y alto valor.
 
 ---
 
