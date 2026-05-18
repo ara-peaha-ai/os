@@ -1,0 +1,171 @@
+---
+draft: true
+---
+## ExpoСruz stand — internal pricing notes
+
+Fair: [ExpoСruz](https://www.fexpocruz.com.bo/feria/expocruz)
+Location: Santa Cruz de la Sierra, Bolivia
+
+### Private stand options
+
+| Option | Size | Est. cost |
+|--------|------|-----------|
+| Mini (alternativa) | 5.25 m² | ~USD 2,048 |
+
+---
+
+# 💥 EXPERIMENT: EXPOSING COINS2PROPERTY @ EXPOCRUZ
+
+## 🎯 Obiettivo
+Validare domanda reale per:
+- acquisto immobili con USDT
+- onboarding partner real estate in Bolivia
+
+---
+
+# 💰 COSTI TOTALI (2 PERSONE)
+
+## 🧱 1. Stand Expocruz
+
+### Opzioni ufficiali
+- Stand base 10.5 m²: **$4,095 USD** :contentReference[oaicite:0]{index=0}  
+- Mini stand 5.25 m²: **$2,048 USD** :contentReference[oaicite:1]{index=1}  
+
+### Prezzo al m² (range reale)
+- ~390 USD / m² area interna :contentReference[oaicite:2]{index=2}  
+- fino a ~1,200 Bs/m² (~170 USD/m²) in padiglioni base :contentReference[oaicite:3]{index=3}  
+
+---
+
+## 🔧 2. Setup stand (reale)
+
+| Voce | Costo |
+|------|------|
+| Branding (rollup, vinili) | $300 – $800 |
+| Schermo / demo | $200 – $500 |
+| Extra (elettricità, fix) | $100 – $300 |
+
+👉 **Totale setup: $600 – $1,600**
+
+---
+
+## ✈️ 3. Viaggio (Asunción → Santa Cruz, 2 persone)
+
+### Trasporto
+- Bus: $70 – $100 / persona  
+- Aereo: $150 – $300 / persona  
+
+👉 **Totale trasporto: $150 – $600**
+
+---
+
+### 🏨 Alloggio (10 giorni)
+- Budget: $40 – $80 / notte  
+👉 **Totale: $400 – $800**
+
+---
+
+### 🍔 Spese vive
+- Cibo + trasporti locali: $15 – $25 / giorno / persona  
+👉 **Totale: $300 – $500**
+
+---
+
+## 🎟️ 4. Accessi fiera
+- Ingresso giornaliero: ~50 Bs (~7 USD) :contentReference[oaicite:4]{index=4}  
+- Pass 10 giorni: ~400–500 Bs (~60–70 USD) :contentReference[oaicite:5]{index=5}  
+
+👉 spesso inclusi con stand (parziale)
+
+👉 **Extra stimato: $100 – $200**
+
+---
+
+# 💸 TOTALE INVESTIMENTO
+
+## 🔻 Scenario LOW (mini stand)
+- Stand: $2,048  
+- Setup: $600  
+- Viaggio + stay: $850  
+
+👉 **Totale: ~$3,500 USD**
+
+---
+
+## ⚖️ Scenario REALISTICO
+- Stand: $4,095  
+- Setup: $1,000  
+- Viaggio + stay: $1,200  
+
+👉 **Totale: ~$6,000 USD**
+
+---
+
+## 🚀 Scenario “fatto bene”
+- Stand premium + branding forte  
+- Più incontri + presenza completa  
+
+👉 **Totale: $7,000 – $9,000 USD**
+
+---
+
+# 📈 BREAK-EVEN
+
+## Assunzioni:
+- Commissione: 1–3%  
+- Ticket immobiliare: $50k – $150k  
+
+👉 Revenue per deal:
+- $500 → $4,500  
+
+---
+
+## 🎯 Punto di pareggio
+
+| Investimento | Deal necessari |
+|-------------|--------------|
+| $3.5k | 1 piccolo |
+| $6k | 1 medio |
+| $9k | 2 |
+
+---
+
+# 🧠 TESI (MOONSHOT)
+
+### Hypothesis
+Mercato boliviano ha domanda reale per:
+- comprare immobili con crypto (USDT)
+- bypass FX restrictions
+
+### Edge
+- prodotto già funzionante  
+- cliente pagante esistente  
+
+### Strategia
+- stand come HQ commerciale  
+- outreach diretto a inmobiliarias  
+- demo live (crypto → property)
+
+---
+
+# ❌ RISCHI
+
+- fiera generalista (non crypto-native)  
+- traffico alto ma lead poco qualificati  
+- ROI negativo senza meeting pre-fissati  
+
+---
+
+# ✅ SUCCESS METRIC
+
+- ≥ 1 deal chiuso  
+- oppure ≥ 3 partner reali acquisiti  
+
+---
+
+# ⚡ TL;DR
+
+👉 Investimento: **$3.5k – $6k**  
+👉 Break-even: **1 deal**  
+👉 Rischio: alto senza preparazione  
+👉 Upside: espansione Bolivia  

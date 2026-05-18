@@ -1,0 +1,31 @@
+{
+  "name": "@p2pagos/website",
+  "private": true,
+  "scripts": {
+    "build": "nuxt build",
+    "sync-env": "bash scripts/sync-env.sh",
+    "dev": "nuxt dev --host 0.0.0.0",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare",
+    "lint": "eslint .",
+    "typecheck": "nuxt typecheck"
+  },
+  "dependencies": {
+    "@iconify-json/lucide": "^1.2.90",
+    "@iconify-json/simple-icons": "^1.2.70",
+    "@internationalized/date": "^3.11.0",
+    "@nuxt/content": "^3.11.2",
+    "@nuxt/ui": "^4.4.0",
+    "@nuxtjs/i18n": "^10.2.3",
+    "better-sqlite3": "^12.6.2",
+    "mermaid": "^11.14.0",
+    "node-html-parser": "^7.1.0",
+    "nuxt": "^4.3.1",
+    "tailwindcss": "^4.1.18"
+  },
+  "devDependencies": {
+    "@nuxt/eslint": "^1.15.1",
+    "eslint": "^10.0.0",
+    "vue-tsc": "^3.2.4"
+  }
+}

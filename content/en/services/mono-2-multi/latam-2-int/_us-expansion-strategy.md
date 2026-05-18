@@ -1,0 +1,83 @@
+---
+draft: true
+---
+
+# US Expansion Strategy — Internal Notes
+
+**Status:** Under study. Not to be published or shared externally.
+
+---
+
+## Reference client
+
+Doomo Bienes Raíces (PY). Confidential. Not to be mentioned publicly in this context.
+
+Context: Doomo is already an active Coin2Local client (see `/real-estate-in-paraguay/doomo-chain2fiat-case-study`). This strategy represents a second service engagement — helping them expand their commercial operation into the US non-chain-holder B2B market.
+
+---
+
+## The problem
+
+Doomo needs to sell to US clients (real estate buyers, investors, developers) who pay in USD via standard US rails (ACH, wire). These clients do not hold Bitcoin or stablecoins. Doomo cannot receive ACH directly into their PY entity. A PY EAS has no credible presence in the US market.
+
+---
+
+## Proposed structure
+
+### Entities involved
+
+- **PY EAS** — existing Doomo entity, registered in Paraguay, banking at Itaú PY or Familiar
+- **US LLC** — to be incorporated (Wyoming or Delaware), same founders as PY EAS, or owned directly by the EAS. Sole purpose: receive and hold USD from US operations and execute intra-group transfers to the PY entity.
+
+### Payment flow
+
+```
+US client (ACH) → US LLC bank account
+                       ↓
+              OTC executes trade if needed
+              (Bitcoin/stablecoins → USD settled to US LLC ACH)
+                       ↓
+         Intra-group transfer: US LLC → PY EAS
+         (wire or correspondent bank, same group)
+                       ↓
+              PY EAS receives at Itaú / Familiar
+              SOF: intra-group transfer from own US entity
+```
+
+### What the PY bank sees
+
+An incoming international wire from a US LLC that is a related party (same founders / EAS-owned). SOF documentation covers the corporate relationship and the business purpose of the transfer. The OTC leg is disclosed at the US LLC level and does not appear directly in the PY banking relationship.
+
+This is standard intra-group treasury management. It is legitimate when:
+
+1. The US LLC is properly incorporated and registered.
+2. The related-party relationship is disclosed in corporate documentation.
+3. The US LLC properly reports all income and crypto transactions to IRS / FinCEN as required under US law.
+4. The intra-group transfer is documented with an intercompany agreement.
+5. No tax obligation in any jurisdiction is deferred, reduced, or concealed.
+
+---
+
+## Open questions
+
+- Which US state for LLC incorporation (Wyoming = lower maintenance cost, Delaware = stronger legal framework)?
+- Does the EAS own the LLC or do the same natural persons own both? Tax implications differ.
+- Which US bank can onboard a foreign-owned LLC without excessive friction? (Mercury, Relay, or a correspondent via a local US bank are candidates.)
+- Intercompany loan vs. intercompany service agreement vs. dividend — which instrument covers the intra-group transfer correctly for PY tax purposes?
+- SEPRELAD reporting obligations for the PY EAS receiving recurring intra-group wires above threshold.
+- Does Doomo need a US physical presence or registered agent beyond incorporation?
+
+---
+
+## Next steps
+
+- Confirm with PY legal counsel (tax + corporate) the structure that minimizes friction at Itaú/Familiar.
+- Identify US bank and incorporation partner.
+- Draft intercompany agreement template.
+- Map this into a repeatable Latam2Int product offering for other clients in the same situation.
+
+---
+
+## Internal classification
+
+This is internal business knowhow. When this strategy matures into a repeatable product, document it in the internal operations manual (to be created). Do not copy this content into public-facing pages.
