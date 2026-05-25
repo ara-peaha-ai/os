@@ -1,17 +1,12 @@
 <script setup>
 const { locale } = useI18n()
 
-const { data: insights } = await useAsyncData(`insights-index-${locale.value}`, async () => {
-  const localized = await useContentQuery()
-    .where('path', 'LIKE', `/${locale.value}/insights/%`)
-    .order('date', 'DESC')
-    .all()
-  if (localized?.length) return localized
-  return useContentQuery()
+const { data: insights } = await useAsyncData(`insights-${locale.value}`, () =>
+  useContentQuery()
     .where('path', 'LIKE', `/en/insights/%`)
     .order('date', 'DESC')
     .all()
-})
+)
 
 const pageTitle = computed(() => {
   const map = { nl: 'Inzichten', pt: 'Perspectivas', es: 'Perspectivas' }
@@ -43,7 +38,7 @@ useSeoMeta({
           <h2 v-else class="text-base font-semibold link-accent">{{ item.title }}</h2>
           <div v-if="item.tags?.length" class="flex flex-wrap gap-2 pt-1">
             <span
-              v-for="tag in item.tags.slice(0, 5)"
+              v-for="tag in item.tags"
               :key="tag"
               class="text-xs px-2 py-0.5 rounded"
               style="background-color: var(--ui-bg-elevated); color: var(--ui-text-muted); border: 1px solid var(--ui-border)"
