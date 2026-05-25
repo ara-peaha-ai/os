@@ -12,13 +12,12 @@ useSeoMeta({
 </script>
 
 <template>
-  <div v-if="page" class="max-w-3xl mx-auto p-6 space-y-10">
-    <div>
+  <div v-if="page" class="max-w-3xl mx-auto p-6">
+    <div class="mb-10">
       <AppSectionLabel label="Insight" />
       <h1 class="text-2xl font-bold mt-1" style="color: var(--ui-text)">{{ page.title }}</h1>
-      <p v-if="page.subtitle" class="text-lg mt-2" style="color: var(--ui-text-muted)">{{ page.subtitle }}</p>
+      <p v-if="page.subtitle" class="text-base font-medium mt-1" style="color: var(--ui-text-muted)">{{ page.subtitle }}</p>
     </div>
-    <AppSeparator />
     <ContentRenderer :value="page" class="prose dark:prose-invert max-w-none" />
   </div>
   <div v-else class="max-w-3xl mx-auto p-6">
