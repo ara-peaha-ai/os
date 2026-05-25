@@ -9,6 +9,12 @@ useSeoMeta({
   title: () => page.value?.title,
   description: () => page.value?.description
 })
+
+const readingTime = computed(() => {
+  if (!page.value?.rawbody) return null
+  const words = page.value.rawbody.trim().split(/\s+/).length
+  return Math.ceil(words / 200)
+})
 </script>
 
 <template>
@@ -17,6 +23,7 @@ useSeoMeta({
       <AppSectionLabel label="Insight" />
       <h1 class="text-2xl font-bold mt-1" style="color: var(--ui-text)">{{ page.title }}</h1>
       <p v-if="page.subtitle" class="text-base font-medium mt-1" style="color: var(--ui-text-muted)">{{ page.subtitle }}</p>
+      <p v-if="readingTime" class="text-sm mt-2" style="color: var(--ui-text-dimmed)">{{ readingTime }} min read</p>
     </div>
     <ContentRenderer :value="page" class="prose dark:prose-invert max-w-none" />
   </div>

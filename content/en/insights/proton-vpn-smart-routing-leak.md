@@ -96,21 +96,9 @@ Smart Routing may be tunnel-secure, but selling Paraguay or Ecuador as the effec
 
 **Canada** — Bare-metal on company infrastructure; company access, server management, whitelisted IPs, and payment/banking flows; separate from team browsing.
 
-## Why Payment Infrastructure Needs Its Own IP Detection Layer
+## How We Use IP Detection in Practice
 
-IP location is a weak signal: databases disagree, VPNs and Tor obscure routing, Cloudflare may report differently than another provider. The [P2Pagos `/ip` module](https://github.com/P2Pagos/mono/tree/main/services/ip) handles privacy-first minimal detection:
-
-- Detect country and probable currency only when needed; prefer `CF-IPCountry`, fall back to IPinfo-style databases
-- Avoid fingerprinting; respect Tor and VPN users; keep detection separate from identity verification
-- Never treat IP location as a perfect compliance signal
-
-A privacy-first system doesn't punish VPN/Tor users — legitimate reasons include safety, censorship avoidance, travel, unstable networks, and targeted-attack protection. Classify confidence, don't block:
-
-- High-confidence → preselect currency/local rail
-- Low-confidence → show neutral options
-- VPN/Tor detected → reduce assumptions
-- Sensitive action → explicit user confirmation
-- Compliance-heavy flow → verification only at the regulated-action step
+In [P2Pagos Mono](https://github.com/P2Pagos/mono) and [P2Pagos Marketplace](https://github.com/P2Pagos/marketplace), the `/ip` module serves one purpose: determining the first fiat currency and payment methods shown at checkout. Both the Cloudflare-detected country (`CF-IPCountry`) and the VPN-declared country are surfaced, letting the user choose based on either — respecting how the visitor wants to appear. Nothing more.
 
 ## Lessons and Recommendations
 
