@@ -69,7 +69,7 @@ verticals:
     - slug: "servicos/coin-2-local"
       label: "Vertical"
       name: "Pagamentos imobiliários na América Latina"
-      description: "Execução de pagamentos em Bitcoin e stablecoins para construtoras e agências imobiliárias no Paraguai e no Panamá que trabalham com compradores internacionais."
+      description: "Execução de pagamentos em Bitcoin e stablecoins para construtoras e agências imobiliárias em mercados emergentes e em crescimento como Paraguai e Panamá, que trabalham com compradores internacionais."
       linkText: "Explorar pagamentos imobiliários"
     - label: "Vertical secreto"
       name: "Argentina — setor não divulgado"
