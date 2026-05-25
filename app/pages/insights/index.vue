@@ -1,12 +1,17 @@
 <script setup>
 const { locale } = useI18n()
 
-const { data: insights } = await useAsyncData(`insights-index-${locale.value}`, () =>
-  useContentQuery()
+const { data: insights } = await useAsyncData(`insights-index-${locale.value}`, async () => {
+  const localized = await useContentQuery()
     .where('path', 'LIKE', `/${locale.value}/insights/%`)
     .order('date', 'DESC')
     .all()
-)
+  if (localized?.length) return localized
+  return useContentQuery()
+    .where('path', 'LIKE', `/en/insights/%`)
+    .order('date', 'DESC')
+    .all()
+})
 
 const pageTitle = computed(() => {
   const map = { nl: 'Inzichten', pt: 'Perspectivas', es: 'Perspectivas' }
@@ -33,10 +38,9 @@ useSeoMeta({
     <ul v-if="insights?.length" class="space-y-0">
       <li v-for="item in insights" :key="item.path" class="py-8" style="border-bottom: 1px solid var(--ui-border)">
         <NuxtLink :to="`/insights/${item.slug || item.path.split('/').pop()}`" class="group block space-y-2">
-          <h2 class="text-base font-semibold link-accent">
-            {{ item.title }}
-          </h2>
-          <p v-if="item.description" class="text-sm" style="color: var(--ui-text-muted)">{{ item.description }}</p>
+          <p class="text-xs font-medium uppercase tracking-wide" style="color: var(--ui-text-dimmed)">{{ item.title }}</p>
+          <h2 v-if="item.subtitle" class="text-base font-semibold link-accent">{{ item.subtitle }}</h2>
+          <h2 v-else class="text-base font-semibold link-accent">{{ item.title }}</h2>
           <div v-if="item.tags?.length" class="flex flex-wrap gap-2 pt-1">
             <span
               v-for="tag in item.tags.slice(0, 5)"
