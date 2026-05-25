@@ -22,9 +22,9 @@ References: [GitHub issue](https://github.com/ProtonVPN/proton-vpn-gtk-app/issue
 
 Tested server by server using Proton's own `ip.me`, the Proton VPN Linux GUI, and a Cloudflare-deployed worker returning `CF-IPCountry` directly. Private folder contains additional tests sufficient to make "Smart Routing" a very generous brand name.
 
-<iframe width="100%" style="aspect-ratio:16/9;display:block;" src="https://www.youtube.com/embed/oTLF6sNIcSg" title="Proton VPN Smart Routing IP Test" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<iframe width="100%" style="aspect-ratio:16/9;display:block;" src="https://www.youtube.com/embed/oTLF6sNIcSg?enablejsapi=1" title="Proton VPN Smart Routing IP Test" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
-https://youtu.be/oTLF6sNIcSg
+<a href="https://youtu.be/oTLF6sNIcSg" target="_blank" rel="noopener" data-umami-event="proton2miami-youtube-direct">Direct link →</a>
 
 ## Core Problem
 
