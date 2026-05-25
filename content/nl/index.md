@@ -68,6 +68,6 @@ verticals:
     - slug: "diensten/coin-2-local"
       label: "Vertical"
       name: "Vastgoedbetalingen in Latijns-Amerika"
-      description: "Bitcoin- en stablecoin-betalingsuitvoering voor bouwbedrijven en vastgoedkantoren in Paraguay en Panama die werken met internationale kopers."
+      description: "Bitcoin- en stablecoin-betalingsuitvoering voor bouwbedrijven en vastgoedkantoren in opkomende en groeiende markten zoals Paraguay en Panama, die werken met internationale kopers."
       linkText: "Verken vastgoedbetalingen"
 ---
