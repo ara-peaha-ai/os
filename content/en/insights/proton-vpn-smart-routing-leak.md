@@ -1,6 +1,7 @@
 ---
 date: "2025-05-15"
-title: "proton2miami"
+title: "Proton2Miami"
+subtitle: "When VPN Smart Routing Breaks Location Security for Bitcoin and Stablecoins Users"
 description: "Both Proton's security and support departments are aware of a leak in the service they promote as Smart Routing Technology, affecting its intended purpose across entire regions such as Latin America."
 tags:
   - proton vpn security
@@ -12,8 +13,6 @@ tags:
   - ip detection
   - p2pagos
 ---
-
-### When VPN Smart Routing Breaks Location Security for Bitcoin and Stablecoins Users
 
 *Both Proton's security and support departments are aware of this issue. Smart Routing routes Latin American and other regional traffic through US (Miami) or UK (London) servers, causing Cloudflare and IP databases to detect the physical server country — not the VPN-selected one. This breaks access for bitcoin, stablecoins, and payment platforms restricting US traffic; undermines creator location controls on privacy-sensitive platforms; and creates compliance ambiguity for businesses and remote teams. Covers a full country-by-population breakdown across 23 affected locations, ~6.7 million impacted Proton users, our own VPN deployment response, and recommendations for VPN providers, content platforms, and payment architects.*
 

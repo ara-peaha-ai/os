@@ -74,11 +74,6 @@ body {
 /* Prose: wider line-height and capped measure for mono readability */
 .prose {
   line-height: var(--prose-line-height);
-  max-width: var(--prose-max-width);
-}
-
-.prose p {
-  max-width: var(--prose-max-width);
 }
 
 .prose a code {

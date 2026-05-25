@@ -69,7 +69,7 @@ verticals:
     - slug: "services/coin-2-local"
       label: "Vertical"
       name: "Real estate payments in Latin America"
-      description: "Bitcoin and stablecoin payment execution for construction companies and real estate businesses in Paraguay and Panama working with international buyers."
+      description: "Bitcoin and stablecoin payment execution for construction companies and real estate businesses in emerging and growing markets such as Paraguay and Panama, working with international buyers."
       linkText: "Explore real estate payments"
     - label: "Secret vertical"
       name: "Argentina — undisclosed sector"
