@@ -24,4 +24,5 @@ if [ -n "${ENV_VARS[NUXT_WISE_API_TOKEN]}" ]; then
   echo "Cloudflare Pages secret set: NUXT_WISE_API_TOKEN"
 fi
 
+
 echo "Done. Run git push to trigger deploy."

@@ -1,6 +1,9 @@
 export default defineNuxtConfig({
   runtimeConfig: {
-    wiseApiToken: process.env.NUXT_WISE_API_TOKEN
+    wiseApiToken: process.env.NUXT_WISE_API_TOKEN,
+    public: {
+      umamiId: process.env.NUXT_PUBLIC_UMAMI_ID
+    }
   },
 
   nitro: {
