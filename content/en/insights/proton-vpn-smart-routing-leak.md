@@ -1,6 +1,6 @@
 ---
 date: "2025-05-15"
-title: "When VPN Smart Routing Breaks Location Security for Bitcoin and Stablecoins Users"
+title: "proton2miami"
 description: "Both Proton's security and support departments are aware of a leak in the service they promote as Smart Routing Technology, affecting its intended purpose across entire regions such as Latin America."
 tags:
   - proton vpn security
@@ -12,8 +12,6 @@ tags:
   - ip detection
   - p2pagos
 ---
-
-## proton2miami
 
 ### When VPN Smart Routing Breaks Location Security for Bitcoin and Stablecoins Users
 
