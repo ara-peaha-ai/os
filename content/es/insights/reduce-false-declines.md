@@ -1,8 +1,8 @@
 ---
 date: "2025-05-02"
-title: Reducir Falsos Rechazos
+title: Decline2Route
 description: Cómo la arquitectura de pagos multi-canal reduce los falsos rechazos y qué significa la liquidación self-custodial para reembolsos, cumplimiento y montos incorrectos.
-subtitle: Insight de Infraestructura de Pagos
+subtitle: Cómo el desajuste estructural causa fallos de pago falsos en corredores, países y cumplimiento
 slug: reduce-false-declines
 tags:
   - falsos rechazos de pago

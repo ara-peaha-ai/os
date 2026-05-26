@@ -2,9 +2,15 @@
 const route = useRoute()
 const { locale } = useI18n()
 
-const { data: page } = await useAsyncData(`insight-${route.path}-${locale.value}`, () =>
-  useContentQuery().where('path', 'LIKE', `%${route.path}`).first()
-)
+const { data: page } = await useAsyncData(`insight-${route.path}-${locale.value}`, async () => {
+  if (locale.value !== 'en') {
+    const localePage = await useContentQuery()
+      .where('path', '=', `/${locale.value}${route.path}`)
+      .first()
+    if (localePage) return localePage
+  }
+  return useContentQuery().where('path', 'LIKE', `%${route.path}`).first()
+})
 useSeoMeta({
   title: () => page.value?.title,
   description: () => page.value?.description
