@@ -1,7 +1,7 @@
 ---
-title: "Coin2Local — Inmobiliario en América Latina"
-description: "Pagos en Bitcoin y stablecoins para empresas inmobiliarias y constructoras en América Latina. Paraguay y Panamá activos. Tres etapas: constructoras, agencias inmobiliarias y expat remittance."
-subtitle: "El vertical inmobiliario. Paraguay y Panamá activos."
+title: "Coin2Local"
+description: "Acepta pagos en Bitcoin y stablecoins, liquidados en moneda fiat local. Verticales de inmobiliaria y creadores de contenido activos en América Latina."
+subtitle: "Acepta Bitcoin o stablecoins, liquidados en moneda fiat local"
 ---
 
 Coin2Local nació como respuesta directa al mercado: constructoras en Paraguay estaban recibiendo consultas de compradores internacionales que querían pagar en Bitcoin o stablecoins antes de que existiera ningún producto estructurado. La infraestructura se construyó para atender esa demanda.
@@ -42,3 +42,11 @@ Para operaciones en las que ninguna parte de la cadena puede liquidar directamen
 Una vez implementada formalmente, la misma infraestructura se extiende a los movimientos de capital expat en general — compra de vehículos, negocios u otros activos de alto valor en Paraguay o Panamá. El modelo es más adecuado para montos grandes y operaciones poco frecuentes.
 
 **[Expat remittance — liquidación custodial →](/servicios/coin-2-local/remesas-expat)**
+
+## Creadores de contenido
+
+Plataformas como Patreon, Substack, donaciones directas en cripto y contratos B2B pagan a los creadores en Bitcoin o stablecoins. Coin2Local gestiona el último paso: convertir esos ingresos en fiat local para depósito en una cuenta bancaria paraguaya o panameña, pagos a proveedores o nómina del equipo.
+
+Los mismos rieles utilizados para la liquidación inmobiliaria aplican directamente a los ingresos de contenido: documentación de origen de fondos, lógica de cumplimiento local y entrega de fiat multi-riel — sin que el creador tenga que liquidar a través de un exchange.
+
+Este vertical está siendo estructurado actualmente. Contáctanos si eres creador o agencia que trabaja con talento basado en LATAM.
