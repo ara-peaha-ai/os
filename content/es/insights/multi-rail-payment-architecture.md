@@ -1,8 +1,8 @@
 ---
 date: "2025-05-01"
-title: Arquitectura de Pagos Multi-Canal
+title: Mono2Multi
 description: Por qué las operaciones de pago serias necesitan más de un procesador, banco, ruta de liquidación o jurisdicción.
-subtitle: Insight de Infraestructura de Pagos
+subtitle: Por qué las operaciones de pago serias necesitan más de un canal, banco o ruta de liquidación
 slug: multi-rail-payment-architecture
 tags:
   - arquitectura de pagos multi-canal

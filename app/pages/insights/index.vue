@@ -1,12 +1,24 @@
 <script setup>
 const { locale } = useI18n()
 
-const { data: insights } = await useAsyncData(`insights-${locale.value}`, () =>
-  useContentQuery()
+const { data: insights } = await useAsyncData(`insights-${locale.value}`, async () => {
+  const localeItems = await useContentQuery()
+    .where('path', 'LIKE', `/${locale.value}/insights/%`)
+    .order('date', 'DESC')
+    .all()
+
+  if (locale.value === 'en') return localeItems
+
+  const enItems = await useContentQuery()
     .where('path', 'LIKE', `/en/insights/%`)
     .order('date', 'DESC')
     .all()
-)
+
+  const localeSlugs = new Set(localeItems.map(i => i.slug || i.path.split('/').pop()))
+  const enFallback = enItems.filter(i => !localeSlugs.has(i.slug || i.path.split('/').pop()))
+
+  return [...localeItems, ...enFallback].sort((a, b) => new Date(b.date) - new Date(a.date))
+})
 
 const pageTitle = computed(() => {
   const map = { nl: 'Inzichten', pt: 'Perspectivas', es: 'Perspectivas' }
