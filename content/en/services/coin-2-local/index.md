@@ -1,7 +1,7 @@
 ---
-title: "Coin2Local — Real Estate in Latin America"
-description: "Bitcoin and stablecoin payments for real estate and construction companies in Latin America. Paraguay and Panama active. Three stages: construction companies, real estate agencies, and expat remittance."
-subtitle: "The real estate vertical. Paraguay and Panama active."
+title: "Coin2Local"
+description: "Accept Bitcoin and stablecoin payments, settled in local fiat currency. Real estate and content creator verticals active in Latin America."
+subtitle: "Accept Bitcoin or stablecoins, settled in local fiat currency"
 ---
 
 Coin2Local started as a direct-market response: construction companies in Paraguay were receiving inquiries from international buyers who wanted to pay in Bitcoin or stablecoins before any structured product existed. The infrastructure was built to serve that demand.
@@ -42,3 +42,11 @@ For transactions where no party in the chain can settle directly in fiat, we are
 Once formally implemented, the same infrastructure extends to expat capital movements more broadly — purchasing vehicles, businesses, or other high-value assets in Paraguay or Panama. The model suits larger, infrequent operations.
 
 **[Expat remittance — custodial settlement →](/services/coin-2-local/expat-remittance)**
+
+## Content Creators
+
+Platforms including Patreon, Substack, direct crypto donations, and B2B contracts pay creators in Bitcoin or stablecoins. Coin2Local handles the last step: converting that income into local fiat for deposit into a Paraguayan or Panamanian bank account, supplier payments, or team payroll.
+
+The same rails used for real estate settlement apply directly to content revenue: source-of-funds documentation, local compliance logic, and multi-rail fiat delivery — without requiring the creator to liquidate through an exchange.
+
+This vertical is currently being structured. Contact us if you are a creator or agency working with LATAM-based talent.

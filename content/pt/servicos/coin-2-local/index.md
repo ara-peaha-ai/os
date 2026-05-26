@@ -1,7 +1,7 @@
 ---
-title: "Coin2Local — Imobiliário na América Latina"
-description: "Pagamentos em Bitcoin e stablecoins para empresas imobiliárias e construtoras na América Latina. Paraguai e Panamá ativos. Três etapas: construtoras, agências imobiliárias e expat remittance."
-subtitle: "O vertical imobiliário. Paraguai e Panamá ativos."
+title: "Coin2Local"
+description: "Aceite pagamentos em Bitcoin e stablecoins, liquidados em moeda fiduciária local. Verticais de imóveis e criadores de conteúdo ativos na América Latina."
+subtitle: "Aceite Bitcoin ou stablecoins, liquidados em moeda fiduciária local"
 ---
 
 O Coin2Local surgiu como resposta direta ao mercado: construtoras no Paraguai estavam recebendo consultas de compradores internacionais que queriam pagar em Bitcoin ou stablecoins antes de qualquer produto estruturado existir. A infraestrutura foi construída para atender essa demanda.
@@ -42,3 +42,11 @@ Para operações em que nenhuma parte da cadeia consegue liquidar diretamente em
 Uma vez implementada formalmente, a mesma infraestrutura se estende a movimentações de capital de expats em geral — compra de veículos, negócios ou outros ativos de alto valor no Paraguai ou no Panamá. O modelo é mais adequado para valores maiores e operações pouco frequentes.
 
 **[Expat remittance — liquidação custodial →](/servicos/coin-2-local/remessas-expat)**
+
+## Criadores de conteúdo
+
+Plataformas como Patreon, Substack, doações diretas em cripto e contratos B2B pagam os criadores em Bitcoin ou stablecoins. O Coin2Local cuida da última etapa: converter essa receita em fiat local para depósito em conta bancária paraguaia ou panamenha, pagamentos a fornecedores ou folha de pagamento da equipe.
+
+Os mesmos rails usados para liquidação imobiliária aplicam-se diretamente à receita de conteúdo: documentação de origem de fundos, lógica de conformidade local e entrega de fiat multi-rail — sem que o criador precise liquidar via exchange.
+
+Este vertical está sendo estruturado. Entre em contato se você for criador ou agência trabalhando com talentos baseados na LATAM.
