@@ -1,8 +1,8 @@
 ---
 date: "2025-05-02"
-title: Valse Weigeringen Verminderen
+title: Decline2Route
 description: Hoe multi-rail betalingsarchitectuur valse betalingsweigeringen vermindert en wat zelfbewarende afwikkeling betekent voor terugbetalingen, compliance en onjuiste bedragen.
-subtitle: Inzicht in Betalingsinfrastructuur
+subtitle: Hoe structurele mismatch valse betalingsfouten veroorzaakt over corridors, landen en compliance
 slug: reduce-false-declines
 tags:
   - false payment declines

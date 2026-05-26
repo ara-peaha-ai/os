@@ -1,8 +1,8 @@
 ---
 date: "2025-05-01"
-title: Multi-Rail Betalingsarchitectuur
+title: Mono2Multi
 description: Waarom serieuze betalingsoperaties meer nodig hebben dan één processor, één bank, één afwikkelingsroute of één jurisdictie.
-subtitle: Inzicht in Betalingsinfrastructuur
+subtitle: Waarom serieuze betalingsoperaties meer nodig hebben dan één rail, bank of afwikkelingsroute
 slug: multi-rail-payment-architecture
 tags:
   - multi-rail payment architecture
