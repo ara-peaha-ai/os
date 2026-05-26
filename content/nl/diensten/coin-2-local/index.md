@@ -1,7 +1,7 @@
 ---
-title: "Coin2Local — Vastgoed in Latijns-Amerika"
-description: "Bitcoin en stablecoin betalingen voor vastgoedbedrijven en bouwbedrijven in Latijns-Amerika. Paraguay en Panama actief. Drie fases: bouwbedrijven, vastgoedkantoren en expat-overboekingen."
-subtitle: "Het vastgoedvertical. Paraguay en Panama actief."
+title: "Coin2Local"
+description: "Accepteer Bitcoin- en stablecoin-betalingen, afgewikkeld in lokale fiatvaluta. Vastgoed- en contentcreatorverticalen actief in Latijns-Amerika."
+subtitle: "Accepteer Bitcoin of stablecoins, afgewikkeld in lokale fiatvaluta"
 ---
 
 Coin2Local begon als een directe marktrespons: bouwbedrijven in Paraguay ontvingen vragen van internationale kopers die wilden betalen in Bitcoin of stablecoins voordat er een gestructureerd product bestond. De infrastructuur werd gebouwd om aan die vraag te voldoen.
@@ -42,3 +42,11 @@ Voor transacties waarbij geen enkele partij in de keten direct in fiat kan afwik
 Zodra formeel geïmplementeerd, breidt dezelfde infrastructuur zich uit naar expat-kapitaalbewegingen in het algemeen — aankoop van voertuigen, bedrijven of andere hoogwaardige activa in Paraguay of Panama. Het model is het meest geschikt voor grotere, eenmalige bedragen.
 
 **[Expat-overboekingen — custodiale afwikkeling →](/diensten/coin-2-local/expat-overboekingen)**
+
+## Content creators
+
+Platforms zoals Patreon, Substack, directe crypto-donaties en B2B-contracten betalen creators in Bitcoin of stablecoins. Coin2Local verzorgt de laatste stap: dat inkomen omzetten naar lokale fiat voor storting op een Paraguayaanse of Panamese bankrekening, leveranciersbetalingen of salarisadministratie.
+
+Dezelfde rails die voor vastgoedafwikkeling worden gebruikt, gelden direct voor contentontvangsten: source-of-funds-documentatie, lokale nalevingslogica en multi-rail fiat-levering — zonder dat de creator via een exchange hoeft te liquideren.
+
+Dit vertical wordt momenteel gestructureerd. Neem contact op als je een creator of bureau bent dat werkt met LATAM-gebaseerd talent.

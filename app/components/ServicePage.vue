@@ -23,13 +23,12 @@ const showCountries = computed(() =>
 <template>
   <div class="max-w-3xl mx-auto p-6 space-y-10">
     <div v-if="content">
-      <div class="flex items-baseline gap-3 flex-wrap">
+      <AppSectionLabel :label="content.title" />
+      <div class="flex items-baseline gap-3 flex-wrap mt-1">
         <h1 class="text-2xl font-bold" style="color: var(--ui-text)">{{ content.title }}</h1>
         <UBadge v-if="content.badge" color="primary" variant="subtle" size="sm" class="shrink-0">{{ content.badge }}</UBadge>
       </div>
-      <p v-if="content.subtitle" class="text-lg mt-2" style="color: var(--ui-text-muted)">
-        {{ content.subtitle }}
-      </p>
+      <p v-if="content.subtitle" class="text-lg mt-2" style="color: var(--ui-text-muted)">{{ content.subtitle }}</p>
     </div>
 
     <ServiceAnimation v-if="showAnimation" />
