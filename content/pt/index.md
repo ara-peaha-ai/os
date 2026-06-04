@@ -4,7 +4,7 @@ description: "P2Pagos orquestra infraestrutura de pagamento multi-canal para emp
 
 hero:
   h1: "P2Pagos"
-  subtitle: "Orquestramos pagamentos multi-canal sem fricção entre países e tecnologias com moeda local e criptomoedas."
+  subtitle: "Nós orquestramos pagamentos multicanal sem atrito entre países e tecnologias, usando moeda local e em blockchains."
   paragraphs:
     - "P2Pagos conecta liquidação baseada em blockchain com execução local prática: transferências bancárias, liquidez em dinheiro, métodos de pagamento locais, níveis de verificação, estruturas empresariais e restrições de pagamento específicas por jurisdição."
     - "Nosso foco atual é América Latina, começando pelo Paraguai, com casos de uso reais em imóveis, mineração, transações de alto valor, pequenas empresas, operadores online e agentes de IA sem contas bancárias tradicionais."
