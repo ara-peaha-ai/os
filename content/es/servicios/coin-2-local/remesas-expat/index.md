@@ -22,7 +22,7 @@ Muchos bancos e intermediarios tradicionales no gestionan bien estas situaciones
 
 ## Cómo funciona
 
-El comprador envía el importe total de la transacción on-chain a una dirección bajo el control de P2Pagos. P2Pagos ejecuta la operación del lado fiat — adquisición del inmueble, compra del activo o transferencia — y documenta toda la cadena de custodia.
+El comprador envía el importe total de la transacción on-chain a una dirección bajo el control de Paguaitu. Paguaitu ejecuta la operación del lado fiat — adquisición del inmueble, compra del activo o transferencia — y documenta toda la cadena de custodia.
 
 La estructura interna de ejecución no es pública. Lo que importa al comprador:
 
