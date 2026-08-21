@@ -5,13 +5,21 @@ export default defineNuxtConfig({
 
   app: {
     head: {
-      script: [
+      link: [
         {
-          src: 'https://992261076.p2pagos.com/992261076.js',
-          defer: true,
-          'data-website-id': 'fcbcc77a-a940-4fec-9eb2-7923910ffa07',
-          'data-domains': 'en.paguaitu.com, es.paguaitu.com, pt.paguaitu.com'
-        }
+          rel: 'icon',
+          type: 'image/x-icon',
+          href: '/paguaitu.ico'
+        },
+      ],
+      script: [
+        // ponytail: Umami tracking disabled temporarily, re-enable when stats matter again
+        // {
+        //   src: 'https://992261076.p2pagos.com/992261076.js',
+        //   defer: true,
+        //   'data-website-id': 'fcbcc77a-a940-4fec-9eb2-7923910ffa07',
+        //   'data-domains': 'en.paguaitu.com, es.paguaitu.com, pt.paguaitu.com'
+        // }
       ]
     }
   },
@@ -132,7 +140,7 @@ export default defineNuxtConfig({
       file: 'en.json',
       dir: 'ltr',
       ...(process.env.NUXT_PUBLIC_IS_PREVIEW !== 'true' && {
-        domain: process.env.NODE_ENV === 'production' ? 'en.paguaitu.com' : 'en.p2pagos.local:3000'
+        domain: process.env.NODE_ENV === 'production' ? 'en.paguaitu.com' : 'en.paguaitu.local:3000'
       })
     },
     {
@@ -142,7 +150,7 @@ export default defineNuxtConfig({
       file: 'es.json',
       dir: 'ltr',
       ...(process.env.NUXT_PUBLIC_IS_PREVIEW !== 'true' && {
-        domain: process.env.NODE_ENV === 'production' ? 'es.paguaitu.com' : 'es.p2pagos.local:3000'
+        domain: process.env.NODE_ENV === 'production' ? 'es.paguaitu.com' : 'es.paguaitu.local:3000'
       })
     },
     {
@@ -152,7 +160,7 @@ export default defineNuxtConfig({
       file: 'pt.json',
       dir: 'ltr',
       ...(process.env.NUXT_PUBLIC_IS_PREVIEW !== 'true' && {
-        domain: process.env.NODE_ENV === 'production' ? 'pt.paguaitu.com' : 'pt.p2pagos.local:3000'
+        domain: process.env.NODE_ENV === 'production' ? 'pt.paguaitu.com' : 'pt.paguaitu.local:3000'
       })
     }]
   },
@@ -168,7 +176,7 @@ export default defineNuxtConfig({
 
   vite: {
     server: {
-      allowedHosts: ['en.p2pagos.local', 'es.p2pagos.local', 'pt.p2pagos.local']
+      allowedHosts: ['en.paguaitu.local', 'es.paguaitu.local', 'pt.paguaitu.local']
     }
   },
 

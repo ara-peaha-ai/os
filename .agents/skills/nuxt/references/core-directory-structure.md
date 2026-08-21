@@ -206,7 +206,7 @@ Static assets served at root URL:
 
 ```
 public/
-├── favicon.ico          → /favicon.ico
+├── paguaitu.ico          → /paguaitu.ico
 ├── robots.txt           → /robots.txt
 └── images/
     └── logo.png         → /images/logo.png
