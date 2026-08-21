@@ -21,7 +21,7 @@ O alcance atual visa aproximadamente 2.500 construtoras paraguaias — incluindo
 
 O canal único nacional — a opção de taxa fixa visível no simulador — é o que uma exchange ou mesa OTC padrão oferece: um preço cotado, um formulário de conformidade e uma transferência. O ativo se move. O serviço termina aí.
 
-**O P2Pagos é um tipo de serviço diferente.**
+**O Paguaitu é um tipo de serviço diferente.**
 
 Do lado do comprador, isso significa assistência durante o processo de pagamento com a moeda escolhida — incluindo uma transação de teste reduzida se solicitada — e suporte em cada etapa do fluxo. Não um formulário frio para preencher sozinho.
 
@@ -29,9 +29,9 @@ Do lado da construtora, isso significa assistência técnica para ativar seus pr
 
 > A abordagem atual é intencionalmente manual. Cada etapa é projetada para ser absorvida em uma única aplicação integrada à medida que o vertical amadurece.
 
-O P2Pagos opera como uma **empresa de software e consultoria**. Não custodia fundos de clientes, não age como intermediário financeiro e não oferece serviços de câmbio. O que constrói é a estrutura técnica e operacional que permite a ambos os lados de uma transação imobiliária usar os rails de que precisam — fundamentada em experiência direta com a infraestrutura de pagamentos desta indústria específica.
+O Paguaitu opera como uma **empresa de software e consultoria**. Não custodia fundos de clientes, não age como intermediário financeiro e não oferece serviços de câmbio. O que constrói é a estrutura técnica e operacional que permite a ambos os lados de uma transação imobiliária usar os rails de que precisam — fundamentada em experiência direta com a infraestrutura de pagamentos desta indústria específica.
 
-O registro **PSAV** (Proveedor de Servicios de Activos Virtuales) junto à SEPRELAD está no roadmap — o passo formal que permitirá ao P2Pagos operar como provedor licenciado de serviços de ativos virtuais sob a regulação paraguaia.
+O registro **PSAV** (Proveedor de Servicios de Activos Virtuales) junto à SEPRELAD está no roadmap — o passo formal que permitirá ao Paguaitu operar como provedor licenciado de serviços de ativos virtuais sob a regulação paraguaia.
 
 ---
 
@@ -52,7 +52,7 @@ Em geral, nenhuma documentação é exigida. Requisitos confirmados caso a caso.
 
 #### Liquidação diferida para futuros residentes no Paraguai
 
-Para compradores em processo de obtenção da residência paraguaia, o P2Pagos estrutura uma opção de liquidação diferida:
+Para compradores em processo de obtenção da residência paraguaia, o Paguaitu estrutura uma opção de liquidação diferida:
 
 1. O comprador transfere Bitcoin ou stablecoins — o imóvel fica reservado.
 2. A liquidação em fiat ao vendedor é executada após a confirmação da residência paraguaia.

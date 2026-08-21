@@ -1,5 +1,5 @@
 {
-  "name": "@p2pagos/website",
+  "name": "@paguaitu/website",
   "private": true,
   "scripts": {
     "build": "nuxt build",

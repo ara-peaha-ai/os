@@ -15,6 +15,4 @@ O Int2Latam cobre:
 
 > Graças à nossa presença local direta no Suriname, registramos domínios `.sr` **a uma fração do custo** dos registradores internacionais — sem requisitos locais repassados ao cliente.
 
-O P2Pagos opera [p2paysa.sr](https://p2paysa.sr) como sua presença geo-localizada no Suriname. Planejamos utilizá-la para entregar conteúdo específico para o público surinamês — este domínio é nossa presença ativa atual no país.
-
 [← Int2Latam](/servicos/mono-2-multi/int-2-latam)

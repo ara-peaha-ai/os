@@ -11,12 +11,12 @@ tags:
   - pagos bitcoin y stablecoins
   - infraestructura de pagos
   - detección de ip
-  - p2pagos
+  - Paguaitu
 ---
 
 *Tanto el equipo de seguridad como el de soporte de Proton conocen este problema. Smart Routing enruta el tráfico latinoamericano y de otras regiones a través de servidores en EE.UU. (Miami) o Reino Unido (Londres), lo que hace que Cloudflare y las bases de datos de IP detecten el país del servidor físico — no el país seleccionado en el VPN. Esto bloquea el acceso a plataformas de bitcoin, stablecoins y pagos que restringen el tráfico de EE.UU.; socava los controles de ubicación de creadores en plataformas con privacidad sensible; y crea ambigüedad de cumplimiento para empresas y equipos remotos. Incluye un desglose completo por país y población de 23 ubicaciones afectadas, ~6,7 millones de usuarios de Proton impactados, nuestra respuesta de despliegue de VPN propio, y recomendaciones para proveedores de VPN, plataformas de contenido y arquitectos de infraestructura de pagos.*
 
-Referencias: [Issue en GitHub](https://github.com/ProtonVPN/proton-vpn-gtk-app/issues/164) · [Documentación Proton Smart Routing](https://protonvpn.com/support/how-smart-routing-works) · [Módulo /ip de P2Pagos](https://github.com/P2Pagos/mono/tree/main/services/ip)
+Referencias: [Issue en GitHub](https://github.com/ProtonVPN/proton-vpn-gtk-app/issues/164) · [Documentación Proton Smart Routing](https://protonvpn.com/support/how-smart-routing-works) · [Módulo /ip de Paguaitu](https://github.com/Paguaitu/orchestrator/tree/main/services/ip)
 
 ## Evidencia en vídeo
 
@@ -82,7 +82,7 @@ Los sitios de bitcoin y stablecoins usan Cloudflare muy por encima del promedio 
 
 Las plataformas que restringen contenido por país — crítico cuando la ubicación del creador tiene implicaciones directas de seguridad — se ven afectadas por Smart Routing desde ambos lados: espectadores en países bloqueados evaden restricciones apareciendo como usuarios de EE.UU., mientras que creadores en servidores Smart Routing de LATAM son silenciosamente identificados como residentes en EE.UU.
 
-La señal de IP única es insuficiente; cruzar `CF-IPCountry` con la IP declarada del VPN — una discrepancia debería elevar el umbral de confianza, no reducirlo. El [módulo `/ip` de P2Pagos](https://github.com/P2Pagos/mono/tree/main/services/ip) devuelve ambas señales de serie.
+La señal de IP única es insuficiente; cruzar `CF-IPCountry` con la IP declarada del VPN — una discrepancia debería elevar el umbral de confianza, no reducirlo. El [módulo `/ip` de Paguaitu](https://github.com/Paguaitu/orchestrator/tree/main/services/ip) devuelve ambas señales de serie.
 
 ## Impacto en negocios y seguridad
 
@@ -98,7 +98,7 @@ Smart Routing puede ser seguro en el túnel, pero vender Paraguay o Ecuador como
 
 ## Cómo usamos la detección de IP en la práctica
 
-En [P2Pagos Mono](https://github.com/P2Pagos/mono) y [P2Pagos Marketplace](https://github.com/P2Pagos/marketplace), el módulo `/ip` cumple un único propósito: determinar la primera moneda fiat y los métodos de pago mostrados en el checkout. Tanto el país detectado por Cloudflare (`CF-IPCountry`) como el país declarado por el VPN se exponen, permitiendo al usuario elegir basándose en cualquiera de los dos — respetando cómo el visitante quiere aparecer. Nada más.
+En [Paguaitu Orchestrator](https://github.com/Paguaitu/orchestrator) y [Paguaitu Cloud](https://github.com/Paguaitu/cloud), el módulo `/ip` cumple un único propósito: determinar la primera moneda fiat y los métodos de pago mostrados en el checkout. Tanto el país detectado por Cloudflare (`CF-IPCountry`) como el país declarado por el VPN se exponen, permitiendo al usuario elegir basándose en cualquiera de los dos — respetando cómo el visitante quiere aparecer. Nada más.
 
 ## Lecciones y recomendaciones
 

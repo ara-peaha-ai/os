@@ -21,7 +21,7 @@ Current outreach targets approximately 2,500 Paraguayan construction companies.
 
 The national single rail — the fixed-rate option visible in the simulator — is what a standard exchange or OTC desk offers: a quoted price, a compliance form, and a transfer. The asset moves. The service ends there.
 
-**P2Pagos is a different type of service.**
+**Paguaitu is a different type of service.**
 
 On the buyer side, this means assistance through the payment process with their chosen coin — including a reduced test transaction if requested — and support at every step of the flow. Not a cold form to fill out alone.
 
@@ -29,9 +29,9 @@ On the construction company side, this means technical assistance to activate th
 
 > The current approach is intentionally manual. Every step is designed to be absorbed into a single integrated application as the vertical matures.
 
-P2Pagos operates as a **software and consultancy company**. It does not hold client funds, does not act as a financial intermediary, and does not offer exchange services. What it builds is the technical and operational structure that allows both sides of a real estate transaction to use the rails they need — grounded in direct experience with the payment infrastructure of this specific industry.
+Paguaitu operates as a **software and consultancy company**. It does not hold client funds, does not act as a financial intermediary, and does not offer exchange services. What it builds is the technical and operational structure that allows both sides of a real estate transaction to use the rails they need — grounded in direct experience with the payment infrastructure of this specific industry.
 
-Obtaining a **PSAV registration** (Proveedor de Servicios de Activos Virtuales) with SEPRELAD is on the roadmap — the formal step that would allow P2Pagos to operate as a licensed virtual asset service provider under Paraguayan regulation.
+Obtaining a **PSAV registration** (Proveedor de Servicios de Activos Virtuales) with SEPRELAD is on the roadmap — the formal step that would allow Paguaitu to operate as a licensed virtual asset service provider under Paraguayan regulation.
 
 ---
 
@@ -52,7 +52,7 @@ No documentation is typically required. Requirements confirmed case by case.
 
 #### Deferred settlement for incoming Paraguay residents
 
-For buyers in the process of obtaining Paraguay residency, P2Pagos structures a deferred settlement option:
+For buyers in the process of obtaining Paraguay residency, Paguaitu structures a deferred settlement option:
 
 1. Buyer transfers Bitcoin or stablecoins — property is reserved.
 2. Fiat settlement to the seller executes upon confirmation of Paraguay residency.

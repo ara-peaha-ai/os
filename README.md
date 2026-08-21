@@ -118,7 +118,7 @@ export const SETTLEMENT_COUNTRIES = {
 2. Filters by `maxUsd` limit per provider
 3. Runs all eligible providers in parallel
 4. Picks the one with the highest net for each settlement type
-5. Applies P2Pagos fee on invoice USD value
+5. Applies Paguaitu fee on invoice USD value
 6. Returns ordered results: `bankUsd → cashUsd → bankLocal → cashLocal`
 
 Providers that throw or return `null` are silently skipped — the channel simply doesn't appear in the simulator.

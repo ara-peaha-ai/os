@@ -22,7 +22,7 @@ These five groups meet at the same market. Coin2Local handles the payment execut
 
 ## Stage 1 — Construction companies
 
-An international buyer pays in Bitcoin, USDT, or USDC. The construction company receives fiat through local payment rails. P2Pagos handles rail selection, source-of-funds documentation, and settlement support. No custody of client funds at any point.
+An international buyer pays in Bitcoin, USDT, or USDC. The construction company receives fiat through local payment rails. Paguaitu handles rail selection, source-of-funds documentation, and settlement support. No custody of client funds at any point.
 
 Paraguay is active with the first payment made. Panama is the next market for 2026.
 
@@ -37,7 +37,7 @@ The same execution model applied to the broader market: real estate agents, inde
 
 ## Stage 3 — Expat remittance
 
-For transactions where no party in the chain can settle directly in fiat, we are evaluating a fully custodial structure: the buyer sends the full amount on-chain to an address under P2Pagos control. P2Pagos acquires the asset in fiat under its own name, then retransfers ownership to the buyer.
+For transactions where no party in the chain can settle directly in fiat, we are evaluating a fully custodial structure: the buyer sends the full amount on-chain to an address under Paguaitu control. Paguaitu acquires the asset in fiat under its own name, then retransfers ownership to the buyer.
 
 Once formally implemented, the same infrastructure extends to expat capital movements more broadly — purchasing vehicles, businesses, or other high-value assets in Paraguay or Panama. The model suits larger, infrequent operations.
 

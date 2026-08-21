@@ -49,7 +49,7 @@ This blocks early-stage products, AI agents, small operators, and *lawful busine
 
 > A product should use the same payment flows and API logic during development, testing, launch, and growth.
 
-P2Pagos uses open modules with rails that can be activated or deactivated without rebuilding the product. Start with higher costs and slower settlement — **improve rates, speed, and volume as the business proves demand**.
+Paguaitu uses open modules with rails that can be activated or deactivated without rebuilding the product. Start with higher costs and slower settlement — **improve rates, speed, and volume as the business proves demand**.
 
 ## Multi-rail with reduced false positives
 

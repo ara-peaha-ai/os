@@ -22,8 +22,10 @@ useSeoMeta({ title: 'Styleguide — Bennet Design System' })
       <div class="space-y-3">
         <p class="text-xs uppercase tracking-widest" style="color: var(--ui-text-dimmed)">Background</p>
         <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
-          <div v-for="t in ['--ui-bg','--ui-bg-muted','--ui-bg-elevated','--ui-bg-accented']" :key="t" class="space-y-1">
-            <div class="h-12 rounded border" :style="`background-color: var(${t}); border-color: var(--ui-border-accented)`" />
+          <div v-for="t in ['--ui-bg', '--ui-bg-muted', '--ui-bg-elevated', '--ui-bg-accented']" :key="t"
+            class="space-y-1">
+            <div class="h-12 rounded border"
+              :style="`background-color: var(${t}); border-color: var(--ui-border-accented)`" />
             <p class="text-xs break-all" style="color: var(--ui-text-dimmed)">{{ t }}</p>
           </div>
         </div>
@@ -32,8 +34,10 @@ useSeoMeta({ title: 'Styleguide — Bennet Design System' })
       <div class="space-y-3">
         <p class="text-xs uppercase tracking-widest" style="color: var(--ui-text-dimmed)">Text</p>
         <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
-          <div v-for="t in ['--ui-text','--ui-text-tinted','--ui-text-muted','--ui-text-dimmed']" :key="t" class="space-y-1">
-            <div class="h-12 rounded border flex items-center justify-center text-sm font-medium" :style="`color: var(${t}); border-color: var(--ui-border)`">Aa</div>
+          <div v-for="t in ['--ui-text', '--ui-text-tinted', '--ui-text-muted', '--ui-text-dimmed']" :key="t"
+            class="space-y-1">
+            <div class="h-12 rounded border flex items-center justify-center text-sm font-medium"
+              :style="`color: var(${t}); border-color: var(--ui-border)`">Aa</div>
             <p class="text-xs break-all" style="color: var(--ui-text-dimmed)">{{ t }}</p>
           </div>
         </div>
@@ -42,7 +46,7 @@ useSeoMeta({ title: 'Styleguide — Bennet Design System' })
       <div class="space-y-3">
         <p class="text-xs uppercase tracking-widest" style="color: var(--ui-text-dimmed)">Border</p>
         <div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
-          <div v-for="t in ['--ui-border','--ui-border-muted','--ui-border-accented']" :key="t" class="space-y-1">
+          <div v-for="t in ['--ui-border', '--ui-border-muted', '--ui-border-accented']" :key="t" class="space-y-1">
             <div class="h-12 rounded border-2" :style="`border-color: var(${t})`" />
             <p class="text-xs break-all" style="color: var(--ui-text-dimmed)">{{ t }}</p>
           </div>
@@ -52,11 +56,7 @@ useSeoMeta({ title: 'Styleguide — Bennet Design System' })
       <div class="space-y-3">
         <p class="text-xs uppercase tracking-widest" style="color: var(--ui-text-dimmed)">Primary</p>
         <div class="flex gap-3 flex-wrap">
-          <div
-            v-for="shade in [50,100,200,300,400,500,600,700,800,900,950]"
-            :key="shade"
-            class="space-y-1"
-          >
+          <div v-for="shade in [50, 100, 200, 300, 400, 500, 600, 700, 800, 900, 950]" :key="shade" class="space-y-1">
             <div class="h-10 w-10 rounded" :class="`bg-blue-${shade}`" />
             <p class="text-xs text-center" style="color: var(--ui-text-dimmed)">{{ shade }}</p>
           </div>
@@ -80,7 +80,7 @@ useSeoMeta({ title: 'Styleguide — Bennet Design System' })
           { cls: 'text-xs uppercase tracking-widest font-semibold', label: 'text-xs upper — Label' },
         ]" :key="item.label" class="flex items-baseline gap-4">
           <span class="w-52 text-xs shrink-0" style="color: var(--ui-text-dimmed)">{{ item.label }}</span>
-          <span :class="item.cls" style="color: var(--ui-text)">P2Pagos payment infra</span>
+          <span :class="item.cls" style="color: var(--ui-text)">Paguaitu payment infra</span>
         </div>
       </div>
     </section>
@@ -119,18 +119,10 @@ useSeoMeta({ title: 'Styleguide — Bennet Design System' })
       <div class="space-y-2">
         <p class="text-xs" style="color: var(--ui-text-dimmed)">AppCardGuide (no image)</p>
         <div class="grid sm:grid-cols-2 gap-4">
-          <AppCardGuide
-            badge="EXPLAINER"
-            title="How Local2Coin works in Paraguay"
-            description="A step-by-step look at how fiat liquidity is sourced and settled across rails."
-            to="#"
-          />
-          <AppCardGuide
-            badge="TUTORIAL"
-            title="Integrating the P2Pagos API"
-            description="Authenticate, create a quote, and confirm a transfer in under 30 lines."
-            to="#"
-          />
+          <AppCardGuide badge="EXPLAINER" title="How Local2Coin works in Paraguay"
+            description="A step-by-step look at how fiat liquidity is sourced and settled across rails." to="#" />
+          <AppCardGuide badge="TUTORIAL" title="Integrating the Paguaitu API"
+            description="Authenticate, create a quote, and confirm a transfer in under 30 lines." to="#" />
         </div>
       </div>
     </section>

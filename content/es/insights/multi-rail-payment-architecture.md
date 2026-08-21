@@ -262,7 +262,7 @@ Esa es la diferencia entre una lista de métodos de pago y una arquitectura de p
 
 ## Cómo encaja Mono2Multi
 
-Mono2Multi es el servicio de consultoría de P2Pagos para operadores que necesitan esta estructura en la práctica.
+Mono2Multi es el servicio de consultoría de Paguaitu para operadores que necesitan esta estructura en la práctica.
 
 Ayuda a diseñar las capas de empresa, infraestructura, intermediario financiero, KYC/KYB, origen de fondos, canal, liquidación y respaldo necesarias para pasar de una configuración frágil de canal único a una operación resiliente multi-canal.
 
