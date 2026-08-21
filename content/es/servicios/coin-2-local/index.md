@@ -37,7 +37,7 @@ El mismo modelo de ejecución aplicado al mercado más amplio: agentes inmobilia
 
 ## Etapa 3 — Expat remittance
 
-Para operaciones en las que ninguna parte de la cadena puede liquidar directamente en fiat, estamos evaluando una estructura custodial completa: el comprador envía el importe total on-chain a una dirección bajo el control de P2Pagos. P2Pagos adquiere el activo en fiat a su propio nombre y luego retransfiere la titularidad al comprador.
+Para operaciones en las que ninguna parte de la cadena puede liquidar directamente en fiat, estamos evaluando una estructura custodial completa: el comprador envía el importe total on-chain a una dirección bajo el control de Paguaitu. Paguaitu adquiere el activo en fiat a su propio nombre y luego retransfiere la titularidad al comprador.
 
 Una vez implementada formalmente, la misma infraestructura se extiende a los movimientos de capital expat en general — compra de vehículos, negocios u otros activos de alto valor en Paraguay o Panamá. El modelo es más adecuado para montos grandes y operaciones poco frecuentes.
 
