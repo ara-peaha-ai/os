@@ -53,7 +53,7 @@
     "collapse": "Collapse",
     "x4t": "Comparison with X4T",
     "payoutSimulator": "Self-custody settlement simulator",
-    "payoutSimulatorNote": "Multi-rail, self-custody settlement — P2Pagos routes across multiple channels to find your best rate. Funds flow from the buyer's wallet to your bank or cash, without ever passing through P2Pagos' control.",
+    "payoutSimulatorNote": "Multi-rail, self-custody settlement — Paguaitu routes across multiple channels to find your best rate. Funds flow from the buyer's wallet to your bank or cash, without ever passing through Paguaitu' control.",
     "comingSoon": "Coming soon",
     "paraguayTitle": "Sell to international buyers, settle in USD or guaraníes",
     "paraguaySubtitle": "Bitcoin & stablecoins to local fiat — three verification levels, both directions",

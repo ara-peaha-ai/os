@@ -80,7 +80,7 @@ O objetivo é evitar perder clientes reais por dependência frágil em um único
 
 ## Liquidação self-custodial e a camada de reembolso
 
-> Os fluxos de pagamento do P2Pagos sempre incluem uma etapa inicial de liquidação self-custodial — independentemente da rota de offramp final utilizada.
+> Os fluxos de pagamento do Paguaitu sempre incluem uma etapa inicial de liquidação self-custodial — independentemente da rota de offramp final utilizada.
 
 Isso não é apenas uma escolha técnica. É uma escolha prática.
 

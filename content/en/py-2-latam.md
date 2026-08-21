@@ -10,7 +10,7 @@ badge: "Stage 2 — 2026"
 
 The construction company model works where two conditions hold simultaneously: builders are actively selling to international buyers, and those builders are willing to settle in fiat through a third-party operator.
 
-Paraguay fits. Panama fits. Uruguay is under evaluation. Beyond those, it is a market-by-market check — not a blanket assumption. What changes in each market is the counterpart, the local fiat rail, and the banking relationship. What stays the same is the execution layer: buyer pays in Bitcoin or stablecoins, construction company receives local fiat, P2Pagos handles settlement, documentation, and source-of-funds support.
+Paraguay fits. Panama fits. Uruguay is under evaluation. Beyond those, it is a market-by-market check — not a blanket assumption. What changes in each market is the counterpart, the local fiat rail, and the banking relationship. What stays the same is the execution layer: buyer pays in Bitcoin or stablecoins, construction company receives local fiat, Paguaitu handles settlement, documentation, and source-of-funds support.
 
 ## Panama — first activation
 
@@ -22,7 +22,7 @@ Full market detail: [Coin2Local — Panama](/services/coin-2-local/real-estate/p
 
 2026 is the year the working Paraguay prototype becomes a stable implementation. Settlement flows, documentation processes, and rail orchestration are consolidated into a structured, automated software layer — progressively integrated into day-to-day operations.
 
-KYC-compatible compliance reporting is unified in the same layer: documentation generated at settlement feeds directly into a shared audit trail across rails and markets. The underlying [service modules](https://github.com/P2Pagos#service-modules) provide the reusable technical foundation that makes the same execution repeatable, auditable, and scalable across every market. Among them, the invoice module: open-source, programmatic electronic invoice generation triggered on payment settlement, built on the Invopop solution and extended with the Paraguayan SIFEN integration via TIPS SA modules, with multiple Latam countries supported.
+KYC-compatible compliance reporting is unified in the same layer: documentation generated at settlement feeds directly into a shared audit trail across rails and markets. The underlying [service modules](https://github.com/Paguaitu#service-modules) provide the reusable technical foundation that makes the same execution repeatable, auditable, and scalable across every market. Among them, the invoice module: open-source, programmatic electronic invoice generation triggered on payment settlement, built on the Invopop solution and extended with the Paraguayan SIFEN integration via TIPS SA modules, with multiple Latam countries supported.
 
 ## Related
 

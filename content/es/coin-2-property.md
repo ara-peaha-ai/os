@@ -1,8 +1,8 @@
 ---
 title: "Coin2Property — Comprá Cualquier Inmueble con Bitcoin o Stablecoins"
-description: "Etapa 3 de Coin2Local: P2Pagos como vehículo de adquisición custodial para cualquier inmueble, cualquier agencia, cualquier mercado soportado. Para compradores con origen de fondos real pero difícil de documentar."
+description: "Etapa 3 de Coin2Local: Paguaitu como vehículo de adquisición custodial para cualquier inmueble, cualquier agencia, cualquier mercado soportado. Para compradores con origen de fondos real pero difícil de documentar."
 subtitle: "Cualquier inmueble. Cualquier agencia. Cualquier mercado soportado."
-intro: "Etapa 3 de Coin2Local. P2Pagos actúa como vehículo de adquisición custodial cuando ninguna parte en la cadena de transacción puede aceptar cripto directamente — el vendedor es un propietario privado, la agencia opera en fiat y nadie controla los rieles de pago."
+intro: "Etapa 3 de Coin2Local. Paguaitu actúa como vehículo de adquisición custodial cuando ninguna parte en la cadena de transacción puede aceptar cripto directamente — el vendedor es un propietario privado, la agencia opera en fiat y nadie controla los rieles de pago."
 badge: "Etapa 3 — 2027+"
 ---
 
@@ -14,7 +14,7 @@ La misma dinámica se repite en cualquier operación transfronteriza en la regi�
 
 ## Cómo funciona
 
-P2Pagos actúa como vehículo de adquisición. El comprador paga en cripto. P2Pagos convierte a fiat, adquiere el inmueble a través de una entidad legal de confianza en el mercado objetivo y lo transfiere al comprador. El margen es reducido por diseño — estructuralmente similar a cómo Wise gestiona grandes transacciones de divisas. Una operación de USD 400k necesita cerrarse en aproximadamente 48 horas para ser viable operativamente.
+Paguaitu actúa como vehículo de adquisición. El comprador paga en cripto. Paguaitu convierte a fiat, adquiere el inmueble a través de una entidad legal de confianza en el mercado objetivo y lo transfiere al comprador. El margen es reducido por diseño — estructuralmente similar a cómo Wise gestiona grandes transacciones de divisas. Una operación de USD 400k necesita cerrarse en aproximadamente 48 horas para ser viable operativamente.
 
 | Parámetro | Valor |
 |---|---|

@@ -1,8 +1,8 @@
 ---
 title: "Coin2Property — Compre Qualquer Imóvel com Bitcoin ou Stablecoins"
-description: "Etapa 3 do Coin2Local: P2Pagos como veículo de aquisição custodial para qualquer imóvel, qualquer agência, qualquer mercado suportado. Para compradores com origem de fundos real mas difícil de documentar."
+description: "Etapa 3 do Coin2Local: Paguaitu como veículo de aquisição custodial para qualquer imóvel, qualquer agência, qualquer mercado suportado. Para compradores com origem de fundos real mas difícil de documentar."
 subtitle: "Qualquer imóvel. Qualquer agência. Qualquer mercado suportado."
-intro: "Etapa 3 do Coin2Local. P2Pagos atua como veículo de aquisição custodial quando nenhuma parte na cadeia da transação pode aceitar cripto diretamente — o vendedor é um proprietário privado, a agência opera em fiat e ninguém controla os rails de pagamento."
+intro: "Etapa 3 do Coin2Local. Paguaitu atua como veículo de aquisição custodial quando nenhuma parte na cadeia da transação pode aceitar cripto diretamente — o vendedor é um proprietário privado, a agência opera em fiat e ninguém controla os rails de pagamento."
 badge: "Etapa 3 — 2027+"
 ---
 
@@ -14,7 +14,7 @@ A mesma dinâmica se repete em qualquer negócio cross-border na região. As red
 
 ## Como funciona
 
-P2Pagos atua como veículo de aquisição. O comprador paga em cripto. P2Pagos converte para fiat, adquire o imóvel por meio de uma entidade legal confiável no mercado-alvo e o transfere ao comprador. A margem é baixa por design — estruturalmente similar a como a Wise gerencia grandes transações de câmbio. Um negócio de USD 400k precisa ser fechado em aproximadamente 48 horas para ser viável operacionalmente.
+Paguaitu atua como veículo de aquisição. O comprador paga em cripto. Paguaitu converte para fiat, adquire o imóvel por meio de uma entidade legal confiável no mercado-alvo e o transfere ao comprador. A margem é baixa por design — estruturalmente similar a como a Wise gerencia grandes transações de câmbio. Um negócio de USD 400k precisa ser fechado em aproximadamente 48 horas para ser viável operacionalmente.
 
 | Parâmetro | Valor |
 |---|---|

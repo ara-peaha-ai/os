@@ -1,18 +1,18 @@
 ---
-title: "P2Pagos"
-description: "P2Pagos orchestrates multi-rail payment infrastructure for businesses that need local execution, blockchain-based settlement, and payment continuity across Paraguay and Latin America."
+title: "Paguaitu"
+description: "Paguaitu orchestrates multi-rail payment infrastructure for businesses that need local execution, blockchain-based settlement, and payment continuity across Paraguay and Latin America."
 
 hero:
-  h1: "P2Pagos"
+  h1: "Paguaitu"
   subtitle: "We orchestrate frictionless multi-rail payments across countries and technologies with legal tender and coins."
   paragraphs:
-    - "P2Pagos connects blockchain-based settlement with practical local execution: bank transfers, cash liquidity, local payment methods, verification levels, business structures, and jurisdiction-specific payment constraints."
+    - "Paguaitu connects blockchain-based settlement with practical local execution: bank transfers, cash liquidity, local payment methods, verification levels, business structures, and jurisdiction-specific payment constraints."
     - "Our current focus is Latin America, starting from Paraguay, with real use cases in real estate, mining, high-value transactions, small businesses, online operators, and AI agents without traditional business accounts."
     - "Mono2Multi is the operating principle: the best rail is the one that works for the specific corridor, risk profile, documentation level, business model, ticket size, and settlement need."
     - "We do not design critical payment flows around a single point of failure. Every serious payment architecture should have at least two viable channels for continuity."
 
 products:
-  anchor: "p2pagos-eas"
+  anchor: "Paguaitu-eas"
   label: "Products"
   h2: "Two Mono2Multi settlement flows for businesses, marketplaces, and AI-native operators."
   intro: "Local2Coin and Coin2Local are product flows. They connect local payment methods, international customers, Bitcoin, USDT, USDC, digital dollars, stablecoins, AI-native payment needs, and business settlement requirements through one operational layer."
@@ -23,8 +23,8 @@ products:
       description: "Accept cards and local payment methods for single-user businesses, AI agents, and marketplaces through MIT licensed frictionless flows."
       linkText: "Explore Local2Coin"
       externalLinks:
-        - label: "MIT licensed P2Pagos repositories"
-          url: "https://github.com/P2Pagos"
+        - label: "MIT licensed Paguaitu repositories"
+          url: "https://github.com/Paguaitu"
     - slug: "coin-2-local"
       label: "Product"
       name: "Coin2Local"

@@ -80,7 +80,7 @@ El objetivo es evitar perder clientes reales por una dependencia frágil en un �
 
 ## Liquidación self-custodial y la capa de reembolso
 
-> Los flujos de pago de P2Pagos siempre incluyen un paso inicial de liquidación self-custodial — independientemente de la ruta de offramp final utilizada.
+> Los flujos de pago de Paguaitu siempre incluyen un paso inicial de liquidación self-custodial — independientemente de la ruta de offramp final utilizada.
 
 Esto no es solo una decisión técnica. Es una decisión práctica.
 

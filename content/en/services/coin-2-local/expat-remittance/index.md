@@ -22,7 +22,7 @@ Many standard banks and intermediaries do not handle these situations well. This
 
 ## How it works
 
-The buyer sends the full transaction amount on-chain to an address under P2Pagos control. P2Pagos executes the fiat-side transaction — property acquisition, asset purchase, or transfer — and documents the full chain of custody.
+The buyer sends the full transaction amount on-chain to an address under Paguaitu control. Paguaitu executes the fiat-side transaction — property acquisition, asset purchase, or transfer — and documents the full chain of custody.
 
 The internal execution structure is not public. What matters to the buyer:
 

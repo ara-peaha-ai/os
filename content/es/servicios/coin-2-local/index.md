@@ -22,7 +22,7 @@ Estos cinco grupos se encuentran en el mismo mercado. Coin2Local gestiona la eje
 
 ## Etapa 1 — Constructoras
 
-Un comprador internacional paga en Bitcoin, USDT o USDC. La constructora recibe fiat a través de los rieles de pago locales. P2Pagos gestiona la selección del riel, la documentación de origen de fondos y el soporte en la liquidación. Sin custodia de fondos del cliente en ningún momento.
+Un comprador internacional paga en Bitcoin, USDT o USDC. La constructora recibe fiat a través de los rieles de pago locales. Paguaitu gestiona la selección del riel, la documentación de origen de fondos y el soporte en la liquidación. Sin custodia de fondos del cliente en ningún momento.
 
 Paraguay está activo con el primer pago realizado. Panamá es el siguiente mercado para 2026.
 

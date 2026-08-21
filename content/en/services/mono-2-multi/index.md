@@ -25,7 +25,7 @@ tags:
 
 ## Mono2Multi
 
-Mono2Multi is the P2Pagos advisory service for operators that need a working multi-rail structure across companies, local infrastructure, financial intermediaries, KYC/KYB files, source-of-funds documentation, and payment settlement routes.
+Mono2Multi is the Paguaitu advisory service for operators that need a working multi-rail structure across companies, local infrastructure, financial intermediaries, KYC/KYB files, source-of-funds documentation, and payment settlement routes.
 
 It helps businesses move from one fragile setup to multiple working payment, settlement, banking, infrastructure, and documentation paths.
 
@@ -146,7 +146,7 @@ Every serious flow should define:
 - local operating structure
 - long-term expansion path
 
-## Relationship with P2Pagos products
+## Relationship with Paguaitu products
 
 Mono2Multi is the advisory layer behind the product flows.
 
