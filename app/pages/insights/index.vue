@@ -21,7 +21,7 @@ const { data: insights } = await useAsyncData(`insights-${locale.value}`, async 
 })
 
 const pageTitle = computed(() => {
-  const map = { nl: 'Inzichten', pt: 'Perspectivas', es: 'Perspectivas' }
+  const map = { pt: 'Perspectivas', es: 'Perspectivas' }
   return map[locale.value] ?? 'Insights'
 })
 
@@ -29,7 +29,6 @@ useSeoMeta({
   title: () => pageTitle.value,
   description: () => {
     const map = {
-      nl: 'Technische analyses en inzichten over betalingsinfrastructuur.',
       pt: 'Análises técnicas e perspectivas sobre infraestrutura de pagamentos.',
       es: 'Análisis técnicos y perspectivas sobre infraestructura de pagos.'
     }
@@ -45,16 +44,14 @@ useSeoMeta({
     <ul v-if="insights?.length" class="space-y-0">
       <li v-for="item in insights" :key="item.path" class="py-8" style="border-bottom: 1px solid var(--ui-border)">
         <NuxtLink :to="`/insights/${item.slug || item.path.split('/').pop()}`" class="group block space-y-2">
-          <p class="text-xs font-medium uppercase tracking-wide" style="color: var(--ui-text-dimmed)">{{ item.title }}</p>
+          <p class="text-xs font-medium uppercase tracking-wide" style="color: var(--ui-text-dimmed)">{{ item.title }}
+          </p>
           <h2 v-if="item.subtitle" class="text-base font-semibold link-accent">{{ item.subtitle }}</h2>
           <h2 v-else class="text-base font-semibold link-accent">{{ item.title }}</h2>
           <div v-if="item.tags?.length" class="flex flex-wrap gap-2 pt-1">
-            <span
-              v-for="tag in item.tags"
-              :key="tag"
-              class="text-xs px-2 py-0.5 rounded"
-              style="background-color: var(--ui-bg-elevated); color: var(--ui-text-muted); border: 1px solid var(--ui-border)"
-            >{{ tag }}</span>
+            <span v-for="tag in item.tags" :key="tag" class="text-xs px-2 py-0.5 rounded"
+              style="background-color: var(--ui-bg-elevated); color: var(--ui-text-muted); border: 1px solid var(--ui-border)">{{
+                tag }}</span>
           </div>
         </NuxtLink>
       </li>

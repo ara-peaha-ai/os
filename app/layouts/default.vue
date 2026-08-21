@@ -132,13 +132,13 @@ watch(() => route.path, () => { menuOpen.value = false })
             :to="localePath('insights')"
             class="text-sm transition link-accent"
           >
-            {{ locale === 'nl' ? 'Inzichten' : locale === 'pt' || locale === 'es' ? 'Perspectivas' : 'Insights' }}
+            {{ locale === 'pt' || locale === 'es' ? 'Perspectivas' : 'Insights' }}
           </NuxtLink>
           <a
             href="/doc"
             class="text-sm transition link-accent"
           >
-            {{ locale === 'es' ? 'Documentación' : locale === 'pt' ? 'Documentação' : locale === 'nl' ? 'Documentatie' : 'Documentation' }}
+            {{ locale === 'es' ? 'Documentación' : locale === 'pt' ? 'Documentação' : 'Documentation' }}
           </a>
         </div>
 
