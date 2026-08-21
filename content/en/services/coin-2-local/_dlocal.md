@@ -51,7 +51,7 @@ This document models the estimated transactional leaks and final payout volumes 
 *   **The Crypto Penalty:** Switching from fiat (USD) to stablecoin (USDT) within dLocal's network triggers an extra **1.87% value drop** (~$933.48 equivalent loss on a 50k transfer).
 *   **The Targets to Beat:** To prove superiority, your competitive solution must bypass the double-layer fee structure (processing + payout) and keep the total combined friction well below **6.88% for USD** and **8.75% for USDT**.
 
-## Comparision with P2Pagos solution
+## Comparision with Paguaitu solution
 
 With our multi-rail solution you can get in the same day:
 
@@ -70,5 +70,5 @@ With our multi-rail solution you can get in the same day:
 | - | - | - | - |
 | DLocal | 50,000 USDT | 278,298,699 PYG | 26,995,301 PYG / 8.84 % |
 | DLocal | 50,000 USD | 284,266,732 PYG | 21,027,268 PYG / 6.89% |
-| P2Pagos | 50,000 USD/USDT | 301,700,000 PYG | 3,594,000 PYG / 1.17% |
-| P2pagos | 50,000 USD/USDT | 49,680 USD | 320 USD / 0.64% |
+| Paguaitu | 50,000 USD/USDT | 301,700,000 PYG | 3,594,000 PYG / 1.17% |
+| Paguaitu | 50,000 USD/USDT | 49,680 USD | 320 USD / 0.64% |

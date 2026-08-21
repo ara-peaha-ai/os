@@ -25,7 +25,7 @@ tags:
 
 ## Mono2Multi
 
-Mono2Multi es el servicio de consultoría de P2Pagos para operadores que necesitan una estructura multi-canal operativa — entre empresas, infraestructura local, intermediarios financieros, archivos KYC/KYB, documentación de origen de fondos y rutas de liquidación.
+Mono2Multi es el servicio de consultoría de Paguaitu para operadores que necesitan una estructura multi-canal operativa — entre empresas, infraestructura local, intermediarios financieros, archivos KYC/KYB, documentación de origen de fondos y rutas de liquidación.
 
 Ayuda a los negocios a pasar de una configuración frágil única a múltiples rutas de pago, liquidación, banca, infraestructura y documentación que funcionen en la práctica.
 
@@ -144,7 +144,7 @@ Todo flujo serio debería definir:
 - estructura operativa local
 - ruta de expansión a largo plazo
 
-## Relación con los productos de P2Pagos
+## Relación con los productos de Paguaitu
 
 Mono2Multi es la capa de consultoría detrás de los flujos de producto.
 

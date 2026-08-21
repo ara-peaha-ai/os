@@ -1,18 +1,18 @@
 ---
-title: "P2Pagos"
-description: "P2Pagos orquesta infraestructura de pago multi-canal para empresas que necesitan ejecución local, liquidación basada en blockchain y continuidad de pagos en Paraguay y América Latina."
+title: "Paguaitu"
+description: "Paguaitu orquesta infraestructura de pago multi-canal para empresas que necesitan ejecución local, liquidación basada en blockchain y continuidad de pagos en Paraguay y América Latina."
 
 hero:
-  h1: "P2Pagos"
+  h1: "Paguaitu"
   subtitle: "Orquestamos pagos multi-canal sin fricción entre países y tecnologías con moneda legal y en blockchain."
   paragraphs:
-    - "P2Pagos conecta la liquidación basada en blockchain con la ejecución local práctica: transferencias bancarias, liquidez en efectivo, métodos de pago locales, niveles de verificación, estructuras empresariales y restricciones de pago específicas por jurisdicción."
+    - "Paguaitu conecta la liquidación basada en blockchain con la ejecución local práctica: transferencias bancarias, liquidez en efectivo, métodos de pago locales, niveles de verificación, estructuras empresariales y restricciones de pago específicas por jurisdicción."
     - "Nuestro enfoque actual es América Latina, partiendo de Paraguay, con casos de uso reales en inmuebles, minería, transacciones de alto valor, pequeñas empresas, operadores en línea y agentes de IA sin cuentas bancarias tradicionales."
     - "Mono2Multi es el principio operativo: el mejor canal es el que funciona para el corredor específico, perfil de riesgo, nivel de documentación, modelo de negocio, monto de transacción y necesidad de liquidación."
     - "No diseñamos flujos de pago críticos en torno a un único punto de fallo. Toda arquitectura de pago seria debe tener al menos dos canales viables para garantizar continuidad."
 
 products:
-  anchor: "p2pagos-eas"
+  anchor: "Paguaitu-eas"
   label: "Productos"
   h2: "Dos flujos de liquidación Mono2Multi para empresas, marketplaces y operadores nativos de IA."
   intro: "Local2Coin y Coin2Local son flujos de producto. Conectan métodos de pago locales, clientes internacionales, Bitcoin, USDT, USDC, dólares digitales, stablecoins, necesidades de pago de operadores nativos de IA y requisitos de liquidación empresarial a través de una única capa operativa."
@@ -23,8 +23,8 @@ products:
       description: "Acepta tarjetas y métodos de pago locales para negocios individuales, agentes de IA y marketplaces mediante flujos sin fricción con licencia MIT."
       linkText: "Explorar Local2Coin"
       externalLinks:
-        - label: "Repositorios P2Pagos con licencia MIT"
-          url: "https://github.com/P2Pagos"
+        - label: "Repositorios Paguaitu con licencia MIT"
+          url: "https://github.com/Paguaitu"
     - slug: "coin-2-local"
       label: "Producto"
       name: "Coin2Local"

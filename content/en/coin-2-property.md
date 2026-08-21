@@ -1,8 +1,8 @@
 ---
 title: "Coin2Property — Buy Any Property with Bitcoin or Stablecoins"
-description: "Coin2Local Stage 3: P2Pagos as custodial acquisition vehicle for any property, any agency, any supported market. For buyers whose source of funds is real but not straightforward to document."
+description: "Coin2Local Stage 3: Paguaitu as custodial acquisition vehicle for any property, any agency, any supported market. For buyers whose source of funds is real but not straightforward to document."
 subtitle: "Any property. Any agency. Any supported market."
-intro: "Stage 3 of Coin2Local. P2Pagos steps in as custodial acquisition vehicle when no party in the transaction chain can accept crypto directly — the seller is a private owner, the agency operates in fiat, and no one controls the payment rails."
+intro: "Stage 3 of Coin2Local. Paguaitu steps in as custodial acquisition vehicle when no party in the transaction chain can accept crypto directly — the seller is a private owner, the agency operates in fiat, and no one controls the payment rails."
 badge: "Stage 3 — 2027+"
 ---
 
@@ -14,7 +14,7 @@ The same dynamic plays out across any cross-border deal in the region. Internati
 
 ## How it works
 
-P2Pagos steps in as the acquisition vehicle. The buyer pays in crypto. P2Pagos converts to fiat, acquires the property through a trusted legal entity in the target market, and transfers it to the buyer. The margin is thin by design — structurally similar to how Wise handles large FX transactions. A deal of USD 400k needs to close in roughly 48 hours to be operationally viable.
+Paguaitu steps in as the acquisition vehicle. The buyer pays in crypto. Paguaitu converts to fiat, acquires the property through a trusted legal entity in the target market, and transfers it to the buyer. The margin is thin by design — structurally similar to how Wise handles large FX transactions. A deal of USD 400k needs to close in roughly 48 hours to be operationally viable.
 
 | Parameter | Value |
 |---|---|

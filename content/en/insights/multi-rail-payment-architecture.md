@@ -18,7 +18,7 @@ tags:
   - Bitcoin settlement
 ---
 
-*Multi-rail payment architecture designs operations across multiple processors, banks, currencies, wallets, exchanges, and settlement routes — not just checkout options. Single-rail setups fail from rejected payments, freezes, source-of-funds requests, compliance reviews, and sudden provider shutdowns. A real architecture prepares primary and backup rails, settlement routes, KYC/KYB files, and reconciliation processes before the emergency. In Latin America this also requires local companies, banking relationships, domain and infrastructure alignment, and cross-border documentation layers. Mono2Multi is the P2Pagos advisory service that implements this structure in practice.*
+*Multi-rail payment architecture designs operations across multiple processors, banks, currencies, wallets, exchanges, and settlement routes — not just checkout options. Single-rail setups fail from rejected payments, freezes, source-of-funds requests, compliance reviews, and sudden provider shutdowns. A real architecture prepares primary and backup rails, settlement routes, KYC/KYB files, and reconciliation processes before the emergency. In Latin America this also requires local companies, banking relationships, domain and infrastructure alignment, and cross-border documentation layers. Mono2Multi is the Paguaitu advisory service that implements this structure in practice.*
 
 ## Why single-rail payment setups fail
 
@@ -156,7 +156,7 @@ A resilient operation knows: primary route, backup route, entity used, receiving
 
 ## How Mono2Multi fits
 
-Mono2Multi is the P2Pagos advisory service for operators that need this structure in practice — company, infrastructure, KYC/KYB, source-of-funds, rail, settlement, and fallback layers to move from fragile single-rail to resilient multi-rail.
+Mono2Multi is the Paguaitu advisory service for operators that need this structure in practice — company, infrastructure, KYC/KYB, source-of-funds, rail, settlement, and fallback layers to move from fragile single-rail to resilient multi-rail.
 
 For operators that need this structure implemented, see [Mono2Multi](/services/mono-2-multi).
 

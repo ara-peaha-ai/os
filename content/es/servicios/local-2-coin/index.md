@@ -46,7 +46,7 @@ Esto bloquea productos en etapa temprana, agentes de IA, pequeños operadores y 
 
 > Un producto debería usar los mismos flujos de pago y lógica de API durante el desarrollo, las pruebas, el lanzamiento y el crecimiento.
 
-P2Pagos utiliza módulos abiertos con rieles que pueden activarse o desactivarse sin reconstruir el producto. Empieza con costos más altos y liquidación más lenta — **mejora las tarifas, la velocidad y el volumen a medida que el negocio demuestra demanda**.
+Paguaitu utiliza módulos abiertos con rieles que pueden activarse o desactivarse sin reconstruir el producto. Empieza con costos más altos y liquidación más lenta — **mejora las tarifas, la velocidad y el volumen a medida que el negocio demuestra demanda**.
 
 ## Multi-canal con reducción de falsos positivos
 

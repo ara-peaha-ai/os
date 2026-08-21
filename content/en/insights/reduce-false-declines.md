@@ -17,7 +17,7 @@ tags:
   - multi-rail payment architecture
 ---
 
-*False declines are not only card rejections — they occur anywhere in the payment flow when customer, country, provider, documentation, and settlement route don't align. Most cross-border failures are structural: wrong provider for the corridor, missing source-of-funds files, inconsistent company documents, or single-rail dependency with no fallback. The fix is architectural: local rails, documentation packages, separated infrastructure by market, and a defined backup route before the failure happens. Mono2Multi is the P2Pagos advisory service for operators facing repeated payment failures, blocked onboarding, or fragile cross-border routes.*
+*False declines are not only card rejections — they occur anywhere in the payment flow when customer, country, provider, documentation, and settlement route don't align. Most cross-border failures are structural: wrong provider for the corridor, missing source-of-funds files, inconsistent company documents, or single-rail dependency with no fallback. The fix is architectural: local rails, documentation packages, separated infrastructure by market, and a defined backup route before the failure happens. Mono2Multi is the Paguaitu advisory service for operators facing repeated payment failures, blocked onboarding, or fragile cross-border routes.*
 
 ## What is a false decline?
 
@@ -174,7 +174,7 @@ The strongest payment operations are not those that never fail — they are thos
 
 ## How Mono2Multi fits
 
-Mono2Multi is the P2Pagos advisory service for operators facing repeated payment failures, blocked onboarding, false positives, account freezes, source-of-funds requests, or fragile cross-border routes. It structures the company, infrastructure, KYC/KYB, source-of-funds, intermediary, rail, settlement, and fallback layers required to reduce payment interruption risk.
+Mono2Multi is the Paguaitu advisory service for operators facing repeated payment failures, blocked onboarding, false positives, account freezes, source-of-funds requests, or fragile cross-border routes. It structures the company, infrastructure, KYC/KYB, source-of-funds, intermediary, rail, settlement, and fallback layers required to reduce payment interruption risk.
 
 For operators that need this structure, see [Mono2Multi](/services/mono-2-multi).
 

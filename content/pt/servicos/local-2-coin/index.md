@@ -46,7 +46,7 @@ Isso bloqueia produtos em fase inicial, agentes de IA, pequenos operadores e *ne
 
 > Um produto deve usar os mesmos fluxos de pagamento e lógica de API durante o desenvolvimento, testes, lançamento e crescimento.
 
-O P2Pagos usa módulos abertos com rails que podem ser ativados ou desativados sem reconstruir o produto. Comece com custos mais altos e liquidação mais lenta — **melhore as tarifas, a velocidade e o volume à medida que o negócio comprova demanda**.
+O Paguaitu usa módulos abertos com rails que podem ser ativados ou desativados sem reconstruir o produto. Comece com custos mais altos e liquidação mais lenta — **melhore as tarifas, a velocidade e o volume à medida que o negócio comprova demanda**.
 
 ## Multi-canal com redução de falsos positivos
 

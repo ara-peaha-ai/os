@@ -10,7 +10,7 @@ badge: "Etapa 2 — 2026"
 
 El modelo de constructoras funciona donde se cumplen dos condiciones simultáneamente: hay constructoras que venden activamente a compradores internacionales y que aceptan liquidación en fiat a través de un operador externo.
 
-Paraguay cumple. Panamá cumple. Uruguay está en evaluación. Más allá de esos mercados, es una verificación caso por caso — no una afirmación genérica. Lo que cambia en cada mercado es la contraparte, el rail de fiat local y la relación bancaria. Lo que se mantiene es la capa de ejecución: el comprador paga en Bitcoin o stablecoins, la constructora recibe fiat local, P2Pagos gestiona la liquidación, documentación y soporte de origen de fondos.
+Paraguay cumple. Panamá cumple. Uruguay está en evaluación. Más allá de esos mercados, es una verificación caso por caso — no una afirmación genérica. Lo que cambia en cada mercado es la contraparte, el rail de fiat local y la relación bancaria. Lo que se mantiene es la capa de ejecución: el comprador paga en Bitcoin o stablecoins, la constructora recibe fiat local, Paguaitu gestiona la liquidación, documentación y soporte de origen de fondos.
 
 ## Panamá — primera activación
 
@@ -22,7 +22,7 @@ Detalle completo del mercado: [Coin2Local — Panamá](/servicios/coin-2-local/b
 
 2026 es el año en que el prototipo funcional de Paraguay se convierte en una implementación estable. Los flujos de liquidación, los procesos de documentación y la orquestación de rails se consolidan en una capa de software estructurada y automatizada — integrada progresivamente en las operaciones del día a día.
 
-La generación de informes de cumplimiento compatibles con KYC se unifica en la misma capa: la documentación generada en la liquidación alimenta directamente un registro de auditoría compartido entre rails y mercados. Los [módulos de servicio](https://github.com/P2Pagos#service-modules) subyacentes proporcionan la base técnica reutilizable que hace la misma ejecución repetible, auditable y escalable en cada mercado. Entre ellos, el módulo de facturación: generación programática de facturas electrónicas activada en la liquidación, de código abierto, basada en la solución Invopop y extendida con la integración paraguaya de SIFEN mediante los módulos de TIPS SA, con soporte para múltiples países de Latam.
+La generación de informes de cumplimiento compatibles con KYC se unifica en la misma capa: la documentación generada en la liquidación alimenta directamente un registro de auditoría compartido entre rails y mercados. Los [módulos de servicio](https://github.com/Paguaitu#service-modules) subyacentes proporcionan la base técnica reutilizable que hace la misma ejecución repetible, auditable y escalable en cada mercado. Entre ellos, el módulo de facturación: generación programática de facturas electrónicas activada en la liquidación, de código abierto, basada en la solución Invopop y extendida con la integración paraguaya de SIFEN mediante los módulos de TIPS SA, con soporte para múltiples países de Latam.
 
 ## Relacionado
 
