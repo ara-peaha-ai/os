@@ -71,8 +71,8 @@ verticals:
       name: "Real estate payments in Latin America"
       description: "Bitcoin and stablecoin payment execution for construction companies and real estate businesses in emerging and growing markets such as Paraguay and Panama, working with international buyers."
       linkText: "Explore real estate payments"
-    - label: "Secret vertical"
-      name: "Argentina — undisclosed sector"
-      description: "We are structuring a multi-rail payment solution for the market leader in a high-volume sector in Argentina. If you know, you know."
-      eta: "ETA: agreement early 2027"
+    - label: "Vertical"
+      name: "AI & Multisig"
+      description: "Multi-signature settlement infrastructure for AI-native operators and autonomous agents that need programmable, multi-party payment authorization."
+      eta: "In studio"
 ---

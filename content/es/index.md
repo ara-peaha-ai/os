@@ -71,8 +71,8 @@ verticals:
       name: "Pagos inmobiliarios en América Latina"
       description: "Ejecución de pagos en Bitcoin y stablecoins para constructoras y agencias inmobiliarias en mercados emergentes y en crecimiento como Paraguay y Panamá, que trabajan con compradores internacionales."
       linkText: "Explorar pagos inmobiliarios"
-    - label: "Vertical secreto"
-      name: "Argentina — sector no divulgado"
-      description: "Estamos estructurando una solución de pago multi-canal para el líder de mercado en un sector de alto volumen en Argentina. Si sabes, sabes."
-      eta: "ETA: acuerdo principios de 2027"
+    - label: "Vertical"
+      name: "IA y Multisig"
+      description: "Infraestructura de liquidación multi-firma para operadores AI-nativos y agentes autónomos que necesitan autorización de pago programable y multi-parte."
+      eta: "En estudio"
 ---
