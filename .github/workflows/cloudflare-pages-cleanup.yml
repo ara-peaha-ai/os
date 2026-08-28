@@ -19,7 +19,7 @@ jobs:
           CLOUDFLARE_ACCOUNT_ID: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
         run: |
           BRANCH="pr-${{ github.event.number }}"
-          PROJECT="p2pagos-website"
+          PROJECT="peaha-web"
           API="https://api.cloudflare.com/client/v4/accounts/${CLOUDFLARE_ACCOUNT_ID}/pages/projects/${PROJECT}/deployments"
 
           PAGE=1

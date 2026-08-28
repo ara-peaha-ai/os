@@ -30,14 +30,14 @@ const resolveSettlement = async (usd, settlementType, providers) => {
   }).q
 }
 
-const buildSettlement = (quote, isNational, usd, p2pagosRate, banknote) => {
+const buildSettlement = (quote, isNational, usd, peahaRate, banknote) => {
   if (!quote) return null
   const raw = isNational ? quote.netNational : quote.netUsd
   if (raw == null) return null
-  // P2Pagos fee = usd * rate on the invoice; for local currency the exchange rate cancels out
+  // Peaha fee = usd * rate on the invoice; for local currency the exchange rate cancels out
   const net = isNational
-    ? raw * (1 - p2pagosRate)
-    : raw - usd * p2pagosRate
+    ? raw * (1 - peahaRate)
+    : raw - usd * peahaRate
   const amount = isNational
     ? Math.floor(net / banknote) * banknote
     : Math.round(net * 100) / 100
@@ -49,7 +49,7 @@ export const buildSettlementQuote = async (usd, config) => {
   if (!countryData) throw createError({ statusCode: 500, message: `Country ${config.country} not found` })
   const { banknote } = countryData
 
-  const p2pagosRate = getP2pagosRate(usd)
+  const peahaRate = getPeahaRate(usd)
 
   const byType = {}
   for (const p of config.providers) {
@@ -75,7 +75,7 @@ export const buildSettlementQuote = async (usd, config) => {
   const settlements = Object.fromEntries(
     typeEntries.map(([type], i) => [
       type,
-      buildSettlement(settlementQuotes[i], type.endsWith('Local'), usd, p2pagosRate, banknote)
+      buildSettlement(settlementQuotes[i], type.endsWith('Local'), usd, peahaRate, banknote)
     ])
   )
 
@@ -96,7 +96,7 @@ export const buildSettlementQuote = async (usd, config) => {
 
   return {
     amount: usd,
-    p2pagosFees: { rate: p2pagosRate },
+    peahaFees: { rate: peahaRate },
     localCompare,
     localRate,
     btcRate: btcRateData.price,

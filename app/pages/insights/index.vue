@@ -7,10 +7,10 @@ const { data: insights } = await useAsyncData(`insights-${locale.value}`, async 
     .order('date', 'DESC')
     .all()
 
-  if (locale.value === 'en') return localeItems
+  if (locale.value === 'int') return localeItems
 
   const enItems = await useContentQuery()
-    .where('path', 'LIKE', `/en/insights/%`)
+    .where('path', 'LIKE', `/int/insights/%`)
     .order('date', 'DESC')
     .all()
 
@@ -21,7 +21,7 @@ const { data: insights } = await useAsyncData(`insights-${locale.value}`, async 
 })
 
 const pageTitle = computed(() => {
-  const map = { pt: 'Perspectivas', es: 'Perspectivas' }
+  const map = { br: 'Perspectivas', lat: 'Perspectivas' }
   return map[locale.value] ?? 'Insights'
 })
 
@@ -29,8 +29,8 @@ useSeoMeta({
   title: () => pageTitle.value,
   description: () => {
     const map = {
-      pt: 'Análises técnicas e perspectivas sobre infraestrutura de pagamentos.',
-      es: 'Análisis técnicos y perspectivas sobre infraestructura de pagos.'
+      br: 'Análises técnicas e perspectivas sobre infraestrutura de pagamentos.',
+      lat: 'Análisis técnicos y perspectivas sobre infraestructura de pagos.'
     }
     return map[locale.value] ?? 'Technical analyses and insights on payment infrastructure.'
   }
