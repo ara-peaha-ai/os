@@ -80,7 +80,7 @@ useSeoMeta({ title: 'Styleguide — Bennet Design System' })
           { cls: 'text-xs uppercase tracking-widest font-semibold', label: 'text-xs upper — Label' },
         ]" :key="item.label" class="flex items-baseline gap-4">
           <span class="w-52 text-xs shrink-0" style="color: var(--ui-text-dimmed)">{{ item.label }}</span>
-          <span :class="item.cls" style="color: var(--ui-text)">Paguaitu payment infra</span>
+          <span :class="item.cls" style="color: var(--ui-text)">Pe'aha payment infra</span>
         </div>
       </div>
     </section>
@@ -121,7 +121,7 @@ useSeoMeta({ title: 'Styleguide — Bennet Design System' })
         <div class="grid sm:grid-cols-2 gap-4">
           <AppCardGuide badge="EXPLAINER" title="How Local2Coin works in Paraguay"
             description="A step-by-step look at how fiat liquidity is sourced and settled across rails." to="#" />
-          <AppCardGuide badge="TUTORIAL" title="Integrating the Paguaitu API"
+          <AppCardGuide badge="TUTORIAL" title="Integrating the PE'AHA API"
             description="Authenticate, create a quote, and confirm a transfer in under 30 lines." to="#" />
         </div>
       </div>

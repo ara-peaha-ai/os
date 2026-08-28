@@ -53,14 +53,14 @@ jobs:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
           wranglerVersion: '4'
-          command: pages deploy dist --project-name=p2pagos-website --branch=pr-${{ github.event.number }}
+          command: pages deploy dist --project-name=peaha-web --branch=pr-${{ github.event.number }}
 
       - name: Comment preview URL on PR
         uses: actions/github-script@v7
         with:
           script: |
             const marker = '<!-- cf-preview -->'
-            const url = `https://pr-${{ github.event.number }}.p2pay-website.pages.dev`
+            const url = `https://pr-${{ github.event.number }}.peaha-web.pages.dev`
             const body = `${marker}\n🔍 **Preview:** ${url}`
             const { data: comments } = await github.rest.issues.listComments({
               owner: context.repo.owner,
