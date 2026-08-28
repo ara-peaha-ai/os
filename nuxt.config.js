@@ -9,16 +9,16 @@ export default defineNuxtConfig({
         {
           rel: 'icon',
           type: 'image/x-icon',
-          href: '/paguaitu.ico'
+          href: '/favicon.ico'
         },
       ],
       script: [
         // ponytail: Umami tracking disabled temporarily, re-enable when stats matter again
         // {
-        //   src: 'https://992261076.p2pagos.com/992261076.js',
+        //   src: 'https://992261076.peaha.ai/992261076.js',
         //   defer: true,
         //   'data-website-id': 'fcbcc77a-a940-4fec-9eb2-7923910ffa07',
-        //   'data-domains': 'en.paguaitu.com, es.paguaitu.com, pt.paguaitu.com'
+        //   'data-domains': 'int.peaha.ai, lat.peaha.ai, br.peaha.ai'
         // }
       ]
     }
@@ -53,114 +53,114 @@ export default defineNuxtConfig({
     inject: true,
     strategy: process.env.NUXT_PUBLIC_IS_PREVIEW === 'true' ? 'prefix_except_default' : 'no_prefix',
     differentDomains: process.env.NUXT_PUBLIC_IS_PREVIEW !== 'true',
-    defaultLocale: 'es',
+    defaultLocale: 'lat',
     detectBrowserLanguage: false,
     customRoutes: 'config',
     pages: {
       'py-2-latam': {
-        en: '/py-2-latam',
-        es: '/py-2-latam',
-        pt: '/py-2-latam',
+        int: '/py-2-latam',
+        lat: '/py-2-latam',
+        br: '/py-2-latam',
       },
       'coin-2-property': {
-        en: '/coin-2-property',
-        es: '/coin-2-property',
-        pt: '/coin-2-property',
+        int: '/coin-2-property',
+        lat: '/coin-2-property',
+        br: '/coin-2-property',
       },
       'services/index': {
-        en: '/services',
-        es: '/servicios',
-        pt: '/servicos',
+        int: '/services',
+        lat: '/servicios',
+        br: '/servicos',
       },
       'services/local-2-coin/index': {
-        en: '/services/local-2-coin',
-        es: '/servicios/local-2-coin',
-        pt: '/servicos/local-2-coin',
+        int: '/services/local-2-coin',
+        lat: '/servicios/local-2-coin',
+        br: '/servicos/local-2-coin',
       },
       'services/local-2-coin/documentation': {
-        en: '/services/local-2-coin/documentation',
-        es: '/servicios/local-2-coin/documentation',
-        pt: '/servicos/local-2-coin/documentation',
+        int: '/services/local-2-coin/documentation',
+        lat: '/servicios/local-2-coin/documentation',
+        br: '/servicos/local-2-coin/documentation',
       },
       'services/coin-2-local/index': {
-        en: '/services/coin-2-local',
-        es: '/servicios/coin-2-local',
-        pt: '/servicos/coin-2-local',
+        int: '/services/coin-2-local',
+        lat: '/servicios/coin-2-local',
+        br: '/servicos/coin-2-local',
       },
       'services/coin-2-local/real-estate/paraguay': {
-        en: '/services/coin-2-local/real-estate/paraguay',
-        es: '/servicios/coin-2-local/bienes-raices/paraguay',
-        pt: '/servicos/coin-2-local/imoveis/paraguai',
+        int: '/services/coin-2-local/real-estate/paraguay',
+        lat: '/servicios/coin-2-local/bienes-raices/paraguay',
+        br: '/servicos/coin-2-local/imoveis/paraguai',
       },
       'services/coin-2-local/real-estate/panama': {
-        en: '/services/coin-2-local/real-estate/panama',
-        es: '/servicios/coin-2-local/bienes-raices/panama',
-        pt: '/servicos/coin-2-local/imoveis/panama',
+        int: '/services/coin-2-local/real-estate/panama',
+        lat: '/servicios/coin-2-local/bienes-raices/panama',
+        br: '/servicos/coin-2-local/imoveis/panama',
       },
       'services/coin-2-local/expat-remittance/index': {
-        en: '/services/coin-2-local/expat-remittance',
-        es: '/servicios/coin-2-local/remesas-expat',
-        pt: '/servicos/coin-2-local/remessas-expat',
+        int: '/services/coin-2-local/expat-remittance',
+        lat: '/servicios/coin-2-local/remesas-expat',
+        br: '/servicos/coin-2-local/remessas-expat',
       },
       'services/mono-2-multi/index': {
-        en: '/services/mono-2-multi',
-        es: '/servicios/mono-2-multi',
-        pt: '/servicos/mono-2-multi',
+        int: '/services/mono-2-multi',
+        lat: '/servicios/mono-2-multi',
+        br: '/servicos/mono-2-multi',
       },
       'services/mono-2-multi/latam-2-int': {
-        en: '/services/mono-2-multi/latam-2-int',
-        es: '/servicios/mono-2-multi/latam-2-int',
-        pt: '/servicos/mono-2-multi/latam-2-int',
+        int: '/services/mono-2-multi/latam-2-int',
+        lat: '/servicios/mono-2-multi/latam-2-int',
+        br: '/servicos/mono-2-multi/latam-2-int',
       },
       'services/mono-2-multi/int-2-latam/index': {
-        en: '/services/mono-2-multi/int-2-latam',
-        es: '/servicios/mono-2-multi/int-2-latam',
-        pt: '/servicos/mono-2-multi/int-2-latam',
+        int: '/services/mono-2-multi/int-2-latam',
+        lat: '/servicios/mono-2-multi/int-2-latam',
+        br: '/servicos/mono-2-multi/int-2-latam',
       },
       'services/mono-2-multi/int-2-latam/paraguay': {
-        en: '/services/mono-2-multi/int-2-latam/paraguay',
-        es: '/servicios/mono-2-multi/int-2-latam/paraguay',
-        pt: '/servicos/mono-2-multi/int-2-latam/paraguai',
+        int: '/services/mono-2-multi/int-2-latam/paraguay',
+        lat: '/servicios/mono-2-multi/int-2-latam/paraguay',
+        br: '/servicos/mono-2-multi/int-2-latam/paraguai',
       },
       'services/mono-2-multi/int-2-latam/suriname': {
-        en: '/services/mono-2-multi/int-2-latam/suriname',
-        es: '/servicios/mono-2-multi/int-2-latam/surinam',
-        pt: '/servicos/mono-2-multi/int-2-latam/suriname',
+        int: '/services/mono-2-multi/int-2-latam/suriname',
+        lat: '/servicios/mono-2-multi/int-2-latam/surinam',
+        br: '/servicos/mono-2-multi/int-2-latam/suriname',
       },
       'insights/index': {
-        en: '/insights',
-        es: '/perspectivas',
-        pt: '/perspectivas',
+        int: '/insights',
+        lat: '/perspectivas',
+        br: '/perspectivas',
       },
     },
     locales: [{
-      code: 'en',
+      code: 'int',
       name: 'English',
       language: 'en-US',
-      file: 'en.json',
+      file: 'int.json',
       dir: 'ltr',
       ...(process.env.NUXT_PUBLIC_IS_PREVIEW !== 'true' && {
-        domain: process.env.NODE_ENV === 'production' ? 'en.paguaitu.com' : 'en.paguaitu.local:3000'
+        domain: process.env.NODE_ENV === 'production' ? 'int.peaha.ai' : 'int.peaha.local:3000'
       })
     },
     {
-      code: 'es',
-      name: 'Español',
+      code: 'lat',
+      name: 'Castellano',
       language: 'es-419',
-      file: 'es.json',
+      file: 'lat.json',
       dir: 'ltr',
       ...(process.env.NUXT_PUBLIC_IS_PREVIEW !== 'true' && {
-        domain: process.env.NODE_ENV === 'production' ? 'es.paguaitu.com' : 'es.paguaitu.local:3000'
+        domain: process.env.NODE_ENV === 'production' ? 'lat.peaha.ai' : 'lat.peaha.local:3000'
       })
     },
     {
-      code: 'pt',
+      code: 'br',
       name: 'Português',
       language: 'pt-BR',
-      file: 'pt.json',
+      file: 'br.json',
       dir: 'ltr',
       ...(process.env.NUXT_PUBLIC_IS_PREVIEW !== 'true' && {
-        domain: process.env.NODE_ENV === 'production' ? 'pt.paguaitu.com' : 'pt.paguaitu.local:3000'
+        domain: process.env.NODE_ENV === 'production' ? 'br.peaha.ai' : 'br.peaha.local:3000'
       })
     }]
   },
@@ -176,7 +176,7 @@ export default defineNuxtConfig({
 
   vite: {
     server: {
-      allowedHosts: ['en.paguaitu.local', 'es.paguaitu.local', 'pt.paguaitu.local']
+      allowedHosts: ['int.peaha.local', 'lat.peaha.local', 'br.peaha.local']
     }
   },
 

@@ -3,7 +3,7 @@ const route = useRoute()
 const { locale } = useI18n()
 
 const { data: page } = await useAsyncData(`insight-${route.path}-${locale.value}`, async () => {
-  if (locale.value !== 'en') {
+  if (locale.value !== 'int') {
     const localePage = await useContentQuery()
       .where('path', '=', `/${locale.value}${route.path}`)
       .first()
