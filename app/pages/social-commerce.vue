@@ -1,7 +1,7 @@
 <script setup>
 const { locale } = useI18n()
-const { data: page } = await useAsyncData(`ai-multisig-${locale.value}`, () =>
-  useContentQuery().where('path', '=', `/${locale.value}/ai-multisig`).first()
+const { data: page } = await useAsyncData(`social-commerce-${locale.value}`, () =>
+  useContentQuery().where('path', '=', `/${locale.value}/social-commerce`).first()
 )
 useSeoMeta({
   title: () => page.value?.title,

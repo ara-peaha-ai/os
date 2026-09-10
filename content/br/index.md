@@ -71,8 +71,9 @@ verticals:
       name: "Pagamentos imobiliários na América Latina"
       description: "Execução de pagamentos em Bitcoin e stablecoins para construtoras e agências imobiliárias em mercados emergentes e em crescimento como Paraguai e Panamá, que trabalham com compradores internacionais."
       linkText: "Explorar pagamentos imobiliários"
-    - label: "Vertical"
-      name: "IA e Multisig"
-      description: "Infraestrutura de liquidação multi-assinatura para operadores AI-nativos e agentes autônomos que precisam de autorização de pagamento programável e multi-parte."
-      eta: "Em estúdio"
+    - slug: "social-commerce"
+      label: "Vertical"
+      name: "Comércio social para vendedores do Instagram e criadores"
+      description: "Marketing e logística impulsionados por IA, mais métodos de pagamento locais, para pequenos negócios do Instagram e criadores paraguaios que escalam na América Latina. Otimização fiscal internacional opcional a um custo fixo de USD 99 por ano."
+      linkText: "Explorar comércio social"
 ---
