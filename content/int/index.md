@@ -71,8 +71,9 @@ verticals:
       name: "Real estate payments in Latin America"
       description: "Bitcoin and stablecoin payment execution for construction companies and real estate businesses in emerging and growing markets such as Paraguay and Panama, working with international buyers."
       linkText: "Explore real estate payments"
-    - label: "Vertical"
-      name: "AI & Multisig"
-      description: "Multi-signature settlement infrastructure for AI-native operators and autonomous agents that need programmable, multi-party payment authorization."
-      eta: "In studio"
+    - slug: "social-commerce"
+      label: "Vertical"
+      name: "Social commerce for Instagram sellers and creators"
+      description: "AI-driven marketing and logistics, plus local payment methods, for small Instagram businesses and Paraguayan creators scaling across Latin America. Optional international tax optimization at a fixed USD 99 per year."
+      linkText: "Explore social commerce"
 ---
