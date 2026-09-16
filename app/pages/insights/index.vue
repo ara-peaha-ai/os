@@ -1,4 +1,6 @@
 <script setup>
+definePageMeta({ noRawMarkdown: true })
+
 const { locale } = useI18n()
 
 const { data: insights } = await useAsyncData(`insights-${locale.value}`, async () => {
@@ -43,7 +45,7 @@ useSeoMeta({
 
     <ul v-if="insights?.length" class="space-y-0">
       <li v-for="item in insights" :key="item.path" class="py-8" style="border-bottom: 1px solid var(--ui-border)">
-        <NuxtLink :to="`/insights/${item.slug || item.path.split('/').pop()}`" class="group block space-y-2">
+        <NuxtLinkLocale :to="`/insights/${item.slug || item.path.split('/').pop()}`" class="group block space-y-2">
           <p class="text-xs font-medium uppercase tracking-wide" style="color: var(--ui-text-dimmed)">{{ item.title }}
           </p>
           <h2 v-if="item.subtitle" class="text-base font-semibold link-accent">{{ item.subtitle }}</h2>
@@ -53,7 +55,7 @@ useSeoMeta({
               style="background-color: var(--ui-bg-elevated); color: var(--ui-text-muted); border: 1px solid var(--ui-border)">{{
                 tag }}</span>
           </div>
-        </NuxtLink>
+        </NuxtLinkLocale>
       </li>
     </ul>
 

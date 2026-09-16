@@ -60,7 +60,7 @@ jobs:
         with:
           script: |
             const marker = '<!-- cf-preview -->'
-            const url = `https://pr-${{ github.event.number }}.peaha-web.pages.dev`
+            const url = `${{ steps.deploy.outputs.pages-deployment-alias-url }}` || `${{ steps.deploy.outputs.deployment-url }}`
             const body = `${marker}\n🔍 **Preview:** ${url}`
             const { data: comments } = await github.rest.issues.listComments({
               owner: context.repo.owner,
