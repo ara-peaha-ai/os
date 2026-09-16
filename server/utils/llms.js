@@ -48,7 +48,7 @@ export const stripLocale = (path, locale) => path.replace(`/${locale}`, '') || '
 // NUXT_PUBLIC_IS_PREVIEW !== 'true' at build time), so this is baked into the
 // build output — safe to read here even on Cloudflare Workers, unlike a
 // runtime process.env lookup, which isn't guaranteed to see build-time vars.
-const isPreviewMode = event =>
+export const isPreviewMode = event =>
   Object.values(getI18n(event).domainLocales).every(v => !v.domain)
 
 // ponytail: in production (no_prefix + differentDomains) the domain carries
