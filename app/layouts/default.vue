@@ -14,6 +14,22 @@ const services = [
 
 const menuOpen = ref(false)
 watch(() => route.path, () => { menuOpen.value = false })
+
+// Advertises the clean-markdown twin of every page (see server/routes/raw/)
+// via the standard rel="alternate" link, so crawlers landing on the HTML
+// directly (not via /llms.txt) can still discover it.
+const rawHref = computed(() => {
+  const prefixed = route.path === `/${locale.value}` || route.path.startsWith(`/${locale.value}/`)
+  const rest = prefixed ? route.path.slice(locale.value.length + 1) : route.path
+  const base = prefixed ? `/${locale.value}/raw` : '/raw'
+  return rest === '' || rest === '/' ? `${base}/index.md` : `${base}${rest}.md`
+})
+
+useHead(() => ({
+  link: route.meta.noRawMarkdown
+    ? []
+    : [{ rel: 'alternate', type: 'text/markdown', href: rawHref.value }]
+}))
 </script>
 
 <template>

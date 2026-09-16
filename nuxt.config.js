@@ -51,7 +51,7 @@ export default defineNuxtConfig({
 
   i18n: {
     inject: true,
-    strategy: process.env.NUXT_PUBLIC_IS_PREVIEW === 'true' ? 'prefix_except_default' : 'no_prefix',
+    strategy: process.env.NUXT_PUBLIC_IS_PREVIEW === 'true' ? 'prefix' : 'no_prefix',
     differentDomains: process.env.NUXT_PUBLIC_IS_PREVIEW !== 'true',
     defaultLocale: 'lat',
     detectBrowserLanguage: false,

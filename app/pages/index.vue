@@ -104,10 +104,10 @@ useSeoMeta({
       </div>
       <div class="grid gap-4 sm:grid-cols-2">
         <component
-          :is="item.slug ? 'a' : 'div'"
+          :is="item.slug ? 'NuxtLinkLocale' : 'div'"
           v-for="item in page.verticals.items"
           :key="item.name"
-          v-bind="item.slug ? { href: '/' + item.slug } : {}"
+          v-bind="item.slug ? { to: '/' + item.slug } : {}"
           class="block rounded-xl border p-5 transition"
           :class="item.slug ? 'cursor-pointer' : 'border-dashed opacity-60'"
           :style="item.slug

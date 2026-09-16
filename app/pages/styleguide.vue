@@ -1,5 +1,5 @@
 <script setup>
-definePageMeta({ name: 'styleguide' })
+definePageMeta({ name: 'styleguide', noRawMarkdown: true })
 
 useSeoMeta({ title: 'Styleguide — Bennet Design System' })
 </script>
