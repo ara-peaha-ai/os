@@ -21,6 +21,9 @@ useSeoMeta({
       <p v-if="page.hero.subtitle" class="text-lg" style="color: var(--ui-text-muted)">
         {{ page.hero.subtitle }}
       </p>
+      <p v-if="page.hero.tagline" class="text-lg font-medium" style="color: var(--ui-text)">
+        {{ page.hero.tagline }}
+      </p>
     </section>
 
     <ServiceAnimation />

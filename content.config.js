@@ -40,6 +40,7 @@ export default defineContentConfig({
         hero: z.object({
           label: z.string(),
           h1: z.string(),
+          tagline: z.string().optional(),
           subtitle: z.string().optional(),
           paragraphs: z.array(z.string())
         }).optional(),
