@@ -15,7 +15,7 @@ tags:
 
 *Both Proton's security and support departments are aware of this issue. Smart Routing routes Latin American and other regional traffic through US (Miami) or UK (London) servers, causing Cloudflare and IP databases to detect the physical server country — not the VPN-selected one. This breaks access for bitcoin, stablecoins, and payment platforms restricting US traffic; undermines creator location controls on privacy-sensitive platforms; and creates compliance ambiguity for businesses and remote teams. Covers a full country-by-population breakdown across 23 affected locations, ~6.7 million impacted Proton users, our own VPN deployment response, and recommendations for VPN providers, content platforms, and payment architects.*
 
-References: [GitHub issue](https://github.com/ProtonVPN/proton-vpn-gtk-app/issues/164) · [Proton Smart Routing docs](https://protonvpn.com/support/how-smart-routing-works) · [PE'AHA /ip module](https://github.com/paga-peaha-ai/orchestrator/tree/main/services/ip)
+References: [GitHub issue](https://github.com/ProtonVPN/proton-vpn-gtk-app/issues/164) · [Proton Smart Routing docs](https://protonvpn.com/support/how-smart-routing-works) · [PE'AHA /ip module](https://github.com/ara-peaha-ai/orchestrator/tree/main/services/ip)
 
 ## Video Evidence
 
@@ -81,7 +81,7 @@ Bitcoin and stablecoins websites use Cloudflare far above the global 22.4% avera
 
 Platforms restricting content by country — critical where creator location has direct safety implications — face Smart Routing from both sides: viewers in blocked countries bypass restrictions appearing as US-based, while creators on LATAM Smart Routing servers are silently misidentified as US.
 
-Single IP signal is insufficient; cross-reference `CF-IPCountry` with the VPN's declared IP — a mismatch should raise the confidence threshold, not lower it. The [PE'AHA `/ip` module](https://github.com/paga-peaha-ai/orchestrator/tree/main/services/ip) returns both signals out of the box.
+Single IP signal is insufficient; cross-reference `CF-IPCountry` with the VPN's declared IP — a mismatch should raise the confidence threshold, not lower it. The [PE'AHA `/ip` module](https://github.com/ara-peaha-ai/orchestrator/tree/main/services/ip) returns both signals out of the box.
 
 ## Business and Security Impact
 
@@ -97,7 +97,7 @@ Smart Routing may be tunnel-secure, but selling Paraguay or Ecuador as the effec
 
 ## How We Use IP Detection in Practice
 
-In [PE'AHA Orchestrator](https://github.com/paga-peaha-ai/orchestrator) and [PE'AHA Cloud](https://github.com/paga-peaha-ai/cloud), the `/ip` module serves one purpose: determining the first fiat currency and payment methods shown at checkout. Both the Cloudflare-detected country (`CF-IPCountry`) and the VPN-declared country are surfaced, letting the user choose based on either — respecting how the visitor wants to appear. Nothing more.
+In [PE'AHA Orchestrator](https://github.com/ara-peaha-ai/orchestrator) and [PE'AHA Cloud](https://github.com/ara-peaha-ai/cloud), the `/ip` module serves one purpose: determining the first fiat currency and payment methods shown at checkout. Both the Cloudflare-detected country (`CF-IPCountry`) and the VPN-declared country are surfaced, letting the user choose based on either — respecting how the visitor wants to appear. Nothing more.
 
 ## Lessons and Recommendations
 

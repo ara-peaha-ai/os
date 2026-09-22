@@ -1,12 +1,12 @@
 ---
-title: "PE'AHA"
-description: "PE'AHA orquesta infraestructura de pago multi-canal para empresas que necesitan ejecución local, liquidación basada en blockchain y continuidad de pagos en Paraguay y América Latina."
+title: "Ara Pe'aha AI"
+description: "Ara Pe'aha AI orquesta infraestructura de pago multi-canal para empresas que necesitan ejecución local, liquidación basada en blockchain y continuidad de pagos en Paraguay y América Latina."
 
 hero:
-  h1: "PE'AHA"
+  h1: "Ara Pe'aha AI"
   subtitle: "Orquestamos pagos multi-canal sin fricción entre países y tecnologías con moneda legal y en blockchain."
   paragraphs:
-    - "PE'AHA conecta la liquidación basada en blockchain con la ejecución local práctica: transferencias bancarias, liquidez en efectivo, métodos de pago locales, niveles de verificación, estructuras empresariales y restricciones de pago específicas por jurisdicción."
+    - "Ara Pe'aha AI conecta la liquidación basada en blockchain con la ejecución local práctica: transferencias bancarias, liquidez en efectivo, métodos de pago locales, niveles de verificación, estructuras empresariales y restricciones de pago específicas por jurisdicción."
     - "Nuestro enfoque actual es América Latina, partiendo de Paraguay, con casos de uso reales en inmuebles, minería, transacciones de alto valor, pequeñas empresas, operadores en línea y agentes de IA sin cuentas bancarias tradicionales."
     - "Mono2Multi es el principio operativo: el mejor canal es el que funciona para el corredor específico, perfil de riesgo, nivel de documentación, modelo de negocio, monto de transacción y necesidad de liquidación."
     - "No diseñamos flujos de pago críticos en torno a un único punto de fallo. Toda arquitectura de pago seria debe tener al menos dos canales viables para garantizar continuidad."
@@ -23,8 +23,8 @@ products:
       description: "Acepta tarjetas y métodos de pago locales para negocios individuales, agentes de IA y marketplaces mediante flujos sin fricción con licencia MIT."
       linkText: "Explorar Local2Coin"
       externalLinks:
-        - label: "Repositorios PE'AHA con licencia MIT"
-          url: "https://github.com/paga-peaha-ai"
+        - label: "Repositorios Ara Pe'aha AI con licencia MIT"
+          url: "https://github.com/ara-peaha-ai"
     - slug: "coin-2-local"
       label: "Producto"
       name: "Coin2Local"
