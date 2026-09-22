@@ -30,21 +30,20 @@ const resolveSettlement = async (usd, settlementType, providers) => {
   }).q
 }
 
-const buildSettlement = (quote, isNational, usd, peahaRate, banknote) => {
+const buildSettlement = (quote, isNational, usd, peahaRate, banknote, localRate) => {
   if (!quote) return null
-  const raw = isNational ? quote.netNational : quote.netUsd
-  if (raw == null) return null
-  // Peaha fee = usd * rate on the invoice; for local currency the exchange rate cancels out
-  const net = isNational
-    ? raw * (1 - peahaRate)
-    : raw - usd * peahaRate
-  const amount = isNational
-    ? Math.floor(net / banknote) * banknote
-    : Math.round(net * 100) / 100
+  // Only the Peaha fee is applied; providers just decide which settlements are available
+  const netUsd = usd * (1 - peahaRate)
+  if (!isNational) return { amount: Math.round(netUsd * 100) / 100, verification: quote.verification }
+  // If the comparator is down, fall back to this provider's own rate — safe since
+  // netNational no longer bakes in a provider fee (see sokin.js), it's rate only.
+  const rate = localRate ?? (usd > 0 ? quote.netNational / usd : null)
+  if (!rate) return null
+  const amount = Math.floor(netUsd * rate / banknote) * banknote
   return { amount, verification: quote.verification }
 }
 
-export const buildSettlementQuote = async (usd, config) => {
+export const buildSettlementQuote = async (usd, config, { logProfit = false } = {}) => {
   const countryData = countries.find(c => c.code === config.country)
   if (!countryData) throw createError({ statusCode: 500, message: `Country ${config.country} not found` })
   const { banknote } = countryData
@@ -72,16 +71,30 @@ export const buildSettlementQuote = async (usd, config) => {
     )
   ])
 
-  const settlements = Object.fromEntries(
-    typeEntries.map(([type], i) => [
-      type,
-      buildSettlement(settlementQuotes[i], type.endsWith('Local'), usd, peahaRate, banknote)
-    ])
-  )
-
   const localRate = comparison?.usd != null && comparison?.national != null
     ? comparison.national / comparison.usd
     : null
+
+  const settlements = Object.fromEntries(
+    typeEntries.map(([type], i) => [
+      type,
+      buildSettlement(settlementQuotes[i], type.endsWith('Local'), usd, peahaRate, banknote, localRate)
+    ])
+  )
+
+  if (logProfit) {
+    const fee = usd * peahaRate
+    const rows = typeEntries.flatMap(([type], i) => {
+      const q = settlementQuotes[i]
+      const isNational = type.endsWith('Local')
+      if (!q || (isNational && !localRate)) return []
+      const cost = isNational ? usd - q.netNational / localRate : usd - q.netUsd
+      const profit = fee - cost
+      return [{ settlement: type, fee: +fee.toFixed(2), providerCost: +cost.toFixed(2), profit: +profit.toFixed(2), profitPct: +(profit / usd * 100).toFixed(2) }]
+    })
+    console.log(`[profit] ${usd} USD — fee collected minus provider costs, before tax`)
+    console.table(rows)
+  }
 
   const localCompare = comparison ? {
     usd: {

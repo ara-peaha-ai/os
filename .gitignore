@@ -22,6 +22,7 @@ logs
 .env.local
 
 notes.md
+TODO.md
 
 # Claude memory
 .claude/
