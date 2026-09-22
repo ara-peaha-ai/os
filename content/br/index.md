@@ -1,12 +1,12 @@
 ---
-title: "Ara Pe'aha AI"
-description: "Ara Pe'aha AI orquestra infraestrutura de pagamento multi-canal para empresas que precisam de execução local, liquidação baseada em blockchain e continuidade de pagamentos no Paraguai e América Latina."
+title: "Ára Pe'aha Aĩ"
+description: "Ára Pe'aha Aĩ orquestra infraestrutura de pagamento multi-canal para empresas que precisam de execução local, liquidação baseada em blockchain e continuidade de pagamentos no Paraguai e América Latina."
 
 hero:
   h1: "Infraestrutura de pagamentos multi-canal para a América Latina"
   subtitle: "Nós orquestramos pagamentos multicanal sem atrito entre países e tecnologias, usando moeda local e em blockchains."
   paragraphs:
-    - "Ara Pe'aha AI conecta liquidação baseada em blockchain com execução local prática: transferências bancárias, liquidez em dinheiro, métodos de pagamento locais, níveis de verificação, estruturas empresariais e restrições de pagamento específicas por jurisdição."
+    - "Ára Pe'aha Aĩ conecta liquidação baseada em blockchain com execução local prática: transferências bancárias, liquidez em dinheiro, métodos de pagamento locais, níveis de verificação, estruturas empresariais e restrições de pagamento específicas por jurisdição."
     - "Nosso foco atual é América Latina, começando pelo Paraguai, com casos de uso reais em imóveis, mineração, transações de alto valor, pequenas empresas, operadores online e agentes de IA sem contas bancárias tradicionais."
     - "Mono2Multi é o princípio operacional: o melhor canal é o que funciona para o corredor específico, perfil de risco, nível de documentação, modelo de negócio, valor da transação e necessidade de liquidação."
     - "Não desenhamos fluxos de pagamento críticos em torno de um único ponto de falha. Toda arquitetura de pagamento séria deve ter pelo menos dois canais viáveis para garantir continuidade."
@@ -23,7 +23,7 @@ products:
       description: "Aceite cartões e métodos de pagamento locais para negócios individuais, agentes de IA e marketplaces através de fluxos sem fricção com licença MIT."
       linkText: "Explorar Local2Coin"
       externalLinks:
-        - label: "Repositórios Ara Pe'aha AI com licença MIT"
+        - label: "Repositórios Ára Pe'aha Aĩ com licença MIT"
           url: "https://github.com/ara-peaha-ai"
     - slug: "coin-2-local"
       label: "Produto"
