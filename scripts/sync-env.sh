@@ -17,12 +17,4 @@ if [ -n "${ENV_VARS[CLOUDFLARE_D1_DATABASE_ID]}" ]; then
   echo "GitHub variable set: CLOUDFLARE_D1_DATABASE_ID (environment: github-cloudflare)"
 fi
 
-if [ -n "${ENV_VARS[NUXT_WISE_API_TOKEN]}" ]; then
-  SECRET_JSON=$(printf '{"NUXT_WISE_API_TOKEN":"%s"}' "${ENV_VARS[NUXT_WISE_API_TOKEN]}")
-  echo "$SECRET_JSON" | npx wrangler@4 pages secret bulk --project-name=peaha-web
-  echo "$SECRET_JSON" | npx wrangler@4 pages secret bulk --project-name=peaha-web --env preview
-  echo "Cloudflare Pages secret set: NUXT_WISE_API_TOKEN"
-fi
-
-
 echo "Done. Run git push to trigger deploy."
