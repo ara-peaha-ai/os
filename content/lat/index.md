@@ -1,12 +1,13 @@
 ---
-title: "Ara Pe'aha AI"
-description: "Ara Pe'aha AI orquesta infraestructura de pago multi-canal para empresas que necesitan ejecución local, liquidación basada en blockchain y continuidad de pagos en Paraguay y América Latina."
+title: "Ára Pe'aha Aĩ: Tu TIEMPO(Ára) · tu LLAVE(Pe'aha) · tu IA(Aĩ)"
+description: "Ára Pe'aha Aĩ — Guaraní para “existir en la era de la llave”, desde la Tierra Colorada donde nacimos y operamos — orquesta soluciones soberanas impulsadas por blockchain e IA sin acceder ni exponer tus fondos o tu conocimiento."
 
 hero:
-  h1: "Ara Pe'aha AI"
-  subtitle: "Orquestamos pagos multi-canal sin fricción entre países y tecnologías con moneda legal y en blockchain."
+  h1: "Ára Pe'aha Aĩ"
+  tagline: "Tu TIEMPO(Ára) · tu LLAVE(Pe'aha) · tu IA(Aĩ)"
+  subtitle: "Guaraní para “existir en la era de la llave”, desde la Tierra Colorada donde nacimos y operamos — orquestamos soluciones soberanas impulsadas por blockchain e IA sin acceder ni exponer tus fondos o tu conocimiento."
   paragraphs:
-    - "Ara Pe'aha AI conecta la liquidación basada en blockchain con la ejecución local práctica: transferencias bancarias, liquidez en efectivo, métodos de pago locales, niveles de verificación, estructuras empresariales y restricciones de pago específicas por jurisdicción."
+    - "Ára Pe'aha Aĩ conecta la liquidación basada en blockchain con la ejecución local práctica: transferencias bancarias, liquidez en efectivo, métodos de pago locales, niveles de verificación, estructuras empresariales y restricciones de pago específicas por jurisdicción."
     - "Nuestro enfoque actual es América Latina, partiendo de Paraguay, con casos de uso reales en inmuebles, minería, transacciones de alto valor, pequeñas empresas, operadores en línea y agentes de IA sin cuentas bancarias tradicionales."
     - "Mono2Multi es el principio operativo: el mejor canal es el que funciona para el corredor específico, perfil de riesgo, nivel de documentación, modelo de negocio, monto de transacción y necesidad de liquidación."
     - "No diseñamos flujos de pago críticos en torno a un único punto de fallo. Toda arquitectura de pago seria debe tener al menos dos canales viables para garantizar continuidad."
@@ -23,7 +24,7 @@ products:
       description: "Acepta tarjetas y métodos de pago locales para negocios individuales, agentes de IA y marketplaces mediante flujos sin fricción con licencia MIT."
       linkText: "Explorar Local2Coin"
       externalLinks:
-        - label: "Repositorios Ara Pe'aha AI con licencia MIT"
+        - label: "Repositorios Ára Pe'aha Aĩ con licencia MIT"
           url: "https://github.com/ara-peaha-ai"
     - slug: "coin-2-local"
       label: "Producto"

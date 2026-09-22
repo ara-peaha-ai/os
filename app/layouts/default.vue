@@ -38,7 +38,7 @@ useHead(() => ({
       <div class="max-w-3xl mx-auto px-6 flex items-center justify-between gap-8">
         <NuxtLinkLocale to="/" class="flex items-center gap-2 shrink-0">
           <img src="/logo.png" alt="ara-peaha-ai" class="h-8 w-auto" />
-          <span class="font-semibold text-lg">Ara Pe'aha AI</span>
+          <span class="font-semibold text-lg">Ára Pe'aha Aĩ</span>
         </NuxtLinkLocale>
 
         <!-- Desktop nav -->
