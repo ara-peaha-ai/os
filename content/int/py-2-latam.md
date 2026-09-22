@@ -22,7 +22,7 @@ Full market detail: [Coin2Local — Panama](/services/coin-2-local/real-estate/p
 
 2026 is the year the working Paraguay prototype becomes a stable implementation. Settlement flows, documentation processes, and rail orchestration are consolidated into a structured, automated software layer — progressively integrated into day-to-day operations.
 
-KYC-compatible compliance reporting is unified in the same layer: documentation generated at settlement feeds directly into a shared audit trail across rails and markets. The underlying [service modules](https://github.com/paga-peaha-ai#service-modules) provide the reusable technical foundation that makes the same execution repeatable, auditable, and scalable across every market. Among them, the invoice module: open-source, programmatic electronic invoice generation triggered on payment settlement, built on the Invopop solution and extended with the Paraguayan SIFEN integration via TIPS SA modules, with multiple Latam countries supported.
+KYC-compatible compliance reporting is unified in the same layer: documentation generated at settlement feeds directly into a shared audit trail across rails and markets. The underlying [service modules](https://github.com/ara-peaha-ai#service-modules) provide the reusable technical foundation that makes the same execution repeatable, auditable, and scalable across every market. Among them, the invoice module: open-source, programmatic electronic invoice generation triggered on payment settlement, built on the Invopop solution and extended with the Paraguayan SIFEN integration via TIPS SA modules, with multiple Latam countries supported.
 
 ## Related
 

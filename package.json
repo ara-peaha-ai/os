@@ -1,5 +1,5 @@
 {
-  "name": "@paga-peaha-ai/web",
+  "name": "@ara-peaha-ai/web",
   "private": true,
   "scripts": {
     "build": "nuxt build",

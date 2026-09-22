@@ -44,13 +44,8 @@ useSeoMeta({
         <p v-for="(para, i) in page.products.paragraphs" :key="i" style="color: var(--ui-text-tinted)">{{ para }}</p>
       </div>
       <div class="grid gap-4 sm:grid-cols-2">
-        <NuxtLink
-          v-for="item in page.products.items"
-          :key="item.slug"
-          :to="localePath(`services-${item.slug}`)"
-          class="block rounded-xl border p-5 transition"
-          style="border-color: var(--ui-border)"
-        >
+        <NuxtLink v-for="item in page.products.items" :key="item.slug" :to="localePath(`services-${item.slug}`)"
+          class="block rounded-xl border p-5 transition" style="border-color: var(--ui-border)">
           <AppSectionLabel :label="item.label" />
           <h3 class="mt-1 text-lg font-semibold" style="color: var(--ui-text)">{{ item.name }}</h3>
           <p class="mt-2 text-sm" style="color: var(--ui-text-muted)">{{ item.description }}</p>
@@ -70,13 +65,8 @@ useSeoMeta({
         <p v-for="(para, i) in page.advisory.paragraphs" :key="i" style="color: var(--ui-text-tinted)">{{ para }}</p>
       </div>
       <div class="grid gap-4 sm:grid-cols-2">
-        <NuxtLink
-          v-for="item in page.advisory.items"
-          :key="item.slug"
-          :to="localePath(`services-${item.slug}`)"
-          class="block rounded-xl border p-5 transition"
-          style="border-color: var(--ui-border)"
-        >
+        <NuxtLink v-for="item in page.advisory.items" :key="item.slug" :to="localePath(`services-${item.slug}`)"
+          class="block rounded-xl border p-5 transition" style="border-color: var(--ui-border)">
           <AppSectionLabel :label="item.label" />
           <h3 class="mt-1 text-lg font-semibold" style="color: var(--ui-text)">{{ item.name }}</h3>
           <p class="mt-2 text-sm" style="color: var(--ui-text-muted)">{{ item.description }}</p>
@@ -87,7 +77,8 @@ useSeoMeta({
 
     <AppSeparator />
 
-    <section class="rounded-xl border p-6 space-y-3" style="border-color: var(--ui-border); background-color: var(--ui-bg-muted)">
+    <section class="rounded-xl border p-6 space-y-3"
+      style="border-color: var(--ui-border); background-color: var(--ui-bg-muted)">
       <AppSectionLabel :label="page.thesis.label" />
       <h2 class="section-title text-2xl">{{ page.thesis.h2 }}</h2>
       <p v-for="(para, i) in page.thesis.paragraphs" :key="i" style="color: var(--ui-text-tinted)">{{ para }}</p>
@@ -103,17 +94,11 @@ useSeoMeta({
         <p v-if="page.verticals.intro" style="color: var(--ui-text-tinted)">{{ page.verticals.intro }}</p>
       </div>
       <div class="grid gap-4 sm:grid-cols-2">
-        <component
-          :is="item.slug ? 'NuxtLinkLocale' : 'div'"
-          v-for="item in page.verticals.items"
-          :key="item.name"
-          v-bind="item.slug ? { to: '/' + item.slug } : {}"
-          class="block rounded-xl border p-5 transition"
-          :class="item.slug ? 'cursor-pointer' : 'border-dashed opacity-60'"
-          :style="item.slug
+        <component :is="item.slug ? 'NuxtLinkLocale' : 'div'" v-for="item in page.verticals.items" :key="item.name"
+          v-bind="item.slug ? { to: '/' + item.slug } : {}" class="block rounded-xl border p-5 transition"
+          :class="item.slug ? 'cursor-pointer' : 'border-dashed opacity-60'" :style="item.slug
             ? 'border-color: var(--ui-border)'
-            : 'border-color: var(--ui-border-accented)'"
-        >
+            : 'border-color: var(--ui-border-accented)'">
           <AppSectionLabel :label="item.label" />
           <h3 class="mt-1 text-lg font-semibold" style="color: var(--ui-text)">{{ item.name }}</h3>
           <p class="mt-2 text-sm" style="color: var(--ui-text-muted)">{{ item.description }}</p>

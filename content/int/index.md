@@ -1,12 +1,12 @@
 ---
-title: "PE'AHA"
-description: "PE'AHA orchestrates multi-rail payment infrastructure for businesses that need local execution, blockchain-based settlement, and payment continuity across Paraguay and Latin America."
+title: "Ara Pe'aha AI"
+description: "Ara Pe'aha AI orchestrates multi-rail payment infrastructure for businesses that need local execution, blockchain-based settlement, and payment continuity across Paraguay and Latin America."
 
 hero:
-  h1: "PE'AHA"
+  h1: "Multi-rail payment infrastructure for Latin America"
   subtitle: "We orchestrate frictionless multi-rail payments across countries and technologies with legal tender and coins."
   paragraphs:
-    - "PE'AHA connects blockchain-based settlement with practical local execution: bank transfers, cash liquidity, local payment methods, verification levels, business structures, and jurisdiction-specific payment constraints."
+    - "Ara Pe'aha AI connects blockchain-based settlement with practical local execution: bank transfers, cash liquidity, local payment methods, verification levels, business structures, and jurisdiction-specific payment constraints."
     - "Our current focus is Latin America, starting from Paraguay, with real use cases in real estate, mining, high-value transactions, small businesses, online operators, and AI agents without traditional business accounts."
     - "Mono2Multi is the operating principle: the best rail is the one that works for the specific corridor, risk profile, documentation level, business model, ticket size, and settlement need."
     - "We do not design critical payment flows around a single point of failure. Every serious payment architecture should have at least two viable channels for continuity."
@@ -23,8 +23,8 @@ products:
       description: "Accept cards and local payment methods for single-user businesses, AI agents, and marketplaces through MIT licensed frictionless flows."
       linkText: "Explore Local2Coin"
       externalLinks:
-        - label: "MIT licensed PE'AHA repositories"
-          url: "https://github.com/paga-peaha-ai"
+        - label: "MIT licensed Ara Pe'aha AI repositories"
+          url: "https://github.com/ara-peaha-ai"
     - slug: "coin-2-local"
       label: "Product"
       name: "Coin2Local"
