@@ -4,8 +4,6 @@ export const pyConfig = {
   providers: [
     ivanConfig,
     jimConfig,
-    krakenWisePyUsdConfig,
-    krakenWisePygConfig,
     decryptoConfig,
     sokinItauNationalConfig,
     sokinItauUsdConfig

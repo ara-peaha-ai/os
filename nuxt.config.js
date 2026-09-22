@@ -1,8 +1,4 @@
 export default defineNuxtConfig({
-  runtimeConfig: {
-    wiseApiToken: process.env.NUXT_WISE_API_TOKEN
-  },
-
   app: {
     head: {
       link: [
