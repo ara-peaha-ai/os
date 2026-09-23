@@ -12,3 +12,18 @@ export const decryptoConfig = {
   maxUsd: null,
   getQuote: getDecryptoQuote
 }
+
+// Cash pickup rail (AR): pays a 1% premium over the USDT received — 1 USDT in,
+// 1.01 USD cash out — instead of deducting a fee like the bank rail above.
+const CASH_PREMIUM = 1.01
+
+export const getDecryptoCashUsdQuote = async (usd) => {
+  const netUsd = usd * CASH_PREMIUM
+  return { netUsd, verification: 'standard' }
+}
+
+export const decryptoCashUsdConfig = {
+  settlementType: 'cashUsd',
+  maxUsd: null,
+  getQuote: getDecryptoCashUsdQuote
+}
