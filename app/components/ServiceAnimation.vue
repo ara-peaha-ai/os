@@ -1,6 +1,4 @@
 <script setup>
-const colorMode = useColorMode()
-const nodeBg = computed(() => colorMode.value === 'dark' ? '#0c1a2e' : '#f1f5f9')
 const { locale } = useI18n()
 const devLabel = computed(() => ({
   en: 'Graphic under development',
@@ -69,37 +67,37 @@ const devLabel = computed(() => ({
     </g>
 
     <!-- Venmo — USA -->
-    <circle cx="185" cy="105" r="24" :fill="nodeBg" stroke="#3396cd" stroke-width="1.5" />
+    <circle cx="185" cy="105" r="24" fill="var(--ui-bg)" stroke="#3396cd" stroke-width="1.5" />
     <image href="/venmo.svg" x="161" y="81" width="48" height="48" clip-path="url(#cp-venmo)" />
     <text x="185" y="142" text-anchor="middle" font-size="8" font-family="monospace" fill="#3396cd" opacity="0.6">Venmo</text>
 
     <!-- PIX — Brazil -->
-    <circle cx="315" cy="188" r="24" :fill="nodeBg" stroke="#3D5A8A" stroke-width="1.5" />
+    <circle cx="315" cy="188" r="24" fill="var(--ui-bg)" stroke="#3D5A8A" stroke-width="1.5" />
     <use href="#sym-pix" x="293" y="166" width="44" height="44" clip-path="url(#cp-pix)" />
     <text x="315" y="225" text-anchor="middle" font-size="8" font-family="monospace" fill="#3D5A8A" opacity="0.6">PIX</text>
 
     <!-- Sberbank — Russia -->
-    <circle cx="478" cy="58" r="24" :fill="nodeBg" stroke="#26A17B" stroke-width="1.5" />
+    <circle cx="478" cy="58" r="24" fill="var(--ui-bg)" stroke="#26A17B" stroke-width="1.5" />
     <image href="/sberbank.svg" x="454" y="34" width="48" height="48" clip-path="url(#cp-sberbank)" />
     <text x="478" y="95" text-anchor="middle" font-size="8" font-family="monospace" fill="#26A17B" opacity="0.6">Sberbank</text>
 
     <!-- M-Pesa — Kenya -->
-    <circle cx="490" cy="162" r="24" :fill="nodeBg" stroke="#aed580" stroke-width="1.5" />
+    <circle cx="490" cy="162" r="24" fill="var(--ui-bg)" stroke="#aed580" stroke-width="1.5" />
     <image href="/mpesa.svg" x="466" y="138" width="48" height="48" clip-path="url(#cp-mpesa)" />
     <text x="490" y="199" text-anchor="middle" font-size="8" font-family="monospace" fill="#aed580" opacity="0.6">M-Pesa</text>
 
     <!-- BTC -->
-    <circle cx="685" cy="90"  r="24" :fill="nodeBg" stroke="#F7931A" stroke-width="1.5" />
+    <circle cx="685" cy="90"  r="24" fill="var(--ui-bg)" stroke="#F7931A" stroke-width="1.5" />
     <image href="/bitcoin.svg" x="661" y="66" width="48" height="48" clip-path="url(#cp-btc)" />
     <text x="685" y="127" text-anchor="middle" font-size="8" font-family="monospace" fill="#F7931A" opacity="0.55">Bitcoin</text>
 
     <!-- USDT -->
-    <circle cx="685" cy="162" r="24" :fill="nodeBg" stroke="#26A17B" stroke-width="1.5" />
+    <circle cx="685" cy="162" r="24" fill="var(--ui-bg)" stroke="#26A17B" stroke-width="1.5" />
     <image href="/usdt.svg" x="663" y="140" width="44" height="44" clip-path="url(#cp-usdt)" />
     <text x="685" y="199" text-anchor="middle" font-size="8" font-family="monospace" fill="#26A17B" opacity="0.55">Tether</text>
 
     <!-- USDC -->
-    <circle cx="685" cy="235" r="24" :fill="nodeBg" stroke="#2775CA" stroke-width="1.5" />
+    <circle cx="685" cy="235" r="24" fill="var(--ui-bg)" stroke="#2775CA" stroke-width="1.5" />
     <text x="685" y="233" text-anchor="middle" font-size="10" font-family="monospace" font-weight="700" fill="#2775CA">USDC</text>
     <text x="685" y="245" text-anchor="middle" font-size="7"  font-family="monospace" fill="#2775CA" opacity="0.65">Polygon</text>
     <text x="685" y="272" text-anchor="middle" font-size="8" font-family="monospace" fill="#2775CA" opacity="0.55">USD Coin</text>

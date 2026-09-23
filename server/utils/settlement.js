@@ -3,7 +3,8 @@ import { countries } from '../../app/data/countries.js'
 const PRESET_AMOUNTS = [5000, 50000]
 
 export const SETTLEMENT_COUNTRIES = {
-  PY: pyConfig
+  PY: pyConfig,
+  AR: arConfig
 }
 
 const resolveSettlement = async (usd, settlementType, providers) => {
@@ -65,7 +66,7 @@ export const buildSettlementQuote = async (usd, config, { logProfit = false } = 
 
   const [btcRateData, comparison, ...settlementQuotes] = await Promise.all([
     getKrakenRate('BTC', 'USD'),
-    config.getComparison(usd).catch(() => null),
+    config.getComparison ? config.getComparison(usd).catch(() => null) : Promise.resolve(null),
     ...typeEntries.map(([type, providers]) =>
       resolveSettlement(usd, type, providers).catch(() => null)
     )
@@ -118,5 +119,5 @@ export const buildSettlementQuote = async (usd, config, { logProfit = false } = 
   }
 }
 
-export const buildPresetQuotes = (config) =>
-  Promise.all(PRESET_AMOUNTS.map(usd => buildSettlementQuote(usd, config)))
+export const buildPresetQuotes = (config, amounts = PRESET_AMOUNTS) =>
+  Promise.all(amounts.map(usd => buildSettlementQuote(usd, config)))

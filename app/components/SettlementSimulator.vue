@@ -3,7 +3,8 @@ import { countries } from '~/data/countries.js'
 
 const props = defineProps({
   country: { type: String, required: true },
-  maxCustomAmount: { type: Number, default: 500_000 }
+  maxCustomAmount: { type: Number, default: 500_000 },
+  presetAmounts: { type: Array, default: null }
 })
 
 const { t } = useI18n()
@@ -17,7 +18,9 @@ const localCurrency = computed(() => ({
 
 const EXAMPLE_LEVELS = ['standard', 'enhanced']
 
-const { data: presetQuotes } = useFetch(() => `/api/settlement/${props.country}`)
+const { data: presetQuotes } = useFetch(() => `/api/settlement/${props.country}`, {
+  query: props.presetAmounts ? { amounts: props.presetAmounts.join(',') } : undefined
+})
 
 const customAmount = ref(props.maxCustomAmount)
 watch(customAmount, (val) => {
