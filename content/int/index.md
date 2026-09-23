@@ -1,10 +1,10 @@
 ---
-title: "Ára Pe'aha Aĩ: Your TIME(Ára) · your KEY(Pe'aha) · your AI(Aĩ)"
+title: "Ára Pe'aha Aĩ: Your TIME (Ára) · your KEY (Pe'aha) · your AI (Aĩ)"
 description: "Ára Pe'aha Aĩ — Guaraní for “to exist in the era of the key,” from the Tierra Colorada where we are born and operate — orchestrates sovereign blockchain and AI-driven solutions without accessing or exposing your funds or knowledge."
 
 hero:
   h1: "Ára Pe'aha Aĩ"
-  tagline: "Your TIME(Ára) · your KEY(Pe'aha) · your AI(Aĩ)"
+  tagline: "Your TIME (Ára) · your KEY (Pe'aha) · your AI (Aĩ)"
   subtitle: "Guaraní for “to exist in the era of the key,” from the Tierra Colorada where we are born and operate — we orchestrate sovereign blockchain and AI-driven solutions without accessing or exposing your funds or knowledge."
   paragraphs:
     - "Ára Pe'aha Aĩ connects blockchain-based settlement with practical local execution: bank transfers, cash liquidity, local payment methods, verification levels, business structures, and jurisdiction-specific payment constraints."

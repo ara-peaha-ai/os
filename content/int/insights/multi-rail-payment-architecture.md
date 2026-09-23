@@ -158,13 +158,13 @@ A resilient operation knows: primary route, backup route, entity used, receiving
 
 Mono2Multi is the PE'AHA advisory service for operators that need this structure in practice — company, infrastructure, KYC/KYB, source-of-funds, rail, settlement, and fallback layers to move from fragile single-rail to resilient multi-rail.
 
-For operators that need this structure implemented, see [Mono2Multi](/services/mono-2-multi).
+For operators that need this structure implemented, see [Mono2Multi](/services/orchestrator-2-multi).
 
 ## Related services
 
-- [Mono2Multi](/services/mono-2-multi)
-- [Latam2Int](/services/mono-2-multi/latam-2-int)
-- [Int2Latam](/services/mono-2-multi/int-2-latam)
+- [Mono2Multi](/services/orchestrator-2-multi)
+- [Latam2Int](/services/orchestrator-2-multi/latam-2-int)
+- [Int2Latam](/services/orchestrator-2-multi/int-2-latam)
 
 ## Related insights
 

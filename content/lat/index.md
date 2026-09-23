@@ -1,10 +1,10 @@
 ---
-title: "Ára Pe'aha Aĩ: Tu TIEMPO(Ára) · tu LLAVE(Pe'aha) · tu IA(Aĩ)"
+title: "Ára Pe'aha Aĩ: Tu TIEMPO (Ára) · tu LLAVE (Pe'aha) · tu IA (Aĩ)"
 description: "Ára Pe'aha Aĩ — Guaraní para “existir en la era de la llave”, desde la Tierra Colorada donde nacimos y operamos — orquesta soluciones soberanas impulsadas por blockchain e IA sin acceder ni exponer tus fondos o tu conocimiento."
 
 hero:
   h1: "Ára Pe'aha Aĩ"
-  tagline: "Tu TIEMPO(Ára) · tu LLAVE(Pe'aha) · tu IA(Aĩ)"
+  tagline: "Tu TIEMPO (Ára) · tu LLAVE (Pe'aha) · tu IA (Aĩ)"
   subtitle: "Guaraní para “existir en la era de la llave”, desde la Tierra Colorada donde nacimos y operamos — orquestamos soluciones soberanas impulsadas por blockchain e IA sin acceder ni exponer tus fondos o tu conocimiento."
   paragraphs:
     - "Ára Pe'aha Aĩ conecta la liquidación basada en blockchain con la ejecución local práctica: transferencias bancarias, liquidez en efectivo, métodos de pago locales, niveles de verificación, estructuras empresariales y restricciones de pago específicas por jurisdicción."

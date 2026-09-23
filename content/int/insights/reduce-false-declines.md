@@ -176,13 +176,13 @@ The strongest payment operations are not those that never fail — they are thos
 
 Mono2Multi is the PE'AHA advisory service for operators facing repeated payment failures, blocked onboarding, false positives, account freezes, source-of-funds requests, or fragile cross-border routes. It structures the company, infrastructure, KYC/KYB, source-of-funds, intermediary, rail, settlement, and fallback layers required to reduce payment interruption risk.
 
-For operators that need this structure, see [Mono2Multi](/services/mono-2-multi).
+For operators that need this structure, see [Mono2Multi](/services/orchestrator-2-multi).
 
 ## Related services
 
-- [Mono2Multi](/services/mono-2-multi)
-- [Latam2Int](/services/mono-2-multi/latam-2-int)
-- [Int2Latam](/services/mono-2-multi/int-2-latam)
+- [Mono2Multi](/services/orchestrator-2-multi)
+- [Latam2Int](/services/orchestrator-2-multi/latam-2-int)
+- [Int2Latam](/services/orchestrator-2-multi/int-2-latam)
 
 ## Related insights
 

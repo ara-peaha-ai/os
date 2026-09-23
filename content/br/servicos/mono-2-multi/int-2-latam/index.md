@@ -23,7 +23,7 @@ tags:
 
 Int2Latam ajuda operadores internacionais a entrarem na América Latina através de **estrutura local, infraestrutura local e rails de pagamento locais**.
 
-É parte do serviço de consultoria [Mono2Multi](/servicos/mono-2-multi). O objetivo é uma presença local real e utilizável — não um único processador estrangeiro ou dependência de um único país.
+É parte do serviço de consultoria [Mono2Multi](/servicos/orchestrator-2-multi). O objetivo é uma presença local real e utilizável — não um único processador estrangeiro ou dependência de um único país.
 
 ::country-int-latam
 ::
@@ -42,5 +42,5 @@ Int2Latam ajuda operadores internacionais a entrarem na América Latina através
 
 ## Relacionado
 
-- [Mono2Multi](/servicos/mono-2-multi)
+- [Mono2Multi](/servicos/orchestrator-2-multi)
 - [Local2Coin](/servicos/local-2-coin)

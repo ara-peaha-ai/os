@@ -16,4 +16,4 @@ O Int2Latam cobre:
 - **Incorporação e gestão de EAS** — Empresa Anônima Simplificada, o veículo local padrão para operadores internacionais
 - **Relacionamento de conformidade SEPRELAD** para a empresa
 
-[← Int2Latam](/servicos/mono-2-multi/int-2-latam)
+[← Int2Latam](/servicos/orchestrator-2-multi/int-2-latam)

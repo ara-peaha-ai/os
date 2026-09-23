@@ -113,7 +113,7 @@ O multi-canal reduz a probabilidade de um pagamento falho. A liquidação self-c
 
 ## Serviços relacionados
 
-- [Mono2Multi](/servicos/mono-2-multi)
+- [Mono2Multi](/servicos/orchestrator-2-multi)
 - [Local2Coin](/servicos/local-2-coin)
 
 ## Insights relacionados

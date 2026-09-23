@@ -16,4 +16,4 @@ Int2Latam covers:
 - **EAS incorporation and management** — Empresa Anónima Simplificada, the standard local vehicle for international operators
 - **SEPRELAD compliance relationship** for the company
 
-[← Int2Latam](/services/mono-2-multi/int-2-latam)
+[← Int2Latam](/services/orchestrator-2-multi/int-2-latam)
