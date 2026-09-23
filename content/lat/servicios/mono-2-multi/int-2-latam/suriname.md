@@ -15,4 +15,4 @@ Int2Latam cubre:
 
 > Gracias a nuestra presencia local directa en Surinam, registramos dominios `.sr` **a una fracción del costo** de los registradores internacionales — sin requisitos locales trasladados al cliente. El proceso de aprobación del registro puede tardar hasta 15 días hábiles.
 
-[← Int2Latam](/servicios/mono-2-multi/int-2-latam)
+[← Int2Latam](/servicios/orchestrator-2-multi/int-2-latam)

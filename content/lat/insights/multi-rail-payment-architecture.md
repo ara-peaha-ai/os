@@ -266,13 +266,13 @@ Mono2Multi es el servicio de consultoría de PE'AHA para operadores que necesita
 
 Ayuda a diseñar las capas de empresa, infraestructura, intermediario financiero, KYC/KYB, origen de fondos, canal, liquidación y respaldo necesarias para pasar de una configuración frágil de canal único a una operación resiliente multi-canal.
 
-Para operadores que necesitan implementar esta estructura, ver [Mono2Multi](/servicios/mono-2-multi).
+Para operadores que necesitan implementar esta estructura, ver [Mono2Multi](/servicios/orchestrator-2-multi).
 
 ## Servicios relacionados
 
-- [Mono2Multi](/servicios/mono-2-multi)
-- [Latam2Int](/servicios/mono-2-multi/latam-2-int)
-- [Int2Latam](/servicios/mono-2-multi/int-2-latam)
+- [Mono2Multi](/servicios/orchestrator-2-multi)
+- [Latam2Int](/servicios/orchestrator-2-multi/latam-2-int)
+- [Int2Latam](/servicios/orchestrator-2-multi/int-2-latam)
 
 ## Insights relacionados
 

@@ -23,7 +23,7 @@ tags:
 
 Int2Latam helps international operators enter Latin America through **local structure, local infrastructure, and local payment rails**.
 
-It is part of the [Mono2Multi](/services/mono-2-multi) advisory service. The goal is a real, usable local presence — not a single foreign processor or single-country dependency.
+It is part of the [Mono2Multi](/services/orchestrator-2-multi) advisory service. The goal is a real, usable local presence — not a single foreign processor or single-country dependency.
 
 ::country-int-lata
 ::
@@ -42,5 +42,5 @@ It is part of the [Mono2Multi](/services/mono-2-multi) advisory service. The goa
 
 ## Related
 
-- [Mono2Multi](/services/mono-2-multi)
+- [Mono2Multi](/services/orchestrator-2-multi)
 - [Local2Coin](/services/local-2-coin)

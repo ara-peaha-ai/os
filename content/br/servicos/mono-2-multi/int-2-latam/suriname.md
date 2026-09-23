@@ -15,4 +15,4 @@ O Int2Latam cobre:
 
 > Graças à nossa presença local direta no Suriname, registramos domínios `.sr` **a uma fração do custo** dos registradores internacionais — sem requisitos locais repassados ao cliente.
 
-[← Int2Latam](/servicos/mono-2-multi/int-2-latam)
+[← Int2Latam](/servicos/orchestrator-2-multi/int-2-latam)

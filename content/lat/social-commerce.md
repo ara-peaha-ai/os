@@ -20,4 +20,4 @@ Para quienes lo necesiten, sumamos una estructura de optimización fiscal intern
 ## Relacionado
 
 - [Local2Coin](/servicios/local-2-coin)
-- [Mono2Multi](/servicios/mono-2-multi)
+- [Mono2Multi](/servicios/orchestrator-2-multi)

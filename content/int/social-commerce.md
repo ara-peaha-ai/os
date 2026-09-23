@@ -20,4 +20,4 @@ For operators who need it, we add an international tax optimization structure at
 ## Related
 
 - [Local2Coin](/services/local-2-coin)
-- [Mono2Multi](/services/mono-2-multi)
+- [Mono2Multi](/services/orchestrator-2-multi)

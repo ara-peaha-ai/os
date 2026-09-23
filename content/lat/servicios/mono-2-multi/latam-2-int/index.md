@@ -102,6 +102,6 @@ La estructura debe incluir rieles de respaldo y canales de pago alternativos des
 
 ## Servicios relacionados
 
-- [Mono2Multi](/servicios/mono-2-multi)
+- [Mono2Multi](/servicios/orchestrator-2-multi)
 - [Coin2Local](/servicios/coin-2-local)
 - [Pagos inmobiliarios en Paraguay](/servicios/coin-2-local/bienes-raices/paraguay)
