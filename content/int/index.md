@@ -23,8 +23,10 @@ paths: divisions
 
 We process payments from 5 to 500,000 dollars, in two ways:
 
-- **Your own instance**, with no fee at all: the software from our open-source, MIT-licensed repositories, mainly on Bitcoin. Built for AI agents that open their own account and for small informal freelancers: small amounts, slower and more expensive payments, but frictionless and harder to censor.
+- **Your own instance**, with no fee at all: the software from our open-source, MIT-licensed repositories, mainly on Bitcoin. Built for AI agents that open their own account and for small informal freelancers: small amounts, slower and more expensive payments, but frictionless and harder to censor. In alpha testing with the informal social commerce of people selling basic clothing on Instagram.
 - **Proprietary rails** up to 500,000 dollars, designed for now specifically for Paraguay and Argentina, soon for the rest of Latin America: in our cloud version, with a decreasing fee per processed payment, or with a monthly management subscription on VPS optimized for AI, security, cost, legislation and compliance, in Paraguay or abroad.
+
+In alpha testing on both: freelancers and content creators working for expat clients. We test them to understand real needs: we build to solve real problems we deal with every day.
 
 We operate today from Paraguay, with Latin America as our expansion market.
 
@@ -36,22 +38,11 @@ paths: geo
 
 We focus only on verticals with real use cases, chosen for their revenue prospects.
 
-Real estate is already in production: an MVP for small and micro businesses (MYPES), for selling both properties and land, fully compliant and mostly on USDT, with a paying client and a roadmap that goes all the way to tokenizing assets in the Tierra Colorada.
+Real estate is already in production: an MVP for small and micro businesses (MYPES), for selling both properties and land, fully compliant and mostly on USDT, with a paying client and a roadmap that goes all the way to tokenizing assets in the Tierra Colorada: properties and land, including those of the Mennonite communities.
 
 ::content-boxes
 ---
 paths:
   - verticals/realestate
----
-::
-
-Three new verticals in development: agricultural exports, content creators, informal social commerce. With freelancers working for expat clients and with people selling basic clothing on Instagram, the most ancap system, on Bitcoin, is already under discussion and in trial.
-
-::content-boxes
----
-paths:
-  - verticals/agricolture
-  - verticals/socialcommerce
-  - verticals/creators
 ---
 ::

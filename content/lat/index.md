@@ -23,8 +23,10 @@ paths: divisions
 
 Procesamos pagos de 5 a 500.000 dólares, de dos formas:
 
-- **Instancia propia**, sin ninguna comisión: el software de nuestros repositorios open source con licencia MIT, sobre todo en Bitcoin. Pensada para agentes de IA que registran su propia cuenta y para pequeños freelancers informales: montos chicos, pagos más lentos y más caros, pero sin fricción y menos censurables.
+- **Instancia propia**, sin ninguna comisión: el software de nuestros repositorios open source con licencia MIT, sobre todo en Bitcoin. Pensada para agentes de IA que registran su propia cuenta y para pequeños freelancers informales: montos chicos, pagos más lentos y más caros, pero sin fricción y menos censurables. En prueba alfa con el social commerce informal de quienes venden ropa básica por Instagram.
 - **Canales propietarios** de hasta 500.000 dólares, diseñados por ahora específicamente para Paraguay y Argentina, pronto para el resto de América Latina: en nuestra versión cloud, con una comisión decreciente por pago procesado, o con una suscripción mensual de gestión en VPS optimizados para IA, seguridad, costos, legislación y compliance, en Paraguay o en el exterior.
+
+En prueba alfa en ambas formas: freelancers y creadores de contenido que trabajan para clientes expats. Los probamos para entender las necesidades reales: construimos para resolver problemas reales con los que estamos en contacto todos los días.
 
 Hoy operamos desde Paraguay, con América Latina como mercado de expansión.
 
@@ -36,22 +38,11 @@ paths: geo
 
 Nos enfocamos solo en verticales con casos de uso reales, elegidos por sus perspectivas de ingresos.
 
-El inmobiliario ya está en producción: un MVP para las MIPYMES, para la venta tanto de inmuebles como de terrenos, con compliance completo y sobre todo en USDT, con un cliente que paga y una hoja de ruta que llega hasta la tokenización de activos en la Tierra Colorada.
+El inmobiliario ya está en producción: un MVP para las MIPYMES, para la venta tanto de inmuebles como de terrenos, con compliance completo y sobre todo en USDT, con un cliente que paga y una hoja de ruta que llega hasta la tokenización de activos en la Tierra Colorada: inmuebles y tierras, también de las comunidades menonitas.
 
 ::content-boxes
 ---
 paths:
   - verticals/realestate
----
-::
-
-Tres nuevos verticales en desarrollo: exportación de productos agrícolas, creadores de contenido, social commerce informal. Con freelancers que trabajan para clientes expats y con quienes venden ropa básica por Instagram ya tenemos en discusión y en prueba el sistema más ancap, sobre Bitcoin.
-
-::content-boxes
----
-paths:
-  - verticals/agricolture
-  - verticals/socialcommerce
-  - verticals/creators
 ---
 ::
