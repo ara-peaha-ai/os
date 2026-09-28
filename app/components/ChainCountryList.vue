@@ -17,6 +17,17 @@ const allCountries = [
   { code: 'UY', active: false }
 ]
 
+const serviceRoutes = {
+  'coin-2-local': {
+    PY: 'services-coin-2-local-real-estate-paraguay',
+    PA: 'services-coin-2-local-real-estate-panama'
+  },
+  'int-2-latam': {
+    PY: 'services-mono-2-multi-int-2-latam-paraguay',
+    SR: 'services-mono-2-multi-int-2-latam-suriname'
+  }
+}
+
 const visible = computed(() => {
   let list = allCountries
   if (props.codes) list = list.filter(c => props.codes.includes(c.code))
