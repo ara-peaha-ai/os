@@ -33,3 +33,6 @@ public/moonshot-video.mp4
 .env
 
 peaha-wisdom-gh-read-write.private-key.pem
+
+# Wrangler local dev cache
+.wrangler/
