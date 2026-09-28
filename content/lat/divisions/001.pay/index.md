@@ -4,7 +4,7 @@ description:
 badge: "Veteranos"
 ---
 
-- Bitcoin y stablecoins, no todo lo demás: las únicas dos tecnologías blockchain que hoy resuelven problemas reales.
+- Bitcoin y stablecoins, ambos opcionales, no todo lo demás: las únicas dos tecnologías blockchain que hoy resuelven problemas reales.
 - Desarrollamos sobre una de las dos a la vez, para llegar antes al mercado con menos recursos.
 
 <!--more-->
