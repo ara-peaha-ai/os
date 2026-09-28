@@ -1,80 +1,48 @@
 ---
-title: "Ára Pe'aha Aĩ: Seu TEMPO (Ára) · sua CHAVE (Pe'aha) · sua IA (Aĩ)"
-description: "Ára Pe'aha Aĩ — Guarani para “existir na era da chave”, da Terra Colorada onde nascemos e operamos — orquestra soluções soberanas impulsionadas por blockchain e IA sem acessar ou expor seus fundos ou seu conhecimento."
-
-hero:
-  h1: "Ára Pe'aha Aĩ"
-  tagline: "Seu TEMPO (Ára) · sua CHAVE (Pe'aha) · sua IA (Aĩ)"
-  subtitle: "Guarani para “existir na era da chave”, da Terra Colorada onde nascemos e operamos — orquestramos soluções soberanas impulsionadas por blockchain e IA sem acessar ou expor seus fundos ou seu conhecimento."
-  paragraphs:
-    - "Ára Pe'aha Aĩ conecta liquidação baseada em blockchain com execução local prática: transferências bancárias, liquidez em dinheiro, métodos de pagamento locais, níveis de verificação, estruturas empresariais e restrições de pagamento específicas por jurisdição."
-    - "Nosso foco atual é América Latina, começando pelo Paraguai, com casos de uso reais em imóveis, mineração, transações de alto valor, pequenas empresas, operadores online e agentes de IA sem contas bancárias tradicionais."
-    - "Mono2Multi é o princípio operacional: o melhor canal é o que funciona para o corredor específico, perfil de risco, nível de documentação, modelo de negócio, valor da transação e necessidade de liquidação."
-    - "Não desenhamos fluxos de pagamento críticos em torno de um único ponto de falha. Toda arquitetura de pagamento séria deve ter pelo menos dois canais viáveis para garantir continuidade."
-
-products:
-  anchor: "peaha-eas"
-  label: "Produtos"
-  h2: "Dois fluxos de liquidação Mono2Multi para empresas, marketplaces e operadores nativos de IA."
-  intro: "Local2Coin e Coin2Local são fluxos de produto. Conectam métodos de pagamento locais, clientes internacionais, Bitcoin, USDT, USDC, dólares digitais, stablecoins, necessidades de pagamento de operadores nativos de IA e requisitos de liquidação empresarial através de uma única camada operacional."
-  items:
-    - slug: "local-2-coin"
-      label: "Produto"
-      name: "Local2Coin"
-      description: "Aceite cartões e métodos de pagamento locais para negócios individuais, agentes de IA e marketplaces através de fluxos sem fricção com licença MIT."
-      linkText: "Explorar Local2Coin"
-      externalLinks:
-        - label: "Repositórios Ára Pe'aha Aĩ com licença MIT"
-          url: "https://github.com/ara-peaha-ai"
-    - slug: "coin-2-local"
-      label: "Produto"
-      name: "Coin2Local"
-      description: "Receba pagamentos em Bitcoin, USDT, USDC, dólares digitais ou stablecoins de clientes internacionais e consolide liquidez local quando o negócio precisar de fiat para suas operações."
-      linkText: "Explorar Coin2Local"
-
-advisory:
-  anchor: "peaha-llc"
-  label: "Consultoria"
-  h2: "Consultoria Mono2Multi para abrir novos canais através de empresas, documentação, tecnologia e infraestrutura local."
-  intro: "Mono2Multi é nosso serviço de consultoria para operadores que precisam passar da dependência de um único canal para operações de pagamento multi-canal resilientes."
-  paragraphs:
-    - "Ajudamos empresas, marketplaces, operadores nativos de IA e equipes transfronteiriças a estruturar os aspectos legais, técnicos, bancários, de KYC, origem de fundos e operacionais necessários para que os canais de pagamento funcionem em diferentes países."
-    - "O foco atual é Latam2Int e Int2Latam: ajudar empresas paraguaias a se expandirem internacionalmente, e ajudar empresas internacionais a entrarem no Paraguai com estruturas locais, infraestrutura e canais de pagamento."
-  items:
-    - slug: "mono-2-multi-latam-2-int"
-      label: "Consultoria"
-      name: "Latam2Int"
-      description: "Para empresas paraguaias que se expandem internacionalmente através de estruturas estrangeiras, contas bancárias, documentação, preparação para KYC, suporte de origem de fundos e habilitação de canais de pagamento."
-      linkText: "Explorar Latam2Int"
-    - slug: "mono-2-multi-int-2-latam"
-      label: "Consultoria"
-      name: "Int2Latam"
-      description: "Para empresas internacionais, operadores nativos de IA e marketplaces que precisam de acesso a meios de pagamento, presença local, tecnologia, estruturas societárias, contas e canais alternativos no Paraguai ou em outros mercados operacionais."
-      linkText: "Explorar Int2Latam"
-
-thesis:
-  label: "Mono2Multi"
-  h2: "Mono2Multi significa que nenhum negócio sério depende de um único canal de pagamento."
-  paragraphs:
-    - "Mono2Multi é o princípio arquitetônico por trás de tudo que construímos: todo fluxo de pagamento crítico deve ter canais de backup, rotas alternativas de liquidação, redundância jurisdicional e uma resposta clara a falsos positivos."
-    - "Isso se aplica a falhas de cartão, transferências bancárias rejeitadas, encerramento de processadores, limitações de corredor, fricções de verificação, congelamento de contas, atrasos na liquidação, solicitações de origem de fundos e operadores nativos de IA que não se encaixam no onboarding empresarial tradicional."
-    - "Quando uma rota falha, o operador não deveria perder o pagamento. Deveria ter outra rota verificada disponível."
-  cta: "Explorar consultoria Mono2Multi"
-  ctaSlug: "mono-2-multi"
-
-verticals:
-  label: "Verticais"
-  h2: "Mercados específicos onde a infraestrutura Mono2Multi já está sendo testada."
-  intro: "Nosso primeiro vertical é o imobiliário na América Latina — Paraguai ativo, Panamá a seguir. Tem uma página dedicada com o caso de uso específico, contexto de mercado e caminho de implementação."
-  items:
-    - slug: "servicos/coin-2-local"
-      label: "Vertical"
-      name: "Pagamentos imobiliários na América Latina"
-      description: "Execução de pagamentos em Bitcoin e stablecoins para construtoras e agências imobiliárias em mercados emergentes e em crescimento como Paraguai e Panamá, que trabalham com compradores internacionais."
-      linkText: "Explorar pagamentos imobiliários"
-    - slug: "social-commerce"
-      label: "Vertical"
-      name: "Comércio social para vendedores do Instagram e criadores"
-      description: "Marketing e logística impulsionados por IA, mais métodos de pagamento locais, para pequenos negócios do Instagram e criadores paraguaios que escalam na América Latina. Otimização fiscal internacional opcional a um custo fixo de USD 99 por ano."
-      linkText: "Explorar comércio social"
+title: "Ára Pe'aha Aĩ"
+description: "Guarani para “existir na era da chave”, da Terra Colorada onde nascemos e operamos — orquestramos soluções soberanas baseadas em blockchain e IA sem acessar nem expor seus fundos ou seu conhecimento."
+tags:
+  - "Seu TEMPO (Ára)"
+  - "sua CHAVE (Pe'aha)"
+  - "sua IA (Aĩ)"
 ---
+
+Ára Pe'aha Aĩ é o ecossistema de aplicações que faz nascer e crescer negócios de forma self-custodial — sem abrir mão, quando necessário, dos serviços centralizados comerciais.
+
+Capital financeiro e capital humano: os dois únicos recursos que, pelo menos no futuro próximo, dão valor a uma empresa, de qualquer tamanho.
+
+Nossas tecnologias: blockchain para os pagamentos, Git e Markdown para o conhecimento.
+
+Soberania nos pagamentos não significa depender de um único canal: cada venda precisa poder vir tanto do cliente cripto-nativo quanto do tradicional, convertendo automaticamente para a moeda necessária. Da mesma forma, a inteligência artificial deve ser usada sem entregar o próprio know-how aos modelos comerciais que o usariam para se treinar.
+
+::content-boxes
+---
+paths: divisions
+---
+::
+
+Processamos pagamentos de 5 a 500.000 dólares, de duas formas:
+
+- **Instância própria**, sem nenhuma taxa: o software dos nossos repositórios open source com licença MIT, principalmente em Bitcoin. Pensada para agentes de IA que registram a própria conta e para pequenos freelancers informais: valores pequenos, pagamentos mais lentos e mais caros, mas sem atrito e menos censuráveis. Em teste alfa com o social commerce informal de quem vende roupas básicas pelo Instagram.
+- **Canais proprietários** de até 500.000 dólares, projetados por enquanto especificamente para Paraguai e Argentina, em breve para o resto da América Latina: na nossa versão cloud, com uma taxa decrescente por pagamento processado, ou com uma assinatura mensal de gestão em VPS otimizados para IA, segurança, custos, legislação e compliance, no Paraguai ou no exterior.
+
+Em teste alfa nas duas formas: freelancers e criadores de conteúdo que trabalham para clientes expats. Testamos para entender as necessidades reais: construímos para resolver problemas reais com os quais lidamos todos os dias.
+
+Hoje operamos a partir do Paraguai, com a América Latina como mercado de expansão.
+
+::content-boxes
+---
+paths: geo
+---
+::
+
+Focamos apenas em verticais com casos de uso reais, escolhidos pelas perspectivas de receita.
+
+O imobiliário já está em produção: um MVP para micro e pequenas empresas (MYPES), para a venda tanto de imóveis quanto de terrenos, em total compliance e principalmente em USDT, com um cliente pagante e um roadmap que vai até a tokenização de ativos na Terra Colorada: imóveis e terras, inclusive das comunidades menonitas.
+
+::content-boxes
+---
+paths:
+  - verticals/realestate
+---
+::
