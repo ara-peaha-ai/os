@@ -90,5 +90,8 @@
     "bankLocal": "Banco {code} — {currency}",
     "verification": "verificação",
     "merchantReceivesIn": "{currency} pelo comerciante"
+  },
+  "content": {
+    "learnMore": "Saiba mais"
   }
 }
