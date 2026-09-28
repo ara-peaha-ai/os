@@ -11,6 +11,7 @@ const props = defineProps({
 })
 
 const { t, locale } = useI18n()
+const { toRoutePath } = useContentRoute()
 const NuxtLink = resolveComponent('NuxtLink')
 const isFolder = typeof props.countries === 'string'
 
@@ -33,7 +34,7 @@ const { data: items } = await useAsyncData(
       code: (item.code || '').toUpperCase(),
       title: item.title,
       active: item.status === true || item.status === 'active',
-      path: item.path
+      path: toRoutePath(item.path)
     }))
   }
 )
