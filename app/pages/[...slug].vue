@@ -3,9 +3,10 @@
 // (e.g. the divisions/geo/verticals boxes on the homepage) — same rendering
 // pattern as index.vue, just driven by the current route instead of the locale root.
 const route = useRoute()
+const { toContentPath } = useContentRoute()
 
 const { data: page } = await useAsyncData(`slug-${route.path}`, () =>
-  useContentQuery().where('path', '=', route.path).first()
+  useContentQuery().where('path', '=', toContentPath(route.path)).first()
 )
 
 if (!page.value) {
