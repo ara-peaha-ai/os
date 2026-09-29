@@ -45,6 +45,18 @@ jobs:
           fi
           echo "D1 database ID: $DB_ID"
           sed -i "s/REPLACE_WITH_D1_DATABASE_ID/$DB_ID/" wrangler.toml
+          # Previews get their own D1: with the production one, Nuxt Content re-imports whichever
+          # content was requested last, so previews showed production content and could overwrite it.
+          # [env.preview] only overrides preview deployments; production keeps the top-level binding.
+          # ponytail: one DB shared by all open PR previews; per-PR databases if parallel PRs clash.
+          PREVIEW_NAME="${DB_NAME}-preview"
+          PREVIEW_ID=$(npx wrangler@4 d1 list --json | jq -r --arg n "$PREVIEW_NAME" '.[] | select(.name == $n) | .uuid')
+          if [ -z "$PREVIEW_ID" ]; then
+            npx wrangler@4 d1 create "$PREVIEW_NAME"
+            PREVIEW_ID=$(npx wrangler@4 d1 list --json | jq -r --arg n "$PREVIEW_NAME" '.[] | select(.name == $n) | .uuid')
+          fi
+          echo "Preview D1 database ID: $PREVIEW_ID"
+          printf '\n[[env.preview.d1_databases]]\nbinding = "DB"\ndatabase_name = "%s"\ndatabase_id = "%s"\n' "$PREVIEW_NAME" "$PREVIEW_ID" >> wrangler.toml
 
       - name: Deploy preview to Cloudflare Pages
         id: deploy
