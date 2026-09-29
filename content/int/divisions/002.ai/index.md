@@ -1,13 +1,13 @@
 ---
 title: "AI"
 description: 
+entityLink: "entities/eas"
+entity: "EAS"
 badge: "R&D"
 disable: true
 ---
 
-- We integrate AI models from Big Tech, not only open-source solutions that require dedicated hardware.
-- Company knowledge stays shared and confidential, never exposed to the general memory of commercial AIs.
+- Git-based memory, self-hosted or on GitHub: Markdown, AI-driven and indexed with graphify, with granular sharing.
+- We orchestrate commercial and self-hosted models through MCP and APIs.
 
 <!--more-->
-
-Each client keeps an isolated memory layer, never merged into the general training of the commercial models we use.

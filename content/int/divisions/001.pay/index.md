@@ -1,6 +1,8 @@
 ---
 title: "PAY"
 description: 
+entityLink: "entities/mit"
+entity: "MIT"
 badge: "Veterans"
 ---
 
