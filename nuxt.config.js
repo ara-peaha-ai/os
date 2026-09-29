@@ -2,9 +2,10 @@ import { existsSync, readFileSync } from 'node:fs'
 import { resolve } from 'node:path'
 
 // ponytail: trivial flat "key: value" file, a couple lines of parsing beats a
-// YAML dependency. Only present when the sovereign checkout is available (dev
-// preview, see content.config.js) — absent in a normal/production build for now.
-const socialsPath = resolve(process.env.NUXT_SOVEREIGN_CONTENT_DIR || '../sovereign', 'content/socials.pub.yaml')
+// YAML dependency. Read from the sovereign checkout when present (local dev),
+// otherwise from the copy in content/ (CI builds have no sovereign checkout yet).
+const sovereignSocials = resolve(process.env.NUXT_SOVEREIGN_CONTENT_DIR || '../sovereign', 'content/socials.pub.yaml')
+const socialsPath = existsSync(sovereignSocials) ? sovereignSocials : resolve('content/socials.pub.yaml')
 const socials = existsSync(socialsPath)
   ? readFileSync(socialsPath, 'utf8')
       .split('\n')

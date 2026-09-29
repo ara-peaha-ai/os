@@ -9,7 +9,8 @@
 We build self-custodial payment and AI tools for businesses in **emerging markets**, starting from **Paraguay**, where we operate and validate every rail, then the rest of Mercosur and LatAm.
 
 - **PAY:** Bitcoin and stablecoins, plus the fiat rails around them, so a sale can come from a crypto-native or a traditional client and settle in the currency that is needed. Payments from 5 to 500,000 dollars: self-hosted from our MIT repos (mainly Bitcoin) with no fee, for AI agents and small informal freelancers; or proprietary rails up to 500,000 dollars (Paraguay and Argentina today, the rest of Latin America next), in our cloud with a decreasing per-payment fee or on a managed VPS by monthly subscription.
-- **AI:** commercial and open-source models used without handing the company's know-how to the model vendors.
+- **AI:** Git-based memory (self-hosted or GitHub), Markdown and AI-driven, indexed with graphify, with granular sharing; commercial and self-hosted models orchestrated through MCP and APIs, without handing the company's know-how to the model vendors.
+- **COMPLIANCE:** internationalization through US LLCs, from 99 dollars up to enterprise compliance management on dedicated servers, with localized domains (for example Suriname and Paraguay).
 
 We only pick verticals with real use cases and revenue in sight:
 
