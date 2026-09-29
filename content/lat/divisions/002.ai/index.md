@@ -1,13 +1,13 @@
 ---
 title: "AI"
 description: 
+entityLink: "entities/eas"
+entity: "EAS"
 badge: "R&D"
 disable: true
 ---
 
-- Integramos modelos de inteligencia artificial de las Big Tech, no solo soluciones open source que requieren hardware dedicado.
-- El conocimiento de la empresa queda compartido y reservado, nunca expuesto a la memoria general de las IA comerciales.
+- Memoria basada en Git, self-hosted o en GitHub: Markdown, impulsada por IA e indexada con graphify, con acceso compartido granular.
+- Orquestamos modelos comerciales y self-hosted mediante MCP y API.
 
 <!--more-->
-
-Cada cliente mantiene una capa de memoria aislada, nunca unida al entrenamiento general de los modelos comerciales que usamos.
