@@ -33,6 +33,10 @@ const pageSchema = z.object({
   subtitle: z.string().optional(),
   intro: z.string().optional(),
   badge: z.string().optional(),
+  // small corner mark on content boxes: legal entity or license behind the item (e.g. MIT, EAS, LLC)
+  entity: z.string().optional(),
+  // where the entity mark links: a content path under the locale (entities/eas) or an absolute URL
+  entityLink: z.string().optional(),
   disable: z.boolean().optional(),
   code: z.string().optional(),
   status: z.union([z.boolean(), z.string()]).optional(),
