@@ -45,21 +45,23 @@ const { data: items } = await useAsyncData(
 )
 
 // Without `width`: 1, 2 or 3 per row by box count, as before.
+// A value that isn't a number in (0, 1] falls back to that default.
 const widthOf = (i) => {
-  const count = items.value?.length ?? 0
-  if (props.width == null) return 1 / Math.min(count, 3)
+  const fallback = 1 / Math.min(items.value?.length || 1, 3)
+  if (props.width == null) return fallback
   const list = [props.width].flat()
-  return list[Math.min(i, list.length - 1)]
+  const w = Number(list[Math.min(i, list.length - 1)])
+  return Number.isFinite(w) && w > 0 && w <= 1 ? w : fallback
 }
 </script>
 
 <template>
   <div class="flex flex-wrap gap-4">
-    <!-- width minus its share of the 1rem gaps, so fractions summing to 1 fill a row -->
+    <!-- width minus its share of the gap-4 gaps, so fractions summing to 1 fill a row -->
     <div
       v-for="(item, i) in items"
       :key="item?.path"
-      class="relative rounded-xl border p-5 w-full sm:w-[calc(var(--w)*100%_-_(1_-_var(--w))*1rem)]"
+      class="relative rounded-xl border p-5 w-full sm:w-[calc(var(--w)*100%_-_(1_-_var(--w))*var(--spacing)*4)]"
       :style="{ borderColor: 'var(--ui-border)', '--w': widthOf(i) }"
     >
       <template v-if="item">

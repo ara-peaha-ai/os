@@ -45,7 +45,7 @@ Focamos apenas em verticais com casos de uso reais, escolhidos pelas perspectiva
 
 O imobiliário já está em produção: um MVP para micro e pequenas empresas (MYPES), para a venda tanto de imóveis quanto de terrenos, em total compliance e principalmente em USDT, com um cliente pagante e um roadmap que vai até a tokenização de ativos na Terra Colorada: imóveis e terras, inclusive das comunidades menonitas.
 
-O segundo vertical é o e-commerce de bens e serviços: uma base comum que cada negócio desenvolve conforme as próprias necessidades, começando por um personal trainer, uma pizzaria em domicílio e uma loja de lingerie.
+O segundo vertical é o e-commerce de bens e serviços: uma base comum que cada negócio desenvolve conforme as próprias necessidades, começando por uma pizzaria em domicílio, uma loja de lingerie e um personal trainer.
 
 ::content-boxes
 ---

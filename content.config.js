@@ -40,6 +40,9 @@ const pageSchema = z.object({
   entityLink: z.string().optional(),
   disable: z.boolean().optional(),
   code: z.string().optional(),
+  // payment rails of a use case or vertical, shown under the title on its page
+  payin: z.array(z.string()).optional(),
+  payout: z.array(z.string()).optional(),
   status: z.union([z.boolean(), z.string()]).optional(),
   // frontmatter-driven homepage sections (content/*/index.md)
   hero: z.object({
