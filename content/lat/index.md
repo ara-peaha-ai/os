@@ -5,6 +5,10 @@ tags:
   - "Tu TIEMPO (Ára)"
   - "tu LLAVE (Pe'aha)"
   - "tu IA (Aĩ)"
+nav:
+  verticals:
+    - verticals/realestate
+    - verticals/ecommerce
 ---
 
 Ára Pe'aha Aĩ es el ecosistema de aplicaciones que hace nacer y crecer emprendimientos de forma self-custodial — sin renunciar, cuando hace falta, a los servicios centralizados comerciales.
@@ -23,7 +27,7 @@ paths: divisions
 
 Procesamos pagos de 5 a 500.000 dólares, de dos formas:
 
-- **Instancia propia**, sin ninguna comisión: el software de nuestros repositorios open source con licencia MIT, sobre todo en Bitcoin. Pensada para agentes de IA que registran su propia cuenta y para pequeños freelancers informales: montos chicos, pagos más lentos y más caros, pero sin fricción y menos censurables. En prueba alfa con el social commerce informal de quienes venden ropa básica por Instagram.
+- **Instancia propia**, sin ninguna comisión: el software de nuestros repositorios open source con licencia MIT, sobre todo en Bitcoin. Pensada para agentes de IA que registran su propia cuenta y para pequeños freelancers informales: montos chicos, pagos más lentos y más caros, pero sin fricción y menos censurables. En prueba alfa con un personal trainer que cobra en Bitcoin a clientes expat; sigue un POS de BTCPay para una pizzería a domicilio que vende por Instagram.
 - **Canales propietarios** de hasta 500.000 dólares, diseñados por ahora específicamente para Paraguay y Argentina, pronto para el resto de América Latina: en nuestra versión cloud, con una comisión decreciente por pago procesado, o con una suscripción mensual de gestión en VPS optimizados para IA, seguridad, costos, legislación y compliance, en Paraguay o en el exterior.
 
 En prueba alfa en ambas formas: freelancers y creadores de contenido que trabajan para clientes expats. Los probamos para entender las necesidades reales: construimos para resolver problemas reales con los que estamos en contacto todos los días.
@@ -40,9 +44,10 @@ Nos enfocamos solo en verticales con casos de uso reales, elegidos por sus persp
 
 El inmobiliario ya está en producción: un MVP para las MIPYMES, para la venta tanto de inmuebles como de terrenos, con compliance completo y sobre todo en USDT, con un cliente que paga y una hoja de ruta que llega hasta la tokenización de activos en la Tierra Colorada: inmuebles y tierras, también de las comunidades menonitas.
 
+El segundo vertical es el e-commerce de bienes y servicios: una base común que cada negocio desarrolla según lo que necesita, empezando por un personal trainer, una pizzería a domicilio y una tienda de ropa interior.
+
 ::content-boxes
 ---
-paths:
-  - verticals/realestate
+nav: verticals
 ---
 ::

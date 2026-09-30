@@ -17,8 +17,7 @@ We only pick verticals with real use cases and revenue in sight:
 | Vertical | Status |
 |---|---|
 | Real estate: payments for builders and agencies selling to international buyers | live in Paraguay, first paying clients; talks in Brazil and Chile |
-| Content creators: getting paid from abroad | in development |
-| Social commerce: Instagram sellers importing and selling across Mercosur | in development |
+| E-commerce of goods and services: a personal trainer, a pizza delivery, an underwear shop | alpha (personal trainer), in development (pizza delivery), defining (underwear shop) |
 | Agriculture (Mennonite communities) | exploring |
 
 **The goal: a tokenized Paraguayan investment fund** on real estate and land, built on the real estate vertical (shared property sales first, then the fund, roadmap Q1 2028).
@@ -65,6 +64,7 @@ The router runs on the [Vercel AI SDK](https://ai-sdk.dev) today. Routing decisi
 | Per-person todo roll-up | early |
 | Public site rendered from the sovereign repo | homepage live (translated by hand into `content/<locale>/` until the CI fetch exists), full site dev preview only |
 | CPU-based automatic translation on push | not built yet |
+| `/sync-data` skill: one command propagates each sovereign change to every locale, homepage list, navbar and README, with no line-by-line manual review | planned |
 | Self-hosted git host (Gitea or GitLab, not chosen) instead of GitHub | planned |
 | One seed for payments, knowledge and AI | design goal |
 
