@@ -21,4 +21,4 @@ badge: "R&D"
 
 **No profile.** After every call the commercial model's session memory is wiped: no vendor sees more than one isolated task, so no one can link the calls and build a profile of the company.
 
-**Router decisions.** Today on the Vercel AI SDK; routing decisions are moving to Laya, an open source self-hosted model that does not write text but answers typed questions with structured, replicable answers.
+**Router decisions.** Today on the Vercel AI SDK, moving to Laya, an open-source, self-hosted replacement for TypeSafe AI's Jev: it answers typed questions with structured, repeatable answers instead of writing text.
