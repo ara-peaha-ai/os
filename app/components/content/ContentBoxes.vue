@@ -35,17 +35,18 @@ const { data: items } = await useAsyncData(
   }
 )
 
-// Tailwind needs the full class name literally in source to generate it, so a
-// dynamic `sm:grid-cols-${n}` string wouldn't work — map to a fixed literal instead.
-const gridClass = computed(() => ({ 1: 'sm:grid-cols-1', 2: 'sm:grid-cols-2' })[items.value?.length] || 'sm:grid-cols-3')
+// Two columns; with an odd count the last box spans the full row (e.g. PAY | AI, then Compliance).
+const gridClass = computed(() => items.value?.length > 1 ? 'sm:grid-cols-2' : 'sm:grid-cols-1')
+const spanClass = i => items.value.length > 1 && items.value.length % 2 === 1 && i === items.value.length - 1 ? 'sm:col-span-2' : ''
 </script>
 
 <template>
   <div class="grid gap-4" :class="gridClass">
     <div
-      v-for="item in items"
+      v-for="(item, i) in items"
       :key="item?.path"
       class="relative rounded-xl border p-5"
+      :class="spanClass(i)"
       style="border-color: var(--ui-border)"
     >
       <template v-if="item">
