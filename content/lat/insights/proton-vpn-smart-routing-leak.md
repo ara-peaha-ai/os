@@ -24,7 +24,7 @@ Probado servidor por servidor usando el propio `ip.me` de Proton, la GUI de Prot
 
 <iframe width="100%" style="aspect-ratio:16/9;display:block;" src="https://www.youtube.com/embed/oTLF6sNIcSg?enablejsapi=1" title="Prueba de IP con Proton VPN Smart Routing" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
-<a href="https://youtu.be/oTLF6sNIcSg" target="_blank" rel="noopener" data-umami-event="proton2miami-youtube-direct">Enlace directo →</a>
+[Enlace directo →](https://youtu.be/oTLF6sNIcSg){target="_blank" data-umami-event="proton2miami-youtube-direct"}
 
 ## El problema central
 
