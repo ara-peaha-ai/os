@@ -3,7 +3,7 @@ title: "E-commerce de bienes y servicios"
 description: 
 ---
 
-- Pagos en Bitcoin y stablecoins, también desde el exterior, para quien vende productos o servicios: del POS a la tienda online.
+- E-commerce de bienes y servicios con pagos fiat regionales, en primeras pruebas; Bitcoin (on-chain y Lightning) y stablecoins opcionales.
 - Una base común que cada negocio desarrolla según lo que necesita.
 
 <!--more-->
