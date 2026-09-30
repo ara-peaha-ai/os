@@ -23,7 +23,7 @@ Tested server by server using Proton's own `ip.me`, the Proton VPN Linux GUI, an
 
 <iframe width="100%" style="aspect-ratio:16/9;display:block;" src="https://www.youtube.com/embed/oTLF6sNIcSg?enablejsapi=1" title="Proton VPN Smart Routing IP Test" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
-<a href="https://youtu.be/oTLF6sNIcSg" target="_blank" rel="noopener" data-umami-event="proton2miami-youtube-direct">Direct link →</a>
+[Direct link →](https://youtu.be/oTLF6sNIcSg){target="_blank" data-umami-event="proton2miami-youtube-direct"}
 
 ## Core Problem
 
