@@ -25,13 +25,16 @@ const socialLinks = computed(() => socials.map(([key, value]) => ({
   ...socialMeta[key]
 })).filter(s => s.icon))
 
-const services = [
-  { key: 'fiat2chain', routeName: 'services-local-2-coin', name: 'Local2Coin' },
-  { key: 'chain2fiat', routeName: 'services-coin-2-local', name: 'Coin2Local' },
-  { key: 'py2int', routeName: 'services-mono-2-multi-latam-2-int', name: 'Latam2Int' },
-  { key: 'int2py', routeName: 'services-mono-2-multi-int-2-latam', name: 'Int2Latam' },
-  { key: 'mono2multi', routeName: 'services-mono-2-multi', name: 'Mono2Multi' }
-]
+// Navbar = every group of the homepage frontmatter `nav`, flattened (see useNav):
+// the same list the homepage boxes read.
+const { toRoutePath } = useContentRoute()
+const navGroups = await useNav()
+const { data: navItems } = await useAsyncData(`nav-items-${locale.value}`, async () => {
+  const lists = await Promise.all(Object.values(navGroups.value).map(paths => typeof paths === 'string'
+    ? queryCollection('content').where('path', 'LIKE', `/${locale.value}/${paths}/%`).select('title', 'path').order('stem', 'ASC').all()
+    : Promise.all(paths.map(p => queryCollection('content').path(`/${locale.value}/${p}`).select('title', 'path').first()))))
+  return lists.flat().filter(Boolean)
+})
 
 const menuOpen = ref(false)
 watch(() => route.path, () => { menuOpen.value = false })
@@ -64,11 +67,10 @@ useHead(() => ({
 
         <!-- Desktop nav -->
         <nav class="hidden sm:flex items-center gap-6">
-          <NuxtLink v-for="s in services" :key="s.key" :to="localePath(s.routeName)"
+          <NuxtLink v-for="item in navItems" :key="item.path" :to="toRoutePath(item.path)"
             class="flex items-center gap-1.5 text-sm font-medium transition whitespace-nowrap"
             style="color: var(--ui-text-muted)" active-style="color: var(--ui-text)" active-class="!text-[--ui-text]">
-            {{ s.name }}
-            <UBadge v-if="s.badge" color="primary" variant="subtle" size="xs">{{ s.badge }}</UBadge>
+            {{ item.title }}
           </NuxtLink>
         </nav>
 
@@ -89,12 +91,11 @@ useHead(() => ({
       <!-- Mobile menu -->
       <div v-if="menuOpen" class="sm:hidden mt-4" style="border-top: 1px solid var(--ui-border)">
         <nav class="max-w-3xl mx-auto px-6 py-3 flex flex-col gap-1">
-          <NuxtLink v-for="s in services" :key="s.key" :to="localePath(s.routeName)"
+          <NuxtLink v-for="item in navItems" :key="item.path" :to="toRoutePath(item.path)"
             class="flex items-center justify-between py-3 text-sm font-medium transition last:border-0"
             style="color: var(--ui-text-muted); border-bottom: 1px solid var(--ui-border-muted)"
             active-class="!text-[--ui-text]">
-            {{ s.name }}
-            <UBadge v-if="s.badge" color="primary" variant="subtle" size="xs">{{ s.badge }}</UBadge>
+            {{ item.title }}
           </NuxtLink>
         </nav>
       </div>

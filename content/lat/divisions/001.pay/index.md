@@ -1,9 +1,9 @@
 ---
 title: "PAY"
 description: 
-entityLink: "entities/mit"
-entity: "MIT"
-badge: "Veteranos"
+entityLink: "entities/eas"
+entity: "Verein/EAS"
+badge: ["Veteranos", "MIT/Prop"]
 ---
 
 - Bitcoin y stablecoins, no todo lo demás: las únicas dos tecnologías blockchain que hoy resuelven problemas reales.

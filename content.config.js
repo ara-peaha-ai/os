@@ -32,7 +32,8 @@ const pageSchema = z.object({
   tags: z.array(z.string()).optional(),
   subtitle: z.string().optional(),
   intro: z.string().optional(),
-  badge: z.string().optional(),
+  // one badge, or several (e.g. divisions: ["Veterans", "MIT/Prop"])
+  badge: z.union([z.string(), z.array(z.string())]).optional(),
   // small corner mark on content boxes: legal entity or license behind the item (e.g. MIT, EAS, LLC)
   entity: z.string().optional(),
   // where the entity mark links: a content path under the locale (entities/eas) or an absolute URL
@@ -57,7 +58,9 @@ const pageSchema = z.object({
     cta: z.string(),
     ctaSlug: z.string()
   }).optional(),
-  verticals: homeSection.optional()
+  verticals: homeSection.optional(),
+  // homepage only: navbar groups, each a folder (string) or a custom list of paths (array) — see useNav
+  nav: z.record(z.string(), z.union([z.string(), z.array(z.string())])).optional()
 })
 
 // ponytail: opt-in only (NUXT_ENABLE_SOVEREIGN_PREVIEW=true) so a plain `npm run dev`

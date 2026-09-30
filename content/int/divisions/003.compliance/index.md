@@ -3,6 +3,7 @@ title: "Compliance"
 description: 
 entityLink: "entities/llc"
 entity: "LLC"
+badge: ["Track record", "B2B only"]
 disable: true
 ---
 
