@@ -17,6 +17,9 @@ const socials = existsSync(socialsPath)
       })
   : []
 
+// Production host per locale: i18n domains below, and the hosts withUtm() treats as this site
+const localeDomains = { int: 'int.peaha.ai', lat: 'lat.peaha.ai', br: 'br.peaha.ai' }
+
 // utm_source on outbound links (app/utils/withUtm.js): the package scope, e.g. "@ara-peaha-ai/web" -> "ara-peaha-ai"
 const utmSource = JSON.parse(readFileSync(resolve('package.json'), 'utf8')).name.replace(/^@/, '').split('/')[0]
 
@@ -34,7 +37,7 @@ export default defineNuxtConfig({
     }
   },
   runtimeConfig: {
-    public: { socials, utmSource }
+    public: { socials, utmSource, ownHosts: Object.values(localeDomains) }
   },
   app: {
     head: {
@@ -111,7 +114,7 @@ export default defineNuxtConfig({
           file: 'int.json',
           dir: 'ltr',
           ...(process.env.NUXT_PUBLIC_IS_PREVIEW !== 'true' && {
-            domain: process.env.NODE_ENV === 'production' ? 'int.peaha.ai' : 'int.peaha.local:3000'
+            domain: process.env.NODE_ENV === 'production' ? localeDomains.int : 'int.peaha.local:3000'
           })
         },
         {
@@ -121,7 +124,7 @@ export default defineNuxtConfig({
           file: 'lat.json',
           dir: 'ltr',
           ...(process.env.NUXT_PUBLIC_IS_PREVIEW !== 'true' && {
-            domain: process.env.NODE_ENV === 'production' ? 'lat.peaha.ai' : 'lat.peaha.local:3000'
+            domain: process.env.NODE_ENV === 'production' ? localeDomains.lat : 'lat.peaha.local:3000'
           })
         },
         {
@@ -131,7 +134,7 @@ export default defineNuxtConfig({
           file: 'br.json',
           dir: 'ltr',
           ...(process.env.NUXT_PUBLIC_IS_PREVIEW !== 'true' && {
-            domain: process.env.NODE_ENV === 'production' ? 'br.peaha.ai' : 'br.peaha.local:3000'
+            domain: process.env.NODE_ENV === 'production' ? localeDomains.br : 'br.peaha.local:3000'
           })
         }]
       }
