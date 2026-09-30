@@ -22,6 +22,7 @@ Soberania nos pagamentos não significa depender de um único canal: cada venda 
 ::content-boxes
 ---
 paths: divisions
+width: [0.5, 0.5, 1]
 ---
 ::
 

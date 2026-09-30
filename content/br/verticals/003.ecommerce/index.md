@@ -13,5 +13,6 @@ Cada caso de uso tem sua página. Os blocos da página são componentes: o criat
 ::content-boxes
 ---
 paths: verticals/ecommerce/cases
+width: 1
 ---
 ::
