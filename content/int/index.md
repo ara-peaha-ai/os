@@ -22,6 +22,7 @@ Payment sovereignty does not mean depending on a single rail: every sale must be
 ::content-boxes
 ---
 paths: divisions
+width: [0.5, 0.5, 1]
 ---
 ::
 

@@ -5,7 +5,11 @@
 // the boxes and the navbar read the same list.
 const props = defineProps({
   paths: { type: [String, Array], default: null },
-  nav: { type: String, default: null }
+  nav: { type: String, default: null },
+  // Box widths as fractions of the row, wrapping like Bulma's is-multiline:
+  // one number for every box (`width: 1`) or one per box in order
+  // (`width: [0.5, 0.5, 1]`, the last value repeats). Full width on mobile.
+  width: { type: [Number, Array], default: null }
 })
 const navGroups = props.nav ? await useNav() : null
 const paths = props.nav ? navGroups.value[props.nav] ?? [] : props.paths
@@ -40,18 +44,23 @@ const { data: items } = await useAsyncData(
   }
 )
 
-// Tailwind needs the full class name literally in source to generate it, so a
-// dynamic `sm:grid-cols-${n}` string wouldn't work — map to a fixed literal instead.
-const gridClass = computed(() => ({ 1: 'sm:grid-cols-1', 2: 'sm:grid-cols-2' })[items.value?.length] || 'sm:grid-cols-3')
+// Without `width`: 1, 2 or 3 per row by box count, as before.
+const widthOf = (i) => {
+  const count = items.value?.length ?? 0
+  if (props.width == null) return 1 / Math.min(count, 3)
+  const list = [props.width].flat()
+  return list[Math.min(i, list.length - 1)]
+}
 </script>
 
 <template>
-  <div class="grid gap-4" :class="gridClass">
+  <div class="flex flex-wrap gap-4">
+    <!-- width minus its share of the 1rem gaps, so fractions summing to 1 fill a row -->
     <div
-      v-for="item in items"
+      v-for="(item, i) in items"
       :key="item?.path"
-      class="relative rounded-xl border p-5"
-      style="border-color: var(--ui-border)"
+      class="relative rounded-xl border p-5 w-full sm:w-[calc(var(--w)*100%_-_(1_-_var(--w))*1rem)]"
+      :style="{ borderColor: 'var(--ui-border)', '--w': widthOf(i) }"
     >
       <template v-if="item">
         <component

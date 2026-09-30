@@ -13,5 +13,6 @@ Cada caso de uso tiene su página. Los bloques de la página son componentes: el
 ::content-boxes
 ---
 paths: verticals/ecommerce/cases
+width: 1
 ---
 ::
