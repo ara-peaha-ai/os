@@ -21,4 +21,4 @@ badge: "R&D"
 
 **Sin perfil.** Después de cada llamada se borra la memoria de sesión del modelo comercial: ningún proveedor ve más que una tarea aislada, así nadie puede conectar las llamadas y armar un perfil de la empresa.
 
-**Decisiones del router.** Hoy sobre Vercel AI SDK; las decisiones de enrutamiento pasan a Jev de TypeSafe AI, un modelo que no escribe texto sino que responde preguntas tipadas con respuestas estructuradas y replicables.
+**Decisiones del router.** Hoy en Vercel AI SDK, pasan a Laya, alternativa open source self-hosted a Jev de TypeSafe AI: responde preguntas tipadas con respuestas estructuradas y repetibles, en lugar de escribir texto.
