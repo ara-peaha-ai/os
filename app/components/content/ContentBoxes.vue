@@ -1,9 +1,14 @@
 <script setup>
 // `paths` is either a folder name (string, e.g. "divisions" — every file under
 // content/original/web/divisions/*) or a list of individual file paths (array).
+// `nav` names a group of the homepage frontmatter `nav` instead (see useNav), so
+// the boxes and the navbar read the same list.
 const props = defineProps({
-  paths: { type: [String, Array], required: true }
+  paths: { type: [String, Array], default: null },
+  nav: { type: String, default: null }
 })
+const navGroups = props.nav ? await useNav() : null
+const paths = props.nav ? navGroups.value[props.nav] ?? [] : props.paths
 
 const { t, locale } = useI18n()
 const { toRoutePath } = useContentRoute()
@@ -13,16 +18,16 @@ const NuxtLink = resolveComponent('NuxtLink')
 const entityTo = link => link.startsWith('http') ? link : toRoutePath(`/${locale.value}/${link}`)
 
 const { data: items } = await useAsyncData(
-  `content-boxes-${Array.isArray(props.paths) ? props.paths.join(',') : props.paths}-${locale.value}`,
+  `content-boxes-${Array.isArray(paths) ? paths.join(',') : paths}-${locale.value}`,
   async () => {
-    const raw = typeof props.paths === 'string'
+    const raw = typeof paths === 'string'
       ? await queryCollection('content')
-          .where('path', 'LIKE', `/${locale.value}/${props.paths}/%`)
+          .where('path', 'LIKE', `/${locale.value}/${paths}/%`)
           .select('title', 'path', 'rawbody', 'disable', 'stem', 'badge', 'entity', 'entityLink')
           .order('stem', 'ASC')
           .all()
       : await Promise.all(
-          props.paths.map(p => queryCollection('content').path(`/${locale.value}/${p}`).select('title', 'path', 'rawbody', 'disable', 'badge', 'entity', 'entityLink').first())
+          paths.map(p => queryCollection('content').path(`/${locale.value}/${p}`).select('title', 'path', 'rawbody', 'disable', 'badge', 'entity', 'entityLink').first())
         )
     // ContentRenderer (not bare MDC/MDCRenderer) is the only one with access to
     // the app's Prose* component overrides, so links in excerpts resolve correctly.
@@ -60,7 +65,7 @@ const gridClass = computed(() => ({ 1: 'sm:grid-cols-1', 2: 'sm:grid-cols-2' })[
         </component>
         <div class="flex items-baseline gap-2 flex-wrap">
           <h3 class="text-lg font-semibold" style="color: var(--ui-text)">{{ item.title }}</h3>
-          <UBadge v-if="item.badge" color="primary" variant="subtle" size="sm" class="shrink-0">{{ item.badge }}</UBadge>
+          <UBadge v-for="b in [item.badge].flat().filter(Boolean)" :key="b" color="primary" variant="subtle" size="sm" class="shrink-0">{{ b }}</UBadge>
         </div>
         <div class="mt-2 text-sm [&>*]:m-0" style="color: var(--ui-text-muted)">
           <ContentRenderer v-if="item.excerptBody" :value="{ body: item.excerptBody }" prose />
