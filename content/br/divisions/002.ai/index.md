@@ -2,8 +2,8 @@
 title: "AI"
 description: 
 entityLink: "entities/eas"
-entity: "EAS"
-badge: "R&D"
+entity: "Verein/EAS"
+badge: ["R&D", "MIT/Prop"]
 ---
 
 - Memória baseada em Git, self-hosted ou no GitHub: Markdown, orientada por IA e indexada com graphify, com compartilhamento granular.
