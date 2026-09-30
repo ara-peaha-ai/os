@@ -57,36 +57,6 @@ jobs:
           echo "D1 database ID: $DB_ID"
           sed -i "s/REPLACE_WITH_D1_DATABASE_ID/$DB_ID/" wrangler.toml
 
-      - name: Migrate D1 content database
-        if: steps.d1_check.outputs.has_d1 == 'true'
-        env:
-          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          CLOUDFLARE_ACCOUNT_ID: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
-        run: |
-          SQL_DUMP=$(find dist -name "sql_dump.txt" | head -1)
-          if [ -z "$SQL_DUMP" ]; then
-            echo "sql_dump.txt not found in dist/. Files in dist/:"
-            find dist -type f | head -30
-            exit 1
-          fi
-          echo "Found SQL dump at: $SQL_DUMP"
-          BATCH=""
-          BATCH_SIZE=0
-          MAX_BATCH=50000
-          while IFS= read -r line; do
-            LINE_SIZE=${#line}
-            if [ $((BATCH_SIZE + LINE_SIZE)) -gt $MAX_BATCH ] && [ -n "$BATCH" ]; then
-              npx wrangler@4 d1 execute DB --remote --command="$BATCH"
-              BATCH=""
-              BATCH_SIZE=0
-            fi
-            BATCH="$BATCH$line"$'\n'
-            BATCH_SIZE=$((BATCH_SIZE + LINE_SIZE))
-          done < "$SQL_DUMP"
-          if [ -n "$BATCH" ]; then
-            npx wrangler@4 d1 execute DB --remote --command="$BATCH"
-          fi
-
       - name: Ensure Cloudflare Pages project exists
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
@@ -108,3 +78,21 @@ jobs:
           accountId: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
           wranglerVersion: '4'
           command: pages deploy dist --project-name=peaha-web
+
+      # After the deploy, so the database matches the code now live. The worker never
+      # imports by itself (integrityCheck off in nuxt.config.js). `--file` uses the D1
+      # import API: queries pause for the import itself (tens of ms for this dump),
+      # and a failed import rolls the database back but not the Pages deployment.
+      - name: Import content into D1
+        if: steps.d1_check.outputs.has_d1 == 'true'
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
+        run: |
+          mapfile -d '' dumps < <(find dist -name sql_dump.txt -print0)
+          if [ ${#dumps[@]} -eq 0 ]; then
+            echo "sql_dump.txt not found in dist/"
+            exit 1
+          fi
+          node scripts/d1-content-sql.mjs content-import.sql "${dumps[@]}"
+          npx wrangler@4 d1 execute DB --remote --file=content-import.sql
