@@ -17,6 +17,9 @@ const socials = existsSync(socialsPath)
       })
   : []
 
+// utm_source on outbound links (app/utils/withUtm.js): the package scope, e.g. "@ara-peaha-ai/web" -> "ara-peaha-ai"
+const utmSource = JSON.parse(readFileSync(resolve('package.json'), 'utf8')).name.replace(/^@/, '').split('/')[0]
+
 export default defineNuxtConfig({
   hooks: {
     // Content reaches D1 from the deploy workflows (scripts/d1-content-sql.mjs), so the
@@ -31,7 +34,7 @@ export default defineNuxtConfig({
     }
   },
   runtimeConfig: {
-    public: { socials }
+    public: { socials, utmSource }
   },
   app: {
     head: {

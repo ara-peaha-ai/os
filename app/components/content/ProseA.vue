@@ -10,7 +10,7 @@ const isExternal = computed(() => /^https?:\/\//.test(props.href))
 
 <template>
   <ULink
-    :href="href"
+    :href="withUtm(href)"
     :target="target ?? (isExternal ? '_blank' : undefined)"
     :rel="isExternal ? 'noopener noreferrer' : undefined"
     class="text-primary border-b border-transparent hover:border-primary font-medium transition-colors hover:decoration-dotted"
