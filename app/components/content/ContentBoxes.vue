@@ -15,7 +15,7 @@ const { toRoutePath } = useContentRoute()
 
 const NuxtLink = resolveComponent('NuxtLink')
 // entityLink: absolute URL as-is, otherwise a content path under the current locale
-const entityTo = link => link.startsWith('http') ? link : toRoutePath(`/${locale.value}/${link}`)
+const entityTo = link => link.startsWith('http') ? withUtm(link) : toRoutePath(`/${locale.value}/${link}`)
 
 const { data: items } = await useAsyncData(
   `content-boxes-${Array.isArray(paths) ? paths.join(',') : paths}-${locale.value}`,

@@ -110,7 +110,7 @@ useHead(() => ({
 
         <!-- Social icons — order and list from sovereign/content/socials.pub.yaml -->
         <div class="flex items-center gap-5">
-          <a v-for="s in socialLinks" :key="s.key" :href="s.href" :target="s.key === 'email' ? undefined : '_blank'"
+          <a v-for="s in socialLinks" :key="s.key" :href="withUtm(s.href)" :target="s.key === 'email' ? undefined : '_blank'"
             :rel="s.key === 'email' ? undefined : 'noopener noreferrer'" :aria-label="s.label" class="transition"
             style="color: var(--ui-text-dimmed)">
             <Icon :name="s.icon" class="w-5 h-5" />
