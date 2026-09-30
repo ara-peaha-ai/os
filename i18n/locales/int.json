@@ -92,6 +92,8 @@
     "merchantReceivesIn": "Merchant receives in {currency}"
   },
   "content": {
-    "learnMore": "Learn more"
+    "learnMore": "Learn more",
+    "payin": "Pay-in",
+    "payout": "Payout"
   }
 }

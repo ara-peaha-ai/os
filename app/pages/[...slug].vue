@@ -4,6 +4,7 @@
 // pattern as index.vue, just driven by the current route instead of the locale root.
 const route = useRoute()
 const { toContentPath } = useContentRoute()
+const { t } = useI18n()
 
 const { data: page } = await useAsyncData(`slug-${route.path}`, () =>
   useContentQuery().where('path', '=', toContentPath(route.path)).first()
@@ -44,6 +45,12 @@ const { data: timeline } = await useAsyncData(`slug-timeline-${route.path}`, asy
       <p v-if="page.tags?.length" class="text-lg font-medium" style="color: var(--ui-text)">
         {{ page.tags.join(' · ') }}
       </p>
+      <dl v-if="page.payin?.length || page.payout?.length" class="flex flex-wrap gap-x-6 gap-y-2 text-sm">
+        <div v-for="key in ['payin', 'payout'].filter(k => page[k]?.length)" :key="key" class="flex flex-wrap items-center gap-1.5">
+          <dt class="font-medium" style="color: var(--ui-text-muted)">{{ t(`content.${key}`) }}</dt>
+          <dd v-for="rail in page[key]" :key="rail"><UBadge color="neutral" variant="subtle" size="sm">{{ rail }}</UBadge></dd>
+        </div>
+      </dl>
     </section>
 
     <AppSeparator />

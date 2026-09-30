@@ -22,6 +22,7 @@ Soberanía en los pagos no significa depender de un solo canal: cada venta tiene
 ::content-boxes
 ---
 paths: divisions
+width: [0.5, 0.5, 1]
 ---
 ::
 
@@ -44,7 +45,7 @@ Nos enfocamos solo en verticales con casos de uso reales, elegidos por sus persp
 
 El inmobiliario ya está en producción: un MVP para las MIPYMES, para la venta tanto de inmuebles como de terrenos, con compliance completo y sobre todo en USDT, con un cliente que paga y una hoja de ruta que llega hasta la tokenización de activos en la Tierra Colorada: inmuebles y tierras, también de las comunidades menonitas.
 
-El segundo vertical es el e-commerce de bienes y servicios: una base común que cada negocio desarrolla según lo que necesita, empezando por un personal trainer, una pizzería a domicilio y una tienda de ropa interior.
+El segundo vertical es el e-commerce de bienes y servicios: una base común que cada negocio desarrolla según lo que necesita, empezando por una pizzería a domicilio, una tienda de ropa interior y un personal trainer.
 
 ::content-boxes
 ---
