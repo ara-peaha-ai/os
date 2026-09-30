@@ -1,32 +1,31 @@
-// Turns the Nuxt Content dump (dist/__nuxt_content/<collection>/sql_dump.txt:
-// base64 of a gzipped JSON array of "SQL -- hash" lines) into a plain SQL file
-// for `wrangler d1 execute --file`, ending with the checksum row marked ready.
-// Importing in CI means the worker finds the database ready and never runs the
-// import itself on a first request, where Workers limits can leave it half done
-// with `ready = 0` and every content route hanging.
+// Turns the Nuxt Content dumps (dist/__nuxt_content/<collection>/sql_dump.txt:
+// base64 of a gzipped JSON array of "SQL -- hash" lines) into one plain SQL file
+// for `wrangler d1 execute --file`, each checksum row ending up ready.
+// The deploy workflows run it because the worker's own first-request import is
+// off (integrityCheck: false in nuxt.config.js): under Workers limits it could
+// stop halfway and leave `ready = 0`.
 import { readFileSync, writeFileSync } from 'node:fs'
 import { gunzipSync } from 'node:zlib'
 
-const [dumpPath, outPath] = process.argv.slice(2)
-if (!dumpPath || !outPath) {
-  console.error('usage: node scripts/d1-content-sql.mjs <sql_dump.txt> <out.sql>')
+const [outPath, ...dumpPaths] = process.argv.slice(2)
+if (!outPath || !dumpPaths.length) {
+  console.error('usage: node scripts/d1-content-sql.mjs <out.sql> <sql_dump.txt>...')
   process.exit(1)
 }
 
-const lines = JSON.parse(gunzipSync(Buffer.from(readFileSync(dumpPath, 'utf8'), 'base64')).toString('utf8'))
 const stripHash = line => line.slice(0, line.lastIndexOf(' -- ')).trim().replace(/;$/, '') + ';'
-const checksumId = lines.map(l => l.match(/INSERT INTO _content_info VALUES \('([^']+)'/)?.[1]).find(Boolean)
-if (!checksumId) {
-  console.error('no _content_info checksum row in the dump')
-  process.exit(1)
-}
 
-const sql = [
-  // the dump's own CREATE comes first; a stale checksum row would clash with its INSERT
-  stripHash(lines[0]),
-  `DELETE FROM _content_info WHERE id = '${checksumId}';`,
-  ...lines.slice(1).map(stripHash),
-  `UPDATE _content_info SET ready = true WHERE id = '${checksumId}';`
-]
+// Rebuilt from scratch, as the worker does when @nuxt/content's database version
+// changes: an old _content_info layout would otherwise reject the new INSERTs.
+const sql = ['DROP TABLE IF EXISTS _content_info;']
+for (const dumpPath of dumpPaths) {
+  const lines = JSON.parse(gunzipSync(Buffer.from(readFileSync(dumpPath, 'utf8'), 'base64')).toString('utf8'))
+  const checksumId = lines.map(l => l.match(/INSERT INTO _content_info VALUES \('([^']+)'/)?.[1]).find(Boolean)
+  if (!checksumId) {
+    console.error(`no _content_info checksum row in ${dumpPath}`)
+    process.exit(1)
+  }
+  sql.push(...lines.map(stripHash), `UPDATE _content_info SET ready = true WHERE id = '${checksumId}';`)
+}
 writeFileSync(outPath, sql.join('\n') + '\n')
-console.log(`${sql.length} statements -> ${outPath}`)
+console.log(`${dumpPaths.length} dump(s), ${sql.length} statements -> ${outPath}`)

@@ -67,6 +67,20 @@ jobs:
           wranglerVersion: '4'
           command: pages deploy dist --project-name=peaha-web --branch=pr-${{ github.event.number }}
 
+      # Same import as production, into the preview database (see cloudflare-pages-deploy.yml).
+      - name: Import content into preview D1
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
+        run: |
+          mapfile -d '' dumps < <(find dist -name sql_dump.txt -print0)
+          if [ ${#dumps[@]} -eq 0 ]; then
+            echo "sql_dump.txt not found in dist/"
+            exit 1
+          fi
+          node scripts/d1-content-sql.mjs content-import.sql "${dumps[@]}"
+          npx wrangler@4 d1 execute DB --env preview --remote --file=content-import.sql
+
       - name: Comment preview URL on PR
         uses: actions/github-script@v7
         with:

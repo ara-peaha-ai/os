@@ -18,6 +18,18 @@ const socials = existsSync(socialsPath)
   : []
 
 export default defineNuxtConfig({
+  hooks: {
+    // Content reaches D1 from the deploy workflows (scripts/d1-content-sql.mjs), so the
+    // worker must not import on a first request: under Workers limits that import can
+    // stop halfway and leave `ready = 0`, hanging every content route (2026-09-30).
+    // @nuxt/content makes the same choice for NuxtHub. Runs after the module's
+    // modules:done, which hardcodes integrityCheck: true.
+    'nitro:config': (nitroConfig) => {
+      if (nitroConfig.dev) return
+      nitroConfig.runtimeConfig.content ||= {}
+      nitroConfig.runtimeConfig.content.integrityCheck = false
+    }
+  },
   runtimeConfig: {
     public: { socials }
   },
