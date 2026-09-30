@@ -61,7 +61,7 @@ The router runs on the [Vercel AI SDK](https://ai-sdk.dev) today. Routing decisi
 | Knowledge graph of the sovereign repo (graphify) | testing |
 | Router with per-call memory wipe on commercial models (Vercel AI SDK today, routing decisions on Laya, open-source replacement for TypeSafe AI's Jev) | planned |
 | Versioned agent skills | live |
-| Skills updated automatically with each task's findings | planned |
+| Skills updated automatically with each task's findings | defining |
 | Per-person todo roll-up | early |
 | Public site rendered from the sovereign repo | homepage live (translated by hand into `content/<locale>/` until the CI fetch exists), full site dev preview only |
 | CPU-based automatic translation on push | not built yet |
