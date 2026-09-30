@@ -21,4 +21,4 @@ badge: "R&D"
 
 **Sem perfil.** Depois de cada chamada a memória de sessão do modelo comercial é apagada: nenhum fornecedor vê mais do que uma tarefa isolada, então ninguém consegue ligar as chamadas e montar um perfil da empresa.
 
-**Decisões do roteador.** Hoje no Vercel AI SDK; as decisões de roteamento passam para o Jev da TypeSafe AI, um modelo que não escreve texto, mas responde a perguntas tipadas com respostas estruturadas e replicáveis.
+**Decisões do roteador.** Hoje no Vercel AI SDK; as decisões de roteamento passam para o Laya, um modelo open source self-hosted que não escreve texto, mas responde a perguntas tipadas com respostas estruturadas e replicáveis.

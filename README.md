@@ -44,7 +44,7 @@ A company's know-how is scattered across Notion, Drive, Slack, email and the hea
 
 **Orchestration: a CPU router between your memory and any AI.** Two repos, two roles: *wisdom* (this one) is the engine, public and MIT; *sovereign* is the memory, private. The sovereign repo gets its own knowledge graph (built with [graphify](https://github.com/Graphify-Labs/graphify)) whose nodes map everything the company knows. A small router model runs on a plain CPU, on a home machine or a low-cost VPS. For each task it picks the prompt, pulls only the nodes and files that task needs from the graph, and routes the bundle to the AI that does the heavy work: a commercial model (Claude, GPT, Grok) through its API, or an open-source model on a GPU switched on only when there is work. The result comes back to the router, and the commercial model's session memory is wiped after every call. No vendor ever sees more than one isolated task, so no vendor can link calls together and build a profile of the company: this is anti-surveillance by design, against the data harvesting of big-tech AI. The markers and the skills do not depend on which model does the job.
 
-The router runs today on the [Vercel AI SDK](https://ai-sdk.dev). Its routing decisions are moving to [TypeSafe AI](https://typesafe.ai)'s Jev, a model that does not write text: it evaluates a state against typed questions (yes/no, one of N options) and returns structured, replicable answers with a confidence score, at a fraction of an LLM's cost and latency.
+The router runs today on the [Vercel AI SDK](https://ai-sdk.dev). Its routing decisions are moving to [Laya](https://github.com/NandhaKishorM/laya), an open source (Apache-2.0) self-hosted model that does not write text: it evaluates a state against typed questions (yes/no, one of N options, score) and returns structured, replicable answers with a confidence score, on CPU, at a fraction of an LLM's cost and latency.
 
 **4. Skills that improve themselves.** A skill is a versioned Markdown procedure: the instructions, the workflow, the mistakes to avoid. When a task teaches something new (a fix, a correction, a better path), the orchestrator writes that finding back into the skill and commits it. The next run, whether by an agent or a human, starts from what was learned last time, never from zero. Every update is a commit, so the skill's history can be traced and reverted like any other knowledge. The next company that adopts the framework gets those skills too.
 
@@ -59,7 +59,7 @@ The router runs today on the [Vercel AI SDK](https://ai-sdk.dev). Its routing de
 | Knowledge as Markdown in git, private/public split by file name | live |
 | `##todo` / `##event` / `#pri` / `!<when>` / `#master` markers, AI resolution in place | live (Claude Code) |
 | Knowledge graph of the sovereign repo (graphify) | planned |
-| Router with per-call memory wipe on commercial models (Vercel AI SDK today, routing decisions on TypeSafe AI's Jev) | planned |
+| Router with per-call memory wipe on commercial models (Vercel AI SDK today, routing decisions on self-hosted Laya) | planned |
 | Versioned agent skills | live |
 | Skills updated automatically with each task's findings | planned |
 | Per-person todo roll-up | early |
