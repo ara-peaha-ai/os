@@ -3,7 +3,7 @@ title: "E-commerce of goods and services"
 description: 
 ---
 
-- Bitcoin and stablecoin payments, including from abroad, for anyone selling products or services: from a POS to an online shop.
+- E-commerce of goods and services with regional fiat payments, in early testing; Bitcoin (on-chain and Lightning) and stablecoins optional.
 - One shared base that each business develops to fit its own needs.
 
 <!--more-->
