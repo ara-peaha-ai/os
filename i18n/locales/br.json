@@ -92,6 +92,8 @@
     "merchantReceivesIn": "{currency} pelo comerciante"
   },
   "content": {
-    "learnMore": "Saiba mais"
+    "learnMore": "Saiba mais",
+    "payin": "Recebimento",
+    "payout": "Liquidação"
   }
 }

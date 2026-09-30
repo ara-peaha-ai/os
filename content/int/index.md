@@ -22,6 +22,7 @@ Payment sovereignty does not mean depending on a single rail: every sale must be
 ::content-boxes
 ---
 paths: divisions
+width: [0.5, 0.5, 1]
 ---
 ::
 
@@ -44,7 +45,7 @@ We focus only on verticals with real use cases, chosen for their revenue prospec
 
 Real estate is already in production: an MVP for small and micro businesses (MYPES), for selling both properties and land, fully compliant and mostly on USDT, with a paying client and a roadmap that goes all the way to tokenizing assets in the Tierra Colorada: properties and land, including those of the Mennonite communities.
 
-The second vertical is e-commerce of goods and services: one shared base that each business develops to fit its own needs, starting with a personal trainer, a pizza delivery and an underwear shop.
+The second vertical is e-commerce of goods and services: one shared base that each business develops to fit its own needs, starting with a pizza delivery, an underwear shop and a personal trainer.
 
 ::content-boxes
 ---
