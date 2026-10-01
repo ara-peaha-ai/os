@@ -17,7 +17,7 @@ We only pick verticals with real use cases and revenue in sight:
 | Vertical | Status |
 |---|---|
 | Real estate: payments for builders and agencies selling to international buyers | live in Paraguay, first paying clients; talks in Brazil and Chile |
-| E-commerce of goods and services: a personal trainer, a pizza delivery, an underwear shop | alpha (personal trainer), in development (pizza delivery), defining (underwear shop) |
+| Social commerce, creators, donations and marketplaces: a pizza delivery, an underwear shop, a personal trainer, the Guadalupe Foundation, an open Patreon alternative, a sales portal in Chile | alpha (personal trainer), in development (pizza delivery, Chile portal), defining (underwear shop, Patreon alternative) |
 | Agriculture (Mennonite communities) | exploring |
 
 **The goal: a tokenized Paraguayan investment fund** on real estate and land, built on the real estate vertical (shared property sales first, then the fund, roadmap Q1 2028).
