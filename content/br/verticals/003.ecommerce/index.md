@@ -1,5 +1,7 @@
 ---
 title: "Social commerce, criadores, doações e marketplaces"
+navigation:
+  title: "Social commerce e agendamentos"
 description: 
 ---
 
