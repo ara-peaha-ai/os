@@ -1,5 +1,7 @@
 ---
 title: "Social commerce, creators, donations and marketplaces"
+navigation:
+  title: "Social commerce and booking"
 description: 
 ---
 
