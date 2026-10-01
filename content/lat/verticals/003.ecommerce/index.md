@@ -1,10 +1,10 @@
 ---
-title: "E-commerce de bienes y servicios"
+title: "Social commerce, creadores, donaciones y marketplaces"
 description: 
 ---
 
-- E-commerce de bienes y servicios con pagos fiat regionales, en primeras pruebas; Bitcoin (on-chain y Lightning) y stablecoins opcionales.
-- Una base común que cada negocio desarrolla según lo que necesita.
+- Social commerce en Instagram (una pizzería a domicilio, una tienda de ropa interior), creadores, donaciones y marketplaces.
+- Pagos fiat regionales, Bitcoin (on-chain y Lightning) y stablecoins, sobre una base común que cada negocio desarrolla según lo que necesita.
 
 <!--more-->
 

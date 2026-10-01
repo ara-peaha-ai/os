@@ -45,7 +45,7 @@ We focus only on verticals with real use cases, chosen for their revenue prospec
 
 Real estate is already in production: an MVP for small and micro businesses (MYPES), for selling both properties and land, fully compliant and mostly on USDT, with a paying client and a roadmap that goes all the way to tokenizing assets in the Tierra Colorada: properties and land, including those of the Mennonite communities.
 
-The second vertical is e-commerce of goods and services: one shared base that each business develops to fit its own needs, starting with a pizza delivery, an underwear shop and a personal trainer.
+The second vertical covers social commerce, creators, donations and marketplaces: a pizza delivery and an underwear shop selling on Instagram, a personal trainer and creator, the Guadalupe Foundation, and a sales portal in Chile with 2-of-3 notary signing, released by the end of the year.
 
 ::content-boxes
 ---
