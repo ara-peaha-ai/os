@@ -1,10 +1,12 @@
 ---
-title: "E-commerce of goods and services"
+title: "Social commerce, creators, donations and marketplaces"
+navigation:
+  title: "Social commerce and booking"
 description: 
 ---
 
-- E-commerce of goods and services with regional fiat payments, in early testing; Bitcoin (on-chain and Lightning) and stablecoins optional.
-- One shared base that each business develops to fit its own needs.
+- Social commerce on Instagram (a pizza delivery, an underwear shop), creators, donations and marketplaces.
+- Regional fiat payments, Bitcoin (on-chain and Lightning) and stablecoins, on one shared base that each business develops to fit its own needs.
 
 <!--more-->
 

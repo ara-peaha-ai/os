@@ -31,9 +31,10 @@ const { toRoutePath } = useContentRoute()
 const navGroups = await useNav()
 const { data: navItems } = await useAsyncData(`nav-items-${locale.value}`, async () => {
   const lists = await Promise.all(Object.values(navGroups.value).map(paths => typeof paths === 'string'
-    ? queryCollection('content').where('path', 'LIKE', `/${locale.value}/${paths}/%`).select('title', 'path').order('stem', 'ASC').all()
-    : Promise.all(paths.map(p => queryCollection('content').path(`/${locale.value}/${p}`).select('title', 'path').first()))))
-  return lists.flat().filter(Boolean)
+    ? queryCollection('content').where('path', 'LIKE', `/${locale.value}/${paths}/%`).select('title', 'path', 'navigation').order('stem', 'ASC').all()
+    : Promise.all(paths.map(p => queryCollection('content').path(`/${locale.value}/${p}`).select('title', 'path', 'navigation').first()))))
+  // frontmatter `navigation.title` overrides the page title as the (shorter) navbar label
+  return lists.flat().filter(Boolean).map(({ title, path, navigation }) => ({ path, title: navigation?.title || title }))
 })
 
 const menuOpen = ref(false)
