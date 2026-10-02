@@ -2,14 +2,14 @@
 
 **One key. Your money, your knowledge, your AI.**
 
-*Ára Pe'aha Aĩ* is Guaraní for "your time, your key, your AI". wisdom is the public face of that idea: it publishes what a company knows, straight from the one place where the company keeps all of it.
+*Ára Pe'aha Aĩ* is Guaraní for "your time, your key, your AI". wisdom is the public half of that idea. It publishes what a company knows straight from the one place where the company keeps all of it.
 
 ## Where we're going
 
-We build self-custodial payment and AI tools for businesses in **emerging markets**, starting from **Paraguay**, where we operate and validate every rail, then the rest of Mercosur and LatAm.
+We build self-custodial payment and AI tools for businesses in emerging markets. We start in Paraguay, where we operate and validate every rail, then move to the rest of Mercosur and LatAm.
 
-- **PAY:** Bitcoin and stablecoins, plus the fiat rails around them, so a sale can come from a crypto-native or a traditional client and settle in the currency that is needed. Payments from 5 to 500,000 dollars: self-hosted from our MIT repos (mainly Bitcoin) with no fee, for AI agents and small informal freelancers; or proprietary rails up to 500,000 dollars (Paraguay and Argentina today, the rest of Latin America next), in our cloud with a decreasing per-payment fee or on a managed VPS by monthly subscription.
-- **AI:** Git-based memory (self-hosted or GitHub), Markdown and AI-driven, indexed with graphify, with granular sharing; commercial and self-hosted models orchestrated through MCP and APIs, without handing the company's know-how to the model vendors.
+- **PAY:** Bitcoin and stablecoins, plus the fiat rails around them, so a sale can come from a crypto-native or a traditional client and settle in whatever currency the business needs. Payments run from 5 to 500,000 dollars. AI agents and small informal freelancers can self-host our MIT repos (mainly Bitcoin) and pay no fee. Proprietary rails go up to 500,000 dollars (Paraguay and Argentina today, the rest of Latin America next), either in our cloud with a decreasing per-payment fee or on a managed VPS with a monthly subscription.
+- **AI:** Company memory in git (self-hosted or GitHub), Markdown-based and AI-driven, indexed with graphify and shared at a granular level. Commercial and self-hosted models are orchestrated through MCP and APIs, and the company's know-how stays out of the model vendors' hands.
 - **COMPLIANCE:** internationalization through US LLCs, from 99 dollars up to enterprise compliance management on dedicated servers, with localized domains (for example Suriname and Paraguay).
 
 We only pick verticals with real use cases and revenue in sight:
@@ -20,7 +20,7 @@ We only pick verticals with real use cases and revenue in sight:
 | E-commerce of goods and services: a personal trainer, a pizza delivery, an underwear shop | alpha (personal trainer), in development (pizza delivery), defining (underwear shop) |
 | Agriculture (Mennonite communities) | exploring |
 
-**The goal: a tokenized Paraguayan investment fund** on real estate and land, built on the real estate vertical (shared property sales first, then the fund, roadmap Q1 2028).
+The goal is a tokenized Paraguayan investment fund on real estate and land. It grows out of the real estate vertical: shared property sales come first, then the fund, which is on the roadmap for Q1 2028.
 
 ## The problem
 
@@ -28,9 +28,9 @@ A company's know-how is scattered across Notion, Drive, Slack, email and the hea
 
 ## The model
 
-**1. One source of truth.** Everything the company knows lives in a single git repo, the *sovereign* repo: strategy, operations, dev docs, sales copy, web pages. It is plain Markdown and YAML, with no database and no SaaS lock-in. Private (`*.pri.md`) and public content sit side by side, and the split is made by file name, not by tool.
+**1. One source of truth.** Everything the company knows lives in a single git repo, the *sovereign* repo: strategy, operations, dev docs, sales copy, web pages. It is plain Markdown and YAML. There is no database and no SaaS lock-in. Private (`*.pri.md`) and public content sit side by side, and the file name alone decides which is which.
 
-**2. History is the audit log.** Every change is a commit that records who changed what, when and why. Decisions can be traced, compared and reverted. Nothing is overwritten silently.
+**2. History is the audit log.** Every change is a commit that records who changed what, when and why. Any decision can be traced back, compared with earlier versions or reverted, and nothing gets overwritten without a record.
 
 **3. Tasks live inside the knowledge.** Humans and AI agents give each other work in the text itself, right where the context is, with no separate ticketing tool:
 
@@ -41,15 +41,15 @@ A company's know-how is scattered across Notion, Drive, Slack, email and the hea
 - When an agent cannot finish a todo, it leaves the marker in place, rewritten as a precise blocking question. It never makes up an answer.
 - Open todos are rolled up into one list per person.
 
-**Orchestration: a CPU router between your memory and any AI.** Two repos, two roles: *wisdom* (this one) is the engine, public and MIT; *sovereign* is the memory, private. The sovereign repo gets its own knowledge graph (built with [graphify](https://github.com/Graphify-Labs/graphify)) whose nodes map everything the company knows. A small router model runs on a plain CPU, on a home machine or a low-cost VPS. For each task it picks the prompt, pulls only the nodes and files that task needs from the graph, and routes the bundle to the AI that does the heavy work: a commercial model (Claude, GPT, Grok) through its API, or an open-source model on a GPU switched on only when there is work. The result comes back to the router, and the commercial model's session memory is wiped after every call. No vendor ever sees more than one isolated task, so no vendor can link calls together and build a profile of the company: this is anti-surveillance by design, against the data harvesting of big-tech AI. The markers and the skills do not depend on which model does the job.
+**Orchestration: a CPU router between your memory and any AI.** There are two repos. *wisdom* (this one) is the engine, public and MIT licensed. *sovereign* is the memory, and it stays private. The sovereign repo gets its own knowledge graph (built with [graphify](https://github.com/Graphify-Labs/graphify)) whose nodes map everything the company knows. A small router model runs on a plain CPU, on a home machine or a low-cost VPS. For each task it picks the prompt, pulls only the nodes and files that task needs from the graph, and routes the bundle to the AI that does the heavy work: a commercial model (Claude, GPT, Grok) through its API, or an open-source model on a GPU switched on only when there is work. The result comes back to the router, and the commercial model's session memory is wiped after every call. Each vendor only ever sees one isolated task, so it can't link calls together and build a profile of the company. The design is deliberately anti-surveillance and works against the data harvesting of big-tech AI. The markers and the skills do not depend on which model does the job.
 
 The router runs on the [Vercel AI SDK](https://ai-sdk.dev) today. Routing decisions are moving to [Laya](https://github.com/NandhaKishorM/laya), an open-source (Apache-2.0) replacement for TypeSafe AI's Jev that runs self-hosted on a CPU. Laya doesn't write text: it answers typed questions (yes/no, one of N, a score) with a confidence value, much cheaper and faster than an LLM.
 
-**4. Skills that improve themselves.** A skill is a versioned Markdown procedure: the instructions, the workflow, the mistakes to avoid. When a task teaches something new (a fix, a correction, a better path), the orchestrator writes that finding back into the skill and commits it. The next run, whether by an agent or a human, starts from what was learned last time, never from zero. Every update is a commit, so the skill's history can be traced and reverted like any other knowledge. The next company that adopts the framework gets those skills too.
+**4. Skills that improve themselves.** A skill is a versioned Markdown procedure: the instructions, the workflow, the mistakes to avoid. When a task teaches something new (a fix, a correction, a better path), the orchestrator writes that finding back into the skill and commits it. The next run, by an agent or a human, starts from what was learned last time instead of from zero. Every update is a commit, so the skill's history can be traced and reverted like any other knowledge. The next company that adopts the framework gets those skills too.
 
 **5. Write once, in any language.** Authors write in `original`, in whatever mix of languages comes naturally. A translator that runs on a plain CPU regenerates every published locale on each push. `original` itself is never published.
 
-**6. One key.** In payments, self-custody means that whoever holds the seed holds the funds and no intermediary can freeze them. The same principle extends to knowledge and AI: one seed as the root of identity for the wallets, the knowledge repo and the agents working on it. Nothing is handed over to a platform, and nothing is fed to a model vendor.
+**6. One key.** In payments, self-custody means that whoever holds the seed holds the funds and no intermediary can freeze them. The same principle extends to knowledge and AI: one seed as the root of identity for the wallets, the knowledge repo and the agents working on it. None of it is handed to a platform or fed to a model vendor.
 
 **7. Dogfooded.** The company building this runs on it every day. This repo, its docs and its task lists are managed with the model described above.
 
