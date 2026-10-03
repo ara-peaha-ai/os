@@ -19,6 +19,6 @@ badge: ["R&D", "MIT/Prop"]
 
 **Orquestación.** Un router liviano elige el prompt, toma del grafo solo la información y los archivos necesarios y envía el paquete al modelo que hace el trabajo, comercial o self-hosted, mediante MCP o API. El resultado vuelve al router.
 
-**Sin perfil.** Después de cada llamada se borra la memoria de sesión del modelo comercial: ningún proveedor ve más que una tarea aislada, así nadie puede conectar las llamadas y armar un perfil de la empresa.
+**Exposición mínima.** Después de cada llamada se borra la memoria de sesión del modelo comercial y cada llamada lleva una sola tarea aislada: ninguna conversación contiene el panorama completo de la empresa. Las llamadas igual pasan por una misma cuenta de API y pueden quedar registradas; repartir el trabajo entre varios proveedores y modelos locales limita cuánto ve cada uno.
 
 **Decisiones del router.** Hoy en Vercel AI SDK, pasan a Laya, alternativa open source self-hosted a Jev de TypeSafe AI: responde preguntas tipadas con respuestas estructuradas y repetibles, en lugar de escribir texto.
