@@ -19,6 +19,6 @@ badge: ["R&D", "MIT/Prop"]
 
 **Orquestração.** Um roteador leve escolhe o prompt, pega do grafo só as informações e os arquivos necessários e envia o pacote ao modelo que faz o trabalho, comercial ou self-hosted, via MCP ou API. O resultado volta ao roteador.
 
-**Sem perfil.** Depois de cada chamada a memória de sessão do modelo comercial é apagada: nenhum fornecedor vê mais do que uma tarefa isolada, então ninguém consegue ligar as chamadas e montar um perfil da empresa.
+**Exposição mínima.** Depois de cada chamada a memória de sessão do modelo comercial é apagada e cada chamada leva uma única tarefa isolada: nenhuma conversa contém o panorama completo da empresa. As chamadas ainda passam por uma mesma conta de API e podem ficar registradas; distribuir o trabalho entre vários fornecedores e modelos locais limita quanto cada um vê.
 
 **Decisões do roteador.** Hoje no Vercel AI SDK, passam para o Laya, alternativa open source self-hosted ao Jev da TypeSafe AI: responde a perguntas tipadas com respostas estruturadas e repetíveis, em vez de escrever texto.
