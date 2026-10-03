@@ -19,6 +19,6 @@ badge: ["R&D", "MIT/Prop"]
 
 **Orchestration.** A lightweight router picks the prompt, takes from the graph only the information and files it needs and sends the bundle to the model that does the work, commercial or self-hosted, through MCP or APIs. The result comes back to the router.
 
-**No profile.** After every call the commercial model's session memory is wiped: no vendor sees more than one isolated task, so no one can link the calls and build a profile of the company.
+**Minimal exposure.** After every call the commercial model's session memory is wiped and each call carries one isolated task: no conversation holds the full picture of the company. Calls still go through one API account and may be logged; spreading the work across several vendors and local models limits how much any one of them sees.
 
 **Router decisions.** Today on the Vercel AI SDK, moving to Laya, an open-source, self-hosted replacement for TypeSafe AI's Jev: it answers typed questions with structured, repeatable answers instead of writing text.
