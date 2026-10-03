@@ -125,7 +125,7 @@ npm run dev:content    # dev preview of ../../<project>/sovereign (default proje
 content=fantasia_lat npm run dev:content
 ```
 
-Adding a country to the settlement simulator: [`docs/ADDING_A_COUNTRY.md`](docs/ADDING_A_COUNTRY.md).
+Settlement simulator countries, providers and fees are documented in the sovereign repo, where they are moving from engine code to data.
 
 | Variable | Purpose |
 |---|---|
