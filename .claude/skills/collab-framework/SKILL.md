@@ -72,6 +72,23 @@ exactly like a team member's PC.
 - Content tree: arbitrary nesting depth, folders are part of the structure. How
   it renders (website, docs, other) is decided later by the owner.
 
+## Knownet
+
+The **knownet** is our internal name for the content repo seen as a whole: nodes
+(files, and folders with their `index` page) at different depths, each folder a
+subtree with child nodes, and the subtrees cross-linked to each other by internal
+links. Several Merkle-like trees connected into one network (git literally stores
+each folder as a hashed tree object).
+
+- **Go deeper in the knownet** = when a topic grows, give it its own level: a
+  folder with an `index` page and the items as children, instead of more flat
+  files next to it. Example: loans, equity rounds and grants become children of
+  one `funding/` node, each child with its own items and a `## Bookmarks` section
+  for opportunities to retrieve later.
+- **Go up** = read the parent `index` for context before working on a child.
+- Moving nodes follows [Renaming and moving files](#renaming-and-moving-files):
+  every link to the old path is updated in the same commit.
+
 ## Two flows, one repo
 
 - Every UI action = one repo operation. Coder flow ("nerds") edits the repo
