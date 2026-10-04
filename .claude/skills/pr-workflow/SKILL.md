@@ -23,6 +23,12 @@ for a reviewer or a merge.
 | `status go` | The report, then resume the work from where it stopped, e.g. the [fix loop](#fix-loop) on each open PR. |
 | `status save` | The report, then one commit+push through the owner's commit flow covering every repo and branch involved, one commit per repo/branch. |
 
+`status`, `pending` and `completed` are read-only: no file edits, no commits,
+no PR comments, and no preparing or re-preparing the commit slot
+(`/tmp/commit/{script,message}`), even when it was overwritten or a push is
+clearly due. Report what would be needed ("gitpush to prepare for X") and stop;
+the owner acts on it with `status go` or `status save`, or by asking.
+
 ## Fix loop
 
 How an agent resumes an open PR (`status go`, or any pick-up of a PR it works
