@@ -1,6 +1,6 @@
 ---
 name: pr-workflow
-description: "Owner commands on the work of a chat/session: \"status\" (report only), \"pending\" (open items only), \"done\" (completed items only), \"status go\" (report, then resume the work where it stopped), \"status save\" (report, then one commit+push covering every repo and branch involved). Also how an agent resumes a PR: verify findings, fix, push through the owner's commit flow, resolve threads, post its verdict, check merge-ready. Use on those commands and whenever an agent picks up an open PR."
+description: "Owner commands on the work of a chat/session: \"status\" (report only), \"pending\" (report of what is not completed), \"completed\" (report of what is), \"status go\" (report, then resume the work where it stopped), \"status save\" (report, then one commit+push covering every repo and branch involved). Also how an agent resumes a PR: verify findings, fix, push through the owner's commit flow, resolve threads, post its verdict, check merge-ready. Use on those commands and whenever an agent picks up an open PR."
 ---
 
 # PR workflow
@@ -8,13 +8,18 @@ description: "Owner commands on the work of a chat/session: \"status\" (report o
 ## Status commands
 
 Scope = the work of the current chat/session; when the chat is about a whole
-project, the project.
+project, the project. A command counts only as the whole message (a trailing `?`
+is fine), never as a word inside a sentence.
+
+**Completed** = the push has landed and, for a PR, it is merged. Everything else
+is pending: work in progress, an unpushed commit, running checks, a PR waiting
+for a reviewer or a merge.
 
 | Command | Does |
 |---|---|
 | `status` | Report only: what is done, what is pending (and on whom), per repo, branch and PR. Changes nothing. |
-| `pending` | Same report, open items only. |
-| `done` | Same report, completed items only. |
+| `pending` | Report only, pending items only: item, on whom, repo, branch, PR. Changes nothing. |
+| `completed` | Report only, completed items only. Changes nothing. |
 | `status go` | The report, then resume the work from where it stopped, e.g. the [fix loop](#fix-loop) on each open PR. |
 | `status save` | The report, then one commit+push through the owner's commit flow covering every repo and branch involved, one commit per repo/branch. |
 
