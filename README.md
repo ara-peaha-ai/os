@@ -107,7 +107,7 @@ sovereign repo (private)                       wisdom (this repo, public)
 
 ### Not done
 
-- [ ] **Fetch in CI:** check out the (private) sovereign repo in the deploy workflow, authenticated through the GitHub App (key already provisioned, unused). Fetched at build time and gitignored, or written and deleted after the build: never a committed copy, so the cloud version keeps no user data on the build machine.
+- [ ] **Fetch in CI:** check out the (private) sovereign repo in the deploy workflow, authenticated through the GitHub App (key already provisioned, unused). Fetched at build time and gitignored, or written and deleted after the build: never a committed copy. The checkout exists only for that job; private files must also be kept out of the built site (see Production source below).
 - [ ] **Production source:** point `content.config.js` at `content/<locale>/web/**/*.md`, excluding `**/*.pri.md` and `content/original/**`.
 - [ ] **Remote settings:** read locales, default locale, domains, navbar and footer from sovereign's `web-specs.yaml` instead of hardcoding them in `nuxt.config.js`.
 - [ ] **Remote UI strings:** use sovereign's `i18n/<locale>.json` instead of `i18n/locales/`.

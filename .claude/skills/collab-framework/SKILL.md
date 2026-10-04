@@ -26,7 +26,9 @@ the framework.
 ## Write down what the owner states
 
 Every decision, convention, or direction the project owner states in chat goes
-into skills and docs, in synthetic form, in the same turn.
+into skills and docs, in synthetic form, in the same turn. Test for where: a rule
+any company adopting the framework would follow goes in a public skill here;
+anything about this team, its people, plans or numbers goes in the content repo.
 
 ## Same setup on every machine
 
@@ -50,10 +52,15 @@ exactly like a team member's PC.
   anything private stays in the content repo and the skill points to it.
 - Agents need skills at session time, not only at build time, so skills never
   depend on the per-build content fetch.
-- Claude Code loads skills only from `~/.claude/skills` and `<repo>/.claude/skills`.
-  `wisdom/scripts/link-skills.sh` links every framework skill into
-  `~/.claude/skills`, so sessions in any repo (orchestrator, the content repo, ...)
-  load them. Run it after cloning wisdom on a new machine and after adding a skill.
+- Claude Code loads skills from the user dir (`~/.claude/skills`), the project dir
+  (`<repo>/.claude/skills`) and installed plugins. `wisdom/scripts/link-skills.sh`
+  links every real skill folder of `wisdom/.claude/skills/` into the user dir
+  (`$CLAUDE_CONFIG_DIR/skills` when set), so sessions in any repo (orchestrator,
+  the content repo, ...) load them. Run it after cloning wisdom on a new machine
+  and after adding a skill; `--replace` when a folder with the same name exists.
+- Plugins the framework relies on are installed on every machine too:
+  `claude plugin marketplace add DietrichGebert/ponytail` then
+  `claude plugin install ponytail@ponytail`.
 
 ## Repo roles
 
@@ -97,10 +104,10 @@ name, lowercase, matching those filenames (`000.team/001.<name>.pri.md` →
 | Long-term vision, direction | CVO |
 | AI-executable task | CAIO (`@claude`) |
 
-**Onboarding override:** while the CTO is being onboarded, technical items tag
-both the CEO and the CTO plus the assistant. Per `tag-syntax`, an
-assistant+human marker is worked jointly, when the human decides to start — the
-assistant does not auto-resolve it.
+Team-specific overrides (e.g. extra handles while someone is onboarded) live in
+the content repo next to the team files. Per `tag-syntax`, an assistant+human
+marker is worked jointly, when the human decides to start — the assistant does
+not auto-resolve it.
 
 ## Attribution and credits
 

@@ -105,11 +105,10 @@ written back to the `.md` on sync, as one signed commit.
 
 ## Resolution
 
-- The resolve skill (`wisdom-ai-todos`) reviews every tag since the last commit,
-  asks all blocking questions first, then applies every update, then lists what
-  changed. It acts on **assistant-only** `#todo` markers and on `#master`
-  propagation; **assistant+human** and **human-only** markers it reports but does
-  not resolve.
+- The resolve skill (`wisdom-ai-todos`) acts on **assistant-only** `#todo`
+  markers, reports **assistant+human** markers without resolving them, and leaves
+  **human-only** markers untouched. `#master` propagation is not part of it yet:
+  it runs only when a human asks for it explicitly.
 
 ## Style
 

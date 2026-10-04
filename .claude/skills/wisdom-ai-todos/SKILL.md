@@ -1,6 +1,6 @@
 ---
 name: wisdom-ai-todos
-description: Scans input text for "#todo @ai" markers (also matches "@claude" or equivalent assistant-directed tags), executes each requested task, and update the repo with those tasks resolved in place. Does NOT touch anything else in the file. Trigger: "resolve todos", "resuélves tareas", "risolvi todo", "solve the @ai todos", or any pasted text containing "#todo @ai".
+description: Scans input text for "#todo @ai" markers (also matches "@claude" or equivalent assistant-directed tags), executes each requested task, and update the repo with those tasks resolved in place. Does NOT touch anything else in the file. Trigger: "resolve todos", "resuelve las tareas", "risolvi todo", "solve the @ai todos", or any pasted text containing "#todo @ai".
 ---
 # Resolve todos in place
 
