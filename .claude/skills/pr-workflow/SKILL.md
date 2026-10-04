@@ -1,6 +1,6 @@
 ---
 name: pr-workflow
-description: "Owner commands on the work of a chat/session: \"status\" (report only), \"status go\" (report, then resume the work where it stopped), \"status save\" (report, then one commit+push covering every repo and branch involved). Also how an agent resumes a PR: verify findings, fix, push through the owner's commit flow, resolve threads, post its verdict, check merge-ready. Use on those commands and whenever an agent picks up an open PR."
+description: "Owner commands on the work of a chat/session: \"status\" (report only), \"pending\" (open items only), \"done\" (completed items only), \"status go\" (report, then resume the work where it stopped), \"status save\" (report, then one commit+push covering every repo and branch involved). Also how an agent resumes a PR: verify findings, fix, push through the owner's commit flow, resolve threads, post its verdict, check merge-ready. Use on those commands and whenever an agent picks up an open PR."
 ---
 
 # PR workflow
@@ -13,6 +13,8 @@ project, the project.
 | Command | Does |
 |---|---|
 | `status` | Report only: what is done, what is pending (and on whom), per repo, branch and PR. Changes nothing. |
+| `pending` | Same report, open items only. |
+| `done` | Same report, completed items only. |
 | `status go` | The report, then resume the work from where it stopped, e.g. the [fix loop](#fix-loop) on each open PR. |
 | `status save` | The report, then one commit+push through the owner's commit flow covering every repo and branch involved, one commit per repo/branch. |
 
