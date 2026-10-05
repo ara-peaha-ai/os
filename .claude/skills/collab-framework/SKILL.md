@@ -21,7 +21,12 @@ the framework.
 - **Project-specific facts → the repo.** Architecture, decisions, and status go in
   the project's own docs (e.g. `content/original/doc/**` in the content repo),
   not memory.
-- **Memory holds one line only:** `non salvo niente in memoria salvo tutto nelle skill`.
+- **Every content file → the project's content repo (`sovereign`), always.**
+  Drafts, emails, reports, notes: each project's content goes in
+  `content/original/doc/**` of that project's `sovereign` clone, with frontmatter
+  per the `frontmatter` skill, never as a file outside that clone (workspace
+  root, home, session temp). Reusable conventions still go in skills.
+- **Memory holds one line only:** nothing is saved in memory, everything goes into skills.
 
 ## Write down what the owner states
 
