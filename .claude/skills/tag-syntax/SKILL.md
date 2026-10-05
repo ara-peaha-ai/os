@@ -1,6 +1,6 @@
 ---
 name: tag-syntax
-description: "Inline/frontmatter marker grammar used across Peaha doc content — #todo (actor-addressed instructions), #pri (priority), !<when> (due date / scheduled time), #master (canonical naming/language source of truth with scoped propagation), #est/#act (estimated/actual time and money with roll-up), gantt (frontmatter, Gantt view). Use when writing, reading, or resolving these markers in content/original/doc/** or any project doc."
+description: "Inline/frontmatter marker grammar used across Peaha doc content — #todo (actor-addressed instructions), #pri (priority), !<when> (due date / scheduled time, or a short/mid/long horizon), #master (canonical naming/language source of truth with scoped propagation), #est/#act (estimated/actual time and money with roll-up), gantt (frontmatter, Gantt view). Use when writing, reading, or resolving these markers in content/original/doc/** or any project doc."
 ---
 
 # Tag syntax
@@ -48,11 +48,12 @@ old inline form — deprecated, write `#pri N`.
 
 `<when>` is an ISO date (`!2026-09-11`), optionally with time and timezone
 (`!2026-09-11 14:00:py`), or a relative token (`!today`, `!tomorrow`, `!monday`).
-Besides a date, `<when>` can be one of three internal horizons: `!short`,
-`!mid`, `!long` (short, mid, long term), for items with no exact deadline yet.
-Each horizon ends on a date that rolls forward: when the current short term
-closes, the team sets new end dates for all three. Current ends (set 2026-10-05):
-`!short` 2026-12-31, `!mid` 2027-12-31, `!long` 2029-12-31.
+On a `##todo` line, `<when>` can also be a planning horizon: `!short`, `!mid`,
+`!long` (short, mid, long term). A horizon is a bucket, not a deadline: the item
+stays in the backlog, not on the timeline, and a horizon is not valid on
+`##event` lines or as a Gantt start date. Each horizon's end date rolls forward
+when the current short term closes; the current end dates are team data and live
+in the content repo, not in this skill.
 One item carries one `!<when>`: on `##event` lines it is the event time, on
 `##todo` lines the deadline. Priority (`#pri N`) and due date (`!<when>`) are
 separate axes — an item can have both.
