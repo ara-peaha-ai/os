@@ -162,17 +162,20 @@ the docs.
 
 ## Markdown line breaks
 
-A line break that a human or an AI writes inside a paragraph is meant to show.
-Every process that writes or rewrites Markdown text (manual edits, humanizer,
-refactor, text optimization, messages for PrivateBin and similar) ends such a
-line with two trailing spaces, never with an extra blank line.
+A line break that a human or an AI means to show inside a paragraph (a
+signature, an address, lines of a short message) ends with two trailing spaces,
+never with an extra blank line. Every process that writes or rewrites Markdown
+(manual edits, humanizer, refactor, text optimization, Markdown pastes for
+PrivateBin) adds them on the breaks it writes and keeps them on the breaks it
+finds.
 
-- Applies to: a prose line directly followed by another non-blank line of the
-  same paragraph (signatures, addresses, a multi-line list item).
-- Skip: the last line of a paragraph, headings, table rows, frontmatter, and
-  code blocks (trailing spaces there change content, e.g. after a `\`).
-- Editors and linters must keep them: no `files.trimTrailingWhitespace` for
-  Markdown, markdownlint MD009 with `br_spaces: 2`.
+- Skip: source wrapping at a column (as in this file), which is not a break;
+  the last line of a paragraph; headings, table rows, frontmatter, code blocks
+  (trailing spaces there change content, e.g. after a `\`).
+- A blank line stays the mark of a new paragraph. Plain-text output
+  (`message-output`) is not Markdown and needs no trailing spaces.
+- Repos keep them through `.editorconfig`: `[*.md] trim_trailing_whitespace =
+  false` (wisdom has it).
 
 ## Renaming and moving files
 
