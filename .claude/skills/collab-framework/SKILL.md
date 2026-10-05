@@ -21,6 +21,9 @@ the framework.
 - **Project-specific facts → the repo.** Architecture, decisions, and status go in
   the project's own docs (e.g. `content/original/doc/**` in the content repo),
   not memory.
+- **Every content file → the project's content repo (`sovereign`), always.**
+  Drafts, emails, reports, notes: each project's content lives in that project's
+  `sovereign`, never as a loose file in the workspace, home or scratchpad.
 - **Memory holds one line only:** `non salvo niente in memoria salvo tutto nelle skill`.
 
 ## Write down what the owner states
