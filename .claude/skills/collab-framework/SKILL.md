@@ -160,6 +160,20 @@ otherwise. Providers that quote in EUR (e.g. Contabo) get converted; where the p
 publishes a USD price, use that USD price directly. Do not leave `€` figures in
 the docs.
 
+## Markdown line breaks
+
+A line break that a human or an AI writes inside a paragraph is meant to show.
+Every process that writes or rewrites Markdown text (manual edits, humanizer,
+refactor, text optimization, messages for PrivateBin and similar) ends such a
+line with two trailing spaces, never with an extra blank line.
+
+- Applies to: a prose line directly followed by another non-blank line of the
+  same paragraph (signatures, addresses, a multi-line list item).
+- Skip: the last line of a paragraph, headings, table rows, frontmatter, and
+  code blocks (trailing spaces there change content, e.g. after a `\`).
+- Editors and linters must keep them: no `files.trimTrailingWhitespace` for
+  Markdown, markdownlint MD009 with `br_spaces: 2`.
+
 ## Renaming and moving files
 
 - Git stores no rename: it detects one at commit time when the deletion and the new file land **in the same commit** and the content is mostly unchanged (>50% similar). `git log --follow <file>` then shows the full history.
