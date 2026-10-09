@@ -1,20 +1,43 @@
 ---
 name: tag-syntax
-description: "Inline/frontmatter marker grammar used across Peaha doc content — #todo (actor-addressed instructions), #pri (priority), !<when> (due date / scheduled time, or a short/mid/long horizon), #master (canonical naming/language source of truth with scoped propagation), #est/#act (estimated/actual time and money with roll-up), gantt (frontmatter, Gantt view). Use when writing, reading, or resolving these markers in content/original/doc/** or any project doc."
+description: "Inline/frontmatter marker grammar used across Peaha doc content — ##todo (actor-addressed instructions), #pri (priority), !<when> (due date / scheduled time, or a short/mid/long horizon), #master (canonical naming/language source of truth with scoped propagation), #est/#act (estimated/actual time and money with roll-up), gantt (frontmatter, Gantt view). Use when writing, reading, or resolving these markers in content/original/doc/** or any project doc."
 ---
 
 # Tag syntax
 
-Markers used in Peaha doc content. Each works **inline** (same line or table cell
+Markers used in Peaha doc content. Each tag works **inline** (same line or table cell
 as what it applies to) or as a **YAML frontmatter key** — same tag, either form.
+Commands (`##<name> … <name>##`) live in the body only: inside a frontmatter value
+they are plain text, nothing parses them.
 
 Companion skills: `wisdom-ai-todos` (executes the markers),
 `collab-framework` (who the responsible human is, by team role).
 
-## `#todo @<handle...> <instruction>`
+## `##<command>` vs `#<tag>`
 
-An instruction addressed to one or more actors. The instruction runs to the end
-of the line, sentence, or table cell it sits in. A marker may carry several
+A double hash opens a **command**: something an actor has to act on. `##todo` is
+the only command today; `##note`, `##event` and any future `##<name>` stay plain
+text until they get a closer and a component. A single hash is a plain **tag** (`#pri`,
+`#master`, `#est`, or any free tag) that only labels. `#todo` is a plain tag,
+never the todo command.
+
+A command always closes with its own name: `##todo … todo##`, `##note … note##`.
+Flags (`@handle…`, `#pri N`, `!<when>`) go right after the opener by convention,
+but are read anywhere inside the command; in a multi-paragraph command, only on its
+opening line: `##todo @giovanni @claude #pri 1 !2026-10-20 decide the LN custody model todo##`.
+A `##todo` without its `todo##` is not a command: it renders as text and no agent runs it.
+It works inside a sentence or table cell, or across paragraphs when the opener
+starts one paragraph and the closer ends a later one. Inside inline code it is
+an example, not a command.
+
+On the site, `remark-commands.mjs` (wisdom) turns each command into the content
+component of the same name (`Todo.vue`), flags as props: `to`, `pri`, `when`.
+`::todo-list` lists the page's todos (`::todo-list{path="<folder>"}` for a whole
+folder), most urgent first.
+
+## `##todo @<handle...> <instruction>`
+
+An instruction addressed to one or more actors. A marker may carry several
 handles — assistant and human together is allowed and meaningful.
 
 Who acts, by the mix of handles:
@@ -111,7 +134,7 @@ written back to the `.md` on sync, as one signed commit.
 
 ## Resolution
 
-- The resolve skill (`wisdom-ai-todos`) acts on **assistant-only** `#todo`
+- The resolve skill (`wisdom-ai-todos`) acts on **assistant-only** `##todo`
   markers, reports **assistant+human** markers without resolving them, and leaves
   **human-only** markers untouched. `#master` propagation is not part of it yet:
   it runs only when a human asks for it explicitly.

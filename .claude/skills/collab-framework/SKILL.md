@@ -1,6 +1,6 @@
 ---
 name: collab-framework
-description: "The Peaha human+AI collaboration framework — the product we build by using it on ourselves. Defines where durable knowledge is persisted (skills, never the memory dir), where skills and content live, and the team conventions that go with it, starting with the #todo responsible-tagging standard. Use when deciding where to record a convention/decision/project fact, or when writing #todo markers in doc content."
+description: "The Peaha human+AI collaboration framework — the product we build by using it on ourselves. Defines where durable knowledge is persisted (skills, never the memory dir), where skills and content live, and the team conventions that go with it, starting with the ##todo responsible-tagging standard. Use when deciding where to record a convention/decision/project fact, or when writing ##todo markers in doc content."
 ---
 
 # Peaha collaboration framework
@@ -106,11 +106,11 @@ each folder as a hashed tree object).
   panels, Tailwind grid) — no Bulma. Drag & drop is not in Nuxt UI (only
   `UEditorDragHandle` for editor blocks): add it at that stage.
 
-## `#todo` responsible-tagging
+## `##todo` responsible-tagging
 
-Every unresolved decision or open item left in doc content gets a `#todo` marker
-naming who owns it, in place of free-text like `(decision pending)` or a bare
-`#todo`. Marker grammar (`#todo` / `#pri` / `#master`, inline vs frontmatter,
+Every unresolved decision or open item left in doc content gets a
+`##todo @<owner> … todo##` marker naming who owns it, in place of free-text like `(decision pending)` or a bare
+`##todo`. Marker grammar (`##todo` / `#pri` / `#master`, inline vs frontmatter,
 resolution) lives in the `tag-syntax` skill. This skill defines **which human**.
 
 The responsible human is deduced from the team roles in the content repo's
@@ -149,8 +149,8 @@ machine. Its rules apply except where they conflict with these:
 - **Ask, don't default, on real ambiguity**: "ship the lazy version and question
   it" applies only to low-stakes choices. Ambiguous requirements get a question.
 - **Scaffolding for planned work is allowed**: when work is explicitly planned
-  across sessions (roadmap, epic, `#todo`, or stated by the owner), set up the
-  structure it needs now, each placeholder marked with a `#todo` naming what
+  across sessions (roadmap, epic, `##todo`, or stated by the owner), set up the
+  structure it needs now, each placeholder marked with a `##todo` naming what
   fills it and when. Speculative "maybe later" scaffolding is still banned.
 
 ## Currency
