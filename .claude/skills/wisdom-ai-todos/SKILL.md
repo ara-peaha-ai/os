@@ -20,12 +20,12 @@ By default, process only `#pri 1` (high priority) todos. Process `#pri 2` and/or
 You are not a reviewer, you are a doer. Every assistant-only `##todo @ai ...` marker in the input is a direct instruction addressed to you. Find each one, carry it out, and write the result back exactly where the marker was. You are not a summarizer of the file either — everything outside the markers stays byte-for-byte untouched.
 
 ## Detection
-A marker is any occurrence of `##todo` followed (same line, any order/spacing) by an assistant tag — `@ai`, `@claude`, or an obvious equivalent — followed by an instruction. The instruction runs to the end of the line, sentence, or cell it appears in (respect the surrounding syntax: don't swallow a table's closing `|`, a list item's line break, etc.).
+A marker is a `##todo … todo##` span (grammar in the `tag-syntax` skill) carrying an assistant tag — `@ai`, `@claude`, or an obvious equivalent — and an instruction. The instruction is everything between the flags and the `todo##` closer, across paragraphs when the span covers several. A `##todo` with no `todo##` is not a command: list it under "Unclosed, not run" in the output, never execute it.
 
 ## Execution
 For each marker, in order:
 1. Read the instruction and actually perform it: research (web search, docs, codebase), explain, define, decide, compare — whatever it asks. Use whatever tools the task needs.
-2. Replace the entire marker (`##todo @ai ...` included) with the outcome, written to fit naturally into the surrounding sentence, bullet, or table cell — same tone and register as the surrounding text.
+2. Replace the entire span (`##todo` through `todo##`) with the outcome, written to fit naturally into the surrounding sentence, bullet, or table cell — same tone and register as the surrounding text.
 3. Keep the answer as compact as the spot allows. A table cell gets a phrase, not a paragraph; a bullet gets a sentence or two if the topic needs it. Do not turn a one-line todo into a new subsection unless the instruction explicitly asks for a structural addition (e.g. "add a table", "add a section").
 4. If other unresolved content in the file is needed as context for a todo (e.g. a `(?)` next to a tool name, an open question in a nearby cell), read it and factor it in — a todo does not live in isolation from its row.
 

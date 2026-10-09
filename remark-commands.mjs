@@ -1,30 +1,38 @@
 // Remark plugin for the `##<name> … <name>##` commands (grammar: tag-syntax skill).
-// Each command becomes the `<name>` content component (app/components/content/),
-// its leading flags become props: `@handle…` → to, `#pri N` → pri, `!<when>` → when.
+// Each command in COMMANDS becomes the `<name>` content component (app/components/content/),
+// its flags, anywhere in the command, become props: `@handle…` → to, `#pri N` → pri, `!<when>` → when.
 // Inside one paragraph/cell/line it wraps the inline nodes in between; opened in one
 // paragraph and closed in a later one, it wraps those paragraphs as a block.
 // Inline code is a separate node, so a `##todo` written as an example stays text.
 
-const OPEN = /(?<!#)##([a-z][\w-]*)/
-const FLAG = /^\s*(@[\w.-]+|#pri\s+\d+|!\d{4}-\d{2}-\d{2}(?:\s+\d{1,2}:\d{2}(?::[a-z]+)?)?|![a-z]+)/i
+// Allowlist: the command name becomes an HTML tag, so only names with a component pass
+const COMMANDS = ['todo']
+const OPEN = new RegExp(`(?<!#)##(${COMMANDS.join('|')})(?![\\w-])`)
+// `!N` is the legacy priority; a date may carry a time and a zone (`:py`) or an offset (`-03`, `-03:00`)
+const FLAG = /(?<=^|\s)(@[a-z][\w.-]*|#pri\s+\d+|!\d+(?![\d-])|!\d{4}-\d{2}-\d{2}(?:\s+\d{1,2}:\d{2}(?::[a-z]+|[+-]\d{2}(?::?\d{2})?)?)?|![a-z]+)(?=[\s,.;:)]|$)/gi
 const closer = name => new RegExp(`(?<![\\w#])${name}##`)
 
-// Strips the leading flags off `text`, returns the props and what is left
-const readFlags = (text) => {
+// Pulls the flags out of the command's own text nodes; returns the props, strips the flags from the text
+const readFlags = (nodes) => {
   const to = []
-  let pri, when, m
-  while ((m = text.match(FLAG))) {
-    const flag = m[1]
-    if (flag.startsWith('@')) to.push(flag.slice(1))
-    else if (flag.startsWith('#')) pri = flag.split(/\s+/)[1]
-    else when = flag.slice(1)
-    text = text.slice(m[0].length)
+  let pri, when
+  for (const node of nodes) {
+    if (node.type !== 'text') continue
+    node.value = node.value.replace(FLAG, (flag) => {
+      if (flag.startsWith('@')) to.push(flag.slice(1))
+      else if (flag.startsWith('#')) pri = flag.split(/\s+/)[1]
+      else if (/^!\d+$/.test(flag)) pri = flag.slice(1)
+      else when = flag.slice(1)
+      return ''
+    }).replace(/[ \t]{2,}/g, ' ').replace(/ +([,.;:])/g, '$1')
   }
+  const first = nodes.find(n => n.type === 'text')
+  if (first) first.value = first.value.replace(/^[\s,]+/, '')
   const props = {}
   if (to.length) props.to = to.join(' ')
   if (pri) props.pri = pri
   if (when) props.when = when
-  return { props, rest: text.replace(/^\s+/, '') }
+  return props
 }
 
 const command = (name, props, children, block) => ({
@@ -57,13 +65,10 @@ const wrapInline = (children) => {
     const inner = j === i
       ? [text(after.slice(0, close.index))]
       : [text(after), ...children.slice(i + 1, j), text(closeText.slice(0, close.index))]
-    const { props, rest } = readFlags(inner[0].value)
-    inner[0] = text(rest)
+    const props = readFlags(inner)
+    const lastText = inner.at(-1)
+    if (lastText.type === 'text') lastText.value = lastText.value.replace(/\s+$/, '')
     const body = inner.filter(n => n.type !== 'text' || n.value)
-    if (body.length) {
-      const last = body.at(-1)
-      if (last.type === 'text') last.value = last.value.replace(/\s+$/, '')
-    }
     children.splice(i, j - i + 1, ...[text(before), command(name, props, body), text(tail)].filter(n => n.type !== 'text' || n.value))
   }
 }
@@ -77,14 +82,24 @@ const wrapBlock = (children) => {
     const name = open[1]
     // closed inside its own paragraph: an inline command, not a block
     if (children[i].children.some(n => n.type === 'text' && closer(name).test(n.value))) continue
-    const j = children.findIndex((n, k) => k > i && n.type === 'paragraph' && n.children.at(-1)?.type === 'text' && closer(name).test(n.children.at(-1).value))
+    // the closing paragraph: any of its text children holds the closer
+    const hasCloser = n => n.type === 'paragraph' && n.children.some(c => c.type === 'text' && closer(name).test(c.value))
+    const j = children.findIndex((n, k) => k > i && hasCloser(n))
     if (j < 0) continue
-    const { props, rest } = readFlags(first.value.slice(open[0].length))
-    first.value = rest
-    const lastText = children[j].children.at(-1)
-    lastText.value = lastText.value.replace(closer(name), '').replace(/\s+$/, '')
+    first.value = first.value.slice(open[0].length)
+    // block flags come from the opening line only, an @mention further down stays text
+    const [header, ...lines] = first.value.split('\n')
+    const head = text(header)
+    const props = readFlags([head])
+    first.value = [head.value, ...lines].join('\n').replace(/^\s+/, '')
+    // what follows the closer stays outside the command, as its own paragraph
+    const last = children[j].children
+    const at = last.findIndex(c => c.type === 'text' && closer(name).test(c.value))
+    const [inside, ...after] = last[at].value.split(closer(name))
+    const tail = [text(after.join('').replace(/^\s+/, '')), ...last.slice(at + 1)].filter(n => n.type !== 'text' || n.value)
+    children[j] = { ...children[j], children: [...last.slice(0, at), text(inside.replace(/\s+$/, ''))].filter(n => n.type !== 'text' || n.value) }
     const body = children.slice(i, j + 1).filter(p => p.children.some(n => n.type !== 'text' || n.value.trim()))
-    children.splice(i, j - i + 1, command(name, props, body, true))
+    children.splice(i, j - i + 1, command(name, props, body, true), ...(tail.length ? [{ type: 'paragraph', children: tail }] : []))
   }
 }
 
