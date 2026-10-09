@@ -144,6 +144,12 @@ export default defineNuxtConfig({
     database: {
       type: 'd1',
       bindingName: 'DB'
+    },
+    // `##todo … todo##` and any other `##<name> … <name>##` command → its content component
+    build: {
+      markdown: {
+        remarkPlugins: { [resolve('remark-commands.mjs')]: {} }
+      }
     }
   },
 
