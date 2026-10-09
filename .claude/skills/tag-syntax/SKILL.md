@@ -5,22 +5,27 @@ description: "Inline/frontmatter marker grammar used across Peaha doc content �
 
 # Tag syntax
 
-Markers used in Peaha doc content. Each works **inline** (same line or table cell
+Markers used in Peaha doc content. Each tag works **inline** (same line or table cell
 as what it applies to) or as a **YAML frontmatter key** — same tag, either form.
+Commands (`##<name> … <name>##`) live in the body only: inside a frontmatter value
+they are plain text, nothing parses them.
 
 Companion skills: `wisdom-ai-todos` (executes the markers),
 `collab-framework` (who the responsible human is, by team role).
 
 ## `##<command>` vs `#<tag>`
 
-A double hash opens a **command** (`##todo`, `##note`, any future `##<name>`):
-something an actor has to act on. A single hash is a plain **tag** (`#pri`,
+A double hash opens a **command**: something an actor has to act on. `##todo` is
+the only command today; `##note`, `##event` and any future `##<name>` stay plain
+text until they get a closer and a component. A single hash is a plain **tag** (`#pri`,
 `#master`, `#est`, or any free tag) that only labels. `#todo` is a plain tag,
 never the todo command.
 
 A command always closes with its own name: `##todo … todo##`, `##note … note##`.
-Flags (`@handle…`, `#pri N`, `!<when>`) come right after the opener:
-`##todo @giovanni @claude #pri 1 !2026-10-20 decide the LN custody model todo##`.
+Flags (`@handle…`, `#pri N`, `!<when>`) go right after the opener by convention,
+but are read anywhere inside the command; in a multi-paragraph command, only on its
+opening line: `##todo @giovanni @claude #pri 1 !2026-10-20 decide the LN custody model todo##`.
+A `##todo` without its `todo##` is not a command: it renders as text and no agent runs it.
 It works inside a sentence or table cell, or across paragraphs when the opener
 starts one paragraph and the closer ends a later one. Inside inline code it is
 an example, not a command.

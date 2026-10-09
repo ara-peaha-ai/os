@@ -108,8 +108,8 @@ each folder as a hashed tree object).
 
 ## `##todo` responsible-tagging
 
-Every unresolved decision or open item left in doc content gets a `##todo` marker
-naming who owns it, in place of free-text like `(decision pending)` or a bare
+Every unresolved decision or open item left in doc content gets a
+`##todo @<owner> … todo##` marker naming who owns it, in place of free-text like `(decision pending)` or a bare
 `##todo`. Marker grammar (`##todo` / `#pri` / `#master`, inline vs frontmatter,
 resolution) lives in the `tag-syntax` skill. This skill defines **which human**.
 

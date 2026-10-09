@@ -53,7 +53,7 @@ const ITEM_RE = /^(\s*)(?:[-*+]|\d+\.)\s+(.+)$/
 const BREAK_RE = /^\s*([-*_])(\s*\1){2,}\s*$/ // `* * *`, `---`: thematic break, not an item
 const FENCE_RE = /^\s*(`{3,}|~{3,})/
 const LINK_RE = /\]\(\s*<?([^)\s>]+)>?(?:\s+"[^"]*")?\s*\)/g
-const TODO_RE = /##todo\b([^\n]*)/g
+const TODO_RE = /##todo(?![\w-])(.*?)(?=todo##|$)/g // the command's own text, up to its closer
 const HANDLE_RE = /@([\p{L}\p{N}_-]+)/gu
 const UNSAFE_KEYS = new Set(['__proto__', 'constructor', 'prototype'])
 const isPlainObject = (v) => v !== null && typeof v === 'object' && !Array.isArray(v) && !(v instanceof Date)

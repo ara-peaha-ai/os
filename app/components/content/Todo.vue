@@ -17,7 +17,7 @@ const handles = computed(() => props.to.split(/\s+/).filter(Boolean))
   <!-- inline: span root + mdc-unwrap, valid inside a sentence or table cell; block: div keeps the paragraphs -->
   <component
     :is="block ? 'div' : 'span'"
-    class="inline-flex flex-wrap items-baseline gap-1.5"
+    :class="block ? 'flex flex-wrap items-baseline gap-1.5 my-4' : 'inline-flex flex-wrap items-baseline gap-1.5'"
   >
     <UIcon
       name="i-lucide-square"
