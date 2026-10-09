@@ -28,6 +28,20 @@ const homeSection = z.object({
 const pageSchema = z.object({
   rawbody: z.string().optional(),
   draft: z.boolean().optional(),
+  // visibility: public only with share AND public true; missing = false (true in *.pub.md)
+  share: z.boolean().optional(),
+  public: z.boolean().optional(),
+  // aliases read as share/public, written back as the canonical key; `publish` = legacy share
+  shared: z.boolean().optional(),
+  published: z.boolean().optional(),
+  publish: z.boolean().optional(),
+  // planning (tag-syntax): file feeds the Gantt view; est/act = file-level budget and actuals, e.g. "7d 2000USD"
+  gantt: z.boolean().optional(),
+  est: z.string().optional(),
+  act: z.string().optional(),
+  // canonical source of truth; slaves = languages (IT) or paths (/01.business) it propagates to
+  master: z.boolean().optional(),
+  slaves: z.union([z.string(), z.array(z.string())]).optional(),
   date: z.string().optional(),
   tags: z.array(z.string()).optional(),
   subtitle: z.string().optional(),
