@@ -28,6 +28,18 @@ const homeSection = z.object({
 const pageSchema = z.object({
   rawbody: z.string().optional(),
   draft: z.boolean().optional(),
+  // visibility flags as written in the file, not the resolved rule: the pub/pri filter
+  // (not built yet) applies suffix defaults and the aliases shared/published/publish,
+  // which Nuxt Content keeps in `meta`, before trusting these columns
+  share: z.boolean().optional(),
+  public: z.boolean().optional(),
+  // planning (tag-syntax): file feeds the Gantt view; est/act = file-level budget and actuals, e.g. "7d 2000USD"
+  gantt: z.boolean().optional(),
+  est: z.string().optional(),
+  act: z.string().optional(),
+  // canonical source of truth; slaves = languages (IT) or paths (/01.business) it propagates to
+  master: z.boolean().optional(),
+  slaves: z.union([z.string(), z.array(z.string())]).optional(),
   date: z.string().optional(),
   tags: z.array(z.string()).optional(),
   subtitle: z.string().optional(),
