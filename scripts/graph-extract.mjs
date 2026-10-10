@@ -140,11 +140,13 @@ const folderOf = (file) => {
 // media: `foo.jpg`, `foo.mp4` are one thing `foo` (the extension is only its type, an attribute);
 // `foo.<role>[.pub|.pri].md` in the same folder are its cards (`foo.description.pub.md`, `foo.transcript.md`).
 // No reserved role names: a .md is a card only when a media with its stem sits next to it.
-const mediaThing = new Map() // `<dir>/<stem>` → { id }  (media visibility: always pri, a card never changes it)
+// Each file decides only its own visibility: `foo.pub.jpg` is public, `foo.jpg` / `foo.pri.jpg` private.
+const mediaThing = new Map() // `<dir>/<stem>` → { id }
 for (const abs of media) {
   const file = relative(rootAbs, abs)
   const ext = extname(file)
-  const key = join(dirname(file), basename(file, ext))
+  const [, stem, suffix] = basename(file, ext).match(/^(.+?)(?:\.(pub|pri))?$/)
+  const key = join(dirname(file), stem)
   if (!mediaThing.has(key)) {
     const id = uniqueNode(`thing_${toId(key)}`, { label: basename(key), file_type: 'document', kind: 'media', source_file: file, visibility: 'pri' })
     addLink(folderOf(file), id, 'contains', file)
@@ -152,7 +154,7 @@ for (const abs of media) {
   }
   const thing = mediaThing.get(key)
   const id = uniqueNode(`media_${toId(file)}`, {
-    label: basename(file), file_type: 'document', kind: 'media_file', source_file: file, visibility: 'pri', ext: ext.slice(1).toLowerCase(),
+    label: basename(file), file_type: 'document', kind: 'media_file', source_file: file, visibility: suffix === 'pub' ? 'pub' : 'pri', ext: ext.slice(1).toLowerCase(),
   })
   addLink(thing.id, id, 'contains', file)
   idByPath.set(abs, id)
