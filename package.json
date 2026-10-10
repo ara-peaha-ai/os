@@ -4,6 +4,7 @@
   "scripts": {
     "build": "nuxt build",
     "sync-env": "bash scripts/sync-env.sh",
+    "graph": "bash scripts/graph.sh",
     "dev": "nuxt dev --host 0.0.0.0",
     "dev:content": "NUXT_ENABLE_SOVEREIGN_PREVIEW=true NUXT_SOVEREIGN_CONTENT_DIR=../../${content:-peaha_ai}/sovereign nuxt dev --host 0.0.0.0",
     "preview": "nuxt preview",
