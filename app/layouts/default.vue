@@ -5,8 +5,6 @@ const localePath = useLocalePath()
 const route = useRoute()
 const { public: { socials } } = useRuntimeConfig()
 
-// Order follows sovereign/content/socials.pub.yaml — icons from the already
-// installed simple-icons/lucide collections, not hand-copied SVGs.
 const socialMeta = {
   executive: { icon: 'lucide:contact', label: 'Digital business card' },
   github: { icon: 'simple-icons:github', label: 'GitHub' },
@@ -109,9 +107,10 @@ useHead(() => ({
     <footer style="border-top: 1px solid var(--ui-border)">
       <div class="max-w-3xl mx-auto px-6 py-4 flex flex-col items-center gap-4">
 
-        <!-- Social icons — order and list from sovereign/content/socials.pub.yaml -->
+        <!-- Social icons — URLs and order from socials.pub.yaml (source picked in nuxt.config.js), icons from socialMeta -->
         <div class="flex items-center gap-5">
-          <a v-for="s in socialLinks" :key="s.key" :href="withUtm(s.href)" :target="s.key === 'email' ? undefined : '_blank'"
+          <a v-for="s in socialLinks" :key="s.key" :href="withUtm(s.href)"
+            :target="s.key === 'email' ? undefined : '_blank'"
             :rel="s.key === 'email' ? undefined : 'noopener noreferrer'" :aria-label="s.label" class="transition"
             style="color: var(--ui-text-dimmed)">
             <Icon :name="s.icon" class="w-5 h-5" />
