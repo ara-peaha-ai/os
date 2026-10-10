@@ -1,0 +1,11 @@
+[Unit]
+Description=Move recents under %f from GNOME Recent to %f/.recent-hidden
+# Clicking through images fires many changes per second; never rate-limit
+StartLimitIntervalSec=0
+
+[Service]
+Type=oneshot
+ExecStart=%h/.local/bin/recent-hidden %f
+# Second pass: apps like Image Viewer may rewrite the list from a stale in-memory copy
+ExecStartPost=/bin/sleep 2
+ExecStartPost=%h/.local/bin/recent-hidden %f
