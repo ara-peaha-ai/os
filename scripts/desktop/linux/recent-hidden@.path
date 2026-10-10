@@ -1,0 +1,9 @@
+[Unit]
+Description=Watch GNOME recent files list for %f
+
+[Path]
+PathChanged=%h/.local/share/recently-used.xbel
+Unit=recent-hidden@%i.service
+
+[Install]
+WantedBy=default.target
