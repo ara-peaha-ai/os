@@ -84,7 +84,7 @@ One trigger that runs the whole flow with zero back-and-forth, for when `<owner>
    - `chmod +x <entry>/script`, then `bash -n` it.
    - For more than one commit, put the extra messages inline in the script (`git commit -m "..."`).
    - **One task = its own branch from `main`**, in every repo the script touches (`git switch -c <slug> origin/main`). Never commit onto a branch that belongs to another task or session, even if it is the one currently checked out.
-3. Tell `<owner>` to run it — never run the push yourself. The `gitpush` command in `<cli_repo>` still reads the old `/tmp/commit/script` and does not run gitpool entries, so the run line is the entry itself, in one block starting with an absolute `cd`: `cd <project> && ./.gitpool/<repo>/<id>/script`. The message ends with that command as its last line, in `<owner>`'s language (see the `next-action-last-line` skill).
+3. Tell `<owner>` to run it — never run the push yourself. The run line is `gitpush` (from `<cli_repo>`): it finds the pool of the current project, or of every project next to it, and runs the only pending entry or offers a menu; with several pending entries name this one, `gitpush <repo>/<id>`. The message ends with that command as its last line, in `<owner>`'s language (see the `next-action-last-line` skill).
 
 **Never tell `<owner>` to run an entry you did not write without reading the whole script first.** List every repo, branch and action it touches (pushes, new branches, PRs, backups, public vs private repos) in the message, so they know what it will do before they run it. The first line of the message and the `cd` line are not a description of the script.
 
