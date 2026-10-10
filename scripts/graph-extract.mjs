@@ -29,7 +29,7 @@ const warnings = []
 // accents folded, anything else non-alphanumeric → `_`; collisions are resolved by uniqueNode
 const toId = (s) => String(s).toLowerCase().normalize('NFKD').replace(/[̀-ͯ]/g, '')
   .replace(/[^a-z0-9]+/g, '_').replace(/^_|_$/g, '') || 'x'
-// shared nodes (folders, entities, roles, persons): same id = same thing
+// shared nodes (folders, entities): same id = same thing
 const addNode = (id, attrs) => {
   if (!nodes.has(id)) nodes.set(id, { id, ...attrs })
   return id
@@ -53,8 +53,6 @@ const ITEM_RE = /^(\s*)(?:[-*+]|\d+\.)\s+(.+)$/
 const BREAK_RE = /^\s*([-*_])(\s*\1){2,}\s*$/ // `* * *`, `---`: thematic break, not an item
 const FENCE_RE = /^\s*(`{3,}|~{3,})/
 const LINK_RE = /\]\(\s*<?([^)\s>]+)>?(?:\s+"[^"]*")?\s*\)/g
-const TODO_RE = /##todo(?![\w-])(.*?)(?=todo##|$)/g // the command's own text, up to its closer
-const HANDLE_RE = /@([\p{L}\p{N}_-]+)/gu
 const UNSAFE_KEYS = new Set(['__proto__', 'constructor', 'prototype'])
 const isPlainObject = (v) => v !== null && typeof v === 'object' && !Array.isArray(v) && !(v instanceof Date)
 
@@ -86,7 +84,7 @@ const walk = (dir) => readdirSync(dir, { withFileTypes: true })
   .sort((a, b) => a.name.localeCompare(b.name))
   .flatMap((e) => e.isDirectory() ? walk(join(dir, e.name)) : e.isFile() && e.name.endsWith('.md') ? [join(dir, e.name)] : [])
 
-// frontmatter value → nested field nodes; arrays of scalars stay one value (roles: [CMO, CFO]),
+// frontmatter value → nested field nodes; arrays of scalars stay one value (tags: [red, blue]),
 // a list of one-key maps with distinct keys reads as one map (sizes: [{dress: M}, {shoes: 37}])
 const addFields = (parentId, parentLabel, value, ctx) => {
   for (const [key, v] of Object.entries(value)) {
@@ -114,8 +112,6 @@ const addFields = (parentId, parentLabel, value, ctx) => {
 const rootAbs = resolve(root)
 const files = walk(rootAbs)
 const idByPath = new Map() // absolute path → node id, for link resolution
-const teamIdByHandle = new Map() // `@marta` → team/marta file or entity (handles = team file names)
-const HANDLE_ALIASES = { ai: 'claude' }
 const pending = [] // links resolved after every file is parsed
 const entityKey = (file) => `${dirname(file)}/${parseName(basename(file)).base}`
 const byEntity = groupBy(files.map((abs) => relative(rootAbs, abs)), entityKey)
@@ -163,7 +159,6 @@ for (const abs of files) {
   const attrs = { label: title, file_type: 'document', kind: 'file', source_file: file, source_location: 'L1', visibility: vis, slug, order }
   const fileKey = `doc_${toId(file.replace(/\.md$/, ''))}`
   let fileId
-  let handleTarget
   if (base === 'index' && !paired) {
     fileId = parent
     const { slug: _s, order: _o, ...indexAttrs } = attrs // the folder keeps its own slug and order
@@ -177,21 +172,15 @@ for (const abs of files) {
     if (base !== 'index' && suffix === 'pub') Object.assign(nodes.get(entityId), { label: title, source_file: file }) // public title names the entity
     fileId = uniqueNode(fileKey, attrs)
     addLink(entityId, fileId, 'contains', file)
-    handleTarget = entityId
   } else {
     fileId = uniqueNode(fileKey, attrs)
     addLink(parent, fileId, 'contains', file)
   }
   idByPath.set(abs, fileId)
-  if (parts[0] === 'team' && parts.length === 1) teamIdByHandle.set(base.toLowerCase(), handleTarget ?? fileId)
 
   const { title: _t, description, ...fields } = fm
   if (description != null) nodes.get(fileId).description = String(description)
   addFields(fileId, title, fields, ctx)
-  for (const role of [].concat(fm.roles ?? [])) {
-    const roleId = addNode(`role_${toId(role)}`, { label: String(role), file_type: 'concept', kind: 'role', source_file: file, visibility: 'pri' })
-    addLink(fileId, roleId, 'has_role', file, 1)
-  }
 
   // body: heading stack h2..h6 under the file (level 1), list items under the current section
   const offset = m ? m[0].split('\n').length - 1 : 0
@@ -210,7 +199,7 @@ for (const abs of files) {
     if (f) { fence = { char: f[1][0], length: f[1].length, line: ln }; return }
     if (comment || /^\s*<!--/.test(line)) { comment = !line.includes('-->'); return }
 
-    let source = stack.at(-1).id // what links and todos on this line belong to
+    let source = stack.at(-1).id // what links on this line belong to
     const h = line.match(HEADING_RE)
     if (h && h[1].length === 1) warnings.push(`${file}:${ln} h1 in body, h1 is the frontmatter title`)
     if (h && h[1].length > 1 && h[1].length <= DEPTH) {
@@ -249,20 +238,13 @@ for (const abs of files) {
       }
     } // folded headings (deeper than DEPTH) and body h1 stay text of the current section
 
-    const prose = line.replace(/`[^`]*`/g, '') // inline code is an example, not a link or a todo
+    const prose = line.replace(/`[^`]*`/g, '') // inline code is an example, not a link
     for (const [, dest] of prose.matchAll(LINK_RE)) {
       if (/^[a-z][a-z0-9+.-]*:/i.test(dest)) continue
       const [path, anchor = ''] = dest.split('#')
       if (path && !path.endsWith('.md')) continue
       const targetAbs = !path ? abs : path.startsWith('/') ? join(rootAbs, path.replace(/^\/doc\//, '')) : resolve(dirname(abs), path)
       pending.push({ source, targetAbs, anchor, file, ln })
-    }
-    // roll-up rows (`{type: task, ...}`) copy todos that live in other docs: no second edge
-    if (!/\{type:/.test(prose)) for (const [, rest] of prose.matchAll(TODO_RE)) {
-      for (const [, who] of rest.matchAll(HANDLE_RE)) {
-        const personId = addNode(`person_${toId(who)}`, { label: `@${who}`, file_type: 'concept', kind: 'person', source_file: file, visibility: 'pri' })
-        addLink(source, personId, 'todo_for', file, ln)
-      }
     }
   })
   if (fence) warnings.push(`${file}:${fence.line} code fence never closed, the rest of the file was skipped`)
@@ -282,15 +264,8 @@ for (const p of pending) {
   addLink(p.source, section ? section.id : fileTarget, 'references', p.file, p.ln)
 }
 
-// person handles → team file of the same name (convention: handles = team file names)
-for (const p of [...nodes.values()].filter((n) => n.kind === 'person')) {
-  const handle = p.label.slice(1).toLowerCase()
-  const team = teamIdByHandle.get(HANDLE_ALIASES[handle] ?? handle) ?? teamIdByHandle.get(handle)
-  if (team) addLink(p.id, team, 'is', nodes.get(team).source_file)
-}
-
 // graphify loads a DiGraph: one edge per ordered pair, so the structural one wins and repeats are counted
-const PRIORITY = ['contains', 'has_role', 'is', 'references', 'todo_for']
+const PRIORITY = ['contains', 'references']
 const edges = new Map()
 for (const l of links) {
   const key = `${l.source}\u0000${l.target}`
