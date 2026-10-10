@@ -1,5 +1,5 @@
 // Deterministic graph of a markdown tree, no LLM: folders, files, h2-h6 sections
-// (h1 = frontmatter title), list items and frontmatter keys become nodes.
+// (h1 = frontmatter title), list items, frontmatter keys and every non-.md file (media) become nodes.
 // Writes graphify's node-link graph.json, so `graphify cluster-only`, `query`,
 // `path` and `explain` run on our structure instead of an LLM guess.
 // The graph keeps private content (visibility is a node attribute, filtered at
@@ -10,7 +10,7 @@
 //   --depth N: folders down to level N and headings down to hN (default 6); deeper content
 //   folds into its level-N node, nothing is dropped
 import { readFileSync, writeFileSync, readdirSync, mkdirSync } from 'node:fs'
-import { join, relative, dirname, resolve, basename } from 'node:path'
+import { join, relative, dirname, resolve, basename, extname } from 'node:path'
 import yaml from 'js-yaml'
 
 const args = process.argv.slice(2)
@@ -78,11 +78,11 @@ const parseName = (name) => {
 const stripOrder = (dir) => dir.replace(/^\d+\./, '')
 const groupBy = (list, key) => list.reduce((acc, x) => acc.set(key(x), [...(acc.get(key(x)) ?? []), x]), new Map())
 
-// sorted for a deterministic graph; dot folders, node_modules and non-regular files skipped
+// sorted for a deterministic graph; dot files and folders, node_modules and non-regular files skipped
 const walk = (dir) => readdirSync(dir, { withFileTypes: true })
   .filter((e) => !e.name.startsWith('.') && e.name !== 'node_modules')
   .sort((a, b) => a.name.localeCompare(b.name))
-  .flatMap((e) => e.isDirectory() ? walk(join(dir, e.name)) : e.isFile() && e.name.endsWith('.md') ? [join(dir, e.name)] : [])
+  .flatMap((e) => e.isDirectory() ? walk(join(dir, e.name)) : e.isFile() ? [join(dir, e.name)] : [])
 
 // frontmatter value → nested field nodes; arrays of scalars stay one value (tags: [red, blue]),
 // a list of one-key maps with distinct keys reads as one map (sizes: [{dress: M}, {shoes: 37}])
@@ -110,11 +110,32 @@ const addFields = (parentId, parentLabel, value, ctx) => {
 }
 
 const rootAbs = resolve(root)
-const files = walk(rootAbs)
+const all = walk(rootAbs)
+const files = all.filter((f) => f.endsWith('.md'))
+const media = all.filter((f) => !f.endsWith('.md')) // photos, videos, pdf, models...: nodes without a body
 const idByPath = new Map() // absolute path → node id, for link resolution
 const pending = [] // links resolved after every file is parsed
 const entityKey = (file) => `${dirname(file)}/${parseName(basename(file)).base}`
 const byEntity = groupBy(files.map((abs) => relative(rootAbs, abs)), entityKey)
+
+// folder chain of a file, order prefixes stripped, folded below DEPTH → id of its deepest folder node
+const folderOf = (file) => {
+  let parent = addNode('dir_root', { label: basename(rootAbs), file_type: 'document', kind: 'folder', source_file: '', visibility: 'pri' })
+  const rawParts = (dirname(file) === '.' ? [] : dirname(file).split('/')).slice(0, DEPTH)
+  const parts = rawParts.map(stripOrder)
+  parts.forEach((p, i) => {
+    const path = rawParts.slice(0, i + 1).join('/')
+    const folderOrder = rawParts[i].match(/^(\d+)\./)?.[1]
+    const isNew = !nodes.has(`dir_${toId(path)}`)
+    const id = addNode(`dir_${toId(path)}`, {
+      label: parts.slice(0, i + 1).join('/'), file_type: 'document', kind: 'folder', source_file: path, visibility: 'pri',
+      slug: p, order: folderOrder ? Number(folderOrder) : null,
+    })
+    if (isNew) addLink(parent, id, 'contains', path)
+    parent = id
+  })
+  return parent
+}
 
 for (const abs of files) {
   const file = relative(rootAbs, abs)
@@ -134,21 +155,7 @@ for (const abs of files) {
   if (!suffix) warnings.push(`${file} no .pub/.pri suffix (mismatch, check-visibility fixes it to .pri.md)`)
   if (LETTER_PREFIX_RE.test(basename(file))) warnings.push(`${file} letter order prefix, digits only`)
 
-  // folder chain, order prefixes stripped, folded below DEPTH
-  let parent = addNode('dir_root', { label: basename(rootAbs), file_type: 'document', kind: 'folder', source_file: '', visibility: 'pri' })
-  const rawParts = (dirname(file) === '.' ? [] : dirname(file).split('/')).slice(0, DEPTH)
-  const parts = rawParts.map(stripOrder)
-  parts.forEach((p, i) => {
-    const path = rawParts.slice(0, i + 1).join('/')
-    const folderOrder = rawParts[i].match(/^(\d+)\./)?.[1]
-    const isNew = !nodes.has(`dir_${toId(path)}`)
-    const id = addNode(`dir_${toId(path)}`, {
-      label: parts.slice(0, i + 1).join('/'), file_type: 'document', kind: 'folder', source_file: path, visibility: 'pri',
-      slug: p, order: folderOrder ? Number(folderOrder) : null,
-    })
-    if (isNew) addLink(parent, id, 'contains', path)
-    parent = id
-  })
+  const parent = folderOf(file)
 
   // index.md is its folder's node; a pub/pri pair is one entity with two file children
   // a pair is exactly one .pub.md + one .pri.md; same suffix twice = same slug
@@ -241,8 +248,10 @@ for (const abs of files) {
     const prose = line.replace(/`[^`]*`/g, '') // inline code is an example, not a link
     for (const [, dest] of prose.matchAll(LINK_RE)) {
       if (/^[a-z][a-z0-9+.-]*:/i.test(dest)) continue
-      const [path, anchor = ''] = dest.split('#')
-      if (path && !path.endsWith('.md')) continue
+      const [rawPath, anchor = ''] = dest.split('#')
+      let path = rawPath
+      try { path = decodeURIComponent(rawPath) } catch { /* malformed escape: keep it as written */ }
+      if (path && !extname(path)) continue // site routes (`/insights/x`) are not file paths
       const targetAbs = !path ? abs : path.startsWith('/') ? join(rootAbs, path.replace(/^\/doc\//, '')) : resolve(dirname(abs), path)
       pending.push({ source, targetAbs, anchor, file, ln })
     }
@@ -251,6 +260,16 @@ for (const abs of files) {
   const end = offset + lines.length
   while (stack.length) stack.pop().node.end ??= end
   for (const n of nodes.values()) if (n.source_file === file && n.start) n.source_location = `L${n.start}-L${n.end}`
+}
+
+// media: a node in its folder, private until a rule says otherwise
+for (const abs of media) {
+  const file = relative(rootAbs, abs)
+  const id = uniqueNode(`media_${toId(file)}`, {
+    label: basename(file), file_type: 'document', kind: 'media', source_file: file, visibility: 'pri', ext: extname(file).slice(1).toLowerCase(),
+  })
+  addLink(folderOf(file), id, 'contains', file)
+  idByPath.set(abs, id)
 }
 
 // anchor → heading with that `{#id}`, else the heading whose text slugs the same, else the file
@@ -283,5 +302,5 @@ const graph = {
 }
 mkdirSync(dirname(outPath), { recursive: true })
 writeFileSync(outPath, JSON.stringify(graph, null, 2))
-console.log(`${files.length} files → ${graph.nodes.length} nodes, ${graph.links.length} links → ${outPath}`)
+console.log(`${files.length} md + ${media.length} media files → ${graph.nodes.length} nodes, ${graph.links.length} links → ${outPath}`)
 if (warnings.length) console.log(`${warnings.length} structure warnings:\n${warnings.map((w) => `  ${w}`).join('\n')}`)
