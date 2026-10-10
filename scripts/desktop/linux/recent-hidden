@@ -1,0 +1,62 @@
+#!/usr/bin/env python3
+# Moves GNOME "Recent" entries under a given directory out of recently-used.xbel
+# and mirrors them as symlinks in <dir>/.recent-hidden (symlink mtime = last visit);
+# dangling links are pruned on every run.
+# Usage: recent-hidden /abs/path/to/private/dir
+import os
+import sys
+import xml.etree.ElementTree as ET
+from datetime import datetime
+from urllib.parse import quote, unquote
+
+ET.register_namespace('bookmark', 'http://www.freedesktop.org/standards/desktop-bookmarks')
+ET.register_namespace('mime', 'http://www.freedesktop.org/standards/shared-mime-info')
+
+src_dir = os.path.realpath(os.path.expanduser(sys.argv[1])).rstrip('/')
+xbel = os.environ.get('RECENT_XBEL', os.path.expanduser('~/.local/share/recently-used.xbel'))
+out_dir = os.environ.get('RECENT_HIDDEN_DIR', os.path.join(src_dir, '.recent-hidden'))
+prefix = 'file://' + quote(src_dir) + '/'
+
+
+def link_for(path):
+    # "<parent dir> · <file name>"; " (2)", " (3)"... only when another file already owns the name
+    stem, ext = os.path.splitext(os.path.basename(path))
+    stem = os.path.basename(os.path.dirname(path)) + ' · ' + stem
+    n = 1
+    while True:
+        link = os.path.join(out_dir, stem + (f' ({n})' if n > 1 else '') + ext)
+        if not os.path.lexists(link) or os.readlink(link) == path:
+            return link
+        n += 1
+
+
+# Drop links whose target was renamed/moved since: Recent never reports renames
+if os.path.isdir(out_dir):
+    for e in os.scandir(out_dir):
+        if e.is_symlink() and not os.path.exists(e.path):
+            os.remove(e.path)
+
+tree = ET.parse(xbel)
+root = tree.getroot()
+hits = [b for b in root.findall('bookmark') if b.get('href', '').startswith(prefix)]
+if not hits:
+    sys.exit(0)  # nothing to do: no write, so the path unit doesn't retrigger
+
+os.makedirs(out_dir, exist_ok=True)
+for b in hits:
+    # realpath: a click inside .recent-hidden lands here too, map it back to the real file
+    path = os.path.realpath(unquote(b.get('href')[len('file://'):]))
+    when = datetime.fromisoformat((b.get('visited') or b.get('modified')).replace('Z', '+00:00')).timestamp()
+    root.remove(b)
+    if not os.path.isfile(path):
+        continue  # folders from file pickers or files moved since: drop from Recent, no link
+    link = link_for(path)
+    if os.path.lexists(link):
+        os.remove(link)
+    os.symlink(path, link)
+    os.utime(link, (when, when), follow_symlinks=False)
+
+tmp = xbel + '.tmp'
+tree.write(tmp, encoding='UTF-8', xml_declaration=True)
+os.chmod(tmp, 0o600)
+os.replace(tmp, xbel)  # atomic swap, GTK's file monitor reloads it
