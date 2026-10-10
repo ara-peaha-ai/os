@@ -140,7 +140,7 @@ const folderOf = (file) => {
 // media: `foo.jpg`, `foo.mp4` are one thing `foo` (the extension is only its type, an attribute);
 // `foo.<role>[.pub|.pri].md` in the same folder are its cards (`foo.description.pub.md`, `foo.transcript.md`).
 // No reserved role names: a .md is a card only when a media with its stem sits next to it.
-const mediaThing = new Map() // `<dir>/<stem>` → { id, media: [node ids], cards: [node ids] }
+const mediaThing = new Map() // `<dir>/<stem>` → { id }  (media visibility: always pri, a card never changes it)
 for (const abs of media) {
   const file = relative(rootAbs, abs)
   const ext = extname(file)
@@ -148,14 +148,13 @@ for (const abs of media) {
   if (!mediaThing.has(key)) {
     const id = uniqueNode(`thing_${toId(key)}`, { label: basename(key), file_type: 'document', kind: 'media', source_file: file, visibility: 'pri' })
     addLink(folderOf(file), id, 'contains', file)
-    mediaThing.set(key, { id, media: [], cards: [] })
+    mediaThing.set(key, { id })
   }
   const thing = mediaThing.get(key)
   const id = uniqueNode(`media_${toId(file)}`, {
     label: basename(file), file_type: 'document', kind: 'media_file', source_file: file, visibility: 'pri', ext: ext.slice(1).toLowerCase(),
   })
   addLink(thing.id, id, 'contains', file)
-  thing.media.push(id)
   idByPath.set(abs, id)
 }
 // `foo.description.pri.md` → card of `foo` with role `description`; `foo.pub.md` → card of `foo` without a role
@@ -196,7 +195,6 @@ for (const abs of files) {
   if (!paired && siblings.length > 1 && siblings.indexOf(suffix) !== siblings.lastIndexOf(suffix)) warnings.push(`${file} same slug as a sibling (${base}${suffix === 'pri' ? '-pri' : ''})`)
   const slug = suffix === 'pri' ? `${base}-pri` : base
   const attrs = { label: title, file_type: 'document', kind: card ? 'card' : 'file', source_file: file, source_location: 'L1', visibility: vis, slug, order, ...(card?.role && { role: card.role }) }
-  if (card) card.thing.cards.push(vis)
   const fileKey = `doc_${toId(file.replace(/\.md$/, ''))}`
   let fileId
   if (base === 'index' && !paired) {
@@ -293,12 +291,6 @@ for (const abs of files) {
   const end = offset + lines.length
   while (stack.length) stack.pop().node.end ??= end
   for (const n of nodes.values()) if (n.source_file === file && n.start) n.source_location = `L${n.start}-L${n.end}`
-}
-
-// a media thing is public only when at least one of its cards is public; no card = private
-for (const thing of mediaThing.values()) {
-  if (!thing.cards.includes('pub')) continue
-  for (const id of [thing.id, ...thing.media]) nodes.get(id).visibility = 'pub'
 }
 
 // anchor → heading with that `{#id}`, else the heading whose text slugs the same, else the file
