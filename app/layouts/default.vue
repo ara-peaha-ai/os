@@ -107,7 +107,7 @@ useHead(() => ({
     <footer style="border-top: 1px solid var(--ui-border)">
       <div class="max-w-3xl mx-auto px-6 py-4 flex flex-col items-center gap-4">
 
-        <!-- Social icons — order and list from /content/socials.pub.yaml -->
+        <!-- Social icons — URLs and order from socials.pub.yaml (source picked in nuxt.config.js), icons from socialMeta -->
         <div class="flex items-center gap-5">
           <a v-for="s in socialLinks" :key="s.key" :href="withUtm(s.href)"
             :target="s.key === 'email' ? undefined : '_blank'"
