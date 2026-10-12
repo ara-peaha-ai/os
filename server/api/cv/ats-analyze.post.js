@@ -1,6 +1,5 @@
 // Thin proxy: the CV stays server side (read by Nuxt Content path), the analysis runs in
-// ai-cli (`ai ats`, same JSON contract: {cvMarkdown, jobDescription, language} -> report).
-// ##todo @giovanni decide how wisdom (Cloudflare Pages) reaches ai-cli on the VPS (bridge, exposure, auth); until then aiCliUrl stays empty todo##
+// ai-cli (`ai ats` behind ai-bridge, same JSON contract: {cvMarkdown, jobDescription, language} -> report).
 // ##todo @giovanni protect this route (auth or rate limit) before it is linked anywhere public: every call spends LLM credits todo##
 export default defineEventHandler(async (event) => {
   const { cvPath, jobDescription, language } = await readBody(event) ?? {}
@@ -9,8 +8,8 @@ export default defineEventHandler(async (event) => {
     || (language !== undefined && typeof language !== 'string'))
     throw createError({ statusCode: 400, statusMessage: 'Invalid request' })
 
-  const { aiCliUrl } = useRuntimeConfig(event)
-  if (!aiCliUrl)
+  const { aiCliUrl, aiCliToken } = useRuntimeConfig(event)
+  if (!aiCliUrl || !aiCliToken)
     throw createError({ statusCode: 503, statusMessage: 'ai-cli not configured' })
 
   const page = await getPublishedPage(event, cvPath)
@@ -19,6 +18,7 @@ export default defineEventHandler(async (event) => {
 
   return $fetch(`${aiCliUrl}/ats`, {
     method: 'POST',
+    headers: { authorization: `Bearer ${aiCliToken}` },
     body: { cvMarkdown: page.rawbody, jobDescription, language }
   }).catch((error) => {
     console.error('ats-analyze:', error)
