@@ -25,9 +25,10 @@ notes.md
 TODO.md
 
 # Claude memory
-# local agent settings stay out; framework skills are versioned
+# local agent settings stay out; shared settings and framework skills are versioned
 .claude/*
 !.claude/skills/
+!.claude/settings.json
 
 # Large binaries
 public/moonshot-video.mp4

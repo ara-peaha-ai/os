@@ -1,6 +1,6 @@
 ---
 name: prepare-gitpush
-description: "Prepares the owner's signed commit+push flow through the gitpool (<project>/.gitpool/<repo>/<id>/{script,message}, one entry per push, never shared or overwritten): write the entry, tell the owner to run it, then watch on the incremental cadence (4x5s, 4x5m, 4x15m) for the push to land and print the result. If that push just opened a new PR, wait for Copilot's review, fix what's real, and prepare+watch a second gitpush for the fixes — then stop, do nothing else. When the owner comes back and explicitly asks to check, verify whether this session's push landed and whether its entry is still pending. Trigger to prepare: \"prepara commit\", \"prepara push\", \"prepara il push\", \"pronto per pushare\", \"è da pushare\", \"gitpush\". Trigger to re-check later: \"verify\", \"check the commit message is still good\", \"is it still good to push\". Merges are a separate flow (`gitmerge`, /tmp/merge/{script,message}) and never go into the gitpool; trigger to prepare a merge: \"mergia\", \"prepara merge\", \"gitmerge\"."
+description: "Prepares the owner's signed commit+push flow through the gitpool (<project>/.gitpool/<repo>/<id>/{script,message}, one entry per push, never shared or overwritten): write the entry, tell the owner to run it, then watch on the incremental cadence (4x5s, 4x5m, 4x15m) for the push to land and print the result. If that push just opened a new PR, wait for Copilot's review, fix what's real, and prepare+watch a second gitpush for the fixes, then merge when the merge conditions hold, then stop. When the owner comes back and explicitly asks to check, verify whether this session's push landed and whether its entry is still pending. Trigger to prepare: \"prepara commit\", \"prepara push\", \"prepara il push\", \"pronto per pushare\", \"è da pushare\", \"gitpush\". Trigger to re-check later: \"verify\", \"check the commit message is still good\", \"is it still good to push\". Once the review fixes have landed and the PR is merge-ready, the agent merges it itself (gh pr merge, merge commit signed by GitHub); merges never go into the gitpool. \"mergia\" on a PR applies the same merge conditions."
 ---
 
 # Prepare commit / gitpush
@@ -9,18 +9,18 @@ No names, paths or repos are hardcoded here. Resolve each placeholder from the c
 
 | Placeholder | What | How to resolve |
 | - | - | - |
-| `<owner>` | the human who owns the repos, signs every commit with their key and runs every push and merge | the person giving the instructions in the chat |
+| `<owner>` | the human who owns the repos, signs every commit with their key and runs every push | the person giving the instructions in the chat |
 | `<project>` | workspace folder holding one clone per repo | parent folder of the canonical clone (`git worktree list`, first line, then `dirname`) |
 | `<repo>`, `<org>` | repo name and GitHub owner | `git remote get-url origin` |
-| `<cli_repo>` | repo providing the `gitpush` / `gitmerge` commands | `readlink -f "$(command -v gitpush)"` |
+| `<cli_repo>` | repo providing the `gitpush` command | `readlink -f "$(command -v gitpush)"` |
 | `<content_repo>` | the project's content repo | the clone in `<project>` holding `content/original/doc/` |
 | `<team_dir>` | team folder of the content repo, one file per person | the folder under `content/original/doc/` holding the team member files |
 | `<engine>` | repo that renders the content and ships the framework skills | the repo holding this skill |
 | `<person>` | a team member's handle | the file names in `<team_dir>` |
 
-**Every push goes through this flow, in every repo, `agent` remote or not.** The agent commits on its own task branch whenever it sees fit (unsigned, local only); it never runs `git push` or opens a PR itself. The cycle starts only when `<owner>` asks with a trigger phrase: prepare the gitpush, watch it land, wait for the review, fix, prepare the next gitpush and tell them, watch it land; the merge stays theirs (`gitmerge`). The run is where `<owner>` signs with their key: an agent push skips the signature and breaks the chain.
+**Every push goes through this flow, in every repo, `agent` remote or not.** The agent commits on its own task branch whenever it sees fit (unsigned, local only); it never runs `git push` or opens a PR itself. The cycle starts only when `<owner>` asks with a trigger phrase: prepare the gitpush, watch it land, wait for the review, fix, prepare the next gitpush and tell them, watch it land, then [merge it](#merge--the-agents-last-step) yourself once it is merge-ready. The run is where `<owner>` signs with their key: an agent push skips the signature and breaks the chain.
 
-**`gitpush` never merges.** Never put `gh pr merge` (or any merge of a PR) in a gitpool script. A merge is prepared only when `<owner>` explicitly asks for it, only through [`gitmerge`](#prepare-a-merge--gitmerge), and announced as a merge before they run it.
+**`gitpush` never merges.** Never put `gh pr merge` (or any merge of a PR) in a gitpool script. The merge is the agent's own last step, run from the session after the review pass ([Merge](#merge--the-agents-last-step)): GitHub signs the merge commit, so it needs no run by `<owner>`.
 
 **Finishing a fix, a review, or a content edit is not a trigger by itself.** Only one of the trigger phrases in the frontmatter is. Don't prepare a gitpool entry proactively just because the work looks done or a natural next step — wait for `<owner>` to actually ask, even mid-session, even right after a review/fix pass. They say when to push.
 
@@ -29,8 +29,8 @@ The whole flow, in order:
 1. `<owner>` asks for the gitpush → **[roll up the repo's `#todo`s](#temporary--todo-roll-up-before-the-commit)**, then write the files.
 2. **Before writing "ready" to `<owner>`, start the [watcher](#watch-for-the-push) in the same turn** — same batch of tool calls that ends the turn, not a separate step you might do "next", not something you remember to do only if asked. Writing the gitpool entry and telling them it's ready are not done until the watcher is already running in the background. If you catch yourself about to send the "ready, run gitpush <n>" message without having called Bash with `run_in_background` for the watcher first — stop and start it now, before sending that message.
 3. Tell them it's ready. **Watch** on the [polling cadence](#polling-cadence), print each result. Push lands → confirmation print.
-4. **If that push just opened a brand-new PR** (this round's script used `git push -u origin HEAD` on a branch that had no upstream, and `gh pr create` actually ran, not the `gh pr view` no-op) → don't stop yet, run the **[Copilot review pass](#copilot-review-pass-after-a-newly-opened-pr-lands)**: wait for Copilot's review, verify and fix what's real, prepare a second gitpush, watch it land, confirm. This happens once per PR.
-5. **Stop. Do nothing else.** No proactive re-verify, no status commentary.
+4. **If that push just opened a brand-new PR** (this round's script used `git push -u origin HEAD` on a branch that had no upstream, and `gh pr create` actually ran, not the `gh pr view` no-op) → don't stop yet, run the **[Copilot review pass](#copilot-review-pass-after-a-newly-opened-pr-lands)**: wait for Copilot's review, verify and fix what's real, prepare a second gitpush, watch it land, confirm, then [merge](#merge--the-agents-last-step) when the conditions hold. This happens once per PR.
+5. **Stop** after the merge, or after printing its first blocker. No proactive re-verify, no status commentary.
 6. Days later they may reopen the terminal, see it never pushed, and ask to check → [re-check on demand](#re-check-on-demand-only-when-asked).
 
 ---
@@ -150,22 +150,27 @@ Only fires once, right after the push that created the PR (not after every later
 6. **Watch** that push exactly like [Watch for the push](#watch-for-the-push), on the [polling cadence](#polling-cadence).
 7. **Confirm** landing per [the branch case below](#after-the-push-lands--confirmation-print) — PR already exists, so just relink it, don't try to create it again. This confirmation is terminal: do not re-run this Copilot pass after it, even if Copilot posts more comments later. If `<owner>` wants another round, they ask for it.
    **Does the repo have `merge-ready`?** Ask the remote, never the local tree (a worktree or stale branch can predate the workflow): `gh api repos/<org>/<repo>/contents/.github/workflows/merge-ready.yml --jq .name 2>/dev/null`. Non-empty → steps 8–9 are mandatory, in the same turn the fix push is confirmed.
-8. **Resolve threads + Claude verdict.** In repos with the `merge-ready` workflow, once the fix push has landed: first resolve every review thread whose finding was fixed or verified false positive — `merge-ready` blocks on unresolved threads:
+8. **Resolve threads + Claude verdict.** In every repo, once the fix push has landed (or right after verification, when nothing real needed a fix): first resolve every review thread whose finding was fixed or verified false positive — `merge-ready` blocks on unresolved threads:
    `gh api graphql -f query='{repository(owner:"<org>",name:"<repo>"){pullRequest(number:<n>){reviewThreads(first:50){nodes{id isResolved}}}}}' --jq '.data.repository.pullRequest.reviewThreads.nodes[]|select(.isResolved==false)|.id'` → for each id `gh api graphql -f query='mutation{resolveReviewThread(input:{threadId:"<id>"}){thread{isResolved}}}'`.
-   Then post one PR comment: `<!-- claude -->` + `<!-- review: claude verdict=pass sha=<new head sha> -->` + one line ("Copilot findings verified: N fixed, M false positives"), or `verdict=fail` if something real is still open. This comment is also what re-runs the workflow: Copilot-bot events wait for manual approval and thread resolution fires no Actions event.
-9. **Merge-ready.** In repos with the `merge-ready` workflow (detected as above), poll on the [polling cadence](#polling-cadence) the head commit's `merge-ready` status (`gh api repos/<org>/<repo>/commits/<head sha>/status --jq '.statuses[]|select(.context=="merge-ready")|.state'`). On `success` print one line `✅ PR #<n> ready to merge` followed by the bare PR link; otherwise print the workflow's first blocker (`.description`) and stop. Repos without the workflow: skip this step. A green `merge-ready` is not a request to merge: prepare [`gitmerge`](#prepare-a-merge--gitmerge) only if `<owner>` asks.
+   Then post one PR comment: `<!-- claude -->` + `<!-- review: claude verdict=pass sha=<head sha> -->` + one line ("Copilot findings verified: N fixed, M false positives"), or `verdict=fail` if something real is still open. This comment is also what re-runs the workflow: Copilot-bot events wait for manual approval and thread resolution fires no Actions event.
+9. **Merge-ready.** In repos with the `merge-ready` workflow (detected as above), poll on the [polling cadence](#polling-cadence) the head commit's `merge-ready` status (`gh api repos/<org>/<repo>/commits/<head sha>/status --jq '.statuses[]|select(.context=="merge-ready")|.state'`). On `success` go on to the [merge](#merge--the-agents-last-step); otherwise print the workflow's first blocker (`.description`) and stop. Repos without the workflow: the merge conditions use the checks instead of `merge-ready`.
 
 ---
 
-## Prepare a merge — `gitmerge`
+## Merge — the agent's last step
 
-Only on an explicit ask ("mergia", "prepara merge", "gitmerge", or "apply the fixes and merge" said by `<owner>`). The `gitmerge` command lives in `<cli_repo>` (installed by its `install.sh`); it prints `/tmp/merge/message`, then runs `/tmp/merge/script`.
+The merge commit is created and signed by GitHub (its web-flow key, "Verified"), not by `<owner>`'s key, and every commit on the branch already carries their signature from `gitpush`. So once the review pass is done, the agent merges the PR itself, from the session, with `<owner>`'s `gh` login (GitHub records them as the merger). Never from a gitpool script.
 
-1. Preconditions: the PR's `merge-ready` status is `success` on its head commit (repos with the workflow), or `<owner>` explicitly accepts merging without it.
-2. Write `/tmp/merge/message`: one block they read before the merge runs: repo, PR number and title, head sha, merge method (squash, matching the repo's history), target branch.
-3. Write `/tmp/merge/script` (`chmod +x`): `set -e`; re-check that `merge-ready` is still `success` and the PR head is still the same sha (`test ... = ...`), so a later push stops the merge; `gh pr merge <n> --repo <org>/<repo> --squash`; print the PR state; self-disarm as the last line, same pattern as gitpush (`gitmerge: nothing pending (last: ...)`).
-4. Tell them in plain words that this merges PR #n into <branch>, and list what the script checks. Last line: the `gitmerge` command, in `<owner>`'s language.
-5. Watch on the [polling cadence](#polling-cadence) for `gh api repos/<org>/<repo>/pulls/<n> --jq .merged` to be `true`; print `<elapsed>: merged`, then the merge commit link. Then stop.
+Merge only when all of these hold on the current head sha; otherwise print the first blocker in one line and stop:
+
+1. The review pass on this PR is finished: the fix push landed (or there was nothing real to fix), every thread whose finding was fixed or shown false positive is resolved, and the agent's `verdict=pass` is posted on the head sha.
+2. Repos with `merge-ready`: its status is `success` on the head sha. Repos without it: `gh pr checks <n> --repo <org>/<repo>` exits 0 (every check passed). Exit 8 = still pending: poll it on the [polling cadence](#polling-cadence), never with `--watch`; any other exit = a failed check, the first blocker.
+3. No unresolved review thread, no human `CHANGES_REQUESTED`.
+4. The PR does not touch `.github/workflows/` (those wait for `<owner>`), and `<owner>` did not ask to hold it.
+
+Then `[ "$(gh api repos/<org>/<repo>/pulls/<n> --jq .head.sha)" = <head sha> ] && gh pr merge <n> --repo <org>/<repo> --merge --delete-branch` (the sha check stops the merge if someone pushed after the review; older `gh` releases lack `--match-head-commit`). Every merge deletes its branch: `--delete-branch` removes the remote one, then the agent removes its worktree (`git worktree remove <path>`, clean tree only) and the local branch (`git branch -D <branch>` from the canonical clone, once `git log <branch> --not origin/main` is empty). Merge method = the repo's history: `--merge` when `origin/main` shows "Merge pull request #…" commits, `--squash` when it shows squashed PR titles. Never `--admin` (it bypasses the ruleset) or `--auto` (it merges later, past these checks), never with a failing or pending check; the repo's `.claude/settings.json` denies both. Print `merged`, the merge commit link, and the bare PR link as the last line.
+
+`<owner>` saying "mergia" on a PR outside this flow: same conditions, same command.
 
 ## Re-check on demand — only when asked
 
