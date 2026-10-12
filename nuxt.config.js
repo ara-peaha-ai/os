@@ -37,6 +37,8 @@ export default defineNuxtConfig({
     }
   },
   runtimeConfig: {
+    // ai-cli base URL for /api/cv/ats-analyze (NUXT_AI_CLI_URL), empty until the transport is decided
+    aiCliUrl: '',
     public: { socials, utmSource, ownHosts: Object.values(localeDomains) }
   },
   app: {
