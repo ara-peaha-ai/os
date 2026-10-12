@@ -1,6 +1,6 @@
 ---
 name: pr-workflow
-description: "Owner commands on the work of a chat/session: \"status\" (report only), \"pending\" (report of what is not completed), \"completed\" (report of what is), \"status go\" (report, then resume the work where it stopped), \"status save\" (report, then one commit+push covering every repo and branch involved). Also how an agent resumes a PR: verify findings, fix, push through the owner's commit flow, resolve threads, post its verdict, check merge-ready. Use on those commands and whenever an agent picks up an open PR."
+description: "Owner commands on the work of a chat/session: \"status\" (report only), \"pending\" (report of what is not completed), \"completed\" (report of what is), \"status go\" (report, then resume the work where it stopped), \"status save\" (report, then one commit+push covering every repo and branch involved). Also how an agent resumes a PR: verify findings, fix, push through the owner's commit flow, resolve threads, post its verdict, check merge-ready, merge. Use on those commands and whenever an agent picks up an open PR."
 ---
 
 # PR workflow
@@ -60,7 +60,10 @@ on). Review-only requests (an agent asked to review a PR) stay read-only reports
      when no real finding is left. Never post a marker under another reviewer's
      name. The comment also re-runs `merge-ready` (thread resolution fires no
      Actions event);
-   - poll `merge-ready` and report its state or first blocker.
+   - poll `merge-ready` and report its state or first blocker;
+   - merge the PR only when every condition of the Merge section of the
+     `prepare-gitpush` skill holds, with its command; otherwise report the first blocker. The merge commit
+     is signed by GitHub, so it needs no run by the owner.
 6. **Older `fail` verdicts.** `merge-ready` treats a reviewer `fail` on an older
    commit as addressed (not passing) once no review thread is unresolved; no
    re-review unless the owner asks. A human `CHANGES_REQUESTED` stays blocking

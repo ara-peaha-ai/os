@@ -40,7 +40,9 @@ anything about this team, its people, plans or numbers goes in the content repo.
 Every convention and agent setting the team relies on lives in the project (the
 framework skills, repo files), never in a personal `~/.claude/CLAUDE.md` or
 `settings.json`. A VPS or any new machine installed from the repos behaves
-exactly like a team member's PC.
+exactly like a team member's PC. Agent permissions too: they go in each repo's
+committed `.claude/settings.json`, and setup instructions point there, never at
+the user's settings.
 
 ## Where skills and content live
 
