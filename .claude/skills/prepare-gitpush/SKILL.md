@@ -67,7 +67,7 @@ One trigger that runs the whole flow with zero back-and-forth, for when `<owner>
 
 ## Write the commit
 
-**The gitpool.** Every push gets its own entry, `<project>/.gitpool/<repo>/<id>/` with exactly two files, `script` and `message`. `<project>` is the workspace folder holding the repo clones (see the placeholder table), `<repo>` the repo name, `<id>` the branch slug plus 8 random hex characters (`docs-skills-read-only-68216a32`, from `uuidgen | cut -c1-8`). Entries are never shared, overwritten or reused: parallel sessions each write their own, and `<owner>` runs them in any order. Create the folders if missing (`.gitpool` with `chmod 700`).
+**The gitpool.** Every push gets its own entry, `<project>/.gitpool/<repo>/<id>/` with exactly two files, `script` and `message`. `<project>` is the workspace folder holding the repo clones (see the placeholder table), `<repo>` the repo name, `<id>` a serial number `<n>` plus the branch slug (`12-docs-skills-read-only`). Take `<n>` from the counter shared by every project, `n=$(( $(cat ~/.peaha/gitpool.seq 2>/dev/null || echo 0) + 1 )); echo $n > ~/.peaha/gitpool.seq`, and create the entry folder with plain `mkdir` (no `-p`), so a clash fails instead of overwriting. Entries are never shared, overwritten or reused: parallel sessions each write their own, and `<owner>` runs them in any order. Create the folders if missing (`.gitpool` with `chmod 700`).
 
 1. Write the commit title + body to `<entry>/message`. No co-authoring metadata, no `Claude-Session:` footer — this flow's messages are plain.
 2. Write `<entry>/script`, with absolute paths only (it may run from any folder):
@@ -84,7 +84,7 @@ One trigger that runs the whole flow with zero back-and-forth, for when `<owner>
    - `chmod +x <entry>/script`, then `bash -n` it.
    - For more than one commit, put the extra messages inline in the script (`git commit -m "..."`).
    - **One task = its own branch from `main`**, in every repo the script touches (`git switch -c <slug> origin/main`). Never commit onto a branch that belongs to another task or session, even if it is the one currently checked out.
-3. Tell `<owner>` to run it — never run the push yourself. The run line is `gitpush` (from `<cli_repo>`): it finds the pool of the current project, or of every project next to it, and runs the only pending entry or offers a menu; with several pending entries name this one, `gitpush <repo>/<id>`. The message ends with that command as its last line, in `<owner>`'s language (see the `next-action-last-line` skill).
+3. Tell `<owner>` to run it — never run the push yourself. The run line is `gitpush` (from `<cli_repo>`): it finds the pool of the current project, or of every project next to it, and runs the only pending entry or offers a menu. Always print the serial form, `gitpush <n>`: it works from any folder, home included, and picks the entry in any project's pool. Never print a bare `gitpush`, not even as a suggestion before an entry exists: it runs whatever entry is pending, possibly another session's. The message ends with that command as its last line, in `<owner>`'s language (see the `next-action-last-line` skill).
 
 **Never tell `<owner>` to run an entry you did not write without reading the whole script first.** List every repo, branch and action it touches (pushes, new branches, PRs, backups, public vs private repos) in the message, so they know what it will do before they run it. The first line of the message and the `cd` line are not a description of the script.
 
