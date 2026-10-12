@@ -168,7 +168,7 @@ Merge only when all of these hold on the current head sha; otherwise print the f
 3. No unresolved review thread, no human `CHANGES_REQUESTED`.
 4. The PR does not touch `.github/workflows/` (those wait for `<owner>`), and `<owner>` did not ask to hold it.
 
-Then `[ "$(gh api repos/<org>/<repo>/pulls/<n> --jq .head.sha)" = <head sha> ] && gh pr merge <n> --repo <org>/<repo> --merge` (the sha check stops the merge if someone pushed after the review; older `gh` releases lack `--match-head-commit`). Merge method = the repo's history: `--merge` when `origin/main` shows "Merge pull request #…" commits, `--squash` when it shows squashed PR titles. Never `--admin` (it bypasses the ruleset), never with a failing or pending check. Print `merged`, the merge commit link, and the bare PR link as the last line.
+Then `[ "$(gh api repos/<org>/<repo>/pulls/<n> --jq .head.sha)" = <head sha> ] && gh pr merge <n> --repo <org>/<repo> --merge --delete-branch` (the sha check stops the merge if someone pushed after the review; older `gh` releases lack `--match-head-commit`). Every merge deletes its branch: `--delete-branch` removes the remote one, then the agent removes its worktree (`git worktree remove <path>`, clean tree only) and the local branch (`git branch -D <branch>` from the canonical clone, once `git log <branch> --not origin/main` is empty). Merge method = the repo's history: `--merge` when `origin/main` shows "Merge pull request #…" commits, `--squash` when it shows squashed PR titles. Never `--admin` (it bypasses the ruleset), never with a failing or pending check. Print `merged`, the merge commit link, and the bare PR link as the last line.
 
 `<owner>` saying "mergia" on a PR outside this flow: same conditions, same command.
 
