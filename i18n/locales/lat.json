@@ -95,5 +95,25 @@
     "learnMore": "Ver más",
     "payin": "Cobro",
     "payout": "Liquidación"
+  },
+  "ats": {
+    "cvPath": "Ruta del CV",
+    "cvPathHelp": "Ruta de Nuxt Content del CV en Markdown",
+    "jobDescription": "Descripción del puesto",
+    "analyze": "Analizar CV",
+    "analyzing": "Analizando…",
+    "error": "El análisis falló",
+    "report": "Informe ATS",
+    "score": "Puntaje de coincidencia",
+    "none": "Nada que señalar",
+    "missingHardSkills": "Habilidades técnicas faltantes",
+    "missingSoftSkills": "Habilidades blandas faltantes",
+    "keywordDensityIssues": "Problemas de densidad de palabras clave",
+    "formattingSuggestionsForPdf": "Consejos de formato para la versión PDF",
+    "status": {
+      "excellent": "Excelente",
+      "good": "Bueno",
+      "poor": "Bajo"
+    }
   }
 }
