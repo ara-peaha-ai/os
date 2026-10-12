@@ -28,7 +28,6 @@ const sections = computed(() => [
       >
         <UInput
           v-model="cvPath"
-          placeholder="/original/doc/cv"
           class="w-full"
         />
       </UFormField>
@@ -101,8 +100,8 @@ const sections = computed(() => [
             class="list-disc space-y-1 ps-5 text-sm"
           >
             <li
-              v-for="item in section.items"
-              :key="item"
+              v-for="(item, i) in section.items"
+              :key="i"
             >
               {{ item }}
             </li>
