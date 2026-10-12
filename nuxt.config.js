@@ -37,8 +37,10 @@ export default defineNuxtConfig({
     }
   },
   runtimeConfig: {
-    // ai-cli base URL for /api/cv/ats-analyze (NUXT_AI_CLI_URL), empty until the transport is decided
+    // ai-cli's ai-bridge for /api/cv/ats-analyze: NUXT_AI_CLI_URL is the tunnel URL on Cloudflare
+    // Pages or http://<service>:<port> on the VPS Docker network; NUXT_AI_CLI_TOKEN = its AI_CLI_TOKEN
     aiCliUrl: '',
+    aiCliToken: '',
     public: { socials, utmSource, ownHosts: Object.values(localeDomains) }
   },
   app: {
