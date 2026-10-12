@@ -61,8 +61,8 @@ on). Review-only requests (an agent asked to review a PR) stay read-only reports
      name. The comment also re-runs `merge-ready` (thread resolution fires no
      Actions event);
    - poll `merge-ready` and report its state or first blocker;
-   - when it is green (in repos without `merge-ready`: every check passed), merge
-     the PR per the Merge section of the `prepare-gitpush` skill. The merge commit
+   - merge the PR only when every condition of the Merge section of the
+     `prepare-gitpush` skill holds, with its command; otherwise report the first blocker. The merge commit
      is signed by GitHub, so it needs no run by the owner.
 6. **Older `fail` verdicts.** `merge-ready` treats a reviewer `fail` on an older
    commit as addressed (not passing) once no review thread is unresolved; no
