@@ -95,5 +95,25 @@
     "learnMore": "Learn more",
     "payin": "Pay-in",
     "payout": "Payout"
+  },
+  "ats": {
+    "cvPath": "CV content path",
+    "cvPathHelp": "Nuxt Content path of the Markdown CV",
+    "jobDescription": "Job description",
+    "analyze": "Analyze CV",
+    "analyzing": "Analyzing…",
+    "error": "Analysis failed",
+    "report": "ATS feedback report",
+    "score": "Match score",
+    "none": "Nothing to report",
+    "missingHardSkills": "Missing hard skills",
+    "missingSoftSkills": "Missing soft skills",
+    "keywordDensityIssues": "Keyword density issues",
+    "formattingSuggestionsForPdf": "Formatting tips for the PDF version",
+    "status": {
+      "excellent": "Excellent",
+      "good": "Good",
+      "poor": "Poor"
+    }
   }
 }
