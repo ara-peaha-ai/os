@@ -5,6 +5,7 @@ export const useAtsScanner = () => {
   const loading = ref(false)
 
   const analyzeCv = async (cvPath, jobDescription) => {
+    if (loading.value) return
     loading.value = true
     error.value = null
     try {

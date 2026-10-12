@@ -5,7 +5,7 @@ export default defineEventHandler(async (event) => {
   const { cvPath, jobDescription, language } = await readBody(event) ?? {}
   if (typeof cvPath !== 'string' || !cvPath.startsWith('/') || cvPath.length > 512
     || typeof jobDescription !== 'string' || !jobDescription.trim() || jobDescription.length > 20000
-    || (language !== undefined && typeof language !== 'string'))
+    || (language !== undefined && (typeof language !== 'string' || language.length > 35)))
     throw createError({ statusCode: 400, statusMessage: 'Invalid request' })
 
   const { aiCliUrl, aiCliToken } = useRuntimeConfig(event)
@@ -16,10 +16,11 @@ export default defineEventHandler(async (event) => {
   if (!page?.rawbody)
     throw createError({ statusCode: 404, statusMessage: 'CV not found' })
 
-  return $fetch(`${aiCliUrl}/ats`, {
+  return $fetch(`${aiCliUrl.replace(/\/$/, '')}/ats`, {
     method: 'POST',
     headers: { authorization: `Bearer ${aiCliToken}` },
-    body: { cvMarkdown: page.rawbody, jobDescription, language }
+    // rawbody is the source file: the frontmatter is metadata, not CV text
+    body: { cvMarkdown: page.rawbody.replace(/^---\n[\s\S]*?\n---\n?/, ''), jobDescription, language }
   }).catch((error) => {
     console.error('ats-analyze:', error)
     throw createError({ statusCode: 502, statusMessage: 'ATS analysis failed' })
