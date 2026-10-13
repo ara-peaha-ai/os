@@ -164,7 +164,7 @@ The merge commit is created and signed by GitHub (its web-flow key, "Verified"),
 Merge only when all of these hold on the current head sha; otherwise print the first blocker in one line and stop:
 
 1. The review pass on this PR is finished: the fix push landed (or there was nothing real to fix), every thread whose finding was fixed or shown false positive is resolved, and the agent's `verdict=pass` is posted on the head sha.
-2. Repos with `merge-ready`: its status is `success` on the head sha. Repos without it: `gh pr checks <n> --repo <org>/<repo>` exits 0 (every check passed). Exit 8 = still pending: poll it on the [polling cadence](#polling-cadence), never with `--watch`; any other exit = a failed check, the first blocker.
+2. Repos with `merge-ready`: its status is `success` on the head sha. Repos without it: every row of `gh pr checks <n> --repo <org>/<repo>` is `pass` or `skipping`. Read the state column, not the exit code (older `gh` exits 1 on pending too): any `fail` = the first blocker; any `pending` = poll it on the [polling cadence](#polling-cadence), never with `--watch`.
 3. No unresolved review thread, no human `CHANGES_REQUESTED`.
 4. The PR does not touch `.github/workflows/` (those wait for `<owner>`), and `<owner>` did not ask to hold it.
 5. `git show origin/main:.claude/settings.json` has `Bash(gh pr merge:*)` in `permissions.allow`. The default branch decides, never the PR head: a PR that adds the rule does not unlock its own merge. Repos without the rule stop at merge-ready: the merge is `<owner>`'s, the last line is the PR link, and no other merge path (`gh api …/merge`, an MCP merge tool) replaces it.
