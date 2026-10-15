@@ -8,7 +8,7 @@ Units are physical (default since r155). Point/Spot intensity in candela with `d
 | `HemisphereLight(sky, ground, i)` | no | ~0 | Cheap outdoor fill |
 | `DirectionalLight(color, i)` | yes (ortho camera) | low | Sun; the direction is position → `target` |
 | `PointLight(color, i, distance, decay)` | yes (6 renders) | high with shadows | Bulbs, torches |
-| `SpotLight(color, i, distance, angle, penumbra, decay)` | yes | medium | Lamps, stage; `light.map` projects a texture |
+| `SpotLight(color, i, distance, angle, penumbra, decay)` | yes | medium | Lamps, stage; `light.map` projects a texture (needs `castShadow = true`) |
 | `RectAreaLight(color, i, w, h)` | no | high | Softboxes, windows; Standard/Physical materials only |
 
 Real scenes usually need `scene.environment` (HDR) plus one shadow-casting directional light.

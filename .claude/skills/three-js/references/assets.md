@@ -40,6 +40,7 @@ const head = gltf.scene.getObjectByName("Head"); // names come from the DCC tool
 ### Fit to unit size and center at origin
 
 ```javascript
+// model = fresh gltf.scene: position 0, scale 1, no transformed parent
 const box = new THREE.Box3().setFromObject(model);
 const size = box.getSize(new THREE.Vector3());
 const center = box.getCenter(new THREE.Vector3());
@@ -55,7 +56,9 @@ const frame = (object, camera, controls) => {
   const box = new THREE.Box3().setFromObject(object);
   const radius = box.getBoundingSphere(new THREE.Sphere()).radius;
   const center = box.getCenter(new THREE.Vector3());
-  const dist = radius / Math.sin(THREE.MathUtils.degToRad(camera.fov / 2));
+  const vFov = THREE.MathUtils.degToRad(camera.fov);
+  const hFov = 2 * Math.atan(Math.tan(vFov / 2) * camera.aspect);
+  const dist = radius / Math.sin(Math.min(vFov, hFov) / 2); // portrait: horizontal FOV limits
   camera.position.copy(center).add(new THREE.Vector3(0, 0, dist));
   camera.near = dist / 100;
   camera.far = dist * 100;
@@ -113,9 +116,9 @@ Other: `loader.setPath("/models/")`, `loader.setResourcePath()` (external .bin/t
 | OBJ + MTL | `MTLLoader` → `materials.preload()` → `OBJLoader.setMaterials()` | `Group`; no PBR, prefer converting to GLB |
 | FBX | `FBXLoader` | `Group` with `.animations`; often in cm, scale 0.01 |
 | STL | `STLLoader` | `BufferGeometry` only; add a material |
-| PLY | `PLYLoader` | `BufferGeometry`; `computeVertexNormals()` if missing, `vertexColors: true` |
+| PLY | `PLYLoader` | `BufferGeometry`; `computeVertexNormals()` if missing, `vertexColors: true`; `double` fields load as Float64 (convert to Float32) |
 | USDZ | `USDLoader` | still partial: test the file |
-| SVG | `SVGLoader` | paths → `SVGLoader.createShapes(path)` → `ShapeGeometry`/`ExtrudeGeometry` |
+| SVG | `SVGLoader` | paths → `path.toShapes()` → `ShapeGeometry`/`ExtrudeGeometry` (`createShapes` deprecated r185) |
 
 ## 3D text
 

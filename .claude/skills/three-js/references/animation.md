@@ -113,7 +113,7 @@ const head = model.getObjectByName("Head"); // bones are regular Object3Ds in th
 
 // in the loop: mixer first, then your overrides (look-at, IK, procedural)
 mixer.update(dt);
-head.rotation.y += Math.sin(timer.getElapsed()) * 0.3;
+head.rotateY(Math.sin(timer.getElapsed()) * 0.3); // only on bones the clip keys: the mixer rewrites them each frame, others would accumulate
 
 // Attach a prop to a hand, keep its local offset
 const hand = model.getObjectByName("RightHand");
