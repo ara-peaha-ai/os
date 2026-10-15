@@ -13,6 +13,7 @@ No names, paths or repos are hardcoded here. Resolve each placeholder from the c
 | `<project>` | workspace folder holding one clone per repo | parent folder of the canonical clone (`git worktree list`, first line, then `dirname`) |
 | `<repo>`, `<org>` | repo name and GitHub owner | `git remote get-url origin` |
 | `<cli_repo>` | repo providing the `gitpush` command | `readlink -f "$(command -v gitpush)"` |
+| `<base>` | branch the PR targets | the PR's `baseRefName`; before a PR exists, the default branch (`gh repo view --json defaultBranchRef -q .defaultBranchRef.name`) |
 | `<content_repo>` | the project's content repo | the clone in `<project>` holding `content/original/doc/` |
 | `<team_dir>` | team folder of the content repo, one file per person | the folder under `content/original/doc/` holding the team member files |
 | `<engine>` | repo that renders the content and ships the framework skills | the repo holding this skill |
@@ -83,8 +84,8 @@ One trigger that runs the whole flow with zero back-and-forth, for when `<owner>
    - **Remove its own entry as the last line**, only reached on success, so a done push can't be replayed and pending entries are exactly the folders left: `rm -- "<entry>/script" "<entry>/message" && rmdir -- "<entry>"` (literal absolute paths).
    - `chmod +x <entry>/script`, then `bash -n` it.
    - For more than one commit, put the extra messages inline in the script (`git commit -m "..."`).
-   - **One task = its own branch from `main`**, in every repo the script touches (`git switch -c <slug> origin/main`, after `git fetch origin`: never from a local `main`, which can be behind).
-   - **No conflicts at prepare time.** Before writing the entry, `git fetch -q origin` and check the branch merges cleanly into `origin/<base>` (`git merge --no-commit --no-ff origin/<base>` then `git merge --abort`, or `git merge-tree --write-tree` on git ≥ 2.38). If it conflicts, resolve it first as in [step 0 of the review pass](#copilot-review-pass--after-a-newly-opened-pr-lands): a PR must never open conflicting. Never commit onto a branch that belongs to another task or session, even if it is the one currently checked out.
+   - **One task = its own branch from `<base>`**, in every repo the script touches (`git fetch origin`, then `git switch -c <slug> --no-track origin/<base>`: never from a local `main`, which can be behind; `--no-track` so the branch never gets `origin/<base>` as upstream). Never commit onto a branch that belongs to another task or session, even if it is the one currently checked out.
+   - **No conflicts at prepare time.** Once the agent's commits are on the task branch and before writing the entry, `git fetch -q origin` and test the merge in a throwaway worktree, never in a checkout someone works in: `git worktree add --detach <scratchpad>/probe HEAD`, `git -C <scratchpad>/probe merge --no-commit origin/<base>` (exit 0 = clean), then `git worktree remove --force <scratchpad>/probe` either way. On conflicts, resolve them on the task branch as in [step 0 of the review pass](#copilot-review-pass-after-a-newly-opened-pr-lands) before writing the entry: a PR must never open conflicting.
 3. Tell `<owner>` to run it — never run the push yourself. The run line is `gitpush` (from `<cli_repo>`): it finds the pool of the current project, or of every project next to it, and runs the only pending entry or offers a menu. Always print the serial form, `gitpush <n>`: it works from any folder, home included, and searches the pools of every project folder next to the one holding `<cli_repo>`; it runs only when exactly one entry id starts with `<n>-`. Never print a bare `gitpush`, not even as a suggestion before an entry exists: it runs whatever entry is pending, possibly another session's. The message ends with that command as its last line, in `<owner>`'s language (see the `next-action-last-line` skill).
 
 **Never tell `<owner>` to run an entry you did not write without reading the whole script first.** List every repo, branch and action it touches (pushes, new branches, PRs, backups, public vs private repos) in the message, so they know what it will do before they run it. The first line of the message and the `cd` line are not a description of the script.
@@ -116,7 +117,7 @@ Check = subject line present in `git -C <repo> log <upstream> --format=%s -20 | 
 
 After the cadence window, this skill is done. Do not re-verify anything, do not comment on the entry, do not offer follow-ups.
 
-**Exception:** if this push just opened a brand-new PR (see step 3 of the flow above), landing doesn't end the skill — go to the [Copilot review pass](#copilot-review-pass-after-a-newly-opened-pr-lands) instead of stopping. A push that only updates an already-existing PR always ends here, same as before.
+**Exception:** if this push just opened a brand-new PR (see step 3 of the flow above), landing doesn't end the skill — go to the [Copilot review pass](#copilot-review-pass-after-a-newly-opened-pr-lands) instead of stopping. A push that only updates an already-existing PR always ends here, same as before, except the conflict-resolution push of [step 0](#copilot-review-pass-after-a-newly-opened-pr-lands): after it the same review pass continues.
 
 ---
 
@@ -124,7 +125,12 @@ After the cadence window, this skill is done. Do not re-verify anything, do not 
 
 Only fires once, right after the push that created the PR (not after every later push to the same branch — an already-existing PR was never "just opened").
 
-0. **Conflicts first.** Before reading or starting any review (Copilot or Grok), check `gh pr view <n> --repo <org>/<repo> --json mergeable -q .mergeable` (`UNKNOWN` = GitHub still computing, re-check on the [polling cadence](#polling-cadence)). On `CONFLICTING`: `git fetch -q origin`, `git merge origin/<base>` on the task branch, resolve every conflict (keep both sides' intent; regenerate lockfiles from the base's with the package manager, never hand-merge them), re-test, commit the merge unsigned, then prepare a gitpush that signs it in place (`git commit --amend -S -F <entry>/message`) and does a plain `git push`: never rebase or force-push a pushed branch. Watch it land, confirm the PR is `MERGEABLE`, and only then start the review: a review of a conflicting diff is wasted, the merge changes what it would read.
+0. **Conflicts first.** Before reading or starting any review (Copilot or Grok), poll `gh pr view <n> --repo <org>/<repo> --json mergeable -q .mergeable` until it is not `UNKNOWN` (GitHub still computing), on the [polling cadence](#polling-cadence). `MERGEABLE` → step 1. `CONFLICTING` → resolve, part of the same authorized cycle, no new trigger needed:
+   1. In the task worktree (`git -C <worktree>`, on the PR's head branch, fast-forwarded to `origin/<branch>`): `fetch -q origin`, `merge origin/<base>`.
+   2. Resolve manifests first, then regenerate each lockfile with the package manager that owns it, starting from the base's lockfile and the merged manifest (never hand-merge a lockfile). Incompatible edits on both sides → ask `<owner>`.
+   3. No `^<<<<<<<` left (`git diff --check` clean), re-test, then `git -c commit.gpgsign=false commit --no-edit` and record the merge sha.
+   4. Gitpool entry with **its own script, not the [Write the commit](#write-the-commit) template** (no `switch -c`, `add`, rebase, branch rename or `gh pr create`: a rebase drops the merge commit): `set -euo pipefail`, exit unless `HEAD` is the recorded sha, `git commit --amend -S -F <entry>/message`, `git push origin HEAD:refs/heads/<branch>`, remove the entry. Never rebase or force-push a pushed branch.
+   5. Watch it land, poll `mergeable` again until not `UNKNOWN`: `MERGEABLE` → step 1; still `CONFLICTING` → one line, stop. In step 1, count only a review whose `commit_id` is the new head sha: a review of the conflicting head is wasted, the merge changes what it reads.
 
 1. **Wait for the review.** Copilot's reviewer bot doesn't post instantly. Poll on the [polling cadence](#polling-cadence):
    `gh api repos/<org>/<repo>/pulls/<n>/reviews --jq '[.[] | select(.user.login == "copilot-pull-request-reviewer[bot]")] | length'`
