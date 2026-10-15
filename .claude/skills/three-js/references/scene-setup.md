@@ -33,7 +33,7 @@ await renderer.init(); // before the first render() outside setAnimationLoop
 
 const material = new THREE.MeshStandardNodeMaterial();
 material.colorNode = color(0x3399ff);
-material.positionNode = positionLocal.add(sin(time).mul(0.1));
+material.positionNode = positionLocal.add(sin(time).mul(0.1)); // SkinnedMesh: start from positionGeometry
 
 renderer.setAnimationLoop(() => renderer.render(scene, camera));
 ```
@@ -57,7 +57,7 @@ const h = (window.innerHeight / 2) * window.devicePixelRatio;
 sub.viewport = new THREE.Vector4(Math.floor(x * w), Math.floor(y * h), Math.ceil(w), Math.ceil(h));
 
 // CubeCamera: dynamic reflections. Hide the reflecting object while updating.
-const cubeRT = new THREE.WebGLCubeRenderTarget(256);
+const cubeRT = new THREE.WebGLCubeRenderTarget(256); // WebGPURenderer: THREE.CubeRenderTarget
 const cubeCamera = new THREE.CubeCamera(0.1, 100, cubeRT);
 shiny.material.envMap = cubeRT.texture;
 // per frame (expensive; update every N frames if possible)
@@ -73,7 +73,7 @@ Coordinates: right-handed, +Y up, +Z toward the viewer. Units are meters (GLTF i
 
 | Control | Use | Update call |
 |---|---|---|
-| `OrbitControls` | Product viewer, orbit around `controls.target` | `controls.update(dt)` each frame if damping/autoRotate |
+| `OrbitControls` | Product viewer, orbit around `controls.target` | `controls.update(dt)` each frame if damping/autoRotate (`dt` is used by autoRotate only) |
 | `MapControls` | Top-down maps, pan with left button | same as Orbit |
 | `TrackballControls` | Free rotation, no up-vector lock | `controls.update()` |
 | `PointerLockControls(camera, document.body)` | FPS mouse look; `controls.lock()` from a click handler | move with `moveForward(d)`, `moveRight(d)` |
@@ -81,7 +81,7 @@ Coordinates: right-handed, +Y up, +Z toward the viewer. Units are meters (GLTF i
 | `TransformControls` | Move/rotate/scale gizmo | `scene.add(tc.getHelper())` |
 | `DragControls(objects, camera, dom)` | Drag meshes on the view plane | event based |
 
-Useful Orbit limits: `minDistance`, `maxDistance`, `minPolarAngle`, `maxPolarAngle = Math.PI / 2` (stay above ground), `minAzimuthAngle`, `maxAzimuthAngle`, `enablePan`, `autoRotate`, `autoRotateSpeed`. Render-on-demand (static scenes, battery): no loop, `controls.addEventListener("change", render)`.
+Useful Orbit limits: `minDistance`, `maxDistance`, `minPolarAngle`, `maxPolarAngle = Math.PI / 2` (stay above ground), `minAzimuthAngle`, `maxAzimuthAngle`, `enablePan`, `autoRotate`, `autoRotateSpeed`. Render-on-demand (static scenes, battery): no loop, `controls.addEventListener("change", render)`, only with damping and autoRotate off.
 
 ## Object3D essentials
 
