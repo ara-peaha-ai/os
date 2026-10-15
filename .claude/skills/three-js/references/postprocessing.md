@@ -14,14 +14,14 @@ composer.addPass(new RenderPass(scene, camera));
 const bloom = new UnrealBloomPass(new THREE.Vector2(w, h), 0.6, 0.4, 0.9); // strength, radius, threshold
 composer.addPass(bloom);
 composer.addPass(new OutputPass()); // tone mapping + sRGB: after the HDR effects
-composer.addPass(new FXAAPass()); // AA works on the final sRGB image
+composer.addPass(new FXAAPass()); // FXAA works on the final sRGB image
 
 // resize: renderer.setSize(w, h); composer.setSize(w, h);  (passes resize themselves)
 // loop:   composer.render();  instead of renderer.render()
 ```
 
 - `renderer.toneMapping` is applied by `OutputPass`, not by the RenderPass. Without OutputPass the image is linear and dark/washed out.
-- `antialias: true` on the renderer doesn't apply inside the composer. Use `FXAAPass`/`SMAAPass` after OutputPass, or an MSAA target: `new EffectComposer(renderer, new THREE.WebGLRenderTarget(w, h, { type: THREE.HalfFloatType, samples: 4 }))`.
+- `antialias: true` on the renderer doesn't apply inside the composer. Use `SMAAPass` before OutputPass or `FXAAPass` after it, or an MSAA target: `new EffectComposer(renderer, new THREE.WebGLRenderTarget(w, h, { type: THREE.HalfFloatType, samples: 4 }))`.
 - Toggle without rebuilding: `pass.enabled = false`. Every pass is a full-screen draw, so on mobile drop the expensive ones or render the composer at a lower size.
 - `composer.dispose()` on teardown.
 
@@ -33,7 +33,7 @@ composer.addPass(new FXAAPass()); // AA works on the final sRGB image
 | Outline | `OutlinePass(resolution, scene, camera)` | `selectedObjects = [mesh]`, `edgeStrength`, `edgeThickness`, `visibleEdgeColor`, `hiddenEdgeColor` |
 | SSAO | `SSAOPass(scene, camera, w, h)` or `GTAOPass(scene, camera, w, h)` | GTAO looks better; `output` modes for debugging (`SSAOPass.OUTPUT.SSAO`) |
 | Depth of field | `BokehPass(scene, camera, { focus, aperture, maxblur })` | Update `uniforms.focus.value` with the focus distance |
-| FXAA / SMAA | `new FXAAPass()` / `new SMAAPass()` | After OutputPass |
+| FXAA / SMAA | `new FXAAPass()` / `new SMAAPass()` | FXAA after OutputPass, SMAA before it (linear input) |
 | Film grain | `FilmPass(intensity, grayscale)` | |
 | Glitch | `GlitchPass()` | `goWild = true` for constant glitching |
 | Pixelate | `RenderPixelatedPass(pixelSize, scene, camera)` | Replaces the RenderPass |
@@ -106,17 +106,18 @@ finalComposer.addPass(new OutputPass());
 const black = new THREE.MeshBasicMaterial({ color: 0x000000 });
 const saved = new Map();
 const render = () => {
+  const background = scene.background;
+  scene.background = null; // or the background blooms too
   scene.traverse((o) => {
     if (o.isMesh && !bloomLayer.test(o.layers)) { saved.set(o, o.material); o.material = black; }
   });
   bloomComposer.render();
   for (const [o, m] of saved) o.material = m;
   saved.clear();
+  scene.background = background;
   finalComposer.render(); // not renderer.render(): that would overwrite the result
 };
 ```
-
-Set `scene.background` to black (or null) during the bloom render too, or the background blooms.
 
 ## WebGPURenderer: RenderPipeline (TSL)
 

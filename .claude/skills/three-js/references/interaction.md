@@ -41,7 +41,7 @@ const setHover = (mesh) => {
   renderer.domElement.style.cursor = mesh ? "pointer" : "";
   if (!mesh) return;
   if (!mesh.userData.ownMaterial) {
-    mesh.material = mesh.material.clone(); // GLTF materials are shared
+    mesh.material = mesh.material.clone(); // GLTF materials are shared; multi-material arrays: clone each entry
     mesh.userData.ownMaterial = true;
     mesh.userData.baseEmissive = mesh.material.emissive.getHex();
   }
@@ -61,7 +61,7 @@ let dragged = null;
 renderer.domElement.addEventListener("pointerdown", (e) => {
   const hit = pick(e);
   if (!hit) return;
-  dragged = hit.object;
+  dragged = hit.object; // or its pickable root, see Picking
   controls.enabled = false;
   renderer.domElement.setPointerCapture(e.pointerId);
 });
@@ -70,8 +70,9 @@ renderer.domElement.addEventListener("pointermove", (e) => {
   toNDC(e);
   raycaster.setFromCamera(ndc, camera);
   if (!raycaster.ray.intersectPlane(ground, hitPoint)) return;
-  dragged.position.x = hitPoint.x;
-  dragged.position.z = hitPoint.z;
+  const local = dragged.parent.worldToLocal(hitPoint.clone()); // hitPoint is world, position is parent space
+  dragged.position.x = local.x;
+  dragged.position.z = local.z;
 });
 renderer.domElement.addEventListener("pointerup", () => {
   dragged = null;
@@ -122,9 +123,10 @@ Real DOM: accessible, crisp text, CSS styling. Labels always draw on top, even b
 ```javascript
 // World point → CSS pixels inside the canvas
 const toScreen = (worldPos) => {
-  const p = worldPos.clone().project(camera); // NDC −1..1
+  const behind = worldPos.clone().applyMatrix4(camera.matrixWorldInverse).z > 0; // camera looks down −Z
+  const p = worldPos.clone().project(camera); // NDC −1..1; x/y are flipped when behind
   const rect = renderer.domElement.getBoundingClientRect();
-  return { x: ((p.x + 1) / 2) * rect.width, y: ((1 - p.y) / 2) * rect.height, behind: p.z > 1 };
+  return { x: ((p.x + 1) / 2) * rect.width, y: ((1 - p.y) / 2) * rect.height, behind };
 };
 
 // Screen → world on a plane: raycaster.setFromCamera(ndc, camera); raycaster.ray.intersectPlane(plane, out)

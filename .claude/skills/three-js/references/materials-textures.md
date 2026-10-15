@@ -133,7 +133,7 @@ for (let i = 0; i < count; i++) {
 }
 mesh.instanceMatrix.needsUpdate = true;
 mesh.instanceColor.needsUpdate = true;
-mesh.computeBoundingSphere(); // after moving instances, or culling uses the base geometry
+mesh.computeBoundingSphere(); // after moving instances: the sphere is computed once and goes stale
 // raycast hit → hit.instanceId
 ```
 
@@ -153,7 +153,7 @@ import { LineMaterial } from "three/addons/lines/LineMaterial.js";
 import { LineGeometry } from "three/addons/lines/LineGeometry.js";
 const thick = new Line2(
   new LineGeometry().setPositions(flatXYZ),
-  new LineMaterial({ color: 0xffffff, linewidth: 4 }), // pixels
+  new LineMaterial({ color: 0xffffff, linewidth: 4 }), // pixels; WebGLRenderer only, WebGPU: Line2NodeMaterial
 );
 ```
 
