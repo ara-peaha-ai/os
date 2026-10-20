@@ -6,12 +6,18 @@
 // Only `permissions.allow` / `permissions.deny` are merged (union); every other key
 // of the project file stays as is. The old file is kept as settings.json.bak-<ts>.
 // Same command on a PC and on a VPS; safe to re-run.
-import { existsSync, readFileSync, writeFileSync, copyFileSync, mkdirSync } from 'node:fs'
+// ponytail: union only, a rule removed from wisdom stays here; track a managed subset if that bites.
+// Usage: node scripts/link-project-settings.mjs <project>
+import { existsSync, readFileSync, writeFileSync, copyFileSync, mkdirSync, renameSync, chmodSync } from 'node:fs'
+import { homedir } from 'node:os'
 import { dirname, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
 const wisdom = resolve(dirname(fileURLToPath(import.meta.url)), '..')
-const project = resolve(process.argv[2] || dirname(wisdom))
+if (!process.argv[2]) { console.error('usage: link-project-settings.mjs <project>'); process.exit(1) }
+const project = resolve(process.argv[2])
+// ~/.claude/settings.json would apply the agent's rules in every folder
+if (project === resolve(homedir())) { console.error(`refusing: ${project} is the home folder`); process.exit(1) }
 const src = JSON.parse(readFileSync(resolve(wisdom, '.claude/settings.json'), 'utf8'))
 const dstPath = resolve(project, '.claude/settings.json')
 const dst = existsSync(dstPath) ? JSON.parse(readFileSync(dstPath, 'utf8')) : {}
@@ -30,7 +36,13 @@ if (JSON.stringify(merged) === JSON.stringify(dst)) {
   console.log(`ok       ${dstPath}`)
 } else {
   mkdirSync(dirname(dstPath), { recursive: true })
-  if (existsSync(dstPath)) copyFileSync(dstPath, `${dstPath}.bak-${new Date().toISOString().replace(/[:.]/g, '')}`)
-  writeFileSync(dstPath, JSON.stringify(merged, null, 2) + '\n')
+  if (existsSync(dstPath)) {
+    const backup = `${dstPath}.bak-${new Date().toISOString().replace(/[:.]/g, '')}`
+    copyFileSync(dstPath, backup)
+    chmodSync(backup, 0o600)
+  }
+  // temp file + rename: Claude Code reloads settings on change and must never read a half-written file
+  writeFileSync(`${dstPath}.tmp`, JSON.stringify(merged, null, 2) + '\n', { mode: 0o600 })
+  renameSync(`${dstPath}.tmp`, dstPath)
   console.log(`merged   ${dstPath}`)
 }

@@ -46,22 +46,29 @@ the user's settings.
 
 ### One-time setup of a machine
 
-Same steps on a PC and on a VPS, all safe to re-run. `<project>` is the folder
-holding one clone per repo.
+Same steps on a PC and on a VPS; skip a step already done (a second `git clone`
+or `gh auth login` fails or asks again). `<project>` is the folder holding one
+clone per repo, never `~`.
 
 | # | Step | Why |
 | - | - | - |
-| 1 | Clone every repo into `<project>` (`git clone git@github.com:<org>/<repo>.git`) | one clone per repo, worktrees next to them |
-| 2 | `gh auth login`, GPG key with `git config --global commit.gpgsign true` and `user.signingkey` | the owner's `gitpush` signs every commit and opens the PR |
+| 1 | SSH key on GitHub, then clone every repo into `<project>` (`git clone git@github.com:<org>/<repo>.git`) | one clone per repo, worktrees next to them |
+| 2 | `gh auth login`; passphrase-protected GPG key, `git config --global user.signingkey <key id>` and `commit.gpgsign true` | the owner's `gitpush` signs every commit and opens the PR; agents always commit with `-c commit.gpgsign=false` |
 | 3 | `ai-cli/install.sh` | global commands, `gitpush` among them |
 | 4 | `wisdom/scripts/link-skills.sh` | framework skills in every session |
-| 5 | `node wisdom/scripts/link-project-settings.mjs` | merges `wisdom/.claude/settings.json` permissions into `<project>/.claude/settings.json` (old file kept as `.bak-<ts>`) |
+| 5 | `node wisdom/scripts/link-project-settings.mjs <project>` | merges `wisdom/.claude/settings.json` permissions into `<project>/.claude/settings.json` (old file kept as `.bak-<ts>`) |
 | 6 | `claude plugin marketplace add DietrichGebert/ponytail`, `claude plugin install ponytail@ponytail` | plugins the framework relies on |
 | 7 | `grok login` (SuperGrok subscription, never `XAI_API_KEY`) | the review before every push |
 
-Start Claude Code in a repo or in `<project>`, never in `~`: project permissions
-load only from the folder the session starts in. From `~` the agent's merge
-after a passing review is blocked by auto mode and the owner has to merge by hand.
+Start Claude Code in a repo root or in `<project>`, never in `~` (`ai c`/`aic`
+from ai-cli do it for new chats): permissions load only from the folder the
+session starts in. Without the allow rule, auto mode blocks the agent's merge
+until the owner approves it in the chat ("mergia").
+
+A session in `<project>` loads wisdom's permissions for every repo it touches,
+not each repo's own: every repo keeps the same agent rules, and the merge step
+still checks the target repo's `origin/main` settings before merging. The merge
+is a union: a rule removed from wisdom stays in `<project>` until removed by hand.
 
 ## Where skills and content live
 
