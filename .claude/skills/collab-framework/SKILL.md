@@ -44,6 +44,25 @@ exactly like a team member's PC. Agent permissions too: they go in each repo's
 committed `.claude/settings.json`, and setup instructions point there, never at
 the user's settings.
 
+### One-time setup of a machine
+
+Same steps on a PC and on a VPS, all safe to re-run. `<project>` is the folder
+holding one clone per repo.
+
+| # | Step | Why |
+| - | - | - |
+| 1 | Clone every repo into `<project>` (`git clone git@github.com:<org>/<repo>.git`) | one clone per repo, worktrees next to them |
+| 2 | `gh auth login`, GPG key with `git config --global commit.gpgsign true` and `user.signingkey` | the owner's `gitpush` signs every commit and opens the PR |
+| 3 | `ai-cli/install.sh` | global commands, `gitpush` among them |
+| 4 | `wisdom/scripts/link-skills.sh` | framework skills in every session |
+| 5 | `node wisdom/scripts/link-project-settings.mjs` | merges `wisdom/.claude/settings.json` permissions into `<project>/.claude/settings.json` (old file kept as `.bak-<ts>`) |
+| 6 | `claude plugin marketplace add DietrichGebert/ponytail`, `claude plugin install ponytail@ponytail` | plugins the framework relies on |
+| 7 | `grok login` (SuperGrok subscription, never `XAI_API_KEY`) | the review before every push |
+
+Start Claude Code in a repo or in `<project>`, never in `~`: project permissions
+load only from the folder the session starts in. From `~` the agent's merge
+after a passing review is blocked by auto mode and the owner has to merge by hand.
+
 ## Where skills and content live
 
 | What | Where | Why |
