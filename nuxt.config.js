@@ -72,6 +72,8 @@ export default defineNuxtConfig({
     '@nuxt/eslint',
     '@nuxt/fonts',
     '@nuxt/ui',
+    // media live next to their .md files in content, no public/ folder; must load before @nuxt/content
+    'nuxt-content-assets',
     '@nuxt/content',
     '@nuxtjs/i18n'
   ],
