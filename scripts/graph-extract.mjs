@@ -4,8 +4,8 @@
 // `path` and `explain` run on our structure instead of an LLM guess.
 // The graph keeps private content (visibility is a node attribute, filtered at
 // retrieval): never publish graph.json or graph.html of a private tree.
-// Tree rules: sovereign content/original/doc/002.development/011.ai/claude.pri.md#content-tree
-// Design: sovereign content/original/doc/002.development/011.ai/context-engine.pri.md
+// Tree rules: content content/original/doc/002.development/011.ai/claude.pri.md#content-tree
+// Design: content content/original/doc/002.development/011.ai/context-engine.pri.md
 // usage: node scripts/graph-extract.mjs <content dir> [out graph.json] [--depth N]
 //   --depth N: folders down to level N and headings down to hN (default 6); deeper content
 //   folds into its level-N node, nothing is dropped
@@ -57,7 +57,7 @@ const UNSAFE_KEYS = new Set(['__proto__', 'constructor', 'prototype'])
 const isPlainObject = (v) => v !== null && typeof v === 'object' && !Array.isArray(v) && !(v instanceof Date)
 
 // public only with share AND public exactly true; a flag falls back to the suffix only when
-// every alias is absent (same rule as sovereign scripts/check-visibility.mjs)
+// every alias is absent (same rule as content scripts/check-visibility.mjs)
 const visibility = (file, fm) => {
   const pub = /\.pub\.[^.]+$/.test(file)
   const flag = (keys) => {

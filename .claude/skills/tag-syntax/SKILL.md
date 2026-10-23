@@ -30,7 +30,7 @@ It works inside a sentence or table cell, or across paragraphs when the opener
 starts one paragraph and the closer ends a later one. Inside inline code it is
 an example, not a command.
 
-On the site, `remark-commands.mjs` (wisdom) turns each command into the content
+On the site, `remark-commands.mjs` (os) turns each command into the content
 component of the same name (`Todo.vue`), flags as props: `to`, `pri`, `when`.
 `::todo-list` lists the page's todos (`::todo-list{path="<folder>"}` for a whole
 folder), most urgent first.

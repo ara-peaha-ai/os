@@ -17,13 +17,13 @@ memory dir (`~/.claude/projects/**/memory/`). That content does not travel with
 the framework.
 
 - **Durable knowledge → a skill.** A reusable convention, workflow, or standard
-  goes in this skill or a new dedicated one in `wisdom/.claude/skills/`.
+  goes in this skill or a new dedicated one in `os/.claude/skills/`.
 - **Project-specific facts → the repo.** Architecture, decisions, and status go in
   the project's own docs (e.g. `content/original/doc/**` in the content repo),
   not memory.
-- **Every content file → the project's content repo (`sovereign`), always.**
+- **Every content file → the project's content repo (`content`), always.**
   Drafts, emails, reports, notes: each project's content goes in
-  `content/original/doc/**` of that project's `sovereign` clone, with frontmatter
+  `content/original/doc/**` of that project's `content` clone, with frontmatter
   per the `frontmatter` skill, never as a file outside that clone (workspace
   root, home, session temp). Reusable conventions still go in skills.
 - **Memory holds one line only:** nothing is saved in memory, everything goes into skills.
@@ -54,9 +54,9 @@ clone per repo, never `~`.
 | - | - | - |
 | 1 | SSH key on GitHub, then clone every repo into `<project>` (`git clone git@github.com:<org>/<repo>.git`) | one clone per repo, worktrees next to them |
 | 2 | `gh auth login`; passphrase-protected GPG key, `git config --global user.signingkey <key id>` and `commit.gpgsign true` | the owner's `gitpush` signs every commit and opens the PR; agents always commit with `-c commit.gpgsign=false` |
-| 3 | `ai-cli/install.sh` | global commands, `gitpush` among them |
-| 4 | `wisdom/scripts/link-skills.sh` | framework skills in every session |
-| 5 | `node wisdom/scripts/link-project-settings.mjs <project>` | merges `wisdom/.claude/settings.json` permissions into `<project>/.claude/settings.json` (old file kept as `.bak-<ts>`) |
+| 3 | `ai/install.sh` | global commands, `gitpush` among them |
+| 4 | `os/scripts/link-skills.sh` | framework skills in every session |
+| 5 | `node os/scripts/link-project-settings.mjs <project>` | merges `os/.claude/settings.json` permissions into `<project>/.claude/settings.json` (old file kept as `.bak-<ts>`) |
 | 6 | `claude plugin marketplace add DietrichGebert/ponytail`, `claude plugin install ponytail@ponytail` | plugins the framework relies on |
 | 7 | `grok login` (SuperGrok subscription, never `XAI_API_KEY`) | the review before every push |
 
@@ -65,17 +65,17 @@ from ai-cli do it for new chats): permissions load only from the folder the
 session starts in. Without the allow rule, auto mode blocks the agent's merge
 until the owner approves it in the chat ("mergia").
 
-A session in `<project>` loads wisdom's permissions for every repo it touches,
+A session in `<project>` loads os's permissions for every repo it touches,
 not each repo's own: every repo keeps the same agent rules, and the merge step
 still checks the target repo's `origin/main` settings before merging. The merge
-is a union: a rule removed from wisdom stays in `<project>` until removed by hand.
+is a union: a rule removed from os stays in `<project>` until removed by hand.
 
 ## Where skills and content live
 
 | What | Where | Why |
 |---|---|---|
-| Framework skills (this one, `tag-syntax`, `frontmatter`, `wisdom-ai-todos`, ...) | `wisdom/.claude/skills/<name>/SKILL.md`, committed | They hold no user data; public, MIT |
-| Third-party skills | `wisdom/.agents/skills/`, registry-managed (`skills-lock.json`), symlinked into `.claude/skills/` | Pinned by hash |
+| Framework skills (this one, `tag-syntax`, `frontmatter`, `wisdom-ai-todos`, ...) | `os/.claude/skills/<name>/SKILL.md`, committed | They hold no user data; public, MIT |
+| Third-party skills | `os/.agents/skills/`, registry-managed (`skills-lock.json`), symlinked into `.claude/skills/` | Pinned by hash |
 | User content (docs, web pages, team) | the private content repo, fetched at build time (gitignored) or written and deleted after the build | The cloud version must not keep every user's data on the build machine |
 | Personal cross-project skills | `~/.claude/skills/` on that person's machine | Not part of the framework |
 
@@ -86,10 +86,10 @@ is a union: a rule removed from wisdom stays in `<project>` until removed by han
 - Agents need skills at session time, not only at build time, so skills never
   depend on the per-build content fetch.
 - Claude Code loads skills from the user dir (`~/.claude/skills`), the project dir
-  (`<repo>/.claude/skills`) and installed plugins. `wisdom/scripts/link-skills.sh`
-  links every real skill folder of `wisdom/.claude/skills/` into the user dir
+  (`<repo>/.claude/skills`) and installed plugins. `os/scripts/link-skills.sh`
+  links every real skill folder of `os/.claude/skills/` into the user dir
   (`$CLAUDE_CONFIG_DIR/skills` when set), so sessions in any repo (orchestrator,
-  the content repo, ...) load them. Run it after cloning wisdom on a new machine
+  the content repo, ...) load them. Run it after cloning os on a new machine
   and after adding a skill; `--replace` when a folder with the same name exists.
 - Plugins the framework relies on are installed on every machine too:
   `claude plugin marketplace add DietrichGebert/ponytail` then
@@ -97,9 +97,9 @@ is a union: a rule removed from wisdom stays in `<project>` until removed by han
 
 ## Repo roles
 
-- `wisdom` — the engine: app, rendering, framework skills, and every script
+- `os` — the engine: app, rendering, framework skills, and every script
   (checks, sync, Gantt).
-- Content repo (`sovereign`) — remote of static content only: `.md` and other
+- Content repo (`content`) — remote of static content only: `.md` and other
   files, public and private. Access to the private GitHub repo = access to
   everything in it; `share`/`public` are publishing flags, not access control.
 - Content tree: arbitrary nesting depth, folders are part of the structure. How
@@ -203,7 +203,7 @@ finds.
 - A blank line stays the mark of a new paragraph. Plain-text output
   (`message-output`) is not Markdown and needs no trailing spaces.
 - Repos keep them through `.editorconfig`: `[*.md] trim_trailing_whitespace =
-  false` (wisdom has it).
+  false` (os has it).
 
 ## Renaming and moving files
 
@@ -216,7 +216,7 @@ finds.
 
 ## One clone per repo
 
-- Each machine has one workspace directory holding one canonical working copy per repo (`<workspace>/wisdom`, `<workspace>/sovereign`, `<workspace>/orchestrator`, ...). Work happens there, on a task branch. Never create another clone of a repo that already has one there.
+- Each machine has one workspace directory holding one canonical working copy per repo (`<workspace>/os`, `<workspace>/content`, `<workspace>/orchestrator`, ...). Work happens there, on a task branch. Never create another clone of a repo that already has one there.
 - Parallel sessions on the same repo use `git worktree add <path> -b <branch> origin/main` from the canonical copy: same history and branches, nothing to sync. Remove it with `git worktree remove <path>` once the branch is merged or pushed. A worktree is one-shot, never a second home for the repo.
 - Found an extra clone or worktree at session start? Use the canonical copy and tell the owner about the extra one; never pick a copy by guessing.
 - Before removing any clone or worktree: every branch and commit in it is on GitHub (`git log --branches --not --remotes` empty) and the working tree is clean. A bundle in `~` is not a backup: push the branches instead.
