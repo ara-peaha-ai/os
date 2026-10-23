@@ -1,7 +1,7 @@
 #!/bin/bash
 # Our knowledge graph of a markdown tree: deterministic extract, graphify clustering, named communities.
 # Never `graphify update` / `/graphify` on the same out dir: it overwrites graph.json with graphify's own
-# LLM/AST extraction. Design: sovereign content/original/doc/002.development/011.ai/context-engine.pri.md
+# LLM/AST extraction. Design: content content/original/doc/002.development/011.ai/context-engine.pri.md
 # usage: npm run graph -- <content dir> <project dir> [depth 2-6]   (writes <project dir>/graphify-out)
 set -euo pipefail
 [ $# -ge 2 ] || { echo 'usage: npm run graph -- <content dir> <project dir> [depth 2-6]' >&2; exit 1; }

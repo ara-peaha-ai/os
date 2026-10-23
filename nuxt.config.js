@@ -2,9 +2,9 @@ import { existsSync, readFileSync } from 'node:fs'
 import { resolve } from 'node:path'
 
 // ponytail: trivial flat "key: value" file, a couple lines of parsing beats a
-// YAML dependency. Read from the sovereign checkout when present (local dev),
-// otherwise from the copy in content/ (CI builds have no sovereign checkout yet).
-const sovereignSocials = resolve(process.env.NUXT_SOVEREIGN_CONTENT_DIR || '../sovereign', 'content/socials.pub.yaml')
+// YAML dependency. Read from the content checkout when present (local dev),
+// otherwise from the copy in content/ (CI builds have no content checkout yet).
+const sovereignSocials = resolve(process.env.NUXT_SOVEREIGN_CONTENT_DIR || '../content', 'content/socials.pub.yaml')
 const socialsPath = existsSync(sovereignSocials) ? sovereignSocials : resolve('content/socials.pub.yaml')
 const socials = existsSync(socialsPath)
   ? readFileSync(socialsPath, 'utf8')
@@ -92,7 +92,7 @@ export default defineNuxtConfig({
   },
 
   // ponytail: dev-only single-locale mode (NUXT_ENABLE_SOVEREIGN_PREVIEW=true, see
-  // `npm run dev:content`) to preview sovereign/content/original at the bare root path —
+  // `npm run dev:content`) to preview content/content/original at the bare root path —
   // no_prefix + one locale means `/` renders it directly, no dedicated path needed.
   // Never active in production; fully separate from the real int/lat/br i18n config below.
   ...(process.env.NUXT_ENABLE_SOVEREIGN_PREVIEW === 'true'

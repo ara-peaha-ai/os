@@ -1,6 +1,6 @@
 // Content lives under /<locale>/… (content/int/…, content/lat/…), but routes carry the
 // locale prefix only with the `prefix` strategy (PR previews). With per-locale domains
-// (`no_prefix`, production and the dev sovereign preview) the route has no prefix.
+// (`no_prefix`, production and the dev content preview) the route has no prefix.
 export const useContentRoute = () => {
   const { locale } = useI18n()
   const localePath = useLocalePath()

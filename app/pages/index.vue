@@ -113,7 +113,7 @@ useSeoMeta({
     </section>
   </div>
 
-  <!-- body-driven page (sovereign content) -->
+  <!-- body-driven page (content repo) -->
   <div v-else-if="page" class="max-w-3xl mx-auto p-6 space-y-10">
     <section class="space-y-3">
       <h1 class="text-3xl font-bold tracking-tight" style="color: var(--ui-text)">
