@@ -80,7 +80,7 @@ const pageSchema = z.object({
 
 // ponytail: opt-in only (NUXT_ENABLE_SOVEREIGN_PREVIEW=true) so a plain `npm run dev`
 // never depends on the sibling checkout existing. See `npm run dev:sovereign-preview`.
-// Reads straight off disk from the sovereign repo checked out alongside wisdom
+// Reads straight off disk from the content repo checked out alongside os
 // (no git fetch, no token, no push needed — just the local working tree), merged
 // into the same `content` collection under the dev-only `original` locale prefix
 // so it renders through the real pages (index.vue, layout, ServiceAnimation) as-is.
@@ -90,7 +90,7 @@ if (process.env.NUXT_ENABLE_SOVEREIGN_PREVIEW === 'true') {
     // must be absolute: Nuxt Content's dev-mode file watcher compares this against
     // resolved (absolute) file-change paths, so a relative cwd silently breaks hot-reload
     // (edits only show up after a full server restart) — resolve() is the fix.
-    cwd: resolve(process.env.NUXT_SOVEREIGN_CONTENT_DIR || '../sovereign'),
+    cwd: resolve(process.env.NUXT_SOVEREIGN_CONTENT_DIR || '../content'),
     include: 'content/original/web/**/*.md',
     prefix: '/original'
   })

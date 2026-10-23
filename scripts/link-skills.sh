@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Links every framework skill in wisdom/.claude/skills into the user skills dir,
+# Links every framework skill in os/.claude/skills into the user skills dir,
 # so Claude Code sessions in any repo load them. Same command on a PC and on a VPS.
 # Only real folders with a SKILL.md are linked; third-party skills (symlinks into
 # .agents/skills) stay repo-scoped. An existing real folder with the same name is

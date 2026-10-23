@@ -1,6 +1,6 @@
 ---
 name: frontmatter
-description: "Frontmatter standard for Peaha content files: required keys and defaults per file type (doc/web content, skills, memory), visibility flags share/public with their aliases, and the legacy public/publish mapping. Use when creating any .md file in the content repo or wisdom content, a skill, or a memory file, or when reading visibility flags."
+description: "Frontmatter standard for Peaha content files: required keys and defaults per file type (doc/web content, skills, memory), visibility flags share/public with their aliases, and the legacy public/publish mapping. Use when creating any .md file in the content repo or os content, a skill, or a memory file, or when reading visibility flags."
 ---
 
 # Frontmatter standard
