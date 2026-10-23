@@ -18,6 +18,12 @@ assert.match(block, /<todo[^>]*when="2026-10-20"/)
 assert.match(block, /<todo[^>]*block/)
 assert.match(block, /<p>write the spec<\/p>/)
 
+// a first line starting with `#pri` (an MDC slot) still yields the flags and keeps the text
+const slot = await render('::todo\n#pri 2 @ai fix the slot\nmore\n::\n')
+assert.match(slot, /<todo[^>]*to="ai"/)
+assert.match(slot, /<todo[^>]*pri="2"/)
+assert.match(slot, /fix the slot[\s\S]*more/)
+
 // nested, official MDC order: inner block has more colons
 const nested = await render('::list\n  :::todo\n  @ai nested one\n  :::\n::\n')
 assert.match(nested, /<list>[\s\S]*<todo[^>]*to="ai"[\s\S]*nested one/)
