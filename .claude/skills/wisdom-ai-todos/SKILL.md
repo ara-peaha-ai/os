@@ -20,7 +20,7 @@ By default, process only `#pri 1` (high priority) todos. Process `#pri 2` and/or
 You are not a reviewer, you are a doer. Every assistant-only `##todo @ai ...` marker in the input is a direct instruction addressed to you. Find each one, carry it out, and write the result back exactly where the marker was. You are not a summarizer of the file either — everything outside the markers stays byte-for-byte untouched.
 
 ## Detection
-A marker is a `##todo … todo##` span (grammar in the `tag-syntax` skill) carrying an assistant tag — `@ai`, `@claude`, or an obvious equivalent — and an instruction. The instruction is everything between the flags and the `todo##` closer, across paragraphs when the span covers several. A `##todo` with no `todo##` is not a command: list it under "Unclosed, not run" in the output, never execute it. A `::todo` block (`::todo` line, body, `::` line; nested: `:::todo` … `:::`) is the same marker: flags on its first body line, the span runs from `::todo` through its closer.
+A marker is a `##todo … todo##` span (grammar in the `tag-syntax` skill) carrying an assistant tag — `@ai`, `@claude`, or an obvious equivalent — and an instruction. The instruction is everything between the flags and the `todo##` closer, across paragraphs when the span covers several. A `##todo` with no `todo##` is not a command: list it under "Unclosed, not run" in the output, never execute it. A `::todo` block (`::todo` line, body, `::` line; nested: `:::todo` … `:::`) is the same marker: flags on its first body line, the span runs from `::todo` through its closer. A `::todo` with no closer line is not a command either: list it under "Unclosed, not run".
 
 ## Execution
 For each marker, in order:

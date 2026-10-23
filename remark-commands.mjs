@@ -107,6 +107,11 @@ const wrapBlock = (children) => {
 // Set on both attributes and hProperties, whichever of remark-mdc's passes runs last.
 const flagComponent = (node) => {
   if (node.type !== 'containerComponent' || !COMMANDS.includes(node.name)) return
+  // a line starting with `#word` is a named MDC slot; the component has only the default one,
+  // so turn it back into text instead of dropping it
+  node.children = node.children.flatMap(c => c.type === 'componentContainerSection'
+    ? [{ type: 'paragraph', children: [text(`#${c.name}`)] }, ...c.children]
+    : [c])
   const first = node.children[0]?.type === 'paragraph' && node.children[0].children[0]
   let props = {}
   if (first?.type === 'text') {
