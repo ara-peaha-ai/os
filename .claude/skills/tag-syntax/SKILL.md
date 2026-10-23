@@ -1,6 +1,6 @@
 ---
 name: tag-syntax
-description: "Inline/frontmatter marker grammar used across Peaha doc content — ##todo (actor-addressed instructions), #pri (priority), !<when> (due date / scheduled time, or a short/mid/long horizon), #master (canonical naming/language source of truth with scoped propagation), #est/#act (estimated/actual time and money with roll-up), gantt (frontmatter, Gantt view). Use when writing, reading, or resolving these markers in content/original/doc/** or any project doc."
+description: "Inline/frontmatter marker grammar used across Peaha doc content — ::todo block and ##todo (actor-addressed instructions), #pri (priority), !<when> (due date / scheduled time, or a short/mid/long horizon), #master (canonical naming/language source of truth with scoped propagation), #est/#act (estimated/actual time and money with roll-up), gantt (frontmatter, Gantt view). Use when writing, reading, or resolving these markers in content/original/doc/** or any project doc."
 ---
 
 # Tag syntax
@@ -35,6 +35,31 @@ component of the same name (`Todo.vue`), flags as props: `to`, `pri`, `when`.
 `::todo-list` lists the page's todos (`::todo-list{path="<folder>"}` for a whole
 folder), most urgent first.
 
+## `::todo` block form
+
+A todo that stands on its own is written as an MDC block component (native Nuxt
+Content syntax: MDC creates the `todo` component, `remark-commands.mjs` reads the
+flags of its first line into the `Todo.vue` props):
+
+```md
+::todo
+@ai #pri 1 !today free text with our flags
+::
+```
+
+- Opener `::todo` and closer `::` each on a line of their own. `::todo text` on one
+  line, or a `todo::` closer, is plain text.
+- No `{}` props: everything inside is free text in this grammar (flags, handles,
+  tags); the flags on the first line become props.
+- A missing `::` closer swallows the rest of the document, and an unclosed
+  `::todo` is not a command: no agent runs it.
+- Prefer a handle first on a line (`@ai #pri 1 …`): MDC reads a line starting with
+  `#<word>` as a named slot. The plugin turns it back into text, other MDC tools may not.
+- Nesting follows the official MDC rule: the outermost block has `::`, each inner
+  level adds one `:` to opener and closer, indented
+  (`::list` → `:::todo` … `:::` → `::`).
+- Inside a sentence or a table cell, use the `##todo … todo##` command.
+
 ## `##todo @<handle...> <instruction>`
 
 An instruction addressed to one or more actors. A marker may carry several
@@ -52,6 +77,8 @@ Who acts, by the mix of handles:
   marker stays until the human drives it to resolution together with the assistant.
 - **Human only** (`@<human>`, ...) — not the assistant's concern. Left
   byte-for-byte untouched by the resolve skill.
+- **No handle** — self-assigned to its author, same as writing `@self`. The
+  assistant never runs it: it is the author's own note.
 
 When something addressed to the assistant genuinely can't be done — needs a
 decision only a human can make, needs inaccessible information, or is truly
@@ -134,6 +161,8 @@ written back to the `.md` on sync, as one signed commit.
 
 ## Resolution
 
+- Every rule on `##todo` (who acts, joint work, `#master`) applies the same to a
+  `::todo` block, with the flags of its first line.
 - The resolve skill (`wisdom-ai-todos`) acts on **assistant-only** `##todo`
   markers, reports **assistant+human** markers without resolving them, and leaves
   **human-only** markers untouched. `#master` propagation is not part of it yet:

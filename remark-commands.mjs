@@ -1,4 +1,4 @@
-// Remark plugin for the `##<name> … <name>##` commands (grammar: tag-syntax skill).
+// Remark plugin for the `##<name> … <name>##` commands and the `::<name>` blocks (grammar: tag-syntax skill).
 // Each command in COMMANDS becomes the `<name>` content component (app/components/content/),
 // its flags, anywhere in the command, become props: `@handle…` → to, `#pri N` → pri, `!<when>` → when.
 // Inside one paragraph/cell/line it wraps the inline nodes in between; opened in one
@@ -103,7 +103,29 @@ const wrapBlock = (children) => {
   }
 }
 
+// `::todo` block (MDC component): flags come from its first line, like a `##todo` block.
+// Set on both attributes and hProperties, whichever of remark-mdc's passes runs last.
+const flagComponent = (node) => {
+  if (node.type !== 'containerComponent' || !COMMANDS.includes(node.name)) return
+  // a line starting with `#word` is a named MDC slot; the component has only the default one,
+  // so turn it back into text instead of dropping it
+  node.children = node.children.flatMap(c => c.type === 'componentContainerSection'
+    ? [{ type: 'paragraph', children: [text(`#${c.name}`)] }, ...c.children]
+    : [c])
+  const first = node.children[0]?.type === 'paragraph' && node.children[0].children[0]
+  let props = {}
+  if (first?.type === 'text') {
+    const [header, ...lines] = first.value.split('\n')
+    const head = text(header)
+    props = readFlags([head])
+    first.value = [head.value, ...lines].join('\n').replace(/^\s+/, '')
+  }
+  node.attributes = { ...node.attributes, ...props, block: true }
+  node.data = { ...node.data, hName: node.name, hProperties: { ...node.data?.hProperties, ...node.attributes } }
+}
+
 const walk = (node) => {
+  flagComponent(node)
   if (!node.children) return
   wrapBlock(node.children)
   wrapInline(node.children)
